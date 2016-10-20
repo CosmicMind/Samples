@@ -4,13 +4,13 @@
    <Group
       location = "container:"
       name = "Advanced">
+      <FileRef
+         location = "group:Advanced/DynamicCardTableViewCell/DynamicCardTableViewCell.xcodeproj">
+      </FileRef>
    </Group>
    <Group
       location = "group:Graph"
       name = "Graph">
-      <FileRef
-         location = "group:DynamicCardTableViewCell/DynamicCardTableViewCell.xcodeproj">
-      </FileRef>
       <FileRef
          location = "group:ImageCard/ImageCard.xcodeproj">
       </FileRef>

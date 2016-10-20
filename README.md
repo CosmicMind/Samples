@@ -1,9 +1,8 @@
-![Material](http://www.cosmicmind.io/material/github/material-logo.png)
+![CosmicMind](http://www.cosmicmind.io/samples/github/cosmicmind-logo.png)
 
-## Welcome to Projects
+## Welcome to Samples
 
-**Projects** is a collection of samples that use [Material](http://cosmicmind.io/material), [Graph](http://cosmicmind.io/graph), and [Algorithm](http://cosmicmind.io/algorithm). 
-
+**Samples** is a collection of example projects that use [Material](http://cosmicmind.io/material), [Graph](http://cosmicmind.io/graph), and [Algorithm](http://cosmicmind.io/algorithm). 
 
 
 ## License
