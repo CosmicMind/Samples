@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "container:"
+      name = "Advanced">
+   </Group>
+   <Group
+      location = "group:Graph"
+      name = "Graph">
+      <FileRef
+         location = "group:DynamicCardTableViewCell/DynamicCardTableViewCell.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:ImageCard/ImageCard.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Search/Search.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:Material"
+      name = "Material">
+      <Group
+         location = "container:"
+         name = "Programmatic">
+         <FileRef
+            location = "group:Material/Programmatic/Bar/Bar.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/BottomNavigationController/BottomNavigationController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/Button/Button.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/CaptureController/CaptureController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/Card/Card.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/ImageCard/ImageCard.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/Layer/Layer.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/MenuController/MenuController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/NavigationController/NavigationController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/NavigationDrawerController/NavigationDrawerController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/PageTabBarController/PageTabBarController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/PhotoLibraryController/PhotoLibraryController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/PresenterCard/PresenterCard.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/SearchBarController/SearchBarController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/SnackbarController/SnackbarController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/StatusBarController/StatusBarController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/Switch/Switch.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/TabBar/TabBar.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/TextField/TextField.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/ToolbarController/ToolbarController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/View/View.xcodeproj">
+         </FileRef>
+      </Group>
+      <Group
+         location = "container:"
+         name = "Storyboards">
+         <FileRef
+            location = "group:Material/Storyboards/BottomNavigationController/BottomNavigationController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Storyboards/Button/Button.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Storyboards/NavigationController/NavigationController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Storyboards/NavigationDrawerController/NavigationDrawerController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Storyboards/PageTabBarController/PageTabBarController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Storyboards/SearchBarController/SearchBarController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Storyboards/SnackbarController/SnackbarController.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Storyboards/StatusBarController/StatusBarController.xcodeproj">
+         </FileRef>
+      </Group>
+   </Group>
+</Workspace>
