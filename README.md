@@ -4,6 +4,57 @@
 
 **Samples** is a collection of example projects that use [Material](http://cosmicmind.io/material), [Graph](http://cosmicmind.io/graph), and [Algorithm](http://cosmicmind.io/algorithm). 
 
+## Why A Separate Samples Repo?
+
+We moved all samples to a separate repo to allow their development to be independent of the frameworks. There are instances where we needed to update the versions of the frameworks to accommodate changes that only occurred in the samples. 
+
+## Requirements
+
+* iOS 8.0+ / Mac OS X 10.10+
+* Xcode 8.0+
+
+## Communication
+
+- If you **need help**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/cosmicmind). (Tag 'cosmicmind')
+- If you'd like to **ask a general question**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/cosmicmind).
+- If you **found a bug**, _and can provide steps to reliably reproduce it_, open an issue.
+- If you **have a feature request**, open an issue.
+- If you **want to contribute**, submit a pull request.
+
+## Installation
+
+> - All projects use [CocoaPods](http://cocoapods.org)
+> - [Download Samples](https://github.com/CosmicMind/Samples/archive/master.zip)
+
+Visit the [Installation](https://github.com/CosmicMind/Samples/wiki/Installation) page to learn how to install sample projects using [CocoaPods](http://cocoapods.org)
+
+## Changelog
+
+Samples is a growing project and will encounter changes throughout its development. It is recommended that the [Changelog](https://github.com/CosmicMind/Samples/wiki/Changelog) be reviewed prior to updating versions.
+
+# Samples
+
+The following are samples to see how Graph may be used within your applications.
+
+* Visit the [Samples](https://github.com/CosmicMind/Samples) project to see example projects using Graph.
+
+## Creating an Entity for an ImageCard
+
+In the following example, we create an ImageCard view using Material and populate it's properties with a Graph Entity that stores the data for that view.
+
+![Material ImageCard](http://www.cosmicmind.io/gifs/white/image-card.gif)
+
+* Download the complete [ImageCard example](https://github.com/CosmicMind/Samples/tree/master/Graph/ImageCard).
+* Learn more about [Material's ImageCard](http://cosmicmind.io/material/imagecard).
+
+## Searching a list of users in realtime
+
+Using the **Graph Search** API is incredibly flexible. In the following example, Search is used to create a live search on user names with a dynamic UI provided by [Material's SearchBar](http://cosmicmind.io/material/searchbar).
+
+![Material SearchBar](http://www.cosmicmind.io/gifs/shared/search-bar-controller.gif)
+
+* Download the complete [Search example](https://github.com/CosmicMind/Samples/tree/master/Graph/Search).
+* Learn more about [Material's SearchBar](http://cosmicmind.io/material/searchbar).
 
 ## License
 
