@@ -56,7 +56,7 @@ class FeedTableViewCell: TableViewCell {
     
     public var data: Entity? {
         didSet {
-            reload()
+            layoutSubviews()
         }
     }
     
@@ -87,7 +87,8 @@ class FeedTableViewCell: TableViewCell {
         }
     }
     
-    open func reload() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         guard let d = data else {
             return
         }
@@ -97,12 +98,15 @@ class FeedTableViewCell: TableViewCell {
         presenterImageView.image = d["photo"] as? UIImage
         contentLabel.text = d["content"] as? String
         dateLabel.text = dateFormatter.string(from: d.createdDate)
+        
+        card.layoutSubviews()
     }
     
     open override func prepare() {
         super.prepare()
         layer.rasterizationScale = Device.scale
         layer.shouldRasterize = true
+        
         pulseAnimation = .none
         backgroundColor = .clear
         
@@ -177,6 +181,7 @@ class FeedTableViewCell: TableViewCell {
         card.contentView = contentLabel
         card.contentViewEdgeInsetsPreset = .square3
         card.bottomBar = bottomBar
+        card.isShadowPathAutoSizing = true
         
         layout(card).edges(top: padding, left: padding, bottom: padding / 2, right: padding)
     }

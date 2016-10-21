@@ -85,10 +85,6 @@ extension FeedTableView: UITableViewDataSource {
 /// UITableViewDelegate.
 extension FeedTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let cell = cells[indexPath] else {
-            return 0
-        }
-        cell.reload()
-        return cell.height
+        return cells[indexPath]?.height ?? 0
     }
 }
