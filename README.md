@@ -34,7 +34,7 @@ Samples is a growing project and will encounter changes throughout its developme
 
 # Samples
 
-The following are samples to see how Graph may be used within your applications.
+The following are samples to see how [Material](http://cosmicmind.io/material), [Graph](http://cosmicmind.io/graph), and [Algorithm](http://cosmicmind.io/algorithm) may be used within your applications.
 
 * Visit the [Samples](https://github.com/CosmicMind/Samples) project to see example projects using Graph.
 
