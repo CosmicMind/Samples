@@ -53,13 +53,18 @@ class RootViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.white
+        view.backgroundColor = Color.grey.lighten5
         
         prepareGraph()
         prepareSearch()
         
         prepareFeedTableView()
         prepareToolbar()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tableView.reloadData()
     }
 }
 

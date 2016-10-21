@@ -57,6 +57,9 @@ class FeedTableView: UITableView {
         dataSource = self
         delegate = self
         separatorStyle = .none
+        backgroundColor = .clear
+        contentInset.top = 5
+        contentInset.bottom = 5
     }
 }
 
@@ -85,6 +88,7 @@ extension FeedTableView: UITableViewDelegate {
         guard let cell = cells[indexPath] else {
             return 0
         }
+        cell.reload()
         return cell.height
     }
 }

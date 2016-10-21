@@ -33,6 +33,8 @@ import Material
 import Graph
 
 class FeedTableViewCell: TableViewCell {
+    private let padding: CGFloat = 10
+    
     public lazy var card: PresenterCard = PresenterCard()
     
     /// Toolbar views.
@@ -40,13 +42,17 @@ class FeedTableViewCell: TableViewCell {
     private var moreButton: IconButton!
     
     /// Presenter area.
-    private var presenterView: UIImageView!
+    private var presenterImageView: UIImageView!
+    
+    /// Content area.
+    private var contentLabel: UILabel!
     
     /// Bottom Bar views.
     private var bottomBar: Bar!
     private var dateFormatter: DateFormatter!
     private var dateLabel: UILabel!
     private var favoriteButton: IconButton!
+    private var shareButton: IconButton!
     
     public var data: Entity? {
         didSet {
@@ -57,15 +63,22 @@ class FeedTableViewCell: TableViewCell {
     /// Calculating dynamic height.
     open override var height: CGFloat {
         get {
-            var h = toolbar.height
+            var h = 2 * padding
+            
+            h += toolbar.height
             h += bottomBar.height
             
-            var imageH = presenterView.image?.size.height ?? 0
+            var imageH = presenterImageView.image?.size.height ?? 0
             if 300 < imageH {
                 imageH = 300
             }
             
             h += imageH
+            
+            if let v = contentLabel.text {
+                h += contentLabel.font.stringSize(string: v, constrainedToWidth: Double(bounds.width - card.contentViewEdgeInsets.left - card.contentViewEdgeInsets.right)).height
+                h += card.contentViewEdgeInsets.top + card.contentViewEdgeInsets.bottom
+            }
             
             return h
         }
@@ -74,14 +87,15 @@ class FeedTableViewCell: TableViewCell {
         }
     }
     
-    private func reload() {
+    open func reload() {
         guard let d = data else {
             return
         }
         
         toolbar.title = d["title"] as? String
         toolbar.detail = d["detail"] as? String
-        presenterView.image = d["photo"] as? UIImage
+        presenterImageView.image = d["photo"] as? UIImage
+        contentLabel.text = d["content"] as? String
         dateLabel.text = dateFormatter.string(from: d.createdDate)
     }
     
@@ -89,13 +103,17 @@ class FeedTableViewCell: TableViewCell {
         super.prepare()
         layer.rasterizationScale = Device.scale
         layer.shouldRasterize = true
+        pulseAnimation = .none
+        backgroundColor = .clear
         
         prepareDateFormatter()
         prepareDateLabel()
         prepareMoreButton()
         prepareToolbar()
         prepareFavoriteButton()
-        preparePresenterView()
+        prepareShareButton()
+        preparePresenterImageView()
+        prepareContentLabel()
         prepareBottomBar()
         preparePresenterCard()
     }
@@ -121,17 +139,28 @@ class FeedTableViewCell: TableViewCell {
         favoriteButton = IconButton(image: Icon.favorite, tintColor: Color.red.base)
     }
     
+    private func prepareShareButton() {
+        shareButton = IconButton(image: Icon.cm.share, tintColor: Color.blueGrey.base)
+    }
+    
     private func prepareToolbar() {
         toolbar = Toolbar()
+        toolbar.contentEdgeInsets.left = 16
         toolbar.titleLabel.textAlignment = .left
-        
+        toolbar.detailLabel.textAlignment = .left
         toolbar.rightViews = [moreButton]
     }
     
-    private func preparePresenterView() {
-        presenterView = UIImageView()
-        presenterView.clipsToBounds = true
-        presenterView.contentMode = .scaleAspectFill
+    private func preparePresenterImageView() {
+        presenterImageView = UIImageView()
+        presenterImageView.clipsToBounds = true
+        presenterImageView.contentMode = .scaleAspectFill
+    }
+    
+    private func prepareContentLabel() {
+        contentLabel = UILabel()
+        contentLabel.numberOfLines = 0
+        contentLabel.font = RobotoFont.regular(with: 14)
     }
     
     private func prepareBottomBar() {
@@ -139,13 +168,16 @@ class FeedTableViewCell: TableViewCell {
         bottomBar.contentViewAlignment = .center
         bottomBar.centerViews = [dateLabel]
         bottomBar.leftViews = [favoriteButton]
+        bottomBar.rightViews = [shareButton]
     }
     
     private func preparePresenterCard() {
         card.toolbar = toolbar
-        card.presenterView = presenterView
+        card.presenterView = presenterImageView
+        card.contentView = contentLabel
+        card.contentViewEdgeInsetsPreset = .square3
         card.bottomBar = bottomBar
         
-        layout(card).edges()
+        layout(card).edges(top: padding, left: padding, bottom: padding / 2, right: padding)
     }
 }
