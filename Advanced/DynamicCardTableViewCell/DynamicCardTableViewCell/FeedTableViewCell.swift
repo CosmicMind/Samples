@@ -32,16 +32,21 @@ import UIKit
 import Material
 import Graph
 
-public enum CellSize: Int {
-    case small = 100
-    case medium = 200
-    case large = 300
-}
-
 class FeedTableViewCell: TableViewCell {
     public lazy var card: PresenterCard = PresenterCard()
     
-    public var cellSize = CellSize.medium
+    /// Toolbar views.
+    private var toolbar: Toolbar!
+    private var moreButton: IconButton!
+    
+    /// Presenter area.
+    private var presenterView: UIImageView!
+    
+    /// Bottom Bar views.
+    private var bottomBar: Bar!
+    private var dateFormatter: DateFormatter!
+    private var dateLabel: UILabel!
+    private var favoriteButton: IconButton!
     
     public var data: Entity? {
         didSet {
@@ -49,12 +54,18 @@ class FeedTableViewCell: TableViewCell {
         }
     }
     
+    /// Calculating dynamic height.
     open override var height: CGFloat {
         get {
-            var h = card.toolbar?.height ?? 0
-            h += card.bottomBar?.height ?? 0
+            var h = toolbar.height
+            h += bottomBar.height
             
-            h += CGFloat(cellSize.rawValue)
+            var imageH = presenterView.image?.size.height ?? 0
+            if 300 < imageH {
+                imageH = 300
+            }
+            
+            h += imageH
             
             return h
         }
@@ -64,15 +75,14 @@ class FeedTableViewCell: TableViewCell {
     }
     
     private func reload() {
-        card.width = width
-        card.toolbar?.title = data?["title"] as? String
-        
-        guard let imageView = card.presenterView as? UIImageView else {
+        guard let d = data else {
             return
         }
         
-        imageView.image = data?["photo"] as? UIImage
-        imageView.contentMode = .scaleAspectFill
+        toolbar.title = d["title"] as? String
+        toolbar.detail = d["detail"] as? String
+        presenterView.image = d["photo"] as? UIImage
+        dateLabel.text = dateFormatter.string(from: d.createdDate)
     }
     
     open override func prepare() {
@@ -80,15 +90,61 @@ class FeedTableViewCell: TableViewCell {
         layer.rasterizationScale = Device.scale
         layer.shouldRasterize = true
         
+        prepareDateFormatter()
+        prepareDateLabel()
+        prepareMoreButton()
+        prepareToolbar()
+        prepareFavoriteButton()
+        preparePresenterView()
+        prepareBottomBar()
         preparePresenterCard()
     }
     
+    private func prepareDateFormatter() {
+        dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+    }
+    
+    private func prepareDateLabel() {
+        dateLabel = UILabel()
+        dateLabel.font = RobotoFont.regular(with: 12)
+        dateLabel.textColor = Color.blueGrey.base
+        dateLabel.textAlignment = .center
+    }
+    
+    private func prepareMoreButton() {
+        moreButton = IconButton(image: Icon.cm.moreVertical, tintColor: Color.blueGrey.base)
+    }
+    
+    private func prepareFavoriteButton() {
+        favoriteButton = IconButton(image: Icon.favorite, tintColor: Color.red.base)
+    }
+    
+    private func prepareToolbar() {
+        toolbar = Toolbar()
+        toolbar.titleLabel.textAlignment = .left
+        
+        toolbar.rightViews = [moreButton]
+    }
+    
+    private func preparePresenterView() {
+        presenterView = UIImageView()
+        presenterView.clipsToBounds = true
+        presenterView.contentMode = .scaleAspectFill
+    }
+    
+    private func prepareBottomBar() {
+        bottomBar = Bar()
+        bottomBar.contentViewAlignment = .center
+        bottomBar.centerViews = [dateLabel]
+        bottomBar.leftViews = [favoriteButton]
+    }
+    
     private func preparePresenterCard() {
-        card.toolbar = Toolbar()
-        
-        card.presenterView = UIImageView()
-        
-        card.bottomBar = Bar()
+        card.toolbar = toolbar
+        card.presenterView = presenterView
+        card.bottomBar = bottomBar
         
         layout(card).edges()
     }

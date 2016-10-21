@@ -65,7 +65,7 @@ extension RootViewController {
         graph = Graph()
         
         // Uncomment to clear the Graph data.
-        graph.clear()
+//        graph.clear()
     }
     
     internal func prepareSearch() {

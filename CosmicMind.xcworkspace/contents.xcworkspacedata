@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <FileRef
+      location = "group:../Frameworks/iOS/Material/Material.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Frameworks/iOS/Graph/Graph.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Frameworks/iOS/Algorithm/Algorithm.xcodeproj">
+   </FileRef>
    <Group
       location = "container:"
       name = "Advanced">

@@ -75,15 +75,6 @@ extension FeedTableView: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath) as! FeedTableViewCell
         cell.data = data[indexPath.row]
         cells[indexPath] = cell
-        
-        if 3 > indexPath.row {
-            cell.cellSize = .small
-        } else if 7 > indexPath.row {
-            cell.cellSize = .medium
-        } else {
-            cell.cellSize = .large
-        }
-        
         return cell
     }
 }

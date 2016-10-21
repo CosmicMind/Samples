@@ -34,6 +34,10 @@ import Material
 class ViewController: UIViewController {
     private var card: Card!
     
+    /// Toolbar views.
+    private var toolbar: Toolbar!
+    private var moreButton: IconButton!
+    
     /// Conent area.
     private var contentView: UILabel!
     
@@ -42,10 +46,6 @@ class ViewController: UIViewController {
     private var dateFormatter: DateFormatter!
     private var dateLabel: UILabel!
     private var favoriteButton: IconButton!
-    
-    /// Toolbar views.
-    private var toolbar: Toolbar!
-    private var moreButton: IconButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

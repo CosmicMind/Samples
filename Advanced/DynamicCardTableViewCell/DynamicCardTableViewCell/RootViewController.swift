@@ -67,6 +67,9 @@ class RootViewController: UIViewController {
 extension RootViewController {
     internal func prepareGraph() {
         graph = Graph()
+        
+        // Uncomment to clear the Graph data.
+        graph.clear()
     }
     
     internal func prepareSearch() {

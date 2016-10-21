@@ -43,59 +43,59 @@ struct SampleData {
         let graph = Graph()
         
         let e1 = Entity(type: "Item")
-        e1["title"] = "Daniel Dahan"
+        e1["title"] = "Anti-Stress Yoga"
         e1["status"] = "Making the world a better place, one line of code at a time."
-        e1["photo"] = UIImage.load(contentsOfFile: "daniel", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
+        e1["photo"] = UIImage.load(contentsOfFile: "photo1", ofType: "jpg")?.resize(toWidth: 500)
         
         let e2 = Entity(type: "Item")
-        e2["title"] = "Deepali Parhar"
+        e2["title"] = "Pranayama Breath: Purify and Energize your Body and Mind with Kapalabhati"
         e2["status"] = "I haven’t come this far, only to come this far."
-        e2["photo"] = UIImage.load(contentsOfFile: "deepali", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
+        e2["photo"] = UIImage.load(contentsOfFile: "photo2", ofType: "jpg")?.resize(toWidth: 500)
         
         let e3 = Entity(type: "Item")
-        e3["title"] = "Eve"
+        e3["title"] = "Magical Brazil Nuts"
         e3["status"] = "Life is beautiful, so reflect it."
-        e3["photo"] = UIImage.load(contentsOfFile: "eve", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
+        e3["photo"] = UIImage.load(contentsOfFile: "photo3", ofType: "jpg")?.resize(toWidth: 500)
         
-        let e4 = Entity(type: "Item")
-        e4["title"] = "Kendall Johnson"
-        e4["status"] = "It’s all about perspective"
-        e4["photo"] = UIImage.load(contentsOfFile: "kendall", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
-        
-        let e5 = Entity(type: "Item")
-        e5["title"] = "Ashton McGregor"
-        e5["status"] = "So much to say, so few words."
-        e5["photo"] = UIImage.load(contentsOfFile: "ashton", ofType: "png")?.crop(toWidth: 60, toHeight: 60)
-        
-        let e7 = Entity(type: "Item")
-        e7["title"] = "Laura Graham"
-        e7["status"] = "Eyes are the mirror to your soul."
-        e7["photo"] = UIImage.load(contentsOfFile: "laura", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
-        
-        let e8 = Entity(type: "Item")
-        e8["title"] = "Karen Si"
-        e8["status"] = "Letting go to move forward."
-        e8["photo"] = UIImage.load(contentsOfFile: "karen", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
-        
-        let e9 = Entity(type: "Item")
-        e9["title"] = "Jonathan Kuran"
-        e9["status"] = "Calculating the distance from here to there."
-        e9["photo"] = UIImage.load(contentsOfFile: "jonathan", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
-        
-        let e10 = Entity(type: "Item")
-        e10["title"] = "Thomas Wallace"
-        e10["status"] = "I’m in it to win it. Long game."
-        e10["photo"] = UIImage.load(contentsOfFile: "thomas", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
-        
-        let e11 = Entity(type: "Item")
-        e11["title"] = "Charles St. Louis"
-        e11["status"] = "Double Major in Mathematics and Philosophy. Modern Day Renaissance Man."
-        e11["photo"] = UIImage.load(contentsOfFile: "charles", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
-        
-        let e12 = Entity(type: "Item")
-        e12["title"] = "Kelly Martin"
-        e12["status"] = "The world is mine."
-        e12["photo"] = UIImage.load(contentsOfFile: "kelly", ofType: "jpeg")?.crop(toWidth: 60, toHeight: 60)
+//        let e4 = Entity(type: "Item")
+//        e4["title"] = "Kendall Johnson"
+//        e4["status"] = "It’s all about perspective"
+//        e4["photo"] = UIImage.load(contentsOfFile: "kendall", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
+//        
+//        let e5 = Entity(type: "Item")
+//        e5["title"] = "Ashton McGregor"
+//        e5["status"] = "So much to say, so few words."
+//        e5["photo"] = UIImage.load(contentsOfFile: "ashton", ofType: "png")?.crop(toWidth: 60, toHeight: 60)
+//        
+//        let e7 = Entity(type: "Item")
+//        e7["title"] = "Laura Graham"
+//        e7["status"] = "Eyes are the mirror to your soul."
+//        e7["photo"] = UIImage.load(contentsOfFile: "laura", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
+//        
+//        let e8 = Entity(type: "Item")
+//        e8["title"] = "Karen Si"
+//        e8["status"] = "Letting go to move forward."
+//        e8["photo"] = UIImage.load(contentsOfFile: "karen", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
+//        
+//        let e9 = Entity(type: "Item")
+//        e9["title"] = "Jonathan Kuran"
+//        e9["status"] = "Calculating the distance from here to there."
+//        e9["photo"] = UIImage.load(contentsOfFile: "jonathan", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
+//        
+//        let e10 = Entity(type: "Item")
+//        e10["title"] = "Thomas Wallace"
+//        e10["status"] = "I’m in it to win it. Long game."
+//        e10["photo"] = UIImage.load(contentsOfFile: "thomas", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
+//        
+//        let e11 = Entity(type: "Item")
+//        e11["title"] = "Charles St. Louis"
+//        e11["status"] = "Double Major in Mathematics and Philosophy. Modern Day Renaissance Man."
+//        e11["photo"] = UIImage.load(contentsOfFile: "charles", ofType: "jpg")?.crop(toWidth: 60, toHeight: 60)
+//        
+//        let e12 = Entity(type: "Item")
+//        e12["title"] = "Kelly Martin"
+//        e12["status"] = "The world is mine."
+//        e12["photo"] = UIImage.load(contentsOfFile: "kelly", ofType: "jpeg")?.crop(toWidth: 60, toHeight: 60)
         
         graph.sync()
     }
