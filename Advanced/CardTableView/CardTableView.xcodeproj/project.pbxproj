@@ -21,6 +21,7 @@
 		96B5DF911DBADCA600A15DCE /* photo5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B5DF761DBADCA600A15DCE /* photo5.jpg */; };
 		96B5DF921DBADCA600A15DCE /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5DF771DBADCA600A15DCE /* RootViewController.swift */; };
 		96B5DF931DBADCA600A15DCE /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5DF781DBADCA600A15DCE /* SampleData.swift */; };
+		96B5E0161DBBF13400A15DCE /* AppMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5E0151DBBF13400A15DCE /* AppMenuController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,7 @@
 		96B5DF761DBADCA600A15DCE /* photo5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo5.jpg; sourceTree = "<group>"; };
 		96B5DF771DBADCA600A15DCE /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		96B5DF781DBADCA600A15DCE /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		96B5E0151DBBF13400A15DCE /* AppMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMenuController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 			children = (
 				96B5DF5C1DBADCA600A15DCE /* CardTableView */,
 				96B5DEA51DB8572600A15DCE /* Products */,
+				96B5DFCD1DBBC5A900A15DCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +89,7 @@
 			children = (
 				96B5DF951DBADCB700A15DCE /* Photos */,
 				96B5DF5D1DBADCA600A15DCE /* AppDelegate.swift */,
+				96B5E0151DBBF13400A15DCE /* AppMenuController.swift */,
 				96B5DF5E1DBADCA600A15DCE /* AppToolbarController.swift */,
 				96B5DF771DBADCA600A15DCE /* RootViewController.swift */,
 				96B5DF691DBADCA600A15DCE /* CardTableView.swift */,
@@ -108,6 +112,13 @@
 				96B5DF761DBADCA600A15DCE /* photo5.jpg */,
 			);
 			name = Photos;
+			sourceTree = "<group>";
+		};
+		96B5DFCD1DBBC5A900A15DCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				96B5DF931DBADCA600A15DCE /* SampleData.swift in Sources */,
 				96B5DF7A1DBADCA600A15DCE /* AppDelegate.swift in Sources */,
 				96B5DF851DBADCA600A15DCE /* CardTableViewCell.swift in Sources */,
+				96B5E0161DBBF13400A15DCE /* AppMenuController.swift in Sources */,
 				96B5DF841DBADCA600A15DCE /* CardTableView.swift in Sources */,
 				96B5DF7B1DBADCA600A15DCE /* AppToolbarController.swift in Sources */,
 			);

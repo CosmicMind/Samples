@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "96B5DF2A1DBACF8000A15DCE"
+               BlueprintIdentifier = "96B5DFF71DBBDF4E00A15DCE"
                BuildableName = "CardCollectionView.app"
                BlueprintName = "CardCollectionView"
                ReferencedContainer = "container:CardCollectionView.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "96B5DF2A1DBACF8000A15DCE"
+            BlueprintIdentifier = "96B5DFF71DBBDF4E00A15DCE"
             BuildableName = "CardCollectionView.app"
             BlueprintName = "CardCollectionView"
             ReferencedContainer = "container:CardCollectionView.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "96B5DF2A1DBACF8000A15DCE"
+            BlueprintIdentifier = "96B5DFF71DBBDF4E00A15DCE"
             BuildableName = "CardCollectionView.app"
             BlueprintName = "CardCollectionView"
             ReferencedContainer = "container:CardCollectionView.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "96B5DF2A1DBACF8000A15DCE"
+            BlueprintIdentifier = "96B5DFF71DBBDF4E00A15DCE"
             BuildableName = "CardCollectionView.app"
             BlueprintName = "CardCollectionView"
             ReferencedContainer = "container:CardCollectionView.xcodeproj">

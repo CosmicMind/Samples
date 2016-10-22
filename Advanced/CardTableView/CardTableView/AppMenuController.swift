@@ -30,59 +30,35 @@
 
 import UIKit
 import Material
-import Graph
 
-class CardTableView: UITableView {
-    internal lazy var heights = [IndexPath: CGFloat]()
+class AppMenuController: MenuController {
+    private let baseSize = CGSize(width: 56, height: 56)
+    private let bottomInset: CGFloat = 24
+    private let rightInset: CGFloat = 24
     
-    public var data = [Entity]() {
-        didSet {
-            reloadData()
-        }
-    }
-    
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        prepare()
-    }
-    
-    public init() {
-        super.init(frame: .zero, style: .plain)
-        prepare()
-    }
-    
-    /// Prepares the tableView.
-    private func prepare() {
-        delegate = self
-        dataSource = self
-        separatorStyle = .none
-        backgroundColor = nil
+    open override func prepare() {
+        super.prepare()
+        view.backgroundColor = Color.blueGrey.lighten5
         
-        register(CardTableViewCell.self, forCellReuseIdentifier: "CardTableViewCell")
-    }
-}
-
-extension CardTableView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        prepareMenu()
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    open override func openMenu(completion: ((UIView) -> Void)? = nil) {
+        super.openMenu(completion: completion)
+        menu.views.first?.animate(animation: Animation.rotate(angle: 45))
     }
     
-    /// Prepares the cells within the tableView.
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CardTableViewCell", for: indexPath) as! CardTableViewCell
-        cell.data = data[indexPath.row]
-        cell.isLast = indexPath.row == data.count - 1
-        heights[indexPath] = cell.height
-        return cell
+    open override func closeMenu(completion: ((UIView) -> Void)? = nil) {
+        super.closeMenu(completion: completion)
+        menu.views.first?.animate(animation: Animation.rotate(angle: 0))
     }
-}
-
-extension CardTableView: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return heights[indexPath] ?? 0
+    
+    private func prepareMenu() {
+        menu.baseSize = baseSize
+        
+        view.layout(menu)
+            .size(baseSize)
+            .bottom(bottomInset)
+            .right(rightInset)
     }
 }

@@ -66,6 +66,7 @@ class AppToolbarController: ToolbarController {
     }
     
     private func prepareToolbar() {
+        toolbar.depthPreset = .none
         toolbar.backgroundColor = Color.blue.darken2
         toolbar.leftViews = [menuButton]
         toolbar.rightViews = [starButton, searchButton]

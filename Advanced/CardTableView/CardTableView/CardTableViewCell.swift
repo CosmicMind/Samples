@@ -33,7 +33,7 @@ import Material
 import Graph
 
 class CardTableViewCell: TableViewCell {
-    private var padding: CGFloat = 10
+    private var spacing: CGFloat = 10
     
     /// A boolean that indicates whether the cell is the last cell.
     public var isLast = false
@@ -66,7 +66,7 @@ class CardTableViewCell: TableViewCell {
     /// Calculating dynamic height.
     open override var height: CGFloat {
         get {
-            return card.height + padding + (isLast ? padding : 0)
+            return card.height + spacing
         }
         set(value) {
             super.height = value
@@ -82,25 +82,27 @@ class CardTableViewCell: TableViewCell {
         toolbar.title = d["title"] as? String
         toolbar.detail = d["detail"] as? String
         
-        presenterImageView.image = d["photo"] as? UIImage
-        presenterImageView.height = 0 // Forces the card to recalculate the presenterView.
+        if let image = d["photo"] as? UIImage {
+            presenterImageView.height = image.height
+            DispatchQueue.main.async { [weak self, image = image] in
+                self?.presenterImageView.image = image
+            }
+        }
         
         contentLabel.text = d["content"] as? String
         contentLabel.height = 0 // Forces the card to recalculate the contentView.
         
         dateLabel.text = dateFormatter.string(from: d.createdDate)
         
-        card.x = padding
-        card.y = padding
-        card.width = width - 2 * padding
+        card.width = width
         card.layoutSubviews()
     }
     
     open override func prepare() {
         super.prepare()
         
-        layer.shouldRasterize = true
         layer.rasterizationScale = Device.scale
+        layer.shouldRasterize = true
         
         pulseAnimation = .none
         backgroundColor = nil
@@ -144,10 +146,13 @@ class CardTableViewCell: TableViewCell {
     
     private func prepareToolbar() {
         toolbar = Toolbar()
-        toolbar.contentEdgeInsets.left = 16
+        toolbar.heightPreset = .xlarge
+        toolbar.contentEdgeInsetsPreset = .square3
         toolbar.titleLabel.textAlignment = .left
         toolbar.detailLabel.textAlignment = .left
         toolbar.rightViews = [moreButton]
+        toolbar.dividerColor = Color.grey.lighten3
+        toolbar.dividerAlignment = .top
     }
     
     private func preparePresenterImageView() {
@@ -163,10 +168,13 @@ class CardTableViewCell: TableViewCell {
     
     private func prepareBottomBar() {
         bottomBar = Bar()
+        bottomBar.heightPreset = .xlarge
+        bottomBar.contentEdgeInsetsPreset = .square3
         bottomBar.contentViewAlignment = .center
         bottomBar.centerViews = [dateLabel]
         bottomBar.leftViews = [favoriteButton]
         bottomBar.rightViews = [shareButton]
+        bottomBar.dividerColor = Color.grey.lighten3
     }
     
     private func preparePresenterCard() {
@@ -174,10 +182,10 @@ class CardTableViewCell: TableViewCell {
         card.presenterView = presenterImageView
         card.contentView = contentLabel
         card.contentViewEdgeInsetsPreset = .square3
+        card.contentViewEdgeInsets.bottom = 0
         card.bottomBar = bottomBar
         card.depthPreset = .none
-        card.borderWidthPreset = .border1
-        card.borderColor = Color.grey.lighten2
-        addSubview(card)
+        
+        contentView.addSubview(card)
     }
 }

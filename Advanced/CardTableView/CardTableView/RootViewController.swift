@@ -45,26 +45,59 @@ class RootViewController: UIViewController {
             d = search.sync()
         }
         
-        return d
+        return d.sorted { (a, b) -> Bool in
+            return a.createdDate < b.createdDate
+        }
     }
     
     /// View.
     internal var tableView: CardTableView!
     
+    internal var addButton: FabButton!
+    internal var audioLibraryMenuItem: MenuItem!
+    internal var reminderMenuItem: MenuItem!
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.blueGrey.lighten5
         
+        // Model.
         prepareGraph()
         prepareSearch()
         
+        // Feed.
         prepareCardTableView()
         prepareToolbar()
+        
+        // Menu.
+        prepareAddButton()
+        prepareAudioLibraryButton()
+        prepareBellButton()
     }
     
-    override func viewWillLayoutSubviews() {
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareMenuController()
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reloadData()
+    }
+    
+    open override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         tableView.reloadData()
+    }
+    
+    private func reloadData() {
+        tableView.data = data
+        
+        guard let toolbar = toolbarController?.toolbar else {
+            return
+        }
+        
+        toolbar.detail = "\(tableView.data.count) Items"
     }
 }
 
@@ -82,12 +115,10 @@ extension RootViewController {
     }
 }
 
-
-/// View.
+/// Feed.
 extension RootViewController {
     internal func prepareCardTableView() {
         tableView = CardTableView()
-        tableView.data = data
         view.layout(tableView).edges()
     }
     
@@ -100,8 +131,73 @@ extension RootViewController {
         toolbar.titleLabel.textColor = .white
         toolbar.titleLabel.textAlignment = .left
         
-        toolbar.detail = "\(tableView.data.count) Items"
         toolbar.detailLabel.textColor = .white
         toolbar.detailLabel.textAlignment = .left
+    }
+}
+
+/// Menu.
+extension RootViewController {
+    /// Handle the menu toggle event.
+    internal func handleToggleMenu(button: Button) {
+        guard let mc = menuController as? AppMenuController else {
+            return
+        }
+        
+        if mc.menu.isOpened {
+            mc.closeMenu { (view) in
+                (view as? MenuItem)?.hideTitleLabel()
+            }
+        } else {
+            mc.openMenu { (view) in
+                (view as? MenuItem)?.showTitleLabel()
+            }
+        }
+    }
+    
+    internal func prepareAddButton() {
+        addButton = FabButton(image: Icon.cm.add)
+        addButton.addTarget(self, action: #selector(handleToggleMenu), for: .touchUpInside)
+    }
+    
+    internal func prepareAudioLibraryButton() {
+        audioLibraryMenuItem = MenuItem()
+        audioLibraryMenuItem.button.image = Icon.cm.audioLibrary
+        audioLibraryMenuItem.button.backgroundColor = Color.green.base
+        audioLibraryMenuItem.button.depthPreset = .depth1
+        audioLibraryMenuItem.title = "Audio Library"
+    }
+    
+    internal func prepareBellButton() {
+        reminderMenuItem = MenuItem()
+        reminderMenuItem.button.image = Icon.cm.bell
+        reminderMenuItem.button.backgroundColor = Color.blue.base
+        reminderMenuItem.title = "Reminders"
+    }
+    
+    internal func prepareMenuController() {
+        guard let mc = menuController as? AppMenuController else {
+            return
+        }
+        
+        mc.menu.delegate = self
+        mc.menu.views = [addButton, audioLibraryMenuItem, reminderMenuItem]
+    }
+}
+
+/// MenuDelegate.
+extension RootViewController: MenuDelegate {
+    func menu(menu: Menu, tappedAt point: CGPoint, isOutside: Bool) {
+        guard isOutside else {
+            return
+        }
+        
+        guard let mc = menuController as? AppMenuController else {
+            return
+        }
+        
+        mc.closeMenu { (view) in
+            (view as? MenuItem)?.hideTitleLabel()
+        }
     }
 }

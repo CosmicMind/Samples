@@ -84,4 +84,3 @@ extension CardCollectionView: CollectionViewDataSource {
         return cell
     }
 }
-
