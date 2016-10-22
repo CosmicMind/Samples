@@ -53,13 +53,18 @@ class RootViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.grey.lighten5
+        view.backgroundColor = Color.blueGrey.lighten5
         
         prepareGraph()
         prepareSearch()
         
         prepareCardTableView()
         prepareToolbar()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tableView.reloadData()
     }
 }
 
@@ -69,7 +74,7 @@ extension RootViewController {
         graph = Graph()
         
         // Uncomment to clear the Graph data.
-        graph.clear()
+//        graph.clear()
     }
     
     internal func prepareSearch() {

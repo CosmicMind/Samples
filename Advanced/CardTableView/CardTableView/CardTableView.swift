@@ -61,7 +61,6 @@ class CardTableView: UITableView {
     }
 }
 
-/// UITableViewDataSource.
 extension CardTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -75,12 +74,12 @@ extension CardTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CardTableViewCell", for: indexPath) as! CardTableViewCell
         cell.data = data[indexPath.row]
+        cell.isLast = indexPath.row == data.count - 1
         cells[indexPath] = cell
         return cell
     }
 }
 
-/// UITableViewDelegate.
 extension CardTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cells[indexPath]?.height ?? 0

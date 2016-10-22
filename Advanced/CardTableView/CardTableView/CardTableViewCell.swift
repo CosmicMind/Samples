@@ -35,6 +35,9 @@ import Graph
 class CardTableViewCell: TableViewCell {
     private var padding: CGFloat = 10
     
+    /// A boolean that indicates whether the cell is the last cell.
+    public var isLast = false
+    
     public lazy var card: PresenterCard = PresenterCard()
     
     /// Toolbar views.
@@ -63,7 +66,7 @@ class CardTableViewCell: TableViewCell {
     /// Calculating dynamic height.
     open override var height: CGFloat {
         get {
-            return card.height + 2 * padding
+            return card.height + padding + (isLast ? padding : 0)
         }
         set(value) {
             super.height = value
@@ -95,11 +98,12 @@ class CardTableViewCell: TableViewCell {
     
     open override func prepare() {
         super.prepare()
-        layer.rasterizationScale = Device.scale
+        
         layer.shouldRasterize = true
+        layer.rasterizationScale = Device.scale
         
         pulseAnimation = .none
-        backgroundColor = .clear
+        backgroundColor = nil
         
         prepareDateFormatter()
         prepareDateLabel()
@@ -171,7 +175,9 @@ class CardTableViewCell: TableViewCell {
         card.contentView = contentLabel
         card.contentViewEdgeInsetsPreset = .square3
         card.bottomBar = bottomBar
-        card.backgroundColor = Color.green.base
+        card.depthPreset = .none
+        card.borderWidthPreset = .border1
+        card.borderColor = Color.grey.lighten2
         addSubview(card)
     }
 }
