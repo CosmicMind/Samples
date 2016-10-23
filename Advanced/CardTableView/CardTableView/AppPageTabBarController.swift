@@ -30,57 +30,26 @@
 
 import UIKit
 import Material
-import Graph
 
-class CardCollectionView: CollectionView {
-    public var data = [Entity]()
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        prepare()
-    }
-    
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: layout)
-        prepare()
-    }
-    
-    convenience init() {
-        self.init(frame: .zero, collectionViewLayout: CollectionViewLayout())
-    }
-    
+class AppPageTabBarController: PageTabBarController {
     open override func prepare() {
         super.prepare()
         
-        register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "CardCollectionViewCell")
-        
-        dataSource = self
-        contentInset = .zero
-        backgroundColor = Color.clear
-        contentScaleFactor = Device.scale
+        delegate = self
+        preparePageTabBar()
+    }
+    
+    private func preparePageTabBar() {
+        pageTabBarAlignment = .top
+        pageTabBar.dividerColor = nil
+        pageTabBar.lineColor = Color.blue.lighten3
+        pageTabBar.lineAlignment = .bottom
+        pageTabBar.backgroundColor = Color.blue.darken2
     }
 }
 
-extension CardCollectionView: CollectionViewDataSource {
-    var dataSourceItems: [CollectionDataSourceItem] {
-        var items = [CollectionDataSourceItem]()
-        for d in data {
-            items.append(CollectionDataSourceItem(data: d, height: 500))
-        }
-        return items
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return data.count
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
-        cell.data = data[indexPath.item]
-        return cell
+extension AppPageTabBarController: PageTabBarControllerDelegate {
+    func pageTabBarController(pageTabBarController: PageTabBarController, didTransitionTo viewController: UIViewController) {
+        print("pageTabBarController", pageTabBarController, "didTransitionTo viewController:", viewController)
     }
 }

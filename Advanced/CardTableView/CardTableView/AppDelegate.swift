@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         window = UIWindow(frame: Device.bounds)
-        window!.rootViewController = AppMenuController(rootViewController: AppToolbarController(rootViewController: RootViewController()))
+        window!.rootViewController = AppMenuController(rootViewController: AppToolbarController(rootViewController: AppPageTabBarController(viewControllers: [YogaViewController(), BeautyViewController(), RecipesViewController()], selectedIndex: 0)))
         window!.makeKeyAndVisible()
     }
 }

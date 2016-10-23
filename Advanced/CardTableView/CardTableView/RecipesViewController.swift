@@ -32,7 +32,7 @@ import UIKit
 import Material
 import Graph
 
-class RootViewController: UIViewController {
+class RecipesViewController: UIViewController {
     /// Model.
     internal var graph: Graph!
     internal var search: Search<Entity>!
@@ -45,31 +45,54 @@ class RootViewController: UIViewController {
             d = search.sync()
         }
         
-        return d
+        return d.sorted { (a, b) -> Bool in
+            return a.createdDate < b.createdDate
+        }
     }
     
     /// View.
-    internal var collectionView: CardCollectionView!
+    internal var tableView: CardTableView!
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        preparePageTabBarItem()
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        preparePageTabBarItem()
+    }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.grey.lighten5
+        view.backgroundColor = Color.blueGrey.lighten5
         
+        // Model.
         prepareGraph()
         prepareSearch()
         
-        prepareCollectionView()
-        prepareToolbar()
+        // Feed.
+        prepareCardTableView()
+    }
+    
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        reloadData()
+    }
+    
+    open override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        tableView.reloadData()
     }
 }
 
 /// Model.
-extension RootViewController {
+extension RecipesViewController {
     internal func prepareGraph() {
         graph = Graph()
         
         // Uncomment to clear the Graph data.
-        graph.clear()
+//        graph.clear()
     }
     
     internal func prepareSearch() {
@@ -77,28 +100,28 @@ extension RootViewController {
     }
 }
 
+/// PageTabBar.
+extension RecipesViewController {
+    internal func preparePageTabBarItem() {
+        pageTabBarItem.title = "Recipes"
+        pageTabBarItem.titleColor = .white
+    }
+}
 
-/// View.
-extension RootViewController {
-    internal func prepareCollectionView() {
-        collectionView = CardCollectionView()
-        collectionView.data = data
-        collectionView.contentEdgeInsetsPreset = .square3
-        collectionView.interimSpacePreset = .interimSpace6
-        view.layout(collectionView).edges()
+/// Feed.
+extension RecipesViewController {
+    internal func prepareCardTableView() {
+        tableView = CardTableView()
+        view.layout(tableView).edges()
     }
     
-    internal func prepareToolbar() {
+    internal func reloadData() {
+        tableView.data = data
+        
         guard let toolbar = toolbarController?.toolbar else {
             return
         }
         
-        toolbar.title = "Feed"
-        toolbar.titleLabel.textColor = .white
-        toolbar.titleLabel.textAlignment = .left
-        
-        toolbar.detail = "\(collectionView.data.count) Items"
-        toolbar.detailLabel.textColor = .white
-        toolbar.detailLabel.textAlignment = .left
+        toolbar.detail = "\(tableView.data.count) Items"
     }
 }

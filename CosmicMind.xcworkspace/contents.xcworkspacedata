@@ -14,9 +14,6 @@
       location = "container:"
       name = "Advanced">
       <FileRef
-         location = "group:Advanced/CardCollectionView/CardCollectionView.xcodeproj">
-      </FileRef>
-      <FileRef
          location = "group:Advanced/CardTableView/CardTableView.xcodeproj">
       </FileRef>
    </Group>

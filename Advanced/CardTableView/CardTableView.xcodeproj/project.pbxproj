@@ -13,15 +13,17 @@
 		96B5DF7E1DBADCA600A15DCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B5DF611DBADCA600A15DCE /* LaunchScreen.storyboard */; };
 		96B5DF841DBADCA600A15DCE /* CardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5DF691DBADCA600A15DCE /* CardTableView.swift */; };
 		96B5DF851DBADCA600A15DCE /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5DF6A1DBADCA600A15DCE /* CardTableViewCell.swift */; };
-		96B5DF861DBADCA600A15DCE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96B5DF6B1DBADCA600A15DCE /* Info.plist */; };
 		96B5DF8D1DBADCA600A15DCE /* photo1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B5DF721DBADCA600A15DCE /* photo1.jpg */; };
 		96B5DF8E1DBADCA600A15DCE /* photo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B5DF731DBADCA600A15DCE /* photo2.jpg */; };
 		96B5DF8F1DBADCA600A15DCE /* photo3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B5DF741DBADCA600A15DCE /* photo3.jpg */; };
 		96B5DF901DBADCA600A15DCE /* photo4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B5DF751DBADCA600A15DCE /* photo4.jpg */; };
 		96B5DF911DBADCA600A15DCE /* photo5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 96B5DF761DBADCA600A15DCE /* photo5.jpg */; };
-		96B5DF921DBADCA600A15DCE /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5DF771DBADCA600A15DCE /* RootViewController.swift */; };
+		96B5DF921DBADCA600A15DCE /* YogaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5DF771DBADCA600A15DCE /* YogaViewController.swift */; };
 		96B5DF931DBADCA600A15DCE /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5DF781DBADCA600A15DCE /* SampleData.swift */; };
 		96B5E0161DBBF13400A15DCE /* AppMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5E0151DBBF13400A15DCE /* AppMenuController.swift */; };
+		96B5E01E1DBBF6EE00A15DCE /* AppPageTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5E01D1DBBF6EE00A15DCE /* AppPageTabBarController.swift */; };
+		96B5E0201DBBFDE400A15DCE /* RecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5E01F1DBBFDE400A15DCE /* RecipesViewController.swift */; };
+		96B5E0221DBC23A300A15DCE /* BeautyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5E0211DBC23A300A15DCE /* BeautyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,9 +53,12 @@
 		96B5DF741DBADCA600A15DCE /* photo3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo3.jpg; sourceTree = "<group>"; };
 		96B5DF751DBADCA600A15DCE /* photo4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo4.jpg; sourceTree = "<group>"; };
 		96B5DF761DBADCA600A15DCE /* photo5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo5.jpg; sourceTree = "<group>"; };
-		96B5DF771DBADCA600A15DCE /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		96B5DF771DBADCA600A15DCE /* YogaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YogaViewController.swift; sourceTree = "<group>"; };
 		96B5DF781DBADCA600A15DCE /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		96B5E0151DBBF13400A15DCE /* AppMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppMenuController.swift; sourceTree = "<group>"; };
+		96B5E01D1DBBF6EE00A15DCE /* AppPageTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPageTabBarController.swift; sourceTree = "<group>"; };
+		96B5E01F1DBBFDE400A15DCE /* RecipesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesViewController.swift; sourceTree = "<group>"; };
+		96B5E0211DBC23A300A15DCE /* BeautyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeautyViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +96,10 @@
 				96B5DF5D1DBADCA600A15DCE /* AppDelegate.swift */,
 				96B5E0151DBBF13400A15DCE /* AppMenuController.swift */,
 				96B5DF5E1DBADCA600A15DCE /* AppToolbarController.swift */,
-				96B5DF771DBADCA600A15DCE /* RootViewController.swift */,
+				96B5E01D1DBBF6EE00A15DCE /* AppPageTabBarController.swift */,
+				96B5DF771DBADCA600A15DCE /* YogaViewController.swift */,
+				96B5E0211DBC23A300A15DCE /* BeautyViewController.swift */,
+				96B5E01F1DBBFDE400A15DCE /* RecipesViewController.swift */,
 				96B5DF691DBADCA600A15DCE /* CardTableView.swift */,
 				96B5DF6A1DBADCA600A15DCE /* CardTableViewCell.swift */,
 				96B5DF781DBADCA600A15DCE /* SampleData.swift */,
@@ -154,7 +162,6 @@
 				TargetAttributes = {
 					96B5DEA31DB8572600A15DCE = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 9Z76XCNLGL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -185,7 +192,6 @@
 				96B5DF911DBADCA600A15DCE /* photo5.jpg in Resources */,
 				96B5DF7E1DBADCA600A15DCE /* LaunchScreen.storyboard in Resources */,
 				96B5DF8D1DBADCA600A15DCE /* photo1.jpg in Resources */,
-				96B5DF861DBADCA600A15DCE /* Info.plist in Resources */,
 				96B5DF7D1DBADCA600A15DCE /* Assets.xcassets in Resources */,
 				96B5DF8F1DBADCA600A15DCE /* photo3.jpg in Resources */,
 				96B5DF901DBADCA600A15DCE /* photo4.jpg in Resources */,
@@ -200,12 +206,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96B5DF921DBADCA600A15DCE /* RootViewController.swift in Sources */,
+				96B5DF921DBADCA600A15DCE /* YogaViewController.swift in Sources */,
+				96B5E0201DBBFDE400A15DCE /* RecipesViewController.swift in Sources */,
 				96B5DF931DBADCA600A15DCE /* SampleData.swift in Sources */,
+				96B5E0221DBC23A300A15DCE /* BeautyViewController.swift in Sources */,
 				96B5DF7A1DBADCA600A15DCE /* AppDelegate.swift in Sources */,
 				96B5DF851DBADCA600A15DCE /* CardTableViewCell.swift in Sources */,
 				96B5E0161DBBF13400A15DCE /* AppMenuController.swift in Sources */,
 				96B5DF841DBADCA600A15DCE /* CardTableView.swift in Sources */,
+				96B5E01E1DBBF6EE00A15DCE /* AppPageTabBarController.swift in Sources */,
 				96B5DF7B1DBADCA600A15DCE /* AppToolbarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,7 +330,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/CardTableView/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.CardTableView;
@@ -334,7 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/CardTableView/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.CardTableView;

@@ -83,6 +83,6 @@ extension CardTableView: UITableViewDataSource {
 
 extension CardTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return heights[indexPath] ?? 0
+        return heights[indexPath] ?? height
     }
 }

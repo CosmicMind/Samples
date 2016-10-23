@@ -68,6 +68,14 @@ class AppToolbarController: ToolbarController {
     private func prepareToolbar() {
         toolbar.depthPreset = .none
         toolbar.backgroundColor = Color.blue.darken2
+        
+        toolbar.title = "HealthyMind"
+        toolbar.titleLabel.textColor = .white
+        toolbar.titleLabel.textAlignment = .left
+            
+        toolbar.detailLabel.textColor = .white
+        toolbar.detailLabel.textAlignment = .left
+        
         toolbar.leftViews = [menuButton]
         toolbar.rightViews = [starButton, searchButton]
     }

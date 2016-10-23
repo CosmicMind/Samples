@@ -32,7 +32,7 @@ import UIKit
 import Material
 import Graph
 
-class RootViewController: UIViewController {
+class BeautyViewController: UIViewController {
     /// Model.
     internal var graph: Graph!
     internal var search: Search<Entity>!
@@ -53,9 +53,15 @@ class RootViewController: UIViewController {
     /// View.
     internal var tableView: CardTableView!
     
-    internal var addButton: FabButton!
-    internal var audioLibraryMenuItem: MenuItem!
-    internal var reminderMenuItem: MenuItem!
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        preparePageTabBarItem()
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        preparePageTabBarItem()
+    }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,17 +73,6 @@ class RootViewController: UIViewController {
         
         // Feed.
         prepareCardTableView()
-        prepareToolbar()
-        
-        // Menu.
-        prepareAddButton()
-        prepareAudioLibraryButton()
-        prepareBellButton()
-    }
-    
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        prepareMenuController()
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -102,7 +97,7 @@ class RootViewController: UIViewController {
 }
 
 /// Model.
-extension RootViewController {
+extension BeautyViewController {
     internal func prepareGraph() {
         graph = Graph()
         
@@ -115,89 +110,18 @@ extension RootViewController {
     }
 }
 
+/// PageTabBar.
+extension BeautyViewController {
+    internal func preparePageTabBarItem() {
+        pageTabBarItem.title = "Beauty"
+        pageTabBarItem.titleColor = .white
+    }
+}
+
 /// Feed.
-extension RootViewController {
+extension BeautyViewController {
     internal func prepareCardTableView() {
         tableView = CardTableView()
         view.layout(tableView).edges()
-    }
-    
-    internal func prepareToolbar() {
-        guard let toolbar = toolbarController?.toolbar else {
-            return
-        }
-        
-        toolbar.title = "Feed"
-        toolbar.titleLabel.textColor = .white
-        toolbar.titleLabel.textAlignment = .left
-        
-        toolbar.detailLabel.textColor = .white
-        toolbar.detailLabel.textAlignment = .left
-    }
-}
-
-/// Menu.
-extension RootViewController {
-    /// Handle the menu toggle event.
-    internal func handleToggleMenu(button: Button) {
-        guard let mc = menuController as? AppMenuController else {
-            return
-        }
-        
-        if mc.menu.isOpened {
-            mc.closeMenu { (view) in
-                (view as? MenuItem)?.hideTitleLabel()
-            }
-        } else {
-            mc.openMenu { (view) in
-                (view as? MenuItem)?.showTitleLabel()
-            }
-        }
-    }
-    
-    internal func prepareAddButton() {
-        addButton = FabButton(image: Icon.cm.add)
-        addButton.addTarget(self, action: #selector(handleToggleMenu), for: .touchUpInside)
-    }
-    
-    internal func prepareAudioLibraryButton() {
-        audioLibraryMenuItem = MenuItem()
-        audioLibraryMenuItem.button.image = Icon.cm.audioLibrary
-        audioLibraryMenuItem.button.backgroundColor = Color.green.base
-        audioLibraryMenuItem.button.depthPreset = .depth1
-        audioLibraryMenuItem.title = "Audio Library"
-    }
-    
-    internal func prepareBellButton() {
-        reminderMenuItem = MenuItem()
-        reminderMenuItem.button.image = Icon.cm.bell
-        reminderMenuItem.button.backgroundColor = Color.blue.base
-        reminderMenuItem.title = "Reminders"
-    }
-    
-    internal func prepareMenuController() {
-        guard let mc = menuController as? AppMenuController else {
-            return
-        }
-        
-        mc.menu.delegate = self
-        mc.menu.views = [addButton, audioLibraryMenuItem, reminderMenuItem]
-    }
-}
-
-/// MenuDelegate.
-extension RootViewController: MenuDelegate {
-    func menu(menu: Menu, tappedAt point: CGPoint, isOutside: Bool) {
-        guard isOutside else {
-            return
-        }
-        
-        guard let mc = menuController as? AppMenuController else {
-            return
-        }
-        
-        mc.closeMenu { (view) in
-            (view as? MenuItem)?.hideTitleLabel()
-        }
     }
 }

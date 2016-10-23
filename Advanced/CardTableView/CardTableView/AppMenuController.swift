@@ -32,17 +32,32 @@ import UIKit
 import Material
 
 class AppMenuController: MenuController {
-    private let baseSize = CGSize(width: 56, height: 56)
-    private let bottomInset: CGFloat = 24
-    private let rightInset: CGFloat = 24
+    internal let baseSize = CGSize(width: 56, height: 56)
+    internal let bottomInset: CGFloat = 24
+    internal let rightInset: CGFloat = 24
+    
+    internal var addButton: FabButton!
+    internal var audioLibraryMenuItem: MenuItem!
+    internal var reminderMenuItem: MenuItem!
     
     open override func prepare() {
         super.prepare()
         view.backgroundColor = Color.blueGrey.lighten5
         
-        prepareMenu()
+        // Menu.
+        prepareAddButton()
+        prepareAudioLibraryButton()
+        prepareBellButton()
     }
     
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareMenu()
+    }
+}
+
+/// Menu.
+extension AppMenuController {
     open override func openMenu(completion: ((UIView) -> Void)? = nil) {
         super.openMenu(completion: completion)
         menu.views.first?.animate(animation: Animation.rotate(angle: 45))
@@ -53,12 +68,69 @@ class AppMenuController: MenuController {
         menu.views.first?.animate(animation: Animation.rotate(angle: 0))
     }
     
-    private func prepareMenu() {
-        menu.baseSize = baseSize
+    /// Handle the menu toggle event.
+    internal func handleToggleMenu(button: Button) {
+        guard let mc = menuController as? AppMenuController else {
+            return
+        }
         
+        if mc.menu.isOpened {
+            mc.closeMenu { (view) in
+                (view as? MenuItem)?.hideTitleLabel()
+            }
+        } else {
+            mc.openMenu { (view) in
+                (view as? MenuItem)?.showTitleLabel()
+            }
+        }
+    }
+    
+    internal func prepareAddButton() {
+        addButton = FabButton(image: Icon.cm.add)
+        addButton.addTarget(self, action: #selector(handleToggleMenu), for: .touchUpInside)
+    }
+    
+    internal func prepareAudioLibraryButton() {
+        audioLibraryMenuItem = MenuItem()
+        audioLibraryMenuItem.button.image = Icon.cm.audioLibrary
+        audioLibraryMenuItem.button.backgroundColor = Color.green.base
+        audioLibraryMenuItem.button.depthPreset = .depth1
+        audioLibraryMenuItem.title = "Audio Library"
+    }
+    
+    internal func prepareBellButton() {
+        reminderMenuItem = MenuItem()
+        reminderMenuItem.button.image = Icon.cm.bell
+        reminderMenuItem.button.backgroundColor = Color.blue.base
+        reminderMenuItem.title = "Reminders"
+    }
+    
+    internal func prepareMenu() {
         view.layout(menu)
             .size(baseSize)
             .bottom(bottomInset)
             .right(rightInset)
+        
+        menu.delegate = self
+        menu.baseSize = baseSize
+        menu.views = [addButton, audioLibraryMenuItem, reminderMenuItem]
     }
 }
+
+/// MenuDelegate.
+extension AppMenuController: MenuDelegate {
+    func menu(menu: Menu, tappedAt point: CGPoint, isOutside: Bool) {
+        guard isOutside else {
+            return
+        }
+        
+        guard let mc = menuController as? AppMenuController else {
+            return
+        }
+        
+        mc.closeMenu { (view) in
+            (view as? MenuItem)?.hideTitleLabel()
+        }
+    }
+}
+
