@@ -4,6 +4,10 @@
 
 **Samples** is a collection of example projects that use [Material](http://cosmicmind.io/material), [Graph](http://cosmicmind.io/graph), and [Algorithm](http://cosmicmind.io/algorithm). 
 
+![Material Sample](http://cosmicmind.io/samples/github/page-tab-bar-controller.gif)
+
+* [Download the latest sample](https://github.com/CosmicMind/Samples/tree/master/Graph/CardTableView).
+
 ## Why A Separate Samples Repo?
 
 We moved all samples to a separate repo to allow their development to be independent of the frameworks. There are instances where we needed to update the versions of the frameworks to accommodate changes that only occurred in the samples. 
