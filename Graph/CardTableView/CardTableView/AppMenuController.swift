@@ -37,7 +37,7 @@ class AppMenuController: MenuController {
     internal let rightInset: CGFloat = 24
     
     internal var addButton: FabButton!
-    internal var audioLibraryMenuItem: MenuItem!
+    internal var articleMenuItem: MenuItem!
     internal var reminderMenuItem: MenuItem!
     
     open override func prepare() {
@@ -91,11 +91,11 @@ extension AppMenuController {
     }
     
     internal func prepareAudioLibraryButton() {
-        audioLibraryMenuItem = MenuItem()
-        audioLibraryMenuItem.button.image = Icon.cm.audioLibrary
-        audioLibraryMenuItem.button.backgroundColor = Color.green.base
-        audioLibraryMenuItem.button.depthPreset = .depth1
-        audioLibraryMenuItem.title = "Audio Library"
+        articleMenuItem = MenuItem()
+        articleMenuItem.button.image = Icon.cm.edit
+        articleMenuItem.button.backgroundColor = Color.green.base
+        articleMenuItem.button.depthPreset = .depth1
+        articleMenuItem.title = "Article"
     }
     
     internal func prepareBellButton() {
@@ -113,7 +113,7 @@ extension AppMenuController {
         
         menu.delegate = self
         menu.baseSize = baseSize
-        menu.views = [addButton, audioLibraryMenuItem, reminderMenuItem]
+        menu.views = [addButton, articleMenuItem, reminderMenuItem]
     }
 }
 

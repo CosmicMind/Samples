@@ -87,6 +87,8 @@ class CardTableViewCell: TableViewCell {
             DispatchQueue.main.async { [weak self, image = image] in
                 self?.presenterImageView.image = image
             }
+        } else {
+            presenterImageView.height = 0
         }
         
         contentLabel.text = d["content"] as? String
@@ -94,6 +96,8 @@ class CardTableViewCell: TableViewCell {
         
         dateLabel.text = dateFormatter.string(from: d.createdDate)
         
+        card.x = 0
+        card.y = 0
         card.width = width
         card.layoutSubviews()
     }

@@ -30,6 +30,7 @@
 
 import UIKit
 import Material
+import Graph
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,9 +38,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
+        SampleData.createSampleData()
+        
+        let graph = Graph()
+        let search = Search<Entity>(graph: graph).for(types: "Category")
+        
+        var viewControllers = [PostsViewController]()
+        
+        for category in search.sync() {
+            if let name = category["name"] as? String {
+                viewControllers.append(PostsViewController(category: name))
+            }
+        }
+        
+        let pageTabBarController = AppPageTabBarController(viewControllers: viewControllers, selectedIndex: 0)
+        let toolbarController = AppToolbarController(rootViewController: pageTabBarController)
+        let menuController = AppMenuController(rootViewController: toolbarController)
+        
         window = UIWindow(frame: Device.bounds)
-        window!.rootViewController = AppMenuController(rootViewController: AppToolbarController(rootViewController: AppPageTabBarController(viewControllers: [YogaViewController(), BeautyViewController(), RecipesViewController()], selectedIndex: 0)))
+        window!.rootViewController = menuController
         window!.makeKeyAndVisible()
     }
 }
-

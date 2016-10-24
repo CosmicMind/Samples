@@ -48,7 +48,6 @@ class ViewController: UIViewController {
 extension ViewController {
     internal func prepareImageCard() {
         imageCard = ImageCard()
-        view.layout(imageCard).horizontally(left: 20, right: 20).center()
         
         prepareToolbar()
         prepareImageView()
@@ -101,6 +100,8 @@ extension ViewController {
         imageCard.bottomBar?.leftViews = [favoriteButton]
         imageCard.bottomBar?.centerViews = [label]
         imageCard.bottomBar?.rightViews = [shareButton]
+        
+        view.layout(imageCard).horizontally(left: 20, right: 20).center()
     }
 }
 

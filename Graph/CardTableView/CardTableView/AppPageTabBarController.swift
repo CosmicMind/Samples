@@ -34,6 +34,7 @@ import Material
 class AppPageTabBarController: PageTabBarController {
     open override func prepare() {
         super.prepare()
+        view.backgroundColor = Color.blueGrey.lighten5
         
         delegate = self
         preparePageTabBar()

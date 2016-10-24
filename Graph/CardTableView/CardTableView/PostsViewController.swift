@@ -32,20 +32,21 @@ import UIKit
 import Material
 import Graph
 
-class RecipesViewController: UIViewController {
+class PostsViewController: UIViewController {
+    internal var category: String
+    
     /// Model.
     internal var graph: Graph!
     internal var search: Search<Entity>!
     
     internal var data: [Entity] {
-        var d = search.sync()
-        
-        if 0 == d.count {
-            SampleData.createSampleData()
-            d = search.sync()
+        guard let category = search.sync().first else {
+            return [Entity]()
         }
         
-        return d.sorted { (a, b) -> Bool in
+        let posts = category.relationship(types: "Post").subject(types: "Article")
+        
+        return posts.sorted { (a, b) -> Bool in
             return a.createdDate < b.createdDate
         }
     }
@@ -54,11 +55,13 @@ class RecipesViewController: UIViewController {
     internal var tableView: CardTableView!
     
     required init?(coder aDecoder: NSCoder) {
+        category = ""
         super.init(coder: aDecoder)
         preparePageTabBarItem()
     }
     
-    init() {
+    init(category: String) {
+        self.category = category
         super.init(nibName: nil, bundle: nil)
         preparePageTabBarItem()
     }
@@ -72,7 +75,7 @@ class RecipesViewController: UIViewController {
         prepareSearch()
         
         // Feed.
-        prepareCardTableView()
+        prepareTableView()
     }
     
     open override func viewDidAppear(_ animated: Bool) {
@@ -82,46 +85,43 @@ class RecipesViewController: UIViewController {
     
     open override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        tableView.reloadData()
+        reloadData()
     }
 }
 
 /// Model.
-extension RecipesViewController {
+extension PostsViewController {
     internal func prepareGraph() {
         graph = Graph()
-        
-        // Uncomment to clear the Graph data.
-//        graph.clear()
     }
     
     internal func prepareSearch() {
-        search = Search<Entity>(graph: graph).for(types: "Item")
+        search = Search<Entity>(graph: graph).for(types: "Category").where(properties: ("name", category))
     }
 }
 
 /// PageTabBar.
-extension RecipesViewController {
+extension PostsViewController {
     internal func preparePageTabBarItem() {
-        pageTabBarItem.title = "Recipes"
+        pageTabBarItem.title = category
         pageTabBarItem.titleColor = .white
     }
 }
 
-/// Feed.
-extension RecipesViewController {
-    internal func prepareCardTableView() {
+/// TableView.
+extension PostsViewController {
+    internal func prepareTableView() {
         tableView = CardTableView()
         view.layout(tableView).edges()
     }
     
     internal func reloadData() {
-        tableView.data = data
-        
         guard let toolbar = toolbarController?.toolbar else {
             return
         }
         
-        toolbar.detail = "\(tableView.data.count) Items"
+        tableView.data = data
+        
+        toolbar.detail = "\(tableView.data.count) " + (1 == tableView.data.count ? "Article" : "Articles")
     }
 }
