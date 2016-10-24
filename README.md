@@ -4,7 +4,7 @@
 
 **Samples** is a collection of example projects that use [Material](http://cosmicmind.io/material), [Graph](http://cosmicmind.io/graph), and [Algorithm](http://cosmicmind.io/algorithm). 
 
-![Material Sample](http://cosmicmind.io/samples/github/page-tab-bar-controller.gif)
+![Material Sample](http://cosmicmind.io/samples/github/page-tab-bar-controller.png)
 
 * [Download the latest sample](https://github.com/CosmicMind/Samples/tree/master/Graph/CardTableView).
 
