@@ -44,7 +44,7 @@ class RootViewController: UIViewController {
             return
         }
         
-        tc.toolbar.title = "Marterial"
+        tc.toolbar.title = "Material"
         tc.toolbar.detail = "Build Beautiful Software"
     }
 }

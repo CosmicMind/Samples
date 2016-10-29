@@ -44,7 +44,7 @@ class RootViewController: UIViewController {
             return
         }
         
-        toolbar.title = "Marterial"
+        toolbar.title = "Material"
         toolbar.titleLabel.textColor = .white
         toolbar.titleLabel.textAlignment = .left
         

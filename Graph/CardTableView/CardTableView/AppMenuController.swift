@@ -60,12 +60,12 @@ class AppMenuController: MenuController {
 extension AppMenuController {
     open override func openMenu(completion: ((UIView) -> Void)? = nil) {
         super.openMenu(completion: completion)
-        menu.views.first?.animate(animation: Animation.rotate(angle: 45))
+        menu.views.first?.animate(animation: Motion.rotate(angle: 45))
     }
     
     open override func closeMenu(completion: ((UIView) -> Void)? = nil) {
         super.closeMenu(completion: completion)
-        menu.views.first?.animate(animation: Animation.rotate(angle: 0))
+        menu.views.first?.animate(animation: Motion.rotate(angle: 0))
     }
     
     /// Handle the menu toggle event.

@@ -102,6 +102,7 @@ class ViewController: UIViewController {
 //        emailField.placeholderNormalColor = Color.amber.darken4
 //        emailField.placeholderActiveColor = Color.pink.base
 //        emailField.dividerNormalColor = Color.cyan.base
+//        emailField.dividerActiveColor = Color.green.base
         
         view.addSubview(emailField)
     }
