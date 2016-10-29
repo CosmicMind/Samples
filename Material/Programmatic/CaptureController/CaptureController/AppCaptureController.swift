@@ -34,43 +34,20 @@ import Material
 class AppCaptureController: CaptureController {
     open override func prepare() {
         super.prepare()
-        prepareCaptureButton()
-        prepareCameraButton()
-        prepareVideoButton()
+        prepareStatusBar()
         prepareToolbar()
     }
     
+    private func prepareStatusBar() {
+        statusBar.isHidden = true
+    }
+    
     private func prepareToolbar() {
-        toolbar.titleLabel.isHidden = true
-        toolbar.titleLabel.textColor = .white
-        
-        toolbar.detailLabel.isHidden = true
-        toolbar.detail = "Recording"
-        toolbar.detailLabel.textColor = Color.red.accent1
-        
-        toolbar.leftViews = [switchCamerasButton]
-        toolbar.rightViews = [flashButton]
+        toolbar.backgroundColor = .black
     }
+}
+
+extension AppCaptureController {
     
-    private func prepareCaptureButton() {
-        captureButton.width = 72
-        captureButton.height = 72
-        captureButton.backgroundColor = Color.red.darken1.withAlphaComponent(0.3)
-        captureButton.borderColor = .white
-        captureButton.borderWidthPreset =  .border3
-        captureButton.depthPreset = .none
-    }
-    
-    private func prepareCameraButton() {
-        cameraButton.width = 72
-        cameraButton.height = 72
-        cameraButton.pulseAnimation = .centerRadialBeyondBounds
-    }
-    
-    private func prepareVideoButton() {
-        videoButton.width = 72
-        videoButton.height = 72
-        videoButton.pulseAnimation = .centerRadialBeyondBounds
-    }
 }
 

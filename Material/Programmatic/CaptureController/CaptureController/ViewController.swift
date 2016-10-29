@@ -33,37 +33,143 @@ import AVFoundation
 import Material
 
 class ViewController: UIViewController {
+    /// A reference to the focusView used in focus animations.
+    open internal(set) var focusView: UIView?
+    
+    /// A reference to the exposureView used in exposure animations.
+    open internal(set) var exposureView: UIView?
+    
+    /// A reference to the resetView used in reset animations.
+    open internal(set) var resetView: UIView?
+    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        Device.isStatusBarHidden = true
+        
         prepareCapture()
+        prepareFocusView()
+        prepareExposureView()
+        prepareResetView()
+        prepareCaptureButton()
+        prepareCameraButton()
+        prepareVideoButton()
+        prepareToolbar()
     }
     
     open func prepareCapture() {
+        guard let capture = captureController?.capture else {
+            return
+        }
+        
+        view.layout(capture).edges()
+    }
+    
+    private func prepareToolbar() {
         guard let cc = captureController else {
             return
         }
         
-        cc.capture.delegate = self
-        cc.capture.session.delegate = self
-        view.layout(cc.capture).edges()
+        cc.toolbar.titleLabel.isHidden = true
+        cc.toolbar.titleLabel.textColor = .white
+        
+        cc.toolbar.detailLabel.isHidden = true
+        cc.toolbar.detail = "Recording"
+        cc.toolbar.detailLabel.textColor = Color.red.accent1
+        
+        cc.toolbar.leftViews = [cc.switchCamerasButton]
+        cc.toolbar.rightViews = [cc.flashButton]
+    }
+    
+    private func prepareCaptureButton() {
+        guard let captureButton = captureController?.captureButton else {
+            return
+        }
+        
+        captureButton.width = 72
+        captureButton.height = 72
+        captureButton.backgroundColor = Color.red.darken1.withAlphaComponent(0.3)
+        captureButton.borderColor = .white
+        captureButton.borderWidthPreset =  .border3
+        captureButton.depthPreset = .none
+    }
+    
+    private func prepareCameraButton() {
+        guard let cameraButton = captureController?.cameraButton else {
+            return
+        }
+        
+        cameraButton.width = 72
+        cameraButton.height = 72
+        cameraButton.pulseAnimation = .centerRadialBeyondBounds
+    }
+    
+    private func prepareVideoButton() {
+        guard let videoButton = captureController?.videoButton else {
+            return
+        }
+        
+        videoButton.width = 72
+        videoButton.height = 72
+        videoButton.pulseAnimation = .centerRadialBeyondBounds
+    }
+    
+    /// Prepares the focusLayer.
+    private func prepareFocusView() {
+        guard nil == focusView else {
+            return
+        }
+        
+        focusView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        focusView!.isHidden = true
+        focusView!.borderWidth = 2
+        focusView!.borderColor = .white
+        view.addSubview(focusView!)
+    }
+    
+    /// Prepares the exposureLayer.
+    private func prepareExposureView() {
+        guard nil == exposureView else {
+            return
+        }
+        
+        exposureView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        exposureView!.isHidden = true
+        exposureView!.borderWidth = 2
+        exposureView!.borderColor = Color.yellow.darken1
+        
+        view.addSubview(exposureView!)
+    }
+    
+    /// Prepares the resetLayer.
+    private func prepareResetView() {
+        guard nil == resetView else {
+            return
+        }
+        
+        resetView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        resetView!.isHidden = true
+        resetView!.borderWidth = 2
+        resetView!.borderColor = Color.red.accent1
+        
+        view.addSubview(resetView!)
     }
 }
 
 /// CaptureSessionDelegate.
 extension ViewController: CaptureSessionDelegate {
-    public func sessionFailedWithError(session: CaptureSession, error: Error) {
+    public func captureSessionFailedWithError(session: CaptureSession, error: Error) {
         print(error)
     }
     
-    public func sessionStillImageAsynchronously(session: CaptureSession, image: UIImage) {
+    public func captureSessionStillImageAsynchronously(session: CaptureSession, image: UIImage) {
         print("captureStillImageAsynchronously")
     }
     
-    public func sessionCreateMovieFileFailedWithError(session: CaptureSession, error: Error) {
+    public func captureSessionCreateMovieFileFailedWithError(session: CaptureSession, error: Error) {
         print("Capture Failed \(error)")
     }
     
-    public func sessionDidStartRecordingToOutputFileAtURL(session: CaptureSession, captureOutput: AVCaptureFileOutput, fileURL: NSURL, fromConnections connections: [Any]) {
+    public func captureSessionDidStartRecordingToOutputFileAtURL(session: CaptureSession, captureOutput: AVCaptureFileOutput, fileURL: NSURL, fromConnections connections: [Any]) {
         print("Capture Started Recording \(fileURL)")
 //        cameraButton.isHidden = true
 //        videoButton.isHidden = true
@@ -71,7 +177,7 @@ extension ViewController: CaptureSessionDelegate {
 //        flashButton.isHidden = true
     }
     
-    public func sessionDidFinishRecordingToOutputFileAtURL(session: CaptureSession, captureOutput: AVCaptureFileOutput, outputFileURL: NSURL, fromConnections connections: [Any], error: Error!) {
+    public func captureSessionDidFinishRecordingToOutputFileAtURL(session: CaptureSession, captureOutput: AVCaptureFileOutput, outputFileURL: NSURL, fromConnections connections: [Any], error: Error!) {
         print("Capture Stopped Recording \(outputFileURL)")
 //        cameraButton.isHidden = false
 //        videoButton.isHidden = false
@@ -94,11 +200,11 @@ extension ViewController: CaptureSessionDelegate {
 //        toolbar.detailLabel.isHidden = true
     }
     
-    public func sessionWillSwitchCameras(session: CaptureSession, position: AVCaptureDevicePosition) {
+    public func captureSessionWillSwitchCameras(session: CaptureSession, position: AVCaptureDevicePosition) {
         // ... do something
     }
     
-    public func sessionDidSwitchCameras(session: CaptureSession, position: AVCaptureDevicePosition) {
+    public func captureSessionDidSwitchCameras(session: CaptureSession, position: AVCaptureDevicePosition) {
 //        if .back == position {
 //            capture.session.flashMode = .auto
 //            flashButton.image = UIImage(named: "ic_flash_auto_white")
@@ -112,7 +218,7 @@ extension ViewController: CaptureSessionDelegate {
 }
 
 /// CaptureDelegate.
-extension ViewController: CaptureDelegate {
+extension ViewController: CaptureControllerDelegate {
     public func captureDidPressFlashButton(capture: Capture, button: UIButton) {
 //        guard .back == capture.session.position else {
 //            return
