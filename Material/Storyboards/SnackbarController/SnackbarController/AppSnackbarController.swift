@@ -38,7 +38,7 @@ class AppSnackbarController: SnackbarController {
     }
 }
 
-extension AppSnackbarController: SnackbarControllerDelegate {
+extension AppSnackbarController: SnackbarDelegate {
     func snackbarController(snackbarController: SnackbarController, willShow snackbar: Snackbar) {
         print("snackbarController will show")
     }

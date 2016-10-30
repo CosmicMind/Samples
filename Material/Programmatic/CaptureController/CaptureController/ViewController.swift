@@ -42,49 +42,40 @@ class ViewController: UIViewController {
     /// A reference to the resetView used in reset animations.
     open internal(set) var resetView: UIView?
     
+    /// A reference to the captureButton.
+    open var captureButton: FabButton!
+    
+    /// A reference to the cameraButton.
+    open var cameraButton: IconButton!
+    
+    /// A reference to the videoButton.
+    open var videoButton: IconButton!
+    
+    /// A reference to the switchCameraButton.
+    open var switchCamerasButton: IconButton!
+    
+    /// A reference to the flashButton.
+    open var flashButton: IconButton!
+    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Device.isStatusBarHidden = true
-        
-        prepareCapture()
-        prepareFocusView()
-        prepareExposureView()
-        prepareResetView()
         prepareCaptureButton()
         prepareCameraButton()
         prepareVideoButton()
+        prepareSwitchCamerasButton()
+        prepareFlashButton()
+        
+        prepareStatusBar()
         prepareToolbar()
-    }
-    
-    open func prepareCapture() {
-        guard let capture = captureController?.capture else {
-            return
-        }
+        prepareCapture()
         
-        view.layout(capture).edges()
-    }
-    
-    private func prepareToolbar() {
-        guard let cc = captureController else {
-            return
-        }
-        
-        cc.toolbar.titleLabel.isHidden = true
-        cc.toolbar.titleLabel.textColor = .white
-        
-        cc.toolbar.detailLabel.isHidden = true
-        cc.toolbar.detail = "Recording"
-        cc.toolbar.detailLabel.textColor = Color.red.accent1
-        
-        cc.toolbar.leftViews = [cc.switchCamerasButton]
-        cc.toolbar.rightViews = [cc.flashButton]
+        prepareFocusView()
+        prepareExposureView()
+        prepareResetView()
     }
     
     private func prepareCaptureButton() {
-        guard let captureButton = captureController?.captureButton else {
-            return
-        }
-        
+        captureButton = FabButton()
         captureButton.width = 72
         captureButton.height = 72
         captureButton.backgroundColor = Color.red.darken1.withAlphaComponent(0.3)
@@ -94,23 +85,67 @@ class ViewController: UIViewController {
     }
     
     private func prepareCameraButton() {
-        guard let cameraButton = captureController?.cameraButton else {
-            return
-        }
-        
+        cameraButton = IconButton(image: Icon.cm.photoCamera, tintColor: .white)
         cameraButton.width = 72
         cameraButton.height = 72
         cameraButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
     private func prepareVideoButton() {
-        guard let videoButton = captureController?.videoButton else {
-            return
-        }
-        
+        videoButton = IconButton(image: Icon.cm.videocam, tintColor: .white)
         videoButton.width = 72
         videoButton.height = 72
         videoButton.pulseAnimation = .centerRadialBeyondBounds
+    }
+    
+    /// Prepares the switchCameraButton.
+    private func prepareSwitchCamerasButton() {
+        switchCamerasButton = IconButton(image: Icon.cameraFront, tintColor: .white)
+    }
+    
+    /// Prepares the flashButton.
+    private func prepareFlashButton() {
+        flashButton = IconButton(image: Icon.flashAuto, tintColor: .white)
+    }
+    
+    private func prepareStatusBar() {
+        guard let sc = captureController else {
+            return
+        }
+        
+        sc.isStatusBarHidden = true
+    }
+    
+    private func prepareToolbar() {
+        guard let toolbar = captureController?.toolbar else {
+            return
+        }
+        
+        toolbar.backgroundColor = .black
+        
+        toolbar.titleLabel.isHidden = true
+        toolbar.titleLabel.textColor = .white
+        
+        toolbar.detailLabel.isHidden = true
+        toolbar.detail = "Recording"
+        toolbar.detailLabel.textColor = Color.red.accent1
+        
+        toolbar.leftViews = [switchCamerasButton]
+        toolbar.rightViews = [flashButton]
+    }
+    
+    private func prepareCapture() {
+        guard let capture = captureController?.capture else {
+            return
+        }
+        
+        capture.captureButton = captureButton
+        capture.cameraButton = cameraButton
+        capture.videoButton = videoButton
+        capture.switchCamerasButton = switchCamerasButton
+        capture.flashButton = flashButton
+        
+        view.layout(capture).edges()
     }
     
     /// Prepares the focusLayer.
@@ -218,27 +253,27 @@ extension ViewController: CaptureSessionDelegate {
 }
 
 /// CaptureDelegate.
-extension ViewController: CaptureControllerDelegate {
+extension ViewController: CaptureDelegate {
     public func captureDidPressFlashButton(capture: Capture, button: UIButton) {
-//        guard .back == capture.session.position else {
-//            return
-//        }
-//        
-//        guard let b = button as? Button else {
-//            return
-//        }
-//        
-//        switch capture.session.flashMode {
-//        case .off:
-//            b.image = UIImage(named: "ic_flash_on_white")
-//            capture.session.flashMode = .on
-//        case .on:
-//            b.image = UIImage(named: "ic_flash_auto_white")
-//            capture.session.flashMode = .auto
-//        case .auto:
-//            b.image = UIImage(named: "ic_flash_off_white")
-//            capture.session.flashMode = .off
-//        }
+        guard .back == capture.session.position else {
+            return
+        }
+        
+        guard let b = button as? Button else {
+            return
+        }
+        
+        switch capture.session.flashMode {
+        case .off:
+            b.image = Icon.flashOn
+            capture.session.flashMode = .on
+        case .on:
+            b.image = Icon.flashAuto
+            capture.session.flashMode = .auto
+        case .auto:
+            b.image = Icon.flashOff
+            capture.session.flashMode = .off
+        }
     }
     
     public func captureDidPressCameraButton(capture: Capture, button: UIButton) {

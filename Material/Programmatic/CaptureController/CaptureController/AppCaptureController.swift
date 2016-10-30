@@ -29,25 +29,14 @@
  */
 
 import UIKit
+import AVFoundation
 import Material
 
 class AppCaptureController: CaptureController {
-    open override func prepare() {
+    override func prepare() {
         super.prepare()
-        prepareStatusBar()
-        prepareToolbar()
-    }
-    
-    private func prepareStatusBar() {
-        statusBar.isHidden = true
-    }
-    
-    private func prepareToolbar() {
-        toolbar.backgroundColor = .black
+        
+        // Cuts the display at the bottom of the toolbar.
+        display = .partial
     }
 }
-
-extension AppCaptureController {
-    
-}
-
