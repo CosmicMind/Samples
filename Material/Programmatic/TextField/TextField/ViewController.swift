@@ -154,15 +154,15 @@ extension UIViewController: TextFieldDelegate {
     }
     
     public func textField(textField: UITextField, didChange text: String?) {
-        print("did change", text)
+        print("did change", text ?? "")
     }
     
     public func textField(textField: UITextField, willClear text: String?) {
-        print("will clear", text)
+        print("will clear", text ?? "")
     }
     
     public func textField(textField: UITextField, didClear text: String?) {
-        print("did clear", text)
+        print("did clear", text ?? "")
     }
 }
 

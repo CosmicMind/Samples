@@ -34,36 +34,45 @@ import Material
 
 class ViewController: UIViewController {
     /// A reference to the focusView used in focus animations.
-    open internal(set) var focusView: UIView?
+    internal var focusView: UIView?
     
     /// A reference to the exposureView used in exposure animations.
-    open internal(set) var exposureView: UIView?
+    internal var exposureView: UIView?
     
     /// A reference to the resetView used in reset animations.
-    open internal(set) var resetView: UIView?
+    internal var resetView: UIView?
     
     /// A reference to the captureButton.
-    open var captureButton: FabButton!
+    internal var captureButton: FabButton!
     
     /// A reference to the cameraButton.
-    open var cameraButton: IconButton!
+    internal var cameraButton: IconButton!
     
     /// A reference to the videoButton.
-    open var videoButton: IconButton!
+    internal var videoButton: IconButton!
     
     /// A reference to the switchCameraButton.
-    open var switchCamerasButton: IconButton!
+    internal var switchCamerasButton: IconButton!
     
     /// A reference to the flashButton.
-    open var flashButton: IconButton!
+    internal var flashButton: IconButton!
+    
+    /// A reference to the visualEffectView .
+    internal var visualEffectView: View!
+    
+    /// A reference to the bottom bar.
+    internal var bar: Bar!
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        prepareCaptureButton()
         prepareCameraButton()
         prepareVideoButton()
         prepareSwitchCamerasButton()
         prepareFlashButton()
+        
+        prepareBar()
+        prepareVisualEffectView()
+        prepareCaptureButton()
         
         prepareStatusBar()
         prepareToolbar()
@@ -72,16 +81,6 @@ class ViewController: UIViewController {
         prepareFocusView()
         prepareExposureView()
         prepareResetView()
-    }
-    
-    private func prepareCaptureButton() {
-        captureButton = FabButton()
-        captureButton.width = 72
-        captureButton.height = 72
-        captureButton.backgroundColor = Color.red.darken1.withAlphaComponent(0.3)
-        captureButton.borderColor = .white
-        captureButton.borderWidthPreset =  .border3
-        captureButton.depthPreset = .none
     }
     
     private func prepareCameraButton() {
@@ -98,14 +97,40 @@ class ViewController: UIViewController {
         videoButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
-    /// Prepares the switchCameraButton.
     private func prepareSwitchCamerasButton() {
         switchCamerasButton = IconButton(image: Icon.cameraFront, tintColor: .white)
     }
     
-    /// Prepares the flashButton.
     private func prepareFlashButton() {
         flashButton = IconButton(image: Icon.flashAuto, tintColor: .white)
+    }
+    
+    private func prepareBar() {
+        bar = Bar()
+        bar.height = 110
+        bar.backgroundColor = nil
+        bar.contentEdgeInsetsPreset = .wideRectangle7
+        bar.leftViews = [flashButton]
+        bar.rightViews = [switchCamerasButton]
+        view.layout(bar).horizontally().bottom()
+    }
+    
+    private func prepareVisualEffectView() {
+        let blurEffect = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        
+        visualEffectView = View()
+        visualEffectView.backgroundColor = nil
+        visualEffectView.shapePreset = .circle
+        visualEffectView.clipsToBounds = true
+        visualEffectView.layout(blurEffect).edges()
+        bar.contentView.layout(visualEffectView).width(64).height(64).center()
+    }
+    
+    private func prepareCaptureButton() {
+        captureButton = FabButton()
+        captureButton.backgroundColor = .white
+        captureButton.depthPreset = .none
+        bar.contentView.layout(captureButton).width(48).height(48).center()
     }
     
     private func prepareStatusBar() {
@@ -121,23 +146,26 @@ class ViewController: UIViewController {
             return
         }
         
-        toolbar.backgroundColor = .black
+        toolbar.backgroundColor = Color.black.withAlphaComponent(0.3)
         
+        toolbar.title = "00:00:00"
         toolbar.titleLabel.isHidden = true
         toolbar.titleLabel.textColor = .white
         
-        toolbar.detailLabel.isHidden = true
         toolbar.detail = "Recording"
+        toolbar.detailLabel.isHidden = true
         toolbar.detailLabel.textColor = Color.red.accent1
         
-        toolbar.leftViews = [switchCamerasButton]
-        toolbar.rightViews = [flashButton]
+        toolbar.centerViews = [switchCamerasButton, flashButton]
     }
     
     private func prepareCapture() {
         guard let capture = captureController?.capture else {
             return
         }
+        
+        capture.delegate = self
+        capture.session.delegate = self
         
         capture.captureButton = captureButton
         capture.cameraButton = cameraButton
@@ -146,6 +174,7 @@ class ViewController: UIViewController {
         capture.flashButton = flashButton
         
         view.layout(capture).edges()
+        view.sendSubview(toBack: capture)
     }
     
     /// Prepares the focusLayer.
@@ -171,7 +200,6 @@ class ViewController: UIViewController {
         exposureView!.isHidden = true
         exposureView!.borderWidth = 2
         exposureView!.borderColor = Color.yellow.darken1
-        
         view.addSubview(exposureView!)
     }
     
@@ -185,12 +213,10 @@ class ViewController: UIViewController {
         resetView!.isHidden = true
         resetView!.borderWidth = 2
         resetView!.borderColor = Color.red.accent1
-        
         view.addSubview(resetView!)
     }
 }
 
-/// CaptureSessionDelegate.
 extension ViewController: CaptureSessionDelegate {
     public func captureSessionFailedWithError(session: CaptureSession, error: Error) {
         print(error)
@@ -206,33 +232,18 @@ extension ViewController: CaptureSessionDelegate {
     
     public func captureSessionDidStartRecordingToOutputFileAtURL(session: CaptureSession, captureOutput: AVCaptureFileOutput, fileURL: NSURL, fromConnections connections: [Any]) {
         print("Capture Started Recording \(fileURL)")
-//        cameraButton.isHidden = true
-//        videoButton.isHidden = true
-//        switchCamerasButton.isHidden = true
-//        flashButton.isHidden = true
+        cameraButton.isHidden = true
+        videoButton.isHidden = true
+        switchCamerasButton.isHidden = true
+        flashButton.isHidden = true
     }
     
     public func captureSessionDidFinishRecordingToOutputFileAtURL(session: CaptureSession, captureOutput: AVCaptureFileOutput, outputFileURL: NSURL, fromConnections connections: [Any], error: Error!) {
         print("Capture Stopped Recording \(outputFileURL)")
-//        cameraButton.isHidden = false
-//        videoButton.isHidden = false
-//        switchCamerasButton.isHidden = false
-//        flashButton.isHidden = false
-    }
-    
-    public func captureDidStartRecordTimer(capture: Capture) {
-//        toolbar.titleLabel.text = "00:00:00"
-//        toolbar.titleLabel.isHidden = false
-//        toolbar.detailLabel.isHidden = false
-    }
-    
-    public func captureDidUpdateRecordTimer(capture: Capture, hours: Int, minutes: Int, seconds: Int) {
-//        toolbar.title = String(format: "%02i:%02i:%02i", arguments: [hours, minutes, seconds])
-    }
-    
-    public func captureDidStopRecordTimer(capture: Capture, hours: Int, minutes: Int, seconds: Int) {
-//        toolbar.titleLabel.isHidden = true
-//        toolbar.detailLabel.isHidden = true
+        cameraButton.isHidden = false
+        videoButton.isHidden = false
+        switchCamerasButton.isHidden = false
+        flashButton.isHidden = false
     }
     
     public func captureSessionWillSwitchCameras(session: CaptureSession, position: AVCaptureDevicePosition) {
@@ -240,20 +251,50 @@ extension ViewController: CaptureSessionDelegate {
     }
     
     public func captureSessionDidSwitchCameras(session: CaptureSession, position: AVCaptureDevicePosition) {
-//        if .back == position {
-//            capture.session.flashMode = .auto
-//            flashButton.image = UIImage(named: "ic_flash_auto_white")
-//            switchCamerasButton.image = UIImage(named: "ic_camera_front_white")
-//        } else {
-//            capture.session.flashMode = .off
-//            flashButton.image = UIImage(named: "ic_flash_off_white")
-//            switchCamerasButton.image = UIImage(named: "ic_camera_rear_white")
-//        }
+        guard let capture = captureController?.capture else {
+            return
+        }
+        
+        if .back == position {
+            capture.session.flashMode = .auto
+            flashButton.image = Icon.flashAuto
+            switchCamerasButton.image = Icon.cameraFront
+        } else {
+            capture.session.flashMode = .off
+            flashButton.image = Icon.flashOff
+            switchCamerasButton.image = Icon.cameraRear
+        }
     }
 }
 
-/// CaptureDelegate.
 extension ViewController: CaptureDelegate {
+    public func captureDidStartRecordTimer(capture: Capture) {
+        guard let toolbar = captureController?.toolbar else {
+            return
+        }
+        
+        toolbar.title = "00:00:00"
+        toolbar.titleLabel.isHidden = false
+        toolbar.detailLabel.isHidden = false
+    }
+    
+    public func captureDidUpdateRecordTimer(capture: Capture, hours: Int, minutes: Int, seconds: Int) {
+        guard let toolbar = captureController?.toolbar else {
+            return
+        }
+        
+        toolbar.title = String(format: "%02i:%02i:%02i", arguments: [hours, minutes, seconds])
+    }
+    
+    public func captureDidStopRecordTimer(capture: Capture, hours: Int, minutes: Int, seconds: Int) {
+        guard let toolbar = captureController?.toolbar else {
+            return
+        }
+        
+        toolbar.titleLabel.isHidden = true
+        toolbar.detailLabel.isHidden = true
+    }
+    
     public func captureDidPressFlashButton(capture: Capture, button: UIButton) {
         guard .back == capture.session.position else {
             return
@@ -277,19 +318,20 @@ extension ViewController: CaptureDelegate {
     }
     
     public func captureDidPressCameraButton(capture: Capture, button: UIButton) {
-//        captureButton.backgroundColor = Color.blue.darken1.withAlphaComponent(0.3)
+        captureButton.backgroundColor = Color.blue.darken1.withAlphaComponent(0.3)
     }
     
     public func captureDidPressVideoButton(capture: Capture, button: UIButton) {
-//        captureButton.backgroundColor = red.darken1.withAlphaComponent(0.3)
+        captureButton.backgroundColor = .white
     }
     
     public func captureDidPressCaptureButton(capture: Capture, button: UIButton) {
-//        if .photo == capture.captureMode {
-//            // ... do something
-//        } else if .video == capture.captureMode {
-//            // ... do something
-//        }
+        switch capture.mode {
+        case .photo:
+            return
+        case .video:
+            return
+        }
     }
     
     public func captureDidPressSwitchCamerasButton(capture: Capture, button: UIButton) {

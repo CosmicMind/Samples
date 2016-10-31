@@ -35,8 +35,5 @@ import Material
 class AppCaptureController: CaptureController {
     override func prepare() {
         super.prepare()
-        
-        // Cuts the display at the bottom of the toolbar.
-        display = .partial
     }
 }
