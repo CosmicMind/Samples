@@ -174,7 +174,6 @@ class CardTableViewCell: TableViewCell {
         bottomBar = Bar()
         bottomBar.heightPreset = .xlarge
         bottomBar.contentEdgeInsetsPreset = .square3
-        bottomBar.contentViewAlignment = .center
         bottomBar.centerViews = [dateLabel]
         bottomBar.leftViews = [favoriteButton]
         bottomBar.rightViews = [shareButton]

@@ -57,9 +57,6 @@ class ViewController: UIViewController {
     /// A reference to the flashButton.
     internal var flashButton: IconButton!
     
-    /// A reference to the visualEffectView .
-    internal var visualEffectView: View!
-    
     /// A reference to the bottom bar.
     internal var bar: Bar!
     
@@ -99,16 +96,19 @@ class ViewController: UIViewController {
     
     private func prepareSwitchCamerasButton() {
         switchCamerasButton = IconButton(image: Icon.cameraFront, tintColor: .white)
+        switchCamerasButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
     private func prepareFlashButton() {
         flashButton = IconButton(image: Icon.flashAuto, tintColor: .white)
+        flashButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
     private func prepareBar() {
         bar = Bar()
         bar.height = 110
         bar.backgroundColor = nil
+        bar.interimSpacePreset = .interimSpace14
         bar.contentEdgeInsetsPreset = .wideRectangle7
         bar.leftViews = [flashButton]
         bar.rightViews = [switchCamerasButton]
@@ -117,13 +117,12 @@ class ViewController: UIViewController {
     
     private func prepareVisualEffectView() {
         let blurEffect = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-        
-        visualEffectView = View()
-        visualEffectView.backgroundColor = nil
-        visualEffectView.shapePreset = .circle
-        visualEffectView.clipsToBounds = true
-        visualEffectView.layout(blurEffect).edges()
-        bar.contentView.layout(visualEffectView).width(64).height(64).center()
+        let v = View()
+        v.backgroundColor = nil
+        v.shapePreset = .circle
+        v.clipsToBounds = true
+        v.layout(blurEffect).edges()
+        bar.contentView.layout(v).width(64).height(64).center()
     }
     
     private func prepareCaptureButton() {
@@ -155,8 +154,6 @@ class ViewController: UIViewController {
         toolbar.detail = "Recording"
         toolbar.detailLabel.isHidden = true
         toolbar.detailLabel.textColor = Color.red.accent1
-        
-        toolbar.centerViews = [switchCamerasButton, flashButton]
     }
     
     private func prepareCapture() {
@@ -165,7 +162,6 @@ class ViewController: UIViewController {
         }
         
         capture.delegate = self
-        capture.session.delegate = self
         
         capture.captureButton = captureButton
         capture.cameraButton = cameraButton
@@ -217,20 +213,20 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: CaptureSessionDelegate {
-    public func captureSessionFailedWithError(session: CaptureSession, error: Error) {
+extension ViewController: CaptureDelegate {
+    public func captureFailedWithError(capture: Capture, error: Error) {
         print(error)
     }
     
-    public func captureSessionStillImageAsynchronously(session: CaptureSession, image: UIImage) {
+    public func captureStillImageAsynchronously(capture: Capture, image: UIImage) {
         print("captureStillImageAsynchronously")
     }
     
-    public func captureSessionCreateMovieFileFailedWithError(session: CaptureSession, error: Error) {
+    public func captureCreateMovieFileFailedWithError(capture: Capture, error: Error) {
         print("Capture Failed \(error)")
     }
     
-    public func captureSessionDidStartRecordingToOutputFileAtURL(session: CaptureSession, captureOutput: AVCaptureFileOutput, fileURL: NSURL, fromConnections connections: [Any]) {
+    public func captureDidStartRecordingToOutputFileAtURL(capture: Capture, captureOutput: AVCaptureFileOutput, fileURL: NSURL, fromConnections connections: [Any]) {
         print("Capture Started Recording \(fileURL)")
         cameraButton.isHidden = true
         videoButton.isHidden = true
@@ -238,7 +234,7 @@ extension ViewController: CaptureSessionDelegate {
         flashButton.isHidden = true
     }
     
-    public func captureSessionDidFinishRecordingToOutputFileAtURL(session: CaptureSession, captureOutput: AVCaptureFileOutput, outputFileURL: NSURL, fromConnections connections: [Any], error: Error!) {
+    public func captureDidFinishRecordingToOutputFileAtURL(capture: Capture, captureOutput: AVCaptureFileOutput, outputFileURL: NSURL, fromConnections connections: [Any], error: Error!) {
         print("Capture Stopped Recording \(outputFileURL)")
         cameraButton.isHidden = false
         videoButton.isHidden = false
@@ -246,28 +242,26 @@ extension ViewController: CaptureSessionDelegate {
         flashButton.isHidden = false
     }
     
-    public func captureSessionWillSwitchCameras(session: CaptureSession, position: AVCaptureDevicePosition) {
-        // ... do something
-    }
-    
-    public func captureSessionDidSwitchCameras(session: CaptureSession, position: AVCaptureDevicePosition) {
-        guard let capture = captureController?.capture else {
+    public func captureWillSwitchCameras(capture: Capture, device position: AVCaptureDevicePosition) {
+        guard .front == position else {
             return
         }
         
-        if .back == position {
-            capture.session.flashMode = .auto
-            flashButton.image = Icon.flashAuto
-            switchCamerasButton.image = Icon.cameraFront
-        } else {
-            capture.session.flashMode = .off
-            flashButton.image = Icon.flashOff
+        capture.flashMode = .off
+    }
+    
+    public func captureDidSwitchCameras(capture: Capture, device position: AVCaptureDevicePosition) {
+        if .front == position {
+            bar.leftViews = []
             switchCamerasButton.image = Icon.cameraRear
+        } else {
+            capture.flashMode = .auto
+            flashButton.image = Icon.flashAuto
+            bar.leftViews = [flashButton]
+            switchCamerasButton.image = Icon.cameraFront
         }
     }
-}
 
-extension ViewController: CaptureDelegate {
     public func captureDidStartRecordTimer(capture: Capture) {
         guard let toolbar = captureController?.toolbar else {
             return
@@ -296,7 +290,7 @@ extension ViewController: CaptureDelegate {
     }
     
     public func captureDidPressFlashButton(capture: Capture, button: UIButton) {
-        guard .back == capture.session.position else {
+        guard .back == capture.devicePosition else {
             return
         }
         
@@ -304,16 +298,16 @@ extension ViewController: CaptureDelegate {
             return
         }
         
-        switch capture.session.flashMode {
+        switch capture.flashMode {
         case .off:
             b.image = Icon.flashOn
-            capture.session.flashMode = .on
+            capture.flashMode = .on
         case .on:
             b.image = Icon.flashAuto
-            capture.session.flashMode = .auto
+            capture.flashMode = .auto
         case .auto:
             b.image = Icon.flashOff
-            capture.session.flashMode = .off
+            capture.flashMode = .off
         }
     }
     
@@ -335,6 +329,6 @@ extension ViewController: CaptureDelegate {
     }
     
     public func captureDidPressSwitchCamerasButton(capture: Capture, button: UIButton) {
-        // ... do something
+        // Do something ...
     }
 }
