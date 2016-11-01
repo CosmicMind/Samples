@@ -87,6 +87,7 @@ extension AppMenuController {
     
     internal func prepareAddButton() {
         addButton = FabButton(image: Icon.cm.add, tintColor: .white)
+        addButton.pulseColor = .white
         addButton.backgroundColor = Color.red.base
         addButton.addTarget(self, action: #selector(handleToggleMenu), for: .touchUpInside)
     }
@@ -94,6 +95,8 @@ extension AppMenuController {
     internal func prepareAudioLibraryButton() {
         articleMenuItem = MenuItem()
         articleMenuItem.button.image = Icon.cm.edit
+        articleMenuItem.button.tintColor = .white
+        articleMenuItem.button.pulseColor = .white
         articleMenuItem.button.backgroundColor = Color.green.base
         articleMenuItem.button.depthPreset = .depth1
         articleMenuItem.title = "Article"
@@ -102,6 +105,8 @@ extension AppMenuController {
     internal func prepareBellButton() {
         reminderMenuItem = MenuItem()
         reminderMenuItem.button.image = Icon.cm.bell
+        reminderMenuItem.button.tintColor = .white
+        reminderMenuItem.button.pulseColor = .white
         reminderMenuItem.button.backgroundColor = Color.blue.base
         reminderMenuItem.title = "Reminders"
     }

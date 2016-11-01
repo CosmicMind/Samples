@@ -98,15 +98,8 @@ class AppCaptureController: CaptureController {
         bar = Bar()
         bar.heightPreset = .xxlarge
         bar.backgroundColor = nil
-        bar.interimSpacePreset = .interimSpace8
+        bar.interimSpacePreset = .interimSpace7
         bar.contentEdgeInsetsPreset = .square4
-        
-//        bar.backgroundColor = .black
-//        flashButton.backgroundColor = Color.blue.base
-//        videoButton.backgroundColor = Color.blue.base
-//        changeModeButton.backgroundColor = Color.blue.base
-//        changeCameraButton.backgroundColor = Color.blue.base
-//        bar.contentView.backgroundColor = Color.green.base
         
         bar.leftViews = [changeModeButton, flashButton]
         bar.rightViews = [changeCameraButton]
@@ -209,24 +202,6 @@ extension AppCaptureController {
         print("captureStillImageAsynchronously")
     }
     
-    public func capture(capture: Capture, createMovieFileFailedWith error: Error) {
-        print("Capture Failed \(error)")
-    }
-    
-    public func capture(capture: Capture, captureOutput: AVCaptureFileOutput, didStartRecordingToOutputFileAt fileURL: NSURL, fromConnections connections: [Any]) {
-        print("Capture Started Recording \(fileURL)")
-        changeModeButton.isHidden = true
-        changeCameraButton.isHidden = true
-        flashButton.isHidden = true
-    }
-    
-    public func capture(capture: Capture, captureOutput: AVCaptureFileOutput, didFinishRecordingToOutputFileAt outputFileURL: NSURL, fromConnections connections: [Any], error: Error!) {
-        print("Capture Stopped Recording \(outputFileURL)")
-        changeModeButton.isHidden = false
-        changeCameraButton.isHidden = false
-        flashButton.isHidden = false
-    }
-    
     public func capture(capture: Capture, willChangeCamera devicePosition: AVCaptureDevicePosition) {
         guard .front == devicePosition else {
             return
@@ -240,6 +215,19 @@ extension AppCaptureController {
         } else {
             flashButton.isHidden = true
             changeCameraButton.image = Icon.cameraFront
+        }
+    }
+    
+    public func capture(capture: Capture, didChangeFrom previousVideoOrientation: AVCaptureVideoOrientation, to videoOrientation: AVCaptureVideoOrientation) {
+        switch videoOrientation {
+        case .portrait:
+            updateToRotation(angle: 0)
+        case .portraitUpsideDown:
+            updateToRotation(angle: 180)
+        case .landscapeLeft:
+            updateToRotation(angle: -90)
+        case .landscapeRight:
+            updateToRotation(angle: 90)
         }
     }
     
@@ -258,7 +246,7 @@ extension AppCaptureController {
             return
         }
         
-        toolbar.title = String(format: "%02i:%02i:%02i", arguments: [hours, minutes, seconds])
+        toolbar.title = String(format: "%02i:%02i:%02i", hours, minutes, seconds)
     }
     
     public func capture(capture: Capture, didStopRecord timer: Timer, hours: Int, minutes: Int, seconds: Int) {
@@ -292,11 +280,11 @@ extension AppCaptureController {
         }
     }
     
-    func capture(capture: Capture, willChange mode: CaptureMode) {
+    public func capture(capture: Capture, willChange mode: CaptureMode) {
         /// Do something ...
     }
     
-    func capture(capture: Capture, didChange mode: CaptureMode) {
+    public func capture(capture: Capture, didChange mode: CaptureMode) {
         if .photo == mode {
             captureButton.backgroundColor = .white
             changeModeButton.image = Icon.cm.videocam
@@ -317,5 +305,35 @@ extension AppCaptureController {
     
     public func capture(capture: Capture, didPressChangeCamera button: UIButton) {
         // Do something ...
+    }
+    
+    public func capture(capture: Capture, createMovieFileFailedWith error: Error) {
+        print("Capture Failed \(error)")
+    }
+    
+    public func capture(capture: Capture, captureOutput: AVCaptureFileOutput, didStartRecordingToOutputFileAt fileURL: NSURL, fromConnections connections: [Any]) {
+        print("Capture Started Recording \(fileURL)")
+        changeModeButton.isHidden = true
+        changeCameraButton.isHidden = true
+        flashButton.isHidden = true
+    }
+    
+    public func capture(capture: Capture, captureOutput: AVCaptureFileOutput, didFinishRecordingToOutputFileAt outputFileURL: NSURL, fromConnections connections: [Any], error: Error!) {
+        print("Capture Stopped Recording \(outputFileURL)")
+        changeModeButton.isHidden = false
+        changeCameraButton.isHidden = false
+        flashButton.isHidden = .front == capture.devicePosition
+    }
+}
+
+extension AppCaptureController {
+    /**
+     Updates the UI to the given rotation angle.
+     - Parameter angle: A CGFloat.
+     */
+    internal func updateToRotation(angle: CGFloat) {
+        changeModeButton.animate(animation: Motion.rotate(angle: angle))
+        flashButton.animate(animation: Motion.rotate(angle: angle))
+        changeCameraButton.animate(animation: Motion.rotate(angle: angle))
     }
 }

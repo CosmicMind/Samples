@@ -44,6 +44,5 @@ class ViewController: UIViewController {
         }
     
         view.layout(capture).edges()
-        view.sendSubview(toBack: capture)
     }
 }
