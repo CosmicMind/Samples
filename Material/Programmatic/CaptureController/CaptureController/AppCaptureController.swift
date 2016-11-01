@@ -118,7 +118,6 @@ class AppCaptureController: CaptureController {
     
     private func prepareCaptureButton() {
         captureButton = FabButton()
-        captureButton.pulseColor = Color.grey.base
         captureButton.backgroundColor = .white
         captureButton.depthPreset = .none
         bar.contentView.layout(captureButton).width(48).height(48).center()
