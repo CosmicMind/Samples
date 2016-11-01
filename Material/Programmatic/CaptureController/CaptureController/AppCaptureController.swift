@@ -33,7 +33,289 @@ import AVFoundation
 import Material
 
 class AppCaptureController: CaptureController {
-    override func prepare() {
+    /// A reference to the focusView used in focus animations.
+    internal var focusView: UIView?
+    
+    /// A reference to the exposureView used in exposure animations.
+    internal var exposureView: UIView?
+    
+    /// A reference to the resetView used in reset animations.
+    internal var resetView: UIView?
+    
+    /// A reference to the captureButton.
+    internal var captureButton: FabButton!
+    
+    /// A reference to the changeModeButton.
+    internal var changeModeButton: IconButton!
+    
+    /// A reference to the switchCameraButton.
+    internal var changeCameraButton: IconButton!
+    
+    /// A reference to the flashButton.
+    internal var flashButton: IconButton!
+    
+    /// A reference to the bottom bar.
+    internal var bar: Bar!
+    
+    open override func prepare() {
         super.prepare()
+        prepareChangeModeButton()
+        prepareSwitchCameraButton()
+        prepareFlashButton()
+        
+        prepareBar()
+        prepareVisualEffectView()
+        prepareCaptureButton()
+        
+        prepareStatusBar()
+        prepareToolbar()
+        prepareCapture()
+        
+        prepareFocusView()
+        prepareExposureView()
+        prepareResetView()
+    }
+    
+    private func prepareChangeModeButton() {
+        changeModeButton = IconButton(image: Icon.cm.videocam, tintColor: .white)
+        changeModeButton.pulseColor = .white
+        changeModeButton.pulseAnimation = .centerRadialBeyondBounds
+    }
+    
+    private func prepareSwitchCameraButton() {
+        changeCameraButton = IconButton(image: Icon.cameraFront, tintColor: .white)
+        changeCameraButton.pulseColor = .white
+        changeCameraButton.pulseAnimation = .centerRadialBeyondBounds
+    }
+    
+    private func prepareFlashButton() {
+        flashButton = IconButton(image: Icon.flashAuto, tintColor: .white)
+        flashButton.pulseColor = .white
+        flashButton.pulseAnimation = .centerRadialBeyondBounds
+    }
+    
+    private func prepareBar() {
+        bar = Bar()
+        bar.heightPreset = .xxlarge
+        bar.backgroundColor = nil
+        bar.interimSpacePreset = .interimSpace8
+        bar.contentEdgeInsetsPreset = .square4
+        
+//        bar.backgroundColor = .black
+//        flashButton.backgroundColor = Color.blue.base
+//        videoButton.backgroundColor = Color.blue.base
+//        changeModeButton.backgroundColor = Color.blue.base
+//        changeCameraButton.backgroundColor = Color.blue.base
+//        bar.contentView.backgroundColor = Color.green.base
+        
+        bar.leftViews = [changeModeButton, flashButton]
+        bar.rightViews = [changeCameraButton]
+        view.layout(bar).horizontally().bottom()
+    }
+    
+    private func prepareVisualEffectView() {
+        let blurEffect = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        let v = View()
+        v.backgroundColor = nil
+        v.shapePreset = .circle
+        v.clipsToBounds = true
+        v.layout(blurEffect).edges()
+        bar.contentView.layout(v).width(64).height(64).center()
+    }
+    
+    private func prepareCaptureButton() {
+        captureButton = FabButton()
+        captureButton.pulseColor = Color.grey.base
+        captureButton.backgroundColor = .white
+        captureButton.depthPreset = .none
+        bar.contentView.layout(captureButton).width(48).height(48).center()
+    }
+    
+    private func prepareStatusBar() {
+        guard let sc = captureController else {
+            return
+        }
+        
+        sc.isStatusBarHidden = true
+    }
+    
+    private func prepareToolbar() {
+        toolbar.backgroundColor = nil
+        
+        toolbar.title = "00:00:00"
+        toolbar.titleLabel.isHidden = true
+        toolbar.titleLabel.textColor = .white
+        
+        toolbar.detail = "Recording"
+        toolbar.detailLabel.isHidden = true
+        toolbar.detailLabel.textColor = Color.red.accent1
+    }
+    
+    private func prepareCapture() {
+        capture.captureButton = captureButton
+        capture.changeModeButton = changeModeButton
+        capture.changeModeButton = changeModeButton
+        capture.changeCameraButton = changeCameraButton
+        capture.flashButton = flashButton
+    }
+    
+    /// Prepares the focusLayer.
+    private func prepareFocusView() {
+        guard nil == focusView else {
+            return
+        }
+        
+        focusView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        focusView!.isHidden = true
+        focusView!.borderWidth = 2
+        focusView!.borderColor = .white
+        view.addSubview(focusView!)
+    }
+    
+    /// Prepares the exposureLayer.
+    private func prepareExposureView() {
+        guard nil == exposureView else {
+            return
+        }
+        
+        exposureView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        exposureView!.isHidden = true
+        exposureView!.borderWidth = 2
+        exposureView!.borderColor = Color.yellow.darken1
+        view.addSubview(exposureView!)
+    }
+    
+    /// Prepares the resetLayer.
+    private func prepareResetView() {
+        guard nil == resetView else {
+            return
+        }
+        
+        resetView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 150))
+        resetView!.isHidden = true
+        resetView!.borderWidth = 2
+        resetView!.borderColor = Color.red.accent1
+        view.addSubview(resetView!)
+    }
+}
+
+/// CaptureDelegate.
+extension AppCaptureController {
+    public func capture(capture: Capture, failedWith error: Error) {
+        print(error)
+    }
+    
+    public func capture(capture: Capture, asynchronouslyStill image: UIImage) {
+        print("captureStillImageAsynchronously")
+    }
+    
+    public func capture(capture: Capture, createMovieFileFailedWith error: Error) {
+        print("Capture Failed \(error)")
+    }
+    
+    public func capture(capture: Capture, captureOutput: AVCaptureFileOutput, didStartRecordingToOutputFileAt fileURL: NSURL, fromConnections connections: [Any]) {
+        print("Capture Started Recording \(fileURL)")
+        changeModeButton.isHidden = true
+        changeCameraButton.isHidden = true
+        flashButton.isHidden = true
+    }
+    
+    public func capture(capture: Capture, captureOutput: AVCaptureFileOutput, didFinishRecordingToOutputFileAt outputFileURL: NSURL, fromConnections connections: [Any], error: Error!) {
+        print("Capture Stopped Recording \(outputFileURL)")
+        changeModeButton.isHidden = false
+        changeCameraButton.isHidden = false
+        flashButton.isHidden = false
+    }
+    
+    public func capture(capture: Capture, willChangeCamera devicePosition: AVCaptureDevicePosition) {
+        guard .front == devicePosition else {
+            return
+        }
+    }
+    
+    public func capture(capture: Capture, didChangeCamera devicePosition: AVCaptureDevicePosition) {
+        if .front == devicePosition {
+            flashButton.isHidden = false
+            changeCameraButton.image = Icon.cameraRear
+        } else {
+            flashButton.isHidden = true
+            changeCameraButton.image = Icon.cameraFront
+        }
+    }
+    
+    public func capture(capture: Capture, didStartRecord timer: Timer) {
+        guard let toolbar = captureController?.toolbar else {
+            return
+        }
+        
+        toolbar.title = "00:00:00"
+        toolbar.titleLabel.isHidden = false
+        toolbar.detailLabel.isHidden = false
+    }
+    
+    public func capture(capture: Capture, didUpdateRecord timer: Timer, hours: Int, minutes: Int, seconds: Int) {
+        guard let toolbar = captureController?.toolbar else {
+            return
+        }
+        
+        toolbar.title = String(format: "%02i:%02i:%02i", arguments: [hours, minutes, seconds])
+    }
+    
+    public func capture(capture: Capture, didStopRecord timer: Timer, hours: Int, minutes: Int, seconds: Int) {
+        guard let toolbar = captureController?.toolbar else {
+            return
+        }
+        
+        toolbar.titleLabel.isHidden = true
+        toolbar.detailLabel.isHidden = true
+    }
+    
+    public func capture(capture: Capture, didPressFlash button: UIButton) {
+        guard .back == capture.devicePosition else {
+            return
+        }
+        
+        guard let b = button as? Button else {
+            return
+        }
+        
+        switch capture.flashMode {
+        case .off:
+            b.image = Icon.flashOn
+            capture.flashMode = .on
+        case .on:
+            b.image = Icon.flashAuto
+            capture.flashMode = .auto
+        case .auto:
+            b.image = Icon.flashOff
+            capture.flashMode = .off
+        }
+    }
+    
+    func capture(capture: Capture, willChange mode: CaptureMode) {
+        /// Do something ...
+    }
+    
+    func capture(capture: Capture, didChange mode: CaptureMode) {
+        if .photo == mode {
+            captureButton.backgroundColor = .white
+            changeModeButton.image = Icon.cm.videocam
+        } else {
+            captureButton.backgroundColor = Color.red.base
+            changeModeButton.image = Icon.cm.photoCamera
+        }
+    }
+    
+    public func capture(capture: Capture, didPressCapture button: UIButton) {
+        switch capture.mode {
+        case .photo:
+            return
+        case .video:
+            return
+        }
+    }
+    
+    public func capture(capture: Capture, didPressChangeCamera button: UIButton) {
+        // Do something ...
     }
 }
