@@ -6,6 +6,6 @@ target 'PhotoLibraryController' do
   use_frameworks!
 
   # Pods for Card
-pod 'Material', '~> 2.0'
+pod 'Material/Photos', '~> 2.0'
 
 end

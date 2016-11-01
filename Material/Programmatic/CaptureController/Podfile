@@ -6,6 +6,6 @@ target 'CaptureController' do
   use_frameworks!
 
   # Pods for Card
-pod 'Material', '~> 2.0'
+pod 'Material/Capture', '~> 2.0'
 
 end

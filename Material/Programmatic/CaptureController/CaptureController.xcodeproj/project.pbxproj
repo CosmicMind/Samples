@@ -12,8 +12,6 @@
 		96784F7B1D901FB90061C06C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96784F7A1D901FB90061C06C /* Assets.xcassets */; };
 		96784F7E1D901FB90061C06C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96784F7C1D901FB90061C06C /* LaunchScreen.storyboard */; };
 		96B060691DC67D2D0008E31F /* AppCaptureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B060681DC67D2D0008E31F /* AppCaptureController.swift */; };
-		96E55C7D1DC8FA8B00ED0331 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E55C7C1DC8FA8B00ED0331 /* Material.framework */; };
-		96E55C7E1DC8FA8B00ED0331 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96E55C7C1DC8FA8B00ED0331 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,7 +21,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				96E55C7E1DC8FA8B00ED0331 /* Material.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,7 +35,6 @@
 		96784F7D1D901FB90061C06C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96784F7F1D901FB90061C06C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96B060681DC67D2D0008E31F /* AppCaptureController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCaptureController.swift; sourceTree = "<group>"; };
-		96E55C7C1DC8FA8B00ED0331 /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +42,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96E55C7D1DC8FA8B00ED0331 /* Material.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +51,6 @@
 		96784F671D901FB90061C06C = {
 			isa = PBXGroup;
 			children = (
-				96E55C7C1DC8FA8B00ED0331 /* Material.framework */,
 				96784F721D901FB90061C06C /* CaptureController */,
 				96784F711D901FB90061C06C /* Products */,
 			);
@@ -116,7 +110,6 @@
 				TargetAttributes = {
 					96784F6F1D901FB90061C06C = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 9Z76XCNLGL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -275,7 +268,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CaptureController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.CaptureController;
@@ -288,7 +281,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CaptureController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.CaptureController;
