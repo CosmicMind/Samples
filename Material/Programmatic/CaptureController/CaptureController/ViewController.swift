@@ -82,35 +82,43 @@ class ViewController: UIViewController {
     
     private func prepareCameraButton() {
         cameraButton = IconButton(image: Icon.cm.photoCamera, tintColor: .white)
-        cameraButton.width = 72
-        cameraButton.height = 72
+        cameraButton.pulseColor = .white
         cameraButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
     private func prepareVideoButton() {
         videoButton = IconButton(image: Icon.cm.videocam, tintColor: .white)
-        videoButton.width = 72
-        videoButton.height = 72
+        videoButton.pulseColor = .white
         videoButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
     private func prepareSwitchCamerasButton() {
         switchCamerasButton = IconButton(image: Icon.cameraFront, tintColor: .white)
+        switchCamerasButton.pulseColor = .white
         switchCamerasButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
     private func prepareFlashButton() {
         flashButton = IconButton(image: Icon.flashAuto, tintColor: .white)
+        flashButton.pulseColor = .white
         flashButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
     private func prepareBar() {
         bar = Bar()
-        bar.height = 110
+        bar.heightPreset = .xxlarge
         bar.backgroundColor = nil
-        bar.interimSpacePreset = .interimSpace14
-        bar.contentEdgeInsetsPreset = .wideRectangle7
-        bar.leftViews = [flashButton]
+        bar.interimSpacePreset = .interimSpace8
+        bar.contentEdgeInsetsPreset = .square4
+        
+//        bar.backgroundColor = .black
+//        flashButton.backgroundColor = Color.blue.base
+//        videoButton.backgroundColor = Color.blue.base
+//        cameraButton.backgroundColor = Color.blue.base
+//        switchCamerasButton.backgroundColor = Color.blue.base
+//        bar.contentView.backgroundColor = Color.green.base
+        
+        bar.leftViews = [videoButton, flashButton]
         bar.rightViews = [switchCamerasButton]
         view.layout(bar).horizontally().bottom()
     }
@@ -127,6 +135,7 @@ class ViewController: UIViewController {
     
     private func prepareCaptureButton() {
         captureButton = FabButton()
+        captureButton.pulseColor = Color.grey.base
         captureButton.backgroundColor = .white
         captureButton.depthPreset = .none
         bar.contentView.layout(captureButton).width(48).height(48).center()
@@ -252,12 +261,12 @@ extension ViewController: CaptureDelegate {
     
     public func captureDidSwitchCameras(capture: Capture, device position: AVCaptureDevicePosition) {
         if .front == position {
-            bar.leftViews = []
+            flashButton.isHidden = true
             switchCamerasButton.image = Icon.cameraRear
         } else {
             capture.flashMode = .auto
             flashButton.image = Icon.flashAuto
-            bar.leftViews = [flashButton]
+            flashButton.isHidden = false
             switchCamerasButton.image = Icon.cameraFront
         }
     }
@@ -312,11 +321,14 @@ extension ViewController: CaptureDelegate {
     }
     
     public func captureDidPressCameraButton(capture: Capture, button: UIButton) {
-        captureButton.backgroundColor = Color.blue.darken1.withAlphaComponent(0.3)
+        captureButton.backgroundColor = .white
+        
+        bar.leftViews = [videoButton, flashButton]
     }
     
     public func captureDidPressVideoButton(capture: Capture, button: UIButton) {
-        captureButton.backgroundColor = .white
+        captureButton.backgroundColor = Color.red.base
+        bar.leftViews = [cameraButton, flashButton]
     }
     
     public func captureDidPressCaptureButton(capture: Capture, button: UIButton) {

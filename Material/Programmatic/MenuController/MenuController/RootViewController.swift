@@ -69,7 +69,8 @@ class RootViewController: UIViewController {
     }
     
     private func prepareAddButton() {
-        addButton = FabButton(image: Icon.cm.add)
+        addButton = FabButton(image: Icon.cm.add, tintColor: .white)
+        addButton.backgroundColor = Color.red.base
         addButton.addTarget(self, action: #selector(handleToggleMenu), for: .touchUpInside)
     }
     

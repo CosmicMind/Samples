@@ -34,13 +34,13 @@ import Material
 struct ButtonLayout {
     struct Flat {
         static let width: CGFloat = 120
-        static let height: CGFloat = 36
+        static let height: CGFloat = 44
         static let offsetY: CGFloat = -150
     }
     
     struct Raised {
         static let width: CGFloat = 150
-        static let height: CGFloat = 36
+        static let height: CGFloat = 44
         static let offsetY: CGFloat = -75
     }
     
@@ -88,6 +88,8 @@ class ViewController: UIViewController {
     
     private func prepareFabButton() {
         let button = FabButton(image: Icon.cm.add, tintColor: .white)
+        button.pulseColor = .white
+        button.backgroundColor = Color.red.base
         
         view.layout(button)
             .width(ButtonLayout.Fab.diameter)
