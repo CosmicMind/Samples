@@ -210,10 +210,10 @@ extension AppCaptureController {
     public func capture(capture: Capture, didChangeCamera devicePosition: AVCaptureDevicePosition) {
         if .front == devicePosition {
             flashButton.isHidden = false
-            changeCameraButton.image = Icon.cameraRear
+            changeCameraButton.image = Icon.cameraFront
         } else {
             flashButton.isHidden = true
-            changeCameraButton.image = Icon.cameraFront
+            changeCameraButton.image = Icon.cameraRear
         }
     }
     
