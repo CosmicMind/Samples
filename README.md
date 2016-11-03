@@ -32,7 +32,7 @@ We moved all samples to a separate repo to allow their development to be indepen
 
 Visit the [Installation](https://github.com/CosmicMind/Samples/wiki/Installation) page to learn how to install sample projects using [CocoaPods](http://cocoapods.org)
 
-To install all pods, use the following: 
+To install all pods, use the following script: 
 
 ```bash
 $ ./install_all_pods.sh
