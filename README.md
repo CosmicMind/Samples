@@ -30,7 +30,7 @@ We moved all samples to a separate repo to allow their development to be indepen
 > - All projects use [CocoaPods](http://cocoapods.org)
 > - [Download Samples](https://github.com/CosmicMind/Samples/archive/master.zip)
 
-Visit the [Installation](https://github.com/CosmicMind/Samples/wiki/Installation) page to learn how to install sample projects using [CocoaPods](http://cocoapods.org)
+Visit the [Installation](https://github.com/CosmicMind/Samples/wiki/Installation) page to learn how to install sample projects using [CocoaPods](http://cocoapods.org).
 
 To install all pods, use the following script: 
 
