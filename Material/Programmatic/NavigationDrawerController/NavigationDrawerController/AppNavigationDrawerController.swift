@@ -36,6 +36,7 @@ class AppNavigationDrawerController: NavigationDrawerController {
         super.prepare()
         
         delegate = self
+        statusBarStyle = .default
     }
 }
 

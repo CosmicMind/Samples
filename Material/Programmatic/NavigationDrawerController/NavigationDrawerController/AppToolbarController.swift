@@ -38,8 +38,6 @@ class AppToolbarController: ToolbarController {
     
     override func prepare() {
         super.prepare()
-        statusBarStyle = .default
-    
         prepareMenuButton()
         prepareSwitch()
         prepareMoreButton()

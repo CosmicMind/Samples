@@ -281,7 +281,7 @@ extension PhotoLibraryViewController: UICollectionViewDataSource {
         // Progress handler, called in an arbitrary serial queue. Only called
         // when the data is not available locally and is retrieved from iCloud.
         options.progressHandler = { (progress, error, stop, info) in
-            print("Downloading from iCloud", progress, error, stop, info)
+            //print("Downloading from iCloud", progress, error, stop, info)
         }
         
         cell.tag = Int(photoLibrary.requestImage(for: asset, targetSize: itemSize, contentMode: .aspectFit, options: options) { (image, info) in
