@@ -33,45 +33,48 @@ import Material
 
 class ViewController: UIViewController {
     /// A reference to the Bar.
-    private var bar: Bar!
+    fileprivate var bar: Bar!
     
     /// Left buttons.
-    private var menuButton: IconButton!
+    fileprivate var menuButton: IconButton!
     
     /// Right buttons.
-    private var favoriteButton: IconButton!
-    private var shareButton: IconButton!
+    fileprivate var favoriteButton: IconButton!
+    fileprivate var shareButton: IconButton!
     
     /// Title label.
-    private var titleLabel: UILabel!
+    fileprivate var titleLabel: UILabel!
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        prepareMenuButton()
-        prepareFavoriteButton()
-        prepareShareButton()
+        //prepareMenuButton()
+        //prepareFavoriteButton()
+        //prepareShareButton()
         prepareBar()
     }
-    
-    private func prepareMenuButton() {
+}
+
+extension ViewController {
+    fileprivate func prepareMenuButton() {
         menuButton = IconButton(image: Icon.cm.menu, tintColor: .white)
         menuButton.pulseColor = .white
     }
     
-    private func prepareFavoriteButton() {
+    fileprivate func prepareFavoriteButton() {
         favoriteButton = IconButton(image: Icon.favorite, tintColor: .white)
         favoriteButton.pulseColor = .white
     }
     
-    private func prepareShareButton() {
+    fileprivate func prepareShareButton() {
         shareButton = IconButton(image: Icon.cm.share, tintColor: .white)
         shareButton.pulseColor = .white
     }
     
-    private func prepareBar() {
-        bar = Bar(leftViews: [menuButton], rightViews: [favoriteButton, shareButton])
+    fileprivate func prepareBar() {
+        //bar = Bar(leftViews: [menuButton], rightViews: [favoriteButton, shareButton])
+        bar = Bar()
         bar.backgroundColor = Color.blue.base
         
         bar.contentView.cornerRadiusPreset = .cornerRadius1

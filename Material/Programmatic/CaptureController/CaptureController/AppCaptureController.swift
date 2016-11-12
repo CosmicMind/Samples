@@ -100,6 +100,7 @@ class AppCaptureController: CaptureController {
         bar.backgroundColor = nil
         bar.interimSpacePreset = .interimSpace7
         bar.contentEdgeInsetsPreset = .square4
+        bar.contentViewAlignment = .center
         
         bar.leftViews = [changeModeButton, flashButton]
         bar.rightViews = [changeCameraButton]

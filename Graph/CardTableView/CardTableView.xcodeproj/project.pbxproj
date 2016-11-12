@@ -79,7 +79,6 @@
 			children = (
 				96B5DF5C1DBADCA600A15DCE /* CardTableView */,
 				96B5DEA51DB8572600A15DCE /* Products */,
-				96B5DFCD1DBBC5A900A15DCE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,13 +122,6 @@
 				96A375E61DBD070B00FBB799 /* photo8.jpg */,
 			);
 			name = Photos;
-			sourceTree = "<group>";
-		};
-		96B5DFCD1DBBC5A900A15DCE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

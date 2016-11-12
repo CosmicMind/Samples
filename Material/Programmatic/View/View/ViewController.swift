@@ -32,16 +32,18 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    private var logo: View!
+    fileprivate var logo: View!
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        prepareView()
+        prepareLogo()
     }
-    
-    private func prepareView() {
+}
+
+extension ViewController {
+    fileprivate func prepareLogo() {
         let d: CGFloat = 100
         
         logo = View()
