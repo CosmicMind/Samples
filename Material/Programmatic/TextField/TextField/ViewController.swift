@@ -77,7 +77,7 @@ class ViewController: UIViewController {
         nameField.isClearIconButtonEnabled = true
         
         let leftView = UIImageView()
-        leftView.image = Icon.phone?.tint(with: Color.blue.base)
+        leftView.image = Icon.phone
         
         nameField.leftView = leftView
         nameField.leftViewMode = .always
@@ -93,10 +93,12 @@ class ViewController: UIViewController {
         emailField.delegate = self
         
         let leftView = UIImageView()
-        leftView.image = Icon.email?.tint(with: Color.blue.base)
+        leftView.image = Icon.email
         
         emailField.leftView = leftView
         emailField.leftViewMode = .always
+        emailField.leftViewNormalColor = .brown
+        emailField.leftViewActiveColor = .green
         
         // Set the colors for the emailField, different from the defaults.
 //        emailField.placeholderNormalColor = Color.amber.darken4
