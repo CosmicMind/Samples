@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let leftViewController = LeftViewController()
         let rightViewController = RightViewController()
         
-        window = UIWindow(frame: Device.bounds)
+        window = UIWindow(frame: Screen.bounds)
         window!.rootViewController = AppNavigationDrawerController(rootViewController: appToolbarController, leftViewController: leftViewController, rightViewController: rightViewController)
         window!.makeKeyAndVisible()
     }

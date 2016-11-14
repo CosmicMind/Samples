@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let toolbarController = AppToolbarController(rootViewController: pageTabBarController)
         let menuController = AppMenuController(rootViewController: toolbarController)
         
-        window = UIWindow(frame: Device.bounds)
+        window = UIWindow(frame: Screen.bounds)
         window!.rootViewController = menuController
         window!.makeKeyAndVisible()
     }

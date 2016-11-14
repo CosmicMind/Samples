@@ -105,7 +105,7 @@ class CardTableViewCell: TableViewCell {
     open override func prepare() {
         super.prepare()
         
-        layer.rasterizationScale = Device.scale
+        layer.rasterizationScale = Screen.scale
         layer.shouldRasterize = true
         
         pulseAnimation = .none

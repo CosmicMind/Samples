@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
-        window = UIWindow(frame: Device.bounds)
+        window = UIWindow(frame: Screen.bounds)
         window!.rootViewController = AppNavigationDrawerController(rootViewController: rootViewController,
                                                                    leftViewController: leftViewController,
                                                                    rightViewController: rightViewController)
