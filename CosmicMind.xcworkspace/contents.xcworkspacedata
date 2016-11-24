@@ -112,5 +112,8 @@
       <FileRef
          location = "group:Search/Search.xcodeproj">
       </FileRef>
+      <FileRef
+         location = "group:Watch/Watch.xcodeproj">
+      </FileRef>
    </Group>
 </Workspace>

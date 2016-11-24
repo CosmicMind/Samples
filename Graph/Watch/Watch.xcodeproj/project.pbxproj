@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96B5B0291D936DBC00449DDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5B0281D936DBC00449DDD /* AppDelegate.swift */; };
-		96B5B02B1D936DBC00449DDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5B02A1D936DBC00449DDD /* ViewController.swift */; };
-		96B5B0301D936DBC00449DDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B5B02F1D936DBC00449DDD /* Assets.xcassets */; };
-		96B5B0331D936DBC00449DDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B5B0311D936DBC00449DDD /* LaunchScreen.storyboard */; };
+		965591BC1DE3B1C8001576E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965591BB1DE3B1C8001576E7 /* AppDelegate.swift */; };
+		965591BE1DE3B1C8001576E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965591BD1DE3B1C8001576E7 /* ViewController.swift */; };
+		965591C31DE3B1C8001576E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 965591C21DE3B1C8001576E7 /* Assets.xcassets */; };
+		965591C61DE3B1C8001576E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 965591C41DE3B1C8001576E7 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		96B5B03D1D937E5400449DDD /* Embed Frameworks */ = {
+		965591D31DE3B59D001576E7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -27,16 +27,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		96B5B0251D936DBC00449DDD /* Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Card.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		96B5B0281D936DBC00449DDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		96B5B02A1D936DBC00449DDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		96B5B02F1D936DBC00449DDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		96B5B0321D936DBC00449DDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		96B5B0341D936DBC00449DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		965591B81DE3B1C8001576E7 /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		965591BB1DE3B1C8001576E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		965591BD1DE3B1C8001576E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		965591C21DE3B1C8001576E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		965591C51DE3B1C8001576E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		965591C71DE3B1C8001576E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		96B5B0221D936DBC00449DDD /* Frameworks */ = {
+		965591B51DE3B1C8001576E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,72 +46,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		96B5B01C1D936DBC00449DDD = {
+		965591AF1DE3B1C8001576E7 = {
 			isa = PBXGroup;
 			children = (
-				96B5B0271D936DBC00449DDD /* Card */,
-				96B5B0261D936DBC00449DDD /* Products */,
+				965591BA1DE3B1C8001576E7 /* Watch */,
+				965591B91DE3B1C8001576E7 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		96B5B0261D936DBC00449DDD /* Products */ = {
+		965591B91DE3B1C8001576E7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96B5B0251D936DBC00449DDD /* Card.app */,
+				965591B81DE3B1C8001576E7 /* Watch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		96B5B0271D936DBC00449DDD /* Card */ = {
+		965591BA1DE3B1C8001576E7 /* Watch */ = {
 			isa = PBXGroup;
 			children = (
-				96B5B0281D936DBC00449DDD /* AppDelegate.swift */,
-				96B5B02A1D936DBC00449DDD /* ViewController.swift */,
-				96B5B02F1D936DBC00449DDD /* Assets.xcassets */,
-				96B5B0311D936DBC00449DDD /* LaunchScreen.storyboard */,
-				96B5B0341D936DBC00449DDD /* Info.plist */,
+				965591BB1DE3B1C8001576E7 /* AppDelegate.swift */,
+				965591BD1DE3B1C8001576E7 /* ViewController.swift */,
+				965591C21DE3B1C8001576E7 /* Assets.xcassets */,
+				965591C41DE3B1C8001576E7 /* LaunchScreen.storyboard */,
+				965591C71DE3B1C8001576E7 /* Info.plist */,
 			);
-			path = Card;
+			path = Watch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96B5B0241D936DBC00449DDD /* Card */ = {
+		965591B71DE3B1C8001576E7 /* Watch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96B5B0371D936DBC00449DDD /* Build configuration list for PBXNativeTarget "Card" */;
+			buildConfigurationList = 965591CA1DE3B1C8001576E7 /* Build configuration list for PBXNativeTarget "Watch" */;
 			buildPhases = (
-				96B5B0211D936DBC00449DDD /* Sources */,
-				96B5B0221D936DBC00449DDD /* Frameworks */,
-				96B5B0231D936DBC00449DDD /* Resources */,
-				96B5B03D1D937E5400449DDD /* Embed Frameworks */,
+				965591B41DE3B1C8001576E7 /* Sources */,
+				965591B51DE3B1C8001576E7 /* Frameworks */,
+				965591B61DE3B1C8001576E7 /* Resources */,
+				965591D31DE3B59D001576E7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Card;
-			productName = Card;
-			productReference = 96B5B0251D936DBC00449DDD /* Card.app */;
+			name = Watch;
+			productName = Watch;
+			productReference = 965591B81DE3B1C8001576E7 /* Watch.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		96B5B01D1D936DBC00449DDD /* Project object */ = {
+		965591B01DE3B1C8001576E7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0810;
-				ORGANIZATIONNAME = CosmicMind;
+				ORGANIZATIONNAME = "CosmicMind, Inc.";
 				TargetAttributes = {
-					96B5B0241D936DBC00449DDD = {
-						CreatedOnToolsVersion = 8.0;
+					965591B71DE3B1C8001576E7 = {
+						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 96B5B0201D936DBC00449DDD /* Build configuration list for PBXProject "Card" */;
+			buildConfigurationList = 965591B31DE3B1C8001576E7 /* Build configuration list for PBXProject "Watch" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -119,45 +119,45 @@
 				en,
 				Base,
 			);
-			mainGroup = 96B5B01C1D936DBC00449DDD;
-			productRefGroup = 96B5B0261D936DBC00449DDD /* Products */;
+			mainGroup = 965591AF1DE3B1C8001576E7;
+			productRefGroup = 965591B91DE3B1C8001576E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96B5B0241D936DBC00449DDD /* Card */,
+				965591B71DE3B1C8001576E7 /* Watch */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		96B5B0231D936DBC00449DDD /* Resources */ = {
+		965591B61DE3B1C8001576E7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96B5B0331D936DBC00449DDD /* LaunchScreen.storyboard in Resources */,
-				96B5B0301D936DBC00449DDD /* Assets.xcassets in Resources */,
+				965591C61DE3B1C8001576E7 /* LaunchScreen.storyboard in Resources */,
+				965591C31DE3B1C8001576E7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		96B5B0211D936DBC00449DDD /* Sources */ = {
+		965591B41DE3B1C8001576E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96B5B02B1D936DBC00449DDD /* ViewController.swift in Sources */,
-				96B5B0291D936DBC00449DDD /* AppDelegate.swift in Sources */,
+				965591BE1DE3B1C8001576E7 /* ViewController.swift in Sources */,
+				965591BC1DE3B1C8001576E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		96B5B0311D936DBC00449DDD /* LaunchScreen.storyboard */ = {
+		965591C41DE3B1C8001576E7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				96B5B0321D936DBC00449DDD /* Base */,
+				965591C51DE3B1C8001576E7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -165,7 +165,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		96B5B0351D936DBC00449DDD /* Debug */ = {
+		965591C81DE3B1C8001576E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -183,7 +183,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -206,7 +205,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -216,7 +215,7 @@
 			};
 			name = Debug;
 		};
-		96B5B0361D936DBC00449DDD /* Release */ = {
+		965591C91DE3B1C8001576E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -234,7 +233,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -251,7 +249,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -260,27 +258,27 @@
 			};
 			name = Release;
 		};
-		96B5B0381D936DBC00449DDD /* Debug */ = {
+		965591CB1DE3B1C8001576E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Card/Info.plist;
+				INFOPLIST_FILE = Watch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.Card;
+				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.Watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		96B5B0391D936DBC00449DDD /* Release */ = {
+		965591CC1DE3B1C8001576E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Card/Info.plist;
+				INFOPLIST_FILE = Watch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.Card;
+				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.Watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -289,25 +287,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		96B5B0201D936DBC00449DDD /* Build configuration list for PBXProject "Card" */ = {
+		965591B31DE3B1C8001576E7 /* Build configuration list for PBXProject "Watch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96B5B0351D936DBC00449DDD /* Debug */,
-				96B5B0361D936DBC00449DDD /* Release */,
+				965591C81DE3B1C8001576E7 /* Debug */,
+				965591C91DE3B1C8001576E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96B5B0371D936DBC00449DDD /* Build configuration list for PBXNativeTarget "Card" */ = {
+		965591CA1DE3B1C8001576E7 /* Build configuration list for PBXNativeTarget "Watch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96B5B0381D936DBC00449DDD /* Debug */,
-				96B5B0391D936DBC00449DDD /* Release */,
+				965591CB1DE3B1C8001576E7 /* Debug */,
+				965591CC1DE3B1C8001576E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 96B5B01D1D936DBC00449DDD /* Project object */;
+	rootObject = 965591B01DE3B1C8001576E7 /* Project object */;
 }
