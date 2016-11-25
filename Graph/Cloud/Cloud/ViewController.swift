@@ -31,35 +31,43 @@
 import UIKit
 import Material
 import Graph
-import Algorithm
 
 class ViewController: UIViewController {
     fileprivate var graph: Graph!
-    fileprivate var watch: Watch<Entity>!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         prepareGraph()
-        prepareWatch()
     }
 }
 
 extension ViewController {
     fileprivate func prepareGraph() {
-        graph = Graph()
-    }
-    
-    fileprivate func prepareWatch() {
-        watch = Watch<Entity>(graph: graph).for(types: "User").has(tags: "new").member(of: "admin").where(properties: "age")
-        watch.delegate = self
+        graph = Graph(cloud: "MyCloudContainer")
+        graph.delegate = self
     }
 }
 
-extension ViewController: WatchEntityDelegate {
+extension ViewController: GraphDelegate {
     @objc
-    func watch(graph: Graph, inserted entity: Entity, source: GraphSource) {
+    func graphWillPrepareCloudStorage(graph: Graph, transition: GraphCloudStorageTransition) {
+        
+    }
+    
+    @objc
+    func graphDidPrepareCloudStorage(graph: Graph) {
+        
+    }
+    
+    @objc
+    func graphWillUpdateFromCloudStorage(graph: Graph) {
+        
+    }
+    
+    @objc
+    func graphDidUpdateFromCloudStorage(graph: Graph) {
         
     }
 }

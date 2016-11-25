@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <FileRef
+      location = "group:../Material/Material.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Graph/Graph.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../Algorithm/Algorithm.xcodeproj">
+   </FileRef>
    <Group
       location = "group:Material"
       name = "Material">
@@ -105,6 +114,9 @@
       name = "Graph">
       <FileRef
          location = "group:CardTableView/CardTableView.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Cloud/Cloud.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:ImageCard/ImageCard.xcodeproj">

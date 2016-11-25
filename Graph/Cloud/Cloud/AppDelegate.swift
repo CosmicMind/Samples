@@ -30,37 +30,16 @@
 
 import UIKit
 import Material
-import Graph
-import Algorithm
 
-class ViewController: UIViewController {
-    fileprivate var graph: Graph!
-    fileprivate var watch: Watch<Entity>!
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        prepareGraph()
-        prepareWatch()
-    }
-}
-
-extension ViewController {
-    fileprivate func prepareGraph() {
-        graph = Graph()
-    }
+    var window: UIWindow?
     
-    fileprivate func prepareWatch() {
-        watch = Watch<Entity>(graph: graph).for(types: "User").has(tags: "new").member(of: "admin").where(properties: "age")
-        watch.delegate = self
-    }
-}
-
-extension ViewController: WatchEntityDelegate {
-    @objc
-    func watch(graph: Graph, inserted entity: Entity, source: GraphSource) {
-        
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = ViewController()
+        window!.makeKeyAndVisible()
     }
 }
 
