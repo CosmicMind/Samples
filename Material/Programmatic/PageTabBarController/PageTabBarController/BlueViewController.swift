@@ -46,8 +46,10 @@ class BlueViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Color.blue.base
     }
-    
-    private func preparePageTabBarItem() {
+}
+
+extension BlueViewController {
+    fileprivate func preparePageTabBarItem() {
         pageTabBarItem.title = "Blue"
         pageTabBarItem.titleColor = Color.blueGrey.base
     }

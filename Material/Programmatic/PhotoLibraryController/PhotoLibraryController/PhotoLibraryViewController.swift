@@ -42,16 +42,16 @@ public struct PhotoLibraryDataSource {
 
 class PhotoLibraryViewController: PhotoLibraryController {
     /// A collectionView used to display entries.
-    internal var collectionView: PhotoLibraryCollectionView!
+    fileprivate var collectionView: PhotoLibraryCollectionView!
     
     /// A reference to the images cache.
-    internal lazy var images = [IndexPath: PHAsset]()
+    fileprivate lazy var images = [IndexPath: PHAsset]()
     
     /// A reference to the current collection.
-    internal var currentDataSource: PhotoLibraryDataSource?
+    fileprivate var currentDataSource: PhotoLibraryDataSource?
     
     /// The assets used in the album.
-    public private(set) var dataSourceItems = [PhotoLibraryDataSource]() {
+    fileprivate var dataSourceItems = [PhotoLibraryDataSource]() {
         willSet {
             guard .authorized == photoLibrary.authorizationStatus else {
                 return
@@ -79,14 +79,64 @@ class PhotoLibraryViewController: PhotoLibraryController {
         
         photoLibrary.requestAuthorization()
     }
+}
+
+extension PhotoLibraryViewController {
+    /// Prepares the collectionView.
+    fileprivate func prepareCollectionView() {
+        let columns: CGFloat = .phone == Device.userInterfaceIdiom ? 3 : 11
+        let w: CGFloat = (view.bounds.width - (columns - 1)) / columns
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: w, height: w)
+        layout.headerReferenceSize = CGSize(width: view.bounds.width, height: 44)
+        layout.sectionHeadersPinToVisibleBounds = true
+        
+        collectionView = PhotoLibraryCollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        view.layout(collectionView).edges()
+    }
     
+    /// Prepares dataSourceItems.
+    fileprivate func prepareDataSource(dataSource: PhotoLibraryDataSource) {
+        DispatchQueue.main.async { [weak self] in
+            guard let s = self else {
+                return
+            }
+            s.collectionView.reloadData()
+        }
+    }
+    
+    /// Prepares the collection.
+    fileprivate func prepareCollection() {
+        dataSourceItems.removeAll()
+        
+        fetchAssetCollections(with: .moment, subtype: .any) { [weak self] (assetCollections) in
+            guard let s = self else {
+                return
+            }
+            
+            if let v = assetCollections.first {
+                s.currentDataSource = v
+                s.prepareDataSource(dataSource: v)
+            }
+        }
+    }
+}
+
+extension PhotoLibraryViewController {
     /**
      Fetch all the PHAssetCollections asynchronously based on a type and subtype.
      - Parameter type: A PHAssetCollectionType.
      - Parameter subtype: A PHAssetCollectionSubtype.
      - Parameter completion: A completion block.
      */
-    internal func fetchAssetCollections(with type: PHAssetCollectionType, subtype: PHAssetCollectionSubtype, completion: @escaping ([PhotoLibraryDataSource]) -> Void) {
+    fileprivate func fetchAssetCollections(with type: PHAssetCollectionType, subtype: PHAssetCollectionSubtype, completion: @escaping ([PhotoLibraryDataSource]) -> Void) {
         DispatchQueue.global(qos: .default).async { [weak self] in
             guard let s = self else {
                 return
@@ -123,56 +173,6 @@ class PhotoLibraryViewController: PhotoLibraryController {
                 }
                 
                 completion(s.dataSourceItems)
-            }
-        }
-    }
-    
-    /// Prepares the collectionView.
-    internal func prepareCollectionView() {
-        let columns: CGFloat = .phone == Device.userInterfaceIdiom ? 3 : 11
-        let w: CGFloat = (view.bounds.width - (columns - 1)) / columns
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 1
-        layout.minimumInteritemSpacing = 1
-        layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: w, height: w)
-        layout.headerReferenceSize = CGSize(width: view.bounds.width, height: 44)
-        layout.sectionHeadersPinToVisibleBounds = true
-        
-        collectionView = PhotoLibraryCollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        view.layout(collectionView).edges()
-    }
-    
-    /// Prepares dataSourceItems.
-    internal func prepareDataSource(dataSource: PhotoLibraryDataSource) {
-        DispatchQueue.main.async { [weak self] in
-            guard let s = self else {
-                return
-            }
-            s.collectionView.reloadData()
-        }
-    }
-    
-    /// Prepares the collection.
-    internal func prepareCollection() {
-        dataSourceItems.removeAll()
-        
-        fetchAssetCollections(with: .moment, subtype: .any) { [weak self] (assetCollections) in
-            guard let s = self else {
-                return
-            }
-            
-            for dataSource in assetCollections {
-                print(dataSource.collection.localizedTitle, dataSource.assets.count)
-            }
-            
-            if let v = assetCollections.first {
-                s.currentDataSource = v
-                s.prepareDataSource(dataSource: v)
             }
         }
     }
@@ -225,8 +225,6 @@ extension PhotoLibraryViewController {
     }
     
     func photoLibrary(photoLibrary: PhotoLibrary, removedIndexes: IndexSet?, insertedIndexes: IndexSet?, changedIndexes: IndexSet?, has moves: [PhotoLibraryMove]) {
-        print("Removed", removedIndexes, "Inserted", insertedIndexes, "Changed", changedIndexes, "Moves", moves)
-        
         if nil == removedIndexes && nil == insertedIndexes && nil == changedIndexes {
             return
         }

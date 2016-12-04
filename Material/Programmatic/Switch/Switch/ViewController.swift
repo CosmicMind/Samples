@@ -32,15 +32,16 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         prepareSwitch()
     }
-    
-    private func prepareSwitch() {
+}
+
+extension ViewController {
+    fileprivate func prepareSwitch() {
         let control = Switch(state: .off, style: .light, size: .small)
         control.delegate = self
         

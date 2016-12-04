@@ -32,8 +32,7 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    /// View.
-    internal var imageCard: ImageCard!
+    fileprivate var imageCard: ImageCard!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +43,8 @@ class ViewController: UIViewController {
     }
 }
 
-/// ImageCard.
 extension ViewController {
-    internal func prepareImageCard() {
+    fileprivate func prepareImageCard() {
         imageCard = ImageCard()
         
         prepareToolbar()
@@ -55,12 +53,11 @@ extension ViewController {
         prepareBottomBar()
     }
     
-    private func prepareToolbar() {
+    fileprivate func prepareToolbar() {
         imageCard.toolbar = Toolbar()
         imageCard.toolbar?.backgroundColor = .clear
         imageCard.toolbarEdgeInsetsPreset = .square3
         
-        // Use the property subscript to access the model data.
         imageCard.toolbar?.title = "Graph"
         imageCard.toolbar?.titleLabel.textColor = .white
         
@@ -68,12 +65,12 @@ extension ViewController {
         imageCard.toolbar?.detailLabel.textColor = .white
     }
     
-    private func prepareImageView() {
+    fileprivate func prepareImageView() {
         imageCard.imageView = UIImageView()
         imageCard.imageView?.image = UIImage(named: "frontier.jpg")?.resize(toWidth: view.width)
     }
     
-    private func prepareContentView() {
+    fileprivate func prepareContentView() {
         let label = UILabel()
         label.numberOfLines = 0
         label.text = "Graph is a semantic database that is used to create data-driven applications."
@@ -83,7 +80,7 @@ extension ViewController {
         imageCard.contentViewEdgeInsetsPreset = .square3
     }
     
-    private func prepareBottomBar() {
+    fileprivate func prepareBottomBar() {
         let shareButton = IconButton(image: Icon.cm.share, tintColor: Color.blueGrey.base)
         let favoriteButton = IconButton(image: Icon.favorite, tintColor: Color.red.base)
         

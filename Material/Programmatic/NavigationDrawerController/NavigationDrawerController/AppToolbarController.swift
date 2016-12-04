@@ -32,9 +32,9 @@ import UIKit
 import Material
 
 class AppToolbarController: ToolbarController {
-    private var menuButton: IconButton!
-    private var switchControl: Switch!
-    private var moreButton: IconButton!
+    fileprivate var menuButton: IconButton!
+    fileprivate var switchControl: Switch!
+    fileprivate var moreButton: IconButton!
     
     override func prepare() {
         super.prepare()
@@ -44,41 +44,44 @@ class AppToolbarController: ToolbarController {
         prepareStatusBar()
         prepareToolbar()
     }
-    
-    @objc
-    internal func handleMenuButton() {
-        navigationDrawerController?.toggleLeftView()
-    }
-    
-    @objc
-    internal func handleMoreButton() {
-        navigationDrawerController?.toggleRightView()
-    }
-    
-    private func prepareMenuButton() {
+}
+
+extension AppToolbarController {
+    fileprivate func prepareMenuButton() {
         menuButton = IconButton(image: Icon.cm.menu)
         menuButton.addTarget(self, action: #selector(handleMenuButton), for: .touchUpInside)
     }
     
-    private func prepareSwitch() {
+    fileprivate func prepareSwitch() {
         switchControl = Switch(state: .off, style: .light, size: .small)
     }
     
-    private func prepareMoreButton() {
+    fileprivate func prepareMoreButton() {
         moreButton = IconButton(image: Icon.cm.moreVertical)
         moreButton.addTarget(self, action: #selector(handleMoreButton), for: .touchUpInside)
     }
     
-    private func prepareStatusBar() {
+    fileprivate func prepareStatusBar() {
         statusBarStyle = .lightContent
         
         // Access the statusBar.
 //        statusBar.backgroundColor = Color.green.base
     }
     
-    private func prepareToolbar() {
+    fileprivate func prepareToolbar() {
         toolbar.leftViews = [menuButton]
         toolbar.rightViews = [switchControl, moreButton]
     }
 }
 
+extension AppToolbarController {
+    @objc
+    fileprivate func handleMenuButton() {
+        navigationDrawerController?.toggleLeftView()
+    }
+    
+    @objc
+    fileprivate func handleMoreButton() {
+        navigationDrawerController?.toggleRightView()
+    }
+}

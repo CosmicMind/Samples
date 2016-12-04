@@ -37,12 +37,14 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         prepareCapture()
     }
-    
-    private func prepareCapture() {
+}
+
+extension ViewController {
+    fileprivate func prepareCapture() {
         guard let capture = captureController?.capture else {
             return
         }
-    
+        
         view.layout(capture).edges()
     }
 }

@@ -37,14 +37,15 @@ class PhotoViewController: UIViewController {
         prepareTabBarItem()
     }
     
-    /// Prepare tabBarItem.
-    private func prepareTabBarItem() {
-        tabBarItem.image = Icon.cm.photoCamera?.tint(with: Color.blueGrey.base)
-        tabBarItem.selectedImage = Icon.cm.photoCamera?.tint(with: Color.blue.base)
-    }
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.red.base
+    }
+}
+
+extension PhotoViewController {
+    fileprivate func prepareTabBarItem() {
+        tabBarItem.image = Icon.cm.photoCamera?.tint(with: Color.blueGrey.base)
+        tabBarItem.selectedImage = Icon.cm.photoCamera?.tint(with: Color.blue.base)
     }
 }

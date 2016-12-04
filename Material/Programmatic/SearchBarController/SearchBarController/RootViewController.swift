@@ -38,8 +38,10 @@ class RootViewController: UIViewController {
         
         prepareSearchBar()
     }
-    
-    private func prepareSearchBar() {
+}
+
+extension RootViewController {
+    fileprivate func prepareSearchBar() {
         // Access the searchBar.
 //        guard let searchBar = searchBarController?.searchBar else {
 //            return

@@ -49,9 +49,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        //prepareMenuButton()
-        //prepareFavoriteButton()
-        //prepareShareButton()
+        prepareMenuButton()
+        prepareFavoriteButton()
+        prepareShareButton()
         prepareBar()
     }
 }
@@ -73,8 +73,7 @@ extension ViewController {
     }
     
     fileprivate func prepareBar() {
-        //bar = Bar(leftViews: [menuButton], rightViews: [favoriteButton, shareButton])
-        bar = Bar()
+        bar = Bar(leftViews: [menuButton], rightViews: [favoriteButton, shareButton])
         bar.backgroundColor = Color.blue.base
         
         bar.contentView.cornerRadiusPreset = .cornerRadius1

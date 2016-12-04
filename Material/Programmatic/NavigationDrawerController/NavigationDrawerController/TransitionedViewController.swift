@@ -38,8 +38,10 @@ class TransitionedViewController: UIViewController {
         
         prepareToolbar()
     }
-    
-    private func prepareToolbar() {
+}
+
+extension TransitionedViewController {
+    fileprivate func prepareToolbar() {
         guard let tc = toolbarController else {
             return
         }

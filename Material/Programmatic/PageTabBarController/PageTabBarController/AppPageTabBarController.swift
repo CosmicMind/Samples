@@ -38,8 +38,10 @@ class AppPageTabBarController: PageTabBarController {
         delegate = self
         preparePageTabBar()
     }
-    
-    private func preparePageTabBar() {
+}
+
+extension AppPageTabBarController {
+    fileprivate func preparePageTabBar() {
         pageTabBar.lineColor = Color.blueGrey.base
         pageTabBar.dividerColor = Color.blueGrey.lighten5
     }

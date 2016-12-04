@@ -32,8 +32,8 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    private lazy var buttons = [Button]()
-    private var tabBar: TabBar!
+    fileprivate var buttons = [Button]()
+    fileprivate var tabBar: TabBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +42,10 @@ class ViewController: UIViewController {
         prepareButtons()
         prepareTabBar()
     }
-    
-    private func prepareButtons() {
+}
+
+extension ViewController {
+    fileprivate func prepareButtons() {
         let btn1 = FlatButton(title: "Library", titleColor: Color.blueGrey.base)
         btn1.pulseAnimation = .none
         buttons.append(btn1)
@@ -63,25 +65,25 @@ class ViewController: UIViewController {
         let btn5 = FlatButton(title: "Video 1", titleColor: Color.blueGrey.base)
         btn5.pulseAnimation = .none
         buttons.append(btn5)
-//        
+
 //        let btn6 = FlatButton(title: "Video 2", titleColor: Color.blueGrey.base)
 //        btn6.pulseAnimation = .none
 //        buttons.append(btn6)
-//    
+//
 //        let btn7 = FlatButton(title: "Video 3", titleColor: Color.blueGrey.base)
 //        btn7.pulseAnimation = .none
 //        buttons.append(btn7)
-//        
+//
 //        let btn8 = FlatButton(title: "Video 4", titleColor: Color.blueGrey.base)
 //        btn8.pulseAnimation = .none
 //        buttons.append(btn8)
-//        
+//
 //        let btn9 = FlatButton(title: "Video 5", titleColor: Color.blueGrey.base)
 //        btn9.pulseAnimation = .none
 //        buttons.append(btn9)
     }
     
-    private func prepareTabBar() {
+    fileprivate func prepareTabBar() {
         tabBar = TabBar()
         tabBar.delegate = self
         

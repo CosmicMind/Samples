@@ -2,6 +2,25 @@
 <Workspace
    version = "1.0">
    <Group
+      location = "group:Graph"
+      name = "Graph">
+      <FileRef
+         location = "group:CardTableView/CardTableView.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Cloud/Cloud.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:ImageCard/ImageCard.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Search/Search.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Watch/Watch.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
       location = "group:Material"
       name = "Material">
       <Group
@@ -102,24 +121,5 @@
             location = "group:Material/Storyboards/StatusBarController/StatusBarController.xcodeproj">
          </FileRef>
       </Group>
-   </Group>
-   <Group
-      location = "group:Graph"
-      name = "Graph">
-      <FileRef
-         location = "group:CardTableView/CardTableView.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Cloud/Cloud.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:ImageCard/ImageCard.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Search/Search.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Watch/Watch.xcodeproj">
-      </FileRef>
    </Group>
 </Workspace>

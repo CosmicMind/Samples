@@ -37,8 +37,10 @@ class AppStatusBarController: StatusBarController {
         
         prepareStatusBar()
     }
-    
-    private func prepareStatusBar() {
+}
+
+extension AppStatusBarController {
+    fileprivate func prepareStatusBar() {
         statusBarStyle = .lightContent
         statusBar.backgroundColor = Color.blue.base
     }

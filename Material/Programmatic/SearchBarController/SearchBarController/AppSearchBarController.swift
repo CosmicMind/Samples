@@ -32,8 +32,8 @@ import UIKit
 import Material
 
 class AppSearchBarController: SearchBarController {
-    private var menuButton: IconButton!
-    private var moreButton: IconButton!
+    fileprivate var menuButton: IconButton!
+    fileprivate var moreButton: IconButton!
     
     open override func prepare() {
         super.prepare()
@@ -42,23 +42,25 @@ class AppSearchBarController: SearchBarController {
         prepareStatusBar()
         prepareSearchBar()
     }
-    
-    private func prepareMenuButton() {
+}
+
+extension AppSearchBarController {
+    fileprivate func prepareMenuButton() {
         menuButton = IconButton(image: Icon.cm.menu)
     }
     
-    private func prepareMoreButton() {
+    fileprivate func prepareMoreButton() {
         moreButton = IconButton(image: Icon.cm.moreVertical)
     }
     
-    private func prepareStatusBar() {
+    fileprivate func prepareStatusBar() {
         statusBarStyle = .lightContent
         
         // Access the statusBar.
 //        statusBar.backgroundColor = Color.grey.base
     }
     
-    private func prepareSearchBar() {
+    fileprivate func prepareSearchBar() {
         searchBar.leftViews = [menuButton]
         searchBar.rightViews = [moreButton]
     }

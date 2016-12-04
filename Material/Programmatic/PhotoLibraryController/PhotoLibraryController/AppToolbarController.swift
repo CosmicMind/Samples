@@ -38,8 +38,10 @@ class AppToolbarController: ToolbarController {
         
         prepareToolbar()
     }
-    
-    private func prepareToolbar() {
+}
+
+extension AppToolbarController {
+    fileprivate func prepareToolbar() {
         toolbar.title = "Photo Library"
         toolbar.depthPreset = .none
         toolbar.dividerColor = Color.grey.lighten3

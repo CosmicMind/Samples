@@ -32,7 +32,7 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    private var layer: Layer!
+    fileprivate var layer: Layer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +40,10 @@ class ViewController: UIViewController {
         
         prepareLayer()
     }
-    
-    private func prepareLayer() {
+}
+
+extension ViewController {
+    fileprivate func prepareLayer() {
         let w = view.width
         let h = view.height
         let d: CGFloat = 100

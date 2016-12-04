@@ -34,28 +34,28 @@ import Material
 
 class AppCaptureController: CaptureController {
     /// A reference to the focusView used in focus animations.
-    internal var focusView: UIView?
+    fileprivate var focusView: UIView?
     
     /// A reference to the exposureView used in exposure animations.
-    internal var exposureView: UIView?
+    fileprivate var exposureView: UIView?
     
     /// A reference to the resetView used in reset animations.
-    internal var resetView: UIView?
+    fileprivate var resetView: UIView?
     
     /// A reference to the captureButton.
-    internal var captureButton: FabButton!
+    fileprivate var captureButton: FabButton!
     
     /// A reference to the changeModeButton.
-    internal var changeModeButton: IconButton!
+    fileprivate var changeModeButton: IconButton!
     
     /// A reference to the switchCameraButton.
-    internal var changeCameraButton: IconButton!
+    fileprivate var changeCameraButton: IconButton!
     
     /// A reference to the flashButton.
-    internal var flashButton: IconButton!
+    fileprivate var flashButton: IconButton!
     
     /// A reference to the bottom bar.
-    internal var bar: Bar!
+    fileprivate var bar: Bar!
     
     open override func prepare() {
         super.prepare()
@@ -75,26 +75,28 @@ class AppCaptureController: CaptureController {
         prepareExposureView()
         prepareResetView()
     }
-    
-    private func prepareChangeModeButton() {
+}
+
+extension AppCaptureController {
+    fileprivate func prepareChangeModeButton() {
         changeModeButton = IconButton(image: Icon.cm.videocam, tintColor: .white)
         changeModeButton.pulseColor = .white
         changeModeButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
-    private func prepareSwitchCameraButton() {
+    fileprivate func prepareSwitchCameraButton() {
         changeCameraButton = IconButton(image: Icon.cameraFront, tintColor: .white)
         changeCameraButton.pulseColor = .white
         changeCameraButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
-    private func prepareFlashButton() {
+    fileprivate func prepareFlashButton() {
         flashButton = IconButton(image: Icon.flashAuto, tintColor: .white)
         flashButton.pulseColor = .white
         flashButton.pulseAnimation = .centerRadialBeyondBounds
     }
     
-    private func prepareBar() {
+    fileprivate func prepareBar() {
         bar = Bar()
         bar.heightPreset = .xxlarge
         bar.backgroundColor = nil
@@ -107,7 +109,7 @@ class AppCaptureController: CaptureController {
         view.layout(bar).horizontally().bottom()
     }
     
-    private func prepareVisualEffectView() {
+    fileprivate func prepareVisualEffectView() {
         let blurEffect = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         let v = View()
         v.backgroundColor = nil
@@ -117,14 +119,14 @@ class AppCaptureController: CaptureController {
         bar.contentView.layout(v).width(64).height(64).center()
     }
     
-    private func prepareCaptureButton() {
+    fileprivate func prepareCaptureButton() {
         captureButton = FabButton()
         captureButton.backgroundColor = .white
         captureButton.depthPreset = .none
         bar.contentView.layout(captureButton).width(48).height(48).center()
     }
     
-    private func prepareStatusBar() {
+    fileprivate func prepareStatusBar() {
         guard let sc = captureController else {
             return
         }
@@ -132,7 +134,7 @@ class AppCaptureController: CaptureController {
         sc.isStatusBarHidden = true
     }
     
-    private func prepareToolbar() {
+    fileprivate func prepareToolbar() {
         toolbar.backgroundColor = nil
         
         toolbar.title = "00:00:00"
@@ -144,7 +146,7 @@ class AppCaptureController: CaptureController {
         toolbar.detailLabel.textColor = Color.red.accent1
     }
     
-    private func prepareCapture() {
+    fileprivate func prepareCapture() {
         capture.captureButton = captureButton
         capture.changeModeButton = changeModeButton
         capture.changeModeButton = changeModeButton
@@ -152,8 +154,7 @@ class AppCaptureController: CaptureController {
         capture.flashButton = flashButton
     }
     
-    /// Prepares the focusLayer.
-    private func prepareFocusView() {
+    fileprivate func prepareFocusView() {
         guard nil == focusView else {
             return
         }
@@ -165,8 +166,7 @@ class AppCaptureController: CaptureController {
         view.addSubview(focusView!)
     }
     
-    /// Prepares the exposureLayer.
-    private func prepareExposureView() {
+    fileprivate func prepareExposureView() {
         guard nil == exposureView else {
             return
         }
@@ -178,8 +178,7 @@ class AppCaptureController: CaptureController {
         view.addSubview(exposureView!)
     }
     
-    /// Prepares the resetLayer.
-    private func prepareResetView() {
+    fileprivate func prepareResetView() {
         guard nil == resetView else {
             return
         }
@@ -331,7 +330,7 @@ extension AppCaptureController {
      Updates the UI to the given rotation angle.
      - Parameter angle: A CGFloat.
      */
-    internal func updateToRotation(angle: CGFloat) {
+    fileprivate func updateToRotation(angle: CGFloat) {
         changeModeButton.animate(animation: Motion.rotate(angle: angle))
         flashButton.animate(animation: Motion.rotate(angle: angle))
         changeCameraButton.animate(animation: Motion.rotate(angle: angle))

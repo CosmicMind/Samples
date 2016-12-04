@@ -38,8 +38,10 @@ class RootViewController: UIViewController {
         
         prepareToolbar()
     }
-    
-    private func prepareToolbar() {
+}
+
+extension RootViewController {
+    fileprivate func prepareToolbar() {
         guard let tc = toolbarController else {
             return
         }

@@ -32,7 +32,7 @@ import UIKit
 import Material
 
 class LeftViewController: UIViewController {
-    private var transitionButton: FlatButton!
+    fileprivate var transitionButton: FlatButton!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,25 +40,29 @@ class LeftViewController: UIViewController {
         
         prepareTransitionButton()
     }
-    
-    @objc
-    internal func handleTransitionButton() {
-        // Transition the entire NavigationDrawer rootViewController.
-//        navigationDrawerController?.transition(to: TransitionedViewController(), completion: closeNavigationDrawer)
-        
-        // Transition the ToolbarController rootViewController that is in the NavigationDrawer rootViewController.
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: TransitionedViewController(), completion: closeNavigationDrawer)
-    }
-    
-    internal func closeNavigationDrawer(result: Bool) {
-        navigationDrawerController?.closeLeftView()
-    }
+}
 
-    private func prepareTransitionButton() {
+extension LeftViewController {
+    fileprivate func prepareTransitionButton() {
         transitionButton = FlatButton(title: "Transition VC", titleColor: .white)
         transitionButton.pulseColor = .white
         transitionButton.addTarget(self, action: #selector(handleTransitionButton), for: .touchUpInside)
         
         view.layout(transitionButton).horizontally().center()
+    }
+}
+
+extension LeftViewController {
+    @objc
+    fileprivate func handleTransitionButton() {
+        // Transition the entire NavigationDrawer rootViewController.
+        //        navigationDrawerController?.transition(to: TransitionedViewController(), completion: closeNavigationDrawer)
+        
+        // Transition the ToolbarController rootViewController that is in the NavigationDrawer rootViewController.
+        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: TransitionedViewController(), completion: closeNavigationDrawer)
+    }
+    
+    fileprivate func closeNavigationDrawer(result: Bool) {
+        navigationDrawerController?.closeLeftView()
     }
 }

@@ -32,13 +32,11 @@ import UIKit
 import Material
 
 class RootViewController: UIViewController {
-    /// NavigationBar buttons.
-    private var menuButton: IconButton!
-    private var starButton: IconButton!
-    private var searchButton: IconButton!
+    fileprivate var menuButton: IconButton!
+    fileprivate var starButton: IconButton!
+    fileprivate var searchButton: IconButton!
     
-    /// Trigger to go to the next view controller.
-    private var nextButton: FlatButton!
+    fileprivate var nextButton: FlatButton!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,24 +48,22 @@ class RootViewController: UIViewController {
         prepareNavigationItem()
         prepareNextButton()
     }
-    
-    internal func handleNextButton() {
-        navigationController?.pushViewController(NextViewController(), animated: true)
-    }
-    
-    private func prepareMenuButton() {
+}
+
+extension RootViewController {
+    fileprivate func prepareMenuButton() {
         menuButton = IconButton(image: Icon.cm.menu)
     }
     
-    private func prepareStarButton() {
+    fileprivate func prepareStarButton() {
         starButton = IconButton(image: Icon.cm.star)
     }
     
-    private func prepareSearchButton() {
+    fileprivate func prepareSearchButton() {
         searchButton = IconButton(image: Icon.cm.search)
     }
     
-    private func prepareNavigationItem() {
+    fileprivate func prepareNavigationItem() {
         navigationItem.title = "Material"
         navigationItem.detail = "Build Beautiful Software"
         
@@ -75,7 +71,7 @@ class RootViewController: UIViewController {
         navigationItem.rightViews = [starButton, searchButton]
     }
     
-    private func prepareNextButton() {
+    fileprivate func prepareNextButton() {
         nextButton = FlatButton(title: "Click To Open", titleColor: Color.grey.base)
         nextButton.pulseAnimation = .none
         nextButton.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
@@ -83,3 +79,9 @@ class RootViewController: UIViewController {
     }
 }
 
+extension RootViewController {
+    @objc
+    fileprivate func handleNextButton() {
+        navigationController?.pushViewController(NextViewController(), animated: true)
+    }
+}

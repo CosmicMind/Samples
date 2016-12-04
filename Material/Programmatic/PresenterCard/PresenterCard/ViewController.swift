@@ -32,22 +32,22 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    private var card: PresenterCard!
+    fileprivate var card: PresenterCard!
     
     /// Conent area.
-    private var presenterView: UIImageView!
-    private var contentView: UILabel!
+    fileprivate var presenterView: UIImageView!
+    fileprivate var contentView: UILabel!
     
     /// Bottom Bar views.
-    private var bottomBar: Bar!
-    private var dateFormatter: DateFormatter!
-    private var dateLabel: UILabel!
-    private var favoriteButton: IconButton!
-    private var shareButton: IconButton!
+    fileprivate var bottomBar: Bar!
+    fileprivate var dateFormatter: DateFormatter!
+    fileprivate var dateLabel: UILabel!
+    fileprivate var favoriteButton: IconButton!
+    fileprivate var shareButton: IconButton!
     
     /// Toolbar views.
-    private var toolbar: Toolbar!
-    private var moreButton: IconButton!
+    fileprivate var toolbar: Toolbar!
+    fileprivate var moreButton: IconButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,19 +64,21 @@ class ViewController: UIViewController {
         prepareBottomBar()
         prepareImageCard()
     }
-    
-    private func preparePresenterView() {
+}
+
+extension ViewController {
+    fileprivate func preparePresenterView() {
         presenterView = UIImageView()
         presenterView.image = UIImage(named: "pattern")?.resize(toWidth: view.width)
         presenterView.contentMode = .scaleAspectFill
     }
     
-    private func prepareDateFormatter() {
+    fileprivate func prepareDateFormatter() {
         dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
     }
-    private func prepareDateLabel() {
+    fileprivate func prepareDateLabel() {
         dateLabel = UILabel()
         dateLabel.font = RobotoFont.regular(with: 12)
         dateLabel.textColor = Color.blueGrey.base
@@ -84,19 +86,19 @@ class ViewController: UIViewController {
         dateLabel.text = dateFormatter.string(from: Date.distantFuture)
     }
     
-    private func prepareFavoriteButton() {
+    fileprivate func prepareFavoriteButton() {
         favoriteButton = IconButton(image: Icon.favorite, tintColor: Color.red.base)
     }
     
-    private func prepareShareButton() {
+    fileprivate func prepareShareButton() {
         shareButton = IconButton(image: Icon.cm.share, tintColor: Color.blueGrey.base)
     }
     
-    private func prepareMoreButton() {
+    fileprivate func prepareMoreButton() {
         moreButton = IconButton(image: Icon.cm.moreHorizontal, tintColor: Color.blueGrey.base)
     }
     
-    private func prepareToolbar() {
+    fileprivate func prepareToolbar() {
         toolbar = Toolbar(rightViews: [moreButton])
         
         toolbar.title = "Material"
@@ -107,18 +109,18 @@ class ViewController: UIViewController {
         toolbar.detailLabel.textColor = Color.blueGrey.base
     }
     
-    private func prepareContentView() {
+    fileprivate func prepareContentView() {
         contentView = UILabel()
         contentView.numberOfLines = 0
         contentView.text = "Material is an animation and graphics framework that is used to create beautiful applications."
         contentView.font = RobotoFont.regular(with: 14)
     }
     
-    private func prepareBottomBar() {
+    fileprivate func prepareBottomBar() {
         bottomBar = Bar(leftViews: [favoriteButton], rightViews: [shareButton], centerViews: [dateLabel])
     }
     
-    private func prepareImageCard() {
+    fileprivate func prepareImageCard() {
         card = PresenterCard()
         
         card.toolbar = toolbar
