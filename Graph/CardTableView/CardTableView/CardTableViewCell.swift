@@ -99,7 +99,8 @@ class CardTableViewCell: TableViewCell {
         card.x = 0
         card.y = 0
         card.width = width
-        card.layoutSubviews()
+        card.setNeedsLayout()
+        card.layoutIfNeeded()
     }
     
     open override func prepare() {
