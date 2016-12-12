@@ -38,10 +38,6 @@ To install all pods, use the following script:
 $ ./install_all_pods.sh
 ```
 
-## Changelog
-
-Samples is a growing project and will encounter changes throughout its development. It is recommended that the [Changelog](https://github.com/CosmicMind/Samples/wiki/Changelog) be reviewed prior to updating versions.
-
 # Samples
 
 The following are samples to see how [Material](http://cosmicmind.com/material), [Graph](http://cosmicmind.com/graph), and [Algorithm](http://cosmicmind.com/algorithm) may be used within your applications.
