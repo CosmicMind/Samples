@@ -42,6 +42,9 @@
             location = "group:Material/Programmatic/Card/Card.xcodeproj">
          </FileRef>
          <FileRef
+            location = "group:Material/Programmatic/CollectionView/CollectionView.xcodeproj">
+         </FileRef>
+         <FileRef
             location = "group:Material/Programmatic/Grid/Grid.xcodeproj">
          </FileRef>
          <FileRef
