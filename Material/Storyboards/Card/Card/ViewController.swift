@@ -32,57 +32,44 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    fileprivate var buttons = [Button]()
-    fileprivate var tabBar: TabBar!
+    @IBOutlet weak var toolbar: Toolbar!
+    @IBOutlet weak var contentView: UIImageView!
+    @IBOutlet weak var button: FlatButton!
+    @IBOutlet weak var bottomBar: Bar!
+    @IBOutlet weak var card: Card!
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        prepareButtons()
-        prepareTabBar()
+        prepareToolbar()
+        prepareContentView()
+        prepareButton()
+        prepareBottomBar()
+        prepareCard()
     }
 }
 
 extension ViewController {
-    fileprivate func prepareButtons() {
-        let btn1 = FlatButton(title: "Library", titleColor: Color.blueGrey.base)
-        btn1.pulseAnimation = .none
-        buttons.append(btn1)
-        
-        let btn2 = FlatButton(title: "Photo", titleColor: Color.blueGrey.base)
-        btn2.pulseAnimation = .none
-        buttons.append(btn2)
-        
-        let btn3 = FlatButton(title: "Video", titleColor: Color.blueGrey.base)
-        btn3.pulseAnimation = .none
-        buttons.append(btn3)
+    fileprivate func prepareToolbar() {
+    
     }
     
-    fileprivate func prepareTabBar() {
-        tabBar = TabBar()
-        tabBar.delegate = self
+    fileprivate func prepareContentView() {
         
-        tabBar.dividerColor = Color.grey.lighten3
-        tabBar.dividerAlignment = .top
-        
-        tabBar.lineColor = Color.blue.base
-        tabBar.lineAlignment = .top
-        
-        tabBar.backgroundColor = Color.grey.lighten5
-        tabBar.buttons = buttons
-        
-        view.layout(tabBar).horizontally().bottom()
-    }
-}
-
-extension ViewController: TabBarDelegate {
-    func tabBar(tabBar: TabBar, willSelect button: UIButton) {
-        print("will select")
     }
     
-    func tabBar(tabBar: TabBar, didSelect button: UIButton) {
-        print("did select")
+    fileprivate func prepareButton() {
+        
+    }
+    
+    fileprivate func prepareBottomBar() {
+        bottomBar.centerViews = [button]
+    }
+    
+    
+    
+    fileprivate func prepareCard() {
+        card.toolbar = toolbar
+        card.contentView = contentView
+        card.bottomBar = bottomBar
     }
 }
-

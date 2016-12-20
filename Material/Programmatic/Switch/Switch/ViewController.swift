@@ -46,6 +46,10 @@ extension ViewController {
         control.delegate = self
         
         view.layout(control).center()
+        
+        Motion.delay(time: 3) {
+            control.isOn = true
+        }
     }
 }
 

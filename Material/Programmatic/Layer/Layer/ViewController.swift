@@ -34,6 +34,7 @@ import Material
 class ViewController: UIViewController {
     fileprivate var layer: Layer!
     
+    @IBOutlet weak var bottomBar: Bar!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

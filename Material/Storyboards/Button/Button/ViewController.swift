@@ -40,12 +40,14 @@ class ViewController: UIViewController {
         prepareFabButton()
         prepareIconButton()
     }
-    
-    private func prepareFabButton() {
+}
+
+extension ViewController {
+    fileprivate func prepareFabButton() {
         fabButton.image = Icon.cm.add
     }
     
-    private func prepareIconButton() {
+    fileprivate func prepareIconButton() {
         iconButton.image = Icon.search
         iconButton.pulseColor = Color.blue.base
     }

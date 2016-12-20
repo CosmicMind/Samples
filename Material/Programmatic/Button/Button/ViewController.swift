@@ -35,6 +35,7 @@ struct ButtonLayout {
     struct Flat {
         static let width: CGFloat = 120
         static let height: CGFloat = 44
+        @IBOutlet weak var contentView: UIImageView!
         static let offsetY: CGFloat = -150
     }
     

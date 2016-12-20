@@ -36,6 +36,7 @@ class ViewController: UIViewController {
     fileprivate var bar: Bar!
     
     /// Left buttons.
+    @IBOutlet weak var learnMoreButton: FlatButton!
     fileprivate var menuButton: IconButton!
     
     /// Right buttons.

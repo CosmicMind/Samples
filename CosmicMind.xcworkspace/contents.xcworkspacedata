@@ -106,6 +106,9 @@
             location = "group:Material/Storyboards/Button/Button.xcodeproj">
          </FileRef>
          <FileRef
+            location = "group:Material/Storyboards/Card/Card.xcodeproj">
+         </FileRef>
+         <FileRef
             location = "group:Material/Storyboards/NavigationController/NavigationController.xcodeproj">
          </FileRef>
          <FileRef

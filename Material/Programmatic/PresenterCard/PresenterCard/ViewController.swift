@@ -33,6 +33,7 @@ import Material
 
 class ViewController: UIViewController {
     fileprivate var card: PresenterCard!
+    @IBOutlet weak var card: Card!
     
     /// Conent area.
     fileprivate var presenterView: UIImageView!

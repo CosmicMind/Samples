@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        let pageTabBarController = AppPageTabBarController(viewControllers: viewControllers, selectedIndex: 0)
+        let pageTabBarController = AppPageTabBarController(viewControllers: viewControllers)
         let toolbarController = AppToolbarController(rootViewController: pageTabBarController)
         let menuController = AppMenuController(rootViewController: toolbarController)
         
