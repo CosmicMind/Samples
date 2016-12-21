@@ -31,58 +31,15 @@
 import UIKit
 import Material
 
-class ViewController: UIViewController {
-    fileprivate var buttons = [Button]()
-    fileprivate var tabBar: TabBar!
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        prepareButtons()
-        prepareTabBar()
-    }
-}
-
-extension ViewController {
-    fileprivate func prepareButtons() {
-        let btn1 = FlatButton(title: "Library", titleColor: Color.blueGrey.base)
-        btn1.pulseAnimation = .none
-        buttons.append(btn1)
-        
-        let btn2 = FlatButton(title: "Photo", titleColor: Color.blueGrey.base)
-        btn2.pulseAnimation = .none
-        buttons.append(btn2)
-        
-        let btn3 = FlatButton(title: "Video", titleColor: Color.blueGrey.base)
-        btn3.pulseAnimation = .none
-        buttons.append(btn3)
-    }
+    var window: UIWindow?
     
-    fileprivate func prepareTabBar() {
-        tabBar = TabBar()
-        tabBar.delegate = self
-        
-        tabBar.dividerColor = Color.grey.lighten3
-        tabBar.dividerAlignment = .top
-        
-        tabBar.lineColor = Color.blue.base
-        tabBar.lineAlignment = .top
-        
-        tabBar.backgroundColor = Color.grey.lighten5
-        tabBar.buttons = buttons
-        
-        view.layout(tabBar).horizontally().bottom()
-    }
-}
-
-extension ViewController: TabBarDelegate {
-    func tabBar(tabBar: TabBar, willSelect button: UIButton) {
-        print("will select")
-    }
-    
-    func tabBar(tabBar: TabBar, didSelect button: UIButton) {
-        print("did select")
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = ViewController()
+        window!.makeKeyAndVisible()
     }
 }
 

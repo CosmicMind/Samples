@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96B5B0291D936DBC00449DDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5B0281D936DBC00449DDD /* AppDelegate.swift */; };
-		96B5B02B1D936DBC00449DDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B5B02A1D936DBC00449DDD /* ViewController.swift */; };
-		96B5B0301D936DBC00449DDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B5B02F1D936DBC00449DDD /* Assets.xcassets */; };
-		96B5B0331D936DBC00449DDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B5B0311D936DBC00449DDD /* LaunchScreen.storyboard */; };
+		96D35F451E0AEF44003B3BAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D35F441E0AEF44003B3BAC /* AppDelegate.swift */; };
+		96D35F471E0AEF44003B3BAC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D35F461E0AEF44003B3BAC /* ViewController.swift */; };
+		96D35F4C1E0AEF44003B3BAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D35F4B1E0AEF44003B3BAC /* Assets.xcassets */; };
+		96D35F4F1E0AEF44003B3BAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D35F4D1E0AEF44003B3BAC /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		96B5B03D1D937E5400449DDD /* Embed Frameworks */ = {
+		96D35F591E0B03D0003B3BAC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -27,16 +27,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		96B5B0251D936DBC00449DDD /* Card.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Card.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		96B5B0281D936DBC00449DDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		96B5B02A1D936DBC00449DDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		96B5B02F1D936DBC00449DDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		96B5B0321D936DBC00449DDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		96B5B0341D936DBC00449DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96D35F411E0AEF44003B3BAC /* TableViewWithinCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewWithinCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96D35F441E0AEF44003B3BAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96D35F461E0AEF44003B3BAC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		96D35F4B1E0AEF44003B3BAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96D35F4E1E0AEF44003B3BAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96D35F501E0AEF44003B3BAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		96B5B0221D936DBC00449DDD /* Frameworks */ = {
+		96D35F3E1E0AEF44003B3BAC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,72 +46,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		96B5B01C1D936DBC00449DDD = {
+		96D35F381E0AEF44003B3BAC = {
 			isa = PBXGroup;
 			children = (
-				96B5B0271D936DBC00449DDD /* Card */,
-				96B5B0261D936DBC00449DDD /* Products */,
+				96D35F431E0AEF44003B3BAC /* TableViewWithinCard */,
+				96D35F421E0AEF44003B3BAC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		96B5B0261D936DBC00449DDD /* Products */ = {
+		96D35F421E0AEF44003B3BAC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96B5B0251D936DBC00449DDD /* Card.app */,
+				96D35F411E0AEF44003B3BAC /* TableViewWithinCard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		96B5B0271D936DBC00449DDD /* Card */ = {
+		96D35F431E0AEF44003B3BAC /* TableViewWithinCard */ = {
 			isa = PBXGroup;
 			children = (
-				96B5B0281D936DBC00449DDD /* AppDelegate.swift */,
-				96B5B02A1D936DBC00449DDD /* ViewController.swift */,
-				96B5B02F1D936DBC00449DDD /* Assets.xcassets */,
-				96B5B0311D936DBC00449DDD /* LaunchScreen.storyboard */,
-				96B5B0341D936DBC00449DDD /* Info.plist */,
+				96D35F441E0AEF44003B3BAC /* AppDelegate.swift */,
+				96D35F461E0AEF44003B3BAC /* ViewController.swift */,
+				96D35F4B1E0AEF44003B3BAC /* Assets.xcassets */,
+				96D35F4D1E0AEF44003B3BAC /* LaunchScreen.storyboard */,
+				96D35F501E0AEF44003B3BAC /* Info.plist */,
 			);
-			path = Card;
+			path = TableViewWithinCard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96B5B0241D936DBC00449DDD /* Card */ = {
+		96D35F401E0AEF44003B3BAC /* TableViewWithinCard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96B5B0371D936DBC00449DDD /* Build configuration list for PBXNativeTarget "Card" */;
+			buildConfigurationList = 96D35F531E0AEF44003B3BAC /* Build configuration list for PBXNativeTarget "TableViewWithinCard" */;
 			buildPhases = (
-				96B5B0211D936DBC00449DDD /* Sources */,
-				96B5B0221D936DBC00449DDD /* Frameworks */,
-				96B5B0231D936DBC00449DDD /* Resources */,
-				96B5B03D1D937E5400449DDD /* Embed Frameworks */,
+				96D35F3D1E0AEF44003B3BAC /* Sources */,
+				96D35F3E1E0AEF44003B3BAC /* Frameworks */,
+				96D35F3F1E0AEF44003B3BAC /* Resources */,
+				96D35F591E0B03D0003B3BAC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Card;
-			productName = Card;
-			productReference = 96B5B0251D936DBC00449DDD /* Card.app */;
+			name = TableViewWithinCard;
+			productName = TableViewWithinCard;
+			productReference = 96D35F411E0AEF44003B3BAC /* TableViewWithinCard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		96B5B01D1D936DBC00449DDD /* Project object */ = {
+		96D35F391E0AEF44003B3BAC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0810;
-				ORGANIZATIONNAME = CosmicMind;
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "CosmicMind, Inc.";
 				TargetAttributes = {
-					96B5B0241D936DBC00449DDD = {
-						CreatedOnToolsVersion = 8.0;
+					96D35F401E0AEF44003B3BAC = {
+						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 96B5B0201D936DBC00449DDD /* Build configuration list for PBXProject "Card" */;
+			buildConfigurationList = 96D35F3C1E0AEF44003B3BAC /* Build configuration list for PBXProject "TableViewWithinCard" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -119,45 +119,45 @@
 				en,
 				Base,
 			);
-			mainGroup = 96B5B01C1D936DBC00449DDD;
-			productRefGroup = 96B5B0261D936DBC00449DDD /* Products */;
+			mainGroup = 96D35F381E0AEF44003B3BAC;
+			productRefGroup = 96D35F421E0AEF44003B3BAC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96B5B0241D936DBC00449DDD /* Card */,
+				96D35F401E0AEF44003B3BAC /* TableViewWithinCard */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		96B5B0231D936DBC00449DDD /* Resources */ = {
+		96D35F3F1E0AEF44003B3BAC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96B5B0331D936DBC00449DDD /* LaunchScreen.storyboard in Resources */,
-				96B5B0301D936DBC00449DDD /* Assets.xcassets in Resources */,
+				96D35F4F1E0AEF44003B3BAC /* LaunchScreen.storyboard in Resources */,
+				96D35F4C1E0AEF44003B3BAC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		96B5B0211D936DBC00449DDD /* Sources */ = {
+		96D35F3D1E0AEF44003B3BAC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96B5B02B1D936DBC00449DDD /* ViewController.swift in Sources */,
-				96B5B0291D936DBC00449DDD /* AppDelegate.swift in Sources */,
+				96D35F471E0AEF44003B3BAC /* ViewController.swift in Sources */,
+				96D35F451E0AEF44003B3BAC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		96B5B0311D936DBC00449DDD /* LaunchScreen.storyboard */ = {
+		96D35F4D1E0AEF44003B3BAC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				96B5B0321D936DBC00449DDD /* Base */,
+				96D35F4E1E0AEF44003B3BAC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -165,7 +165,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		96B5B0351D936DBC00449DDD /* Debug */ = {
+		96D35F511E0AEF44003B3BAC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -184,7 +184,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -216,7 +215,7 @@
 			};
 			name = Debug;
 		};
-		96B5B0361D936DBC00449DDD /* Release */ = {
+		96D35F521E0AEF44003B3BAC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -235,7 +234,6 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -260,27 +258,25 @@
 			};
 			name = Release;
 		};
-		96B5B0381D936DBC00449DDD /* Debug */ = {
+		96D35F541E0AEF44003B3BAC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Card/Info.plist;
+				INFOPLIST_FILE = TableViewWithinCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.Card;
+				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.TableViewWithinCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		96B5B0391D936DBC00449DDD /* Release */ = {
+		96D35F551E0AEF44003B3BAC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Card/Info.plist;
+				INFOPLIST_FILE = TableViewWithinCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.Card;
+				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.TableViewWithinCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -289,25 +285,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		96B5B0201D936DBC00449DDD /* Build configuration list for PBXProject "Card" */ = {
+		96D35F3C1E0AEF44003B3BAC /* Build configuration list for PBXProject "TableViewWithinCard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96B5B0351D936DBC00449DDD /* Debug */,
-				96B5B0361D936DBC00449DDD /* Release */,
+				96D35F511E0AEF44003B3BAC /* Debug */,
+				96D35F521E0AEF44003B3BAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96B5B0371D936DBC00449DDD /* Build configuration list for PBXNativeTarget "Card" */ = {
+		96D35F531E0AEF44003B3BAC /* Build configuration list for PBXNativeTarget "TableViewWithinCard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96B5B0381D936DBC00449DDD /* Debug */,
-				96B5B0391D936DBC00449DDD /* Release */,
+				96D35F541E0AEF44003B3BAC /* Debug */,
+				96D35F551E0AEF44003B3BAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 96B5B01D1D936DBC00449DDD /* Project object */;
+	rootObject = 96D35F391E0AEF44003B3BAC /* Project object */;
 }

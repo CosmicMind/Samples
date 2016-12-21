@@ -87,6 +87,9 @@
             location = "group:Material/Programmatic/TabBar/TabBar.xcodeproj">
          </FileRef>
          <FileRef
+            location = "group:Material/Programmatic/TableViewWithinCard/TableViewWithinCard.xcodeproj">
+         </FileRef>
+         <FileRef
             location = "group:Material/Programmatic/TextField/TextField.xcodeproj">
          </FileRef>
          <FileRef
