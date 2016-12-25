@@ -31,87 +31,91 @@
 import UIKit
 import Material
 
-class AppMenuController: MenuController {
-    internal let baseSize = CGSize(width: 56, height: 56)
-    internal let bottomInset: CGFloat = 24
-    internal let rightInset: CGFloat = 24
+class AppFABMenuController: FABMenuController {
+    fileprivate let baseSize = CGSize(width: 56, height: 56)
+    fileprivate let bottomInset: CGFloat = 24
+    fileprivate let rightInset: CGFloat = 24
     
-    internal var addButton: FabButton!
-    internal var articleMenuItem: MenuItem!
-    internal var reminderMenuItem: MenuItem!
+    fileprivate var toggleFABMenuItem: FABMenuItem!
+    fileprivate var articleFABMenuItem: FABMenuItem!
+    fileprivate var reminderFABMenuItem: FABMenuItem!
     
     open override func prepare() {
         super.prepare()
         view.backgroundColor = Color.blueGrey.lighten5
         
-        // Menu.
-        prepareAddButton()
-        prepareAudioLibraryButton()
-        prepareBellButton()
+        prepareToggleFABMenuItem()
+        prepareArticleFABMenuItem()
+        prepareRemindersFABMenuItem()
     }
     
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         prepareMenu()
     }
-}
-
-/// Menu.
-extension AppMenuController {
+    
     open override func openMenu(completion: ((UIView) -> Void)? = nil) {
         super.openMenu(completion: completion)
-        menu.views.first?.animate(animation: Motion.rotate(angle: 45))
+        menu.items.first?.animate(animation: Motion.rotate(angle: 45))
     }
     
     open override func closeMenu(completion: ((UIView) -> Void)? = nil) {
         super.closeMenu(completion: completion)
-        menu.views.first?.animate(animation: Motion.rotate(angle: 0))
+        menu.items.first?.animate(animation: Motion.rotate(angle: 0))
     }
-    
-    /// Handle the menu toggle event.
-    internal func handleToggleMenu(button: Button) {
-        guard let mc = menuController as? AppMenuController else {
+}
+
+extension AppFABMenuController {
+    @objc
+    fileprivate func handleToggleMenu(button: Button) {
+        guard let mc = fabMenuController as? AppFABMenuController else {
             return
         }
         
         if mc.menu.isOpened {
             mc.closeMenu { (view) in
-                (view as? MenuItem)?.hideTitleLabel()
+                (view as? FABMenuItem)?.hideTitleLabel()
             }
         } else {
             mc.openMenu { (view) in
-                (view as? MenuItem)?.showTitleLabel()
+                (view as? FABMenuItem)?.showTitleLabel()
             }
         }
     }
-    
-    internal func prepareAddButton() {
-        addButton = FabButton(image: Icon.cm.add, tintColor: .white)
-        addButton.pulseColor = .white
-        addButton.backgroundColor = Color.red.base
-        addButton.addTarget(self, action: #selector(handleToggleMenu), for: .touchUpInside)
+}
+
+extension AppFABMenuController {
+    fileprivate func prepareToggleFABMenuItem() {
+        toggleFABMenuItem = FABMenuItem()
+        toggleFABMenuItem.title = "Add Button"
+        toggleFABMenuItem.button.image = Icon.cm.add
+        toggleFABMenuItem.button.tintColor = .white
+        toggleFABMenuItem.button.pulseColor = .white
+        toggleFABMenuItem.button.backgroundColor = Color.red.base
+        toggleFABMenuItem.button.depthPreset = .depth1
+        toggleFABMenuItem.button.addTarget(self, action: #selector(handleToggleMenu), for: .touchUpInside)
     }
     
-    internal func prepareAudioLibraryButton() {
-        articleMenuItem = MenuItem()
-        articleMenuItem.button.image = Icon.cm.edit
-        articleMenuItem.button.tintColor = .white
-        articleMenuItem.button.pulseColor = .white
-        articleMenuItem.button.backgroundColor = Color.green.base
-        articleMenuItem.button.depthPreset = .depth1
-        articleMenuItem.title = "Article"
+    fileprivate func prepareArticleFABMenuItem() {
+        articleFABMenuItem = FABMenuItem()
+        articleFABMenuItem.button.image = Icon.cm.edit
+        articleFABMenuItem.button.tintColor = .white
+        articleFABMenuItem.button.pulseColor = .white
+        articleFABMenuItem.button.backgroundColor = Color.green.base
+        articleFABMenuItem.button.depthPreset = .depth1
+        articleFABMenuItem.title = "Article"
     }
     
-    internal func prepareBellButton() {
-        reminderMenuItem = MenuItem()
-        reminderMenuItem.button.image = Icon.cm.bell
-        reminderMenuItem.button.tintColor = .white
-        reminderMenuItem.button.pulseColor = .white
-        reminderMenuItem.button.backgroundColor = Color.blue.base
-        reminderMenuItem.title = "Reminders"
+    fileprivate func prepareRemindersFABMenuItem() {
+        reminderFABMenuItem = FABMenuItem()
+        reminderFABMenuItem.button.image = Icon.cm.bell
+        reminderFABMenuItem.button.tintColor = .white
+        reminderFABMenuItem.button.pulseColor = .white
+        reminderFABMenuItem.button.backgroundColor = Color.blue.base
+        reminderFABMenuItem.title = "Reminders"
     }
     
-    internal func prepareMenu() {
+    fileprivate func prepareMenu() {
         view.layout(menu)
             .size(baseSize)
             .bottom(bottomInset)
@@ -119,23 +123,23 @@ extension AppMenuController {
         
         menu.delegate = self
         menu.baseSize = baseSize
-        menu.views = [addButton, articleMenuItem, reminderMenuItem]
+        menu.items = [toggleFABMenuItem, articleFABMenuItem, reminderFABMenuItem]
     }
 }
 
-/// MenuDelegate.
-extension AppMenuController: MenuDelegate {
-    func menu(menu: Menu, tappedAt point: CGPoint, isOutside: Bool) {
+extension AppFABMenuController: FABMenuDelegate {
+    @objc
+    func fabMenu(fabMenu: FABMenu, tappedAt point: CGPoint, isOutside: Bool) {
         guard isOutside else {
             return
         }
         
-        guard let mc = menuController as? AppMenuController else {
+        guard let mc = fabMenuController as? AppFABMenuController else {
             return
         }
         
         mc.closeMenu { (view) in
-            (view as? MenuItem)?.hideTitleLabel()
+            (view as? FABMenuItem)?.hideTitleLabel()
         }
     }
 }

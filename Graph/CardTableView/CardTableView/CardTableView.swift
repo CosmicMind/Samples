@@ -52,7 +52,7 @@ class CardTableView: UITableView {
     }
     
     /// Prepares the tableView.
-    private func prepare() {
+    open func prepare() {
         delegate = self
         dataSource = self
         separatorStyle = .none

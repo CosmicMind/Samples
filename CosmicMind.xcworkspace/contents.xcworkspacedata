@@ -45,6 +45,12 @@
             location = "group:Material/Programmatic/CollectionView/CollectionView.xcodeproj">
          </FileRef>
          <FileRef
+            location = "group:Material/Programmatic/Dropdown/Dropdown.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Material/Programmatic/FABMenuController/FABMenuController.xcodeproj">
+         </FileRef>
+         <FileRef
             location = "group:Material/Programmatic/Grid/Grid.xcodeproj">
          </FileRef>
          <FileRef

@@ -31,10 +31,10 @@
 import UIKit
 import Material
 
-class RootViewController: UIViewController {
-    fileprivate var addButton: FabButton!
-    fileprivate var audioLibraryMenuItem: MenuItem!
-    fileprivate var reminderMenuItem: MenuItem!
+class ViewController: UIViewController {
+    fileprivate var addButton: FABButton!
+    fileprivate var audioLibraryFABMenuItem: FABMenuItem!
+    fileprivate var reminderFABMenuItem: FABMenuItem!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,31 +52,31 @@ class RootViewController: UIViewController {
     }
 }
 
-extension RootViewController {
+extension ViewController {
     fileprivate func prepareAddButton() {
-        addButton = FabButton(image: Icon.cm.add, tintColor: .white)
+        addButton = FABButton(image: Icon.cm.add, tintColor: .white)
         addButton.pulseColor = .white
         addButton.backgroundColor = Color.red.base
         addButton.addTarget(self, action: #selector(handleToggleMenu), for: .touchUpInside)
     }
     
     fileprivate func prepareAudioLibraryButton() {
-        audioLibraryMenuItem = MenuItem()
-        audioLibraryMenuItem.button.image = Icon.cm.audioLibrary
-        audioLibraryMenuItem.button.tintColor = .white
-        audioLibraryMenuItem.button.pulseColor = .white
-        audioLibraryMenuItem.button.backgroundColor = Color.green.base
-        audioLibraryMenuItem.button.depthPreset = .depth1
-        audioLibraryMenuItem.title = "Audio Library"
+        audioLibraryFABMenuItem = FABMenuItem()
+        audioLibraryFABMenuItem.button.image = Icon.cm.audioLibrary
+        audioLibraryFABMenuItem.button.tintColor = .white
+        audioLibraryFABMenuItem.button.pulseColor = .white
+        audioLibraryFABMenuItem.button.backgroundColor = Color.green.base
+        audioLibraryFABMenuItem.button.depthPreset = .depth1
+        audioLibraryFABMenuItem.title = "Audio Library"
     }
     
     fileprivate func prepareBellButton() {
-        reminderMenuItem = MenuItem()
-        reminderMenuItem.button.image = Icon.cm.bell
-        reminderMenuItem.button.tintColor = .white
-        reminderMenuItem.button.pulseColor = .white
-        reminderMenuItem.button.backgroundColor = Color.blue.base
-        reminderMenuItem.title = "Reminders"
+        reminderFABMenuItem = FABMenuItem()
+        reminderFABMenuItem.button.image = Icon.cm.bell
+        reminderFABMenuItem.button.tintColor = .white
+        reminderFABMenuItem.button.pulseColor = .white
+        reminderFABMenuItem.button.backgroundColor = Color.blue.base
+        reminderFABMenuItem.title = "Reminders"
     }
     
     fileprivate func prepareMenuController() {
@@ -85,11 +85,11 @@ extension RootViewController {
         }
         
         mc.menu.delegate = self
-        mc.menu.views = [addButton, audioLibraryMenuItem, reminderMenuItem]
+        mc.menu.views = [addButton, audioLibraryFABMenuItem, reminderFABMenuItem]
     }
 }
 
-extension RootViewController {
+extension ViewController {
     @objc
     fileprivate func handleToggleMenu(button: Button) {
         guard let mc = menuController as? AppMenuController else {
@@ -98,17 +98,17 @@ extension RootViewController {
         
         if mc.menu.isOpened {
             mc.closeMenu { (view) in
-                (view as? MenuItem)?.hideTitleLabel()
+                (view as? FABMenuItem)?.hideTitleLabel()
             }
         } else {
             mc.openMenu { (view) in
-                (view as? MenuItem)?.showTitleLabel()
+                (view as? FABMenuItem)?.showTitleLabel()
             }
         }
     }
 }
 
-extension RootViewController: MenuDelegate {
+extension ViewController: MenuDelegate {
     func menu(menu: Menu, tappedAt point: CGPoint, isOutside: Bool) {
         guard isOutside else {
             return
@@ -119,7 +119,7 @@ extension RootViewController: MenuDelegate {
         }
         
         mc.closeMenu { (view) in
-            (view as? MenuItem)?.hideTitleLabel()
+            (view as? FABMenuItem)?.hideTitleLabel()
         }
     }
 }

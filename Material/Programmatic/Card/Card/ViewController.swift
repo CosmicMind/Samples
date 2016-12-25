@@ -35,7 +35,6 @@ class ViewController: UIViewController {
     fileprivate var card: Card!
     
     fileprivate var toolbar: Toolbar!
-    @IBOutlet weak var toolbar: Toolbar!
     fileprivate var moreButton: IconButton!
     
     fileprivate var contentView: UILabel!

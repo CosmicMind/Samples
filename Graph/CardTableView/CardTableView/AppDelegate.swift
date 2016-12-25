@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let pageTabBarController = AppPageTabBarController(viewControllers: viewControllers)
         let toolbarController = AppToolbarController(rootViewController: pageTabBarController)
-        let menuController = AppMenuController(rootViewController: toolbarController)
+        let menuController = AppFABMenuController(rootViewController: toolbarController)
         
         window = UIWindow(frame: Screen.bounds)
         window!.rootViewController = menuController

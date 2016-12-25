@@ -32,18 +32,18 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    @IBOutlet weak var fabButton: FabButton!
+    @IBOutlet weak var fabButton: FABButton!
     @IBOutlet weak var iconButton: IconButton!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        prepareFabButton()
+        prepareFABButton()
         prepareIconButton()
     }
 }
 
 extension ViewController {
-    fileprivate func prepareFabButton() {
+    fileprivate func prepareFABButton() {
         fabButton.image = Icon.cm.add
     }
     

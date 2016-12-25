@@ -48,7 +48,8 @@ extension ViewController {
         view.layout(control).center()
         
         Motion.delay(time: 3) {
-            control.isOn = true
+            control.switchState = .on
+            print("Updated Switch state to:", .on == control.switchState ? "on" : "off" )
         }
     }
 }

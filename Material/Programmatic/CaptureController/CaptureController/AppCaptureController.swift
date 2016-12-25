@@ -43,7 +43,7 @@ class AppCaptureController: CaptureController {
     fileprivate var resetView: UIView?
     
     /// A reference to the captureButton.
-    fileprivate var captureButton: FabButton!
+    fileprivate var captureButton: FABButton!
     
     /// A reference to the changeModeButton.
     fileprivate var changeModeButton: IconButton!
@@ -120,7 +120,7 @@ extension AppCaptureController {
     }
     
     fileprivate func prepareCaptureButton() {
-        captureButton = FabButton()
+        captureButton = FABButton()
         captureButton.backgroundColor = .white
         captureButton.depthPreset = .none
         bar.contentView.layout(captureButton).width(48).height(48).center()

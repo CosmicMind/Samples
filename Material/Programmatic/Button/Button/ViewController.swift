@@ -63,7 +63,7 @@ class ViewController: UIViewController {
         
         prepareFlatButton()
         prepareRaisedButton()
-        prepareFabButton()
+        prepareFABButton()
         prepareIconButton()
     }
 }
@@ -89,8 +89,8 @@ extension ViewController {
             .center(offsetY: ButtonLayout.Raised.offsetY)
     }
     
-    fileprivate func prepareFabButton() {
-        let button = FabButton(image: Icon.cm.add, tintColor: .white)
+    fileprivate func prepareFABButton() {
+        let button = FABButton(image: Icon.cm.add, tintColor: .white)
         button.pulseColor = .white
         button.backgroundColor = Color.red.base
         
