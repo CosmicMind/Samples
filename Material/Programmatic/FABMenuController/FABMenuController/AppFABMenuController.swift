@@ -32,35 +32,90 @@ import UIKit
 import Material
 
 class AppFABMenuController: FABMenuController {
-    fileprivate let baseSize = CGSize(width: 56, height: 56)
+    fileprivate let fabMenuSize = CGSize(width: 56, height: 56)
     fileprivate let bottomInset: CGFloat = 24
     fileprivate let rightInset: CGFloat = 24
+    
+    fileprivate var fabButton: FABButton!
+    fileprivate var notesFABMenuItem: FABMenuItem!
+    fileprivate var reminderFABMenuItem: FABMenuItem!
     
     open override func prepare() {
         super.prepare()
         view.backgroundColor = Color.grey.lighten5
         
-        prepareMenu()
-    }
-    
-    open override func openMenu(completion: ((UIView) -> Void)? = nil) {
-        super.openMenu(completion: completion)
-        menu.views.first?.animate(animation: Motion.rotate(angle: 45))
-    }
-    
-    open override func closeMenu(completion: ((UIView) -> Void)? = nil) {
-        super.closeMenu(completion: completion)
-        menu.views.first?.animate(animation: Motion.rotate(angle: 0))
+        prepareFABButton()
+        prepareNotesFABMenuItem()
+        prepareRemindersItem()
+        prepareFABMenu()
     }
 }
 
 extension AppFABMenuController {
-    fileprivate func prepareMenu() {
-        menu.baseSize = baseSize
+    fileprivate func prepareFABButton() {
+        fabButton = FABButton(image: Icon.cm.add, tintColor: .white)
+        fabButton.pulseColor = .white
+        fabButton.backgroundColor = Color.red.base
+        fabButton.depthPreset = .depth1
+    }
+    
+    fileprivate func prepareNotesFABMenuItem() {
+        notesFABMenuItem = FABMenuItem()
+        notesFABMenuItem.button.image = Icon.cm.pen
+        notesFABMenuItem.button.tintColor = .white
+        notesFABMenuItem.button.pulseColor = .white
+        notesFABMenuItem.button.backgroundColor = Color.green.base
+        notesFABMenuItem.button.depthPreset = .depth1
+        notesFABMenuItem.title = "Audio Library"
+    }
+    
+    fileprivate func prepareRemindersItem() {
+        reminderFABMenuItem = FABMenuItem()
+        reminderFABMenuItem.button.image = Icon.cm.bell
+        reminderFABMenuItem.button.tintColor = .white
+        reminderFABMenuItem.button.pulseColor = .white
+        reminderFABMenuItem.button.backgroundColor = Color.blue.base
+        reminderFABMenuItem.title = "Reminders"
+    }
+    
+    fileprivate func prepareFABMenu() {
+        fabMenu.fabButton = fabButton
+        fabMenu.items = [notesFABMenuItem, reminderFABMenuItem]
         
-        view.layout(menu)
-            .size(baseSize)
+        view.layout(fabMenu)
+            .size(fabMenuSize)
             .bottom(bottomInset)
             .right(rightInset)
+    }
+}
+
+extension AppFABMenuController {
+    @objc
+    func fabMenuWillOpen(fabMenu: FABMenu) {
+        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 45))
+    }
+    
+    @objc
+    func fabMenuDidOpen(fabMenu: FABMenu) {
+        
+    }
+    
+    @objc
+    func fabMenuWillClose(fabMenu: FABMenu) {
+        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+    }
+    
+    @objc
+    func fabMenuDidClose(fabMenu: FABMenu) {
+        
+    }
+    
+    @objc
+    func fabMenu(fabMenu: FABMenu, tappedAt point: CGPoint, isOutside: Bool) {
+        guard isOutside else {
+            return
+        }
+        
+        fabMenu.close()
     }
 }
