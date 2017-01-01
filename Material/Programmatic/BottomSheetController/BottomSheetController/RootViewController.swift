@@ -31,52 +31,28 @@
 import UIKit
 import Material
 
-class ViewController: UIViewController {
-    fileprivate var menu: Menu!
+class RootViewController: UIViewController {
+    fileprivate var fabButton: FABButton!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.grey.lighten5
+        view.backgroundColor = Color.red.base
         
-        prepareMenu()
+        prepareFABButton()
     }
 }
 
-extension ViewController {
-    fileprivate func prepareMenu() {
-        menu = Menu(image: Icon.cm.moreVertical)
-        menu.delegate = self
-        menu.shapePreset = .circle
-        menu.direction = .topLeft
-        menu.collectionViewCard.width = view.bounds.width / 2 - 16
-        
-        view.layout(menu).width(32).height(32).center()
-        
-        let toolbar = Toolbar()
-        toolbar.title = "Menu"
-        
-        let m1 = MenuItem()
-        let iv1 = UIImageView(image: Icon.cm.audio?.tint(with: Color.grey.base))
-        iv1.contentMode = .center
-        
-        m1.title = "Save Content"
-        m1.leftViews = [iv1]
-        
-        let m2 = MenuItem()
-        let iv2 = UIImageView(image: Icon.cm.audio?.tint(with: Color.grey.base))
-        iv2.contentMode = .center
-        
-        m2.title = "Save Content"
-        m2.leftViews = [iv2]
-        
-        menu.items = [m1, m2]
-//        menu.collectionViewCard.toolbar = toolbar
+extension RootViewController {
+    fileprivate func prepareFABButton() {
+        fabButton = FABButton()
+        fabButton.addTarget(self, action: #selector(handleFABButton(button:)), for: .touchUpInside)
+        view.layout(fabButton).width(64).height(64).bottom(24).right(24)
     }
 }
 
-extension ViewController: MenuDelegate {
+extension RootViewController {
     @objc
-    func menu(menu: Menu, didSelect menuItem: MenuItem, at indexPath: IndexPath) {
-        print(menuItem, indexPath)
+    fileprivate func handleFABButton(button: UIButton) {
+        bottomSheetController?.openBottomView()
     }
 }

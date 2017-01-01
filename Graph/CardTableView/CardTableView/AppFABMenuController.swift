@@ -32,115 +32,95 @@ import UIKit
 import Material
 
 class AppFABMenuController: FABMenuController {
-    fileprivate let baseSize = CGSize(width: 56, height: 56)
+    fileprivate let fabMenuSize = CGSize(width: 56, height: 56)
     fileprivate let bottomInset: CGFloat = 24
     fileprivate let rightInset: CGFloat = 24
     
-    fileprivate var toggleFABMenuItem: FABMenuItem!
-    fileprivate var articleFABMenuItem: FABMenuItem!
+    fileprivate var fabButton: FABButton!
+    fileprivate var notesFABMenuItem: FABMenuItem!
     fileprivate var reminderFABMenuItem: FABMenuItem!
     
     open override func prepare() {
         super.prepare()
-        view.backgroundColor = Color.blueGrey.lighten5
+        view.backgroundColor = .black
         
-        prepareToggleFABMenuItem()
-        prepareArticleFABMenuItem()
-        prepareRemindersFABMenuItem()
-    }
-    
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        prepareMenu()
-    }
-    
-    open override func openMenu(completion: ((UIView) -> Void)? = nil) {
-        super.openMenu(completion: completion)
-        menu.items.first?.animate(animation: Motion.rotate(angle: 45))
-    }
-    
-    open override func closeMenu(completion: ((UIView) -> Void)? = nil) {
-        super.closeMenu(completion: completion)
-        menu.items.first?.animate(animation: Motion.rotate(angle: 0))
+        prepareFABButton()
+        prepareNotesFABMenuItem()
+        prepareRemindersItem()
+        prepareFABMenu()
     }
 }
 
 extension AppFABMenuController {
-    @objc
-    fileprivate func handleToggleMenu(button: Button) {
-        guard let mc = fabMenuController as? AppFABMenuController else {
-            return
-        }
-        
-        if mc.menu.isOpened {
-            mc.closeMenu { (view) in
-                (view as? FABMenuItem)?.hideTitleLabel()
-            }
-        } else {
-            mc.openMenu { (view) in
-                (view as? FABMenuItem)?.showTitleLabel()
-            }
-        }
-    }
-}
-
-extension AppFABMenuController {
-    fileprivate func prepareToggleFABMenuItem() {
-        toggleFABMenuItem = FABMenuItem()
-        toggleFABMenuItem.title = "Add Button"
-        toggleFABMenuItem.button.image = Icon.cm.add
-        toggleFABMenuItem.button.tintColor = .white
-        toggleFABMenuItem.button.pulseColor = .white
-        toggleFABMenuItem.button.backgroundColor = Color.red.base
-        toggleFABMenuItem.button.depthPreset = .depth1
-        toggleFABMenuItem.button.addTarget(self, action: #selector(handleToggleMenu), for: .touchUpInside)
+    fileprivate func prepareFABButton() {
+        fabButton = FABButton(image: Icon.cm.add, tintColor: .white)
+        fabButton.pulseColor = .white
+        fabButton.depthPreset = .depth1
+        fabButton.backgroundColor = Color.red.base
     }
     
-    fileprivate func prepareArticleFABMenuItem() {
-        articleFABMenuItem = FABMenuItem()
-        articleFABMenuItem.button.image = Icon.cm.edit
-        articleFABMenuItem.button.tintColor = .white
-        articleFABMenuItem.button.pulseColor = .white
-        articleFABMenuItem.button.backgroundColor = Color.green.base
-        articleFABMenuItem.button.depthPreset = .depth1
-        articleFABMenuItem.title = "Article"
+    fileprivate func prepareNotesFABMenuItem() {
+        notesFABMenuItem = FABMenuItem()
+        notesFABMenuItem.title = "Audio Library"
+        notesFABMenuItem.button.image = Icon.cm.pen
+        notesFABMenuItem.button.tintColor = .white
+        notesFABMenuItem.button.pulseColor = .white
+        notesFABMenuItem.button.depthPreset = .depth1
+        notesFABMenuItem.button.backgroundColor = Color.green.base
     }
     
-    fileprivate func prepareRemindersFABMenuItem() {
+    fileprivate func prepareRemindersItem() {
         reminderFABMenuItem = FABMenuItem()
+        reminderFABMenuItem.title = "Reminders"
         reminderFABMenuItem.button.image = Icon.cm.bell
         reminderFABMenuItem.button.tintColor = .white
         reminderFABMenuItem.button.pulseColor = .white
         reminderFABMenuItem.button.backgroundColor = Color.blue.base
-        reminderFABMenuItem.title = "Reminders"
     }
     
-    fileprivate func prepareMenu() {
-        view.layout(menu)
-            .size(baseSize)
+    fileprivate func prepareFABMenu() {
+        fabMenu.fabButton = fabButton
+        fabMenu.items = [notesFABMenuItem, reminderFABMenuItem]
+        
+        fabMenuBackingBlurEffectStyle = .light
+        
+        view.layout(fabMenu)
+            .size(fabMenuSize)
             .bottom(bottomInset)
             .right(rightInset)
-        
-        menu.delegate = self
-        menu.baseSize = baseSize
-        menu.items = [toggleFABMenuItem, articleFABMenuItem, reminderFABMenuItem]
     }
 }
 
-extension AppFABMenuController: FABMenuDelegate {
+extension AppFABMenuController {
     @objc
-    func fabMenu(fabMenu: FABMenu, tappedAt point: CGPoint, isOutside: Bool) {
+    open override func fabMenuWillOpen(fabMenu: FABMenu) {
+        super.fabMenuWillOpen(fabMenu: fabMenu)
+        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 45))
+    }
+    
+    @objc
+    open override func fabMenuDidOpen(fabMenu: FABMenu) {
+        super.fabMenuDidOpen(fabMenu: fabMenu)
+    }
+    
+    @objc
+    open override func fabMenuWillClose(fabMenu: FABMenu) {
+        super.fabMenuWillClose(fabMenu: fabMenu)
+        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+    }
+    
+    @objc
+    open override func fabMenuDidClose(fabMenu: FABMenu) {
+        super.fabMenuDidClose(fabMenu: fabMenu)
+    }
+    
+    @objc
+    open override func fabMenu(fabMenu: FABMenu, tappedAt point: CGPoint, isOutside: Bool) {
+        super.fabMenu(fabMenu: fabMenu, tappedAt: point, isOutside: isOutside)
         guard isOutside else {
             return
         }
         
-        guard let mc = fabMenuController as? AppFABMenuController else {
-            return
-        }
-        
-        mc.closeMenu { (view) in
-            (view as? FABMenuItem)?.hideTitleLabel()
-        }
+        // Do something ...
     }
 }
-

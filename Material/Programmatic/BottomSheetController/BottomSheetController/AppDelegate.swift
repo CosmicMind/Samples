@@ -31,52 +31,15 @@
 import UIKit
 import Material
 
-class ViewController: UIViewController {
-    fileprivate var menu: Menu!
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.grey.lighten5
-        
-        prepareMenu()
+    var window: UIWindow?
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = BottomSheetController(rootViewController: RootViewController(), bottomViewController: BottomViewController())
+        window!.makeKeyAndVisible()
     }
 }
 
-extension ViewController {
-    fileprivate func prepareMenu() {
-        menu = Menu(image: Icon.cm.moreVertical)
-        menu.delegate = self
-        menu.shapePreset = .circle
-        menu.direction = .topLeft
-        menu.collectionViewCard.width = view.bounds.width / 2 - 16
-        
-        view.layout(menu).width(32).height(32).center()
-        
-        let toolbar = Toolbar()
-        toolbar.title = "Menu"
-        
-        let m1 = MenuItem()
-        let iv1 = UIImageView(image: Icon.cm.audio?.tint(with: Color.grey.base))
-        iv1.contentMode = .center
-        
-        m1.title = "Save Content"
-        m1.leftViews = [iv1]
-        
-        let m2 = MenuItem()
-        let iv2 = UIImageView(image: Icon.cm.audio?.tint(with: Color.grey.base))
-        iv2.contentMode = .center
-        
-        m2.title = "Save Content"
-        m2.leftViews = [iv2]
-        
-        menu.items = [m1, m2]
-//        menu.collectionViewCard.toolbar = toolbar
-    }
-}
-
-extension ViewController: MenuDelegate {
-    @objc
-    func menu(menu: Menu, didSelect menuItem: MenuItem, at indexPath: IndexPath) {
-        print(menuItem, indexPath)
-    }
-}

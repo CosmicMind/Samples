@@ -42,7 +42,7 @@ class AppFABMenuController: FABMenuController {
     
     open override func prepare() {
         super.prepare()
-        view.backgroundColor = Color.grey.lighten5
+        view.backgroundColor = .black
         
         prepareFABButton()
         prepareNotesFABMenuItem()
@@ -55,27 +55,27 @@ extension AppFABMenuController {
     fileprivate func prepareFABButton() {
         fabButton = FABButton(image: Icon.cm.add, tintColor: .white)
         fabButton.pulseColor = .white
-        fabButton.backgroundColor = Color.red.base
         fabButton.depthPreset = .depth1
+        fabButton.backgroundColor = Color.red.base
     }
     
     fileprivate func prepareNotesFABMenuItem() {
         notesFABMenuItem = FABMenuItem()
+        notesFABMenuItem.title = "Audio Library"
         notesFABMenuItem.button.image = Icon.cm.pen
         notesFABMenuItem.button.tintColor = .white
         notesFABMenuItem.button.pulseColor = .white
-        notesFABMenuItem.button.backgroundColor = Color.green.base
         notesFABMenuItem.button.depthPreset = .depth1
-        notesFABMenuItem.title = "Audio Library"
+        notesFABMenuItem.button.backgroundColor = Color.green.base
     }
     
     fileprivate func prepareRemindersItem() {
         reminderFABMenuItem = FABMenuItem()
+        reminderFABMenuItem.title = "Reminders"
         reminderFABMenuItem.button.image = Icon.cm.bell
         reminderFABMenuItem.button.tintColor = .white
         reminderFABMenuItem.button.pulseColor = .white
         reminderFABMenuItem.button.backgroundColor = Color.blue.base
-        reminderFABMenuItem.title = "Reminders"
     }
     
     fileprivate func prepareFABMenu() {
@@ -91,31 +91,34 @@ extension AppFABMenuController {
 
 extension AppFABMenuController {
     @objc
-    func fabMenuWillOpen(fabMenu: FABMenu) {
+    open override func fabMenuWillOpen(fabMenu: FABMenu) {
+        super.fabMenuWillOpen(fabMenu: fabMenu)
         fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 45))
     }
     
     @objc
-    func fabMenuDidOpen(fabMenu: FABMenu) {
-        
+    open override func fabMenuDidOpen(fabMenu: FABMenu) {
+        super.fabMenuDidOpen(fabMenu: fabMenu)
     }
     
     @objc
-    func fabMenuWillClose(fabMenu: FABMenu) {
+    open override func fabMenuWillClose(fabMenu: FABMenu) {
+        super.fabMenuWillClose(fabMenu: fabMenu)
         fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
     }
     
     @objc
-    func fabMenuDidClose(fabMenu: FABMenu) {
-        
+    open override func fabMenuDidClose(fabMenu: FABMenu) {
+        super.fabMenuDidClose(fabMenu: fabMenu)
     }
     
     @objc
-    func fabMenu(fabMenu: FABMenu, tappedAt point: CGPoint, isOutside: Bool) {
+    open override func fabMenu(fabMenu: FABMenu, tappedAt point: CGPoint, isOutside: Bool) {
+        super.fabMenu(fabMenu: fabMenu, tappedAt: point, isOutside: isOutside)
         guard isOutside else {
             return
         }
         
-        fabMenu.close()
+        // Do something ... 
     }
 }

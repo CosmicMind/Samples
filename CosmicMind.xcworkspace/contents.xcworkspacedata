@@ -33,6 +33,9 @@
             location = "group:Material/Programmatic/BottomNavigationController/BottomNavigationController.xcodeproj">
          </FileRef>
          <FileRef
+            location = "group:Material/Programmatic/BottomSheetController/BottomSheetController.xcodeproj">
+         </FileRef>
+         <FileRef
             location = "group:Material/Programmatic/Button/Button.xcodeproj">
          </FileRef>
          <FileRef
