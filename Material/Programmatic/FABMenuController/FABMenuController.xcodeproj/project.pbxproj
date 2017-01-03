@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961730B91E1C28C600A9A297 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961730B81E1C28C600A9A297 /* NotesViewController.swift */; };
+		961730BB1E1C28DA00A9A297 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961730BA1E1C28DA00A9A297 /* RemindersViewController.swift */; };
 		96A183781E0C7CA800083C30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A183771E0C7CA800083C30 /* AppDelegate.swift */; };
 		96A1837A1E0C7CA800083C30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A183791E0C7CA800083C30 /* ViewController.swift */; };
 		96A1837F1E0C7CA800083C30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96A1837E1E0C7CA800083C30 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		961730B81E1C28C600A9A297 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		961730BA1E1C28DA00A9A297 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
 		96A183741E0C7CA800083C30 /* FABMenuController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FABMenuController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96A183771E0C7CA800083C30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96A183791E0C7CA800083C30 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +74,8 @@
 				96A183771E0C7CA800083C30 /* AppDelegate.swift */,
 				96A183891E0C7D1F00083C30 /* AppFABMenuController.swift */,
 				96A183791E0C7CA800083C30 /* ViewController.swift */,
+				961730B81E1C28C600A9A297 /* NotesViewController.swift */,
+				961730BA1E1C28DA00A9A297 /* RemindersViewController.swift */,
 				96A1837E1E0C7CA800083C30 /* Assets.xcassets */,
 				96A183801E0C7CA800083C30 /* LaunchScreen.storyboard */,
 				96A183831E0C7CA800083C30 /* Info.plist */,
@@ -149,8 +155,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961730B91E1C28C600A9A297 /* NotesViewController.swift in Sources */,
 				96A1837A1E0C7CA800083C30 /* ViewController.swift in Sources */,
 				96A183781E0C7CA800083C30 /* AppDelegate.swift in Sources */,
+				961730BB1E1C28DA00A9A297 /* RemindersViewController.swift in Sources */,
 				96A1838A1E0C7D1F00083C30 /* AppFABMenuController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

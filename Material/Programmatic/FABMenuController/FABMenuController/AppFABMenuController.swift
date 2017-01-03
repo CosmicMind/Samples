@@ -65,6 +65,7 @@ extension AppFABMenuController {
         notesFABMenuItem.fabButton.tintColor = .white
         notesFABMenuItem.fabButton.pulseColor = .white
         notesFABMenuItem.fabButton.backgroundColor = Color.green.base
+        notesFABMenuItem.fabButton.addTarget(self, action: #selector(handleNotesFABMenuItem(button:)), for: .touchUpInside)
     }
     
     fileprivate func prepareRemindersFABMenuItem() {
@@ -74,6 +75,7 @@ extension AppFABMenuController {
         remindersFABMenuItem.fabButton.tintColor = .white
         remindersFABMenuItem.fabButton.pulseColor = .white
         remindersFABMenuItem.fabButton.backgroundColor = Color.blue.base
+        remindersFABMenuItem.fabButton.addTarget(self, action: #selector(handleRemindersFABMenuItem(button:)), for: .touchUpInside)
     }
     
     fileprivate func prepareFABMenu() {
@@ -89,9 +91,23 @@ extension AppFABMenuController {
 
 extension AppFABMenuController {
     @objc
+    fileprivate func handleNotesFABMenuItem(button: UIButton) {
+        transition(to: NotesViewController())
+        fabMenu.close()
+    }
+    
+    @objc
+    fileprivate func handleRemindersFABMenuItem(button: UIButton) {
+        transition(to: RemindersViewController())
+        fabMenu.close()
+    }
+}
+
+extension AppFABMenuController {
+    @objc
     open override func fabMenuWillOpen(fabMenu: FABMenu) {
         super.fabMenuWillOpen(fabMenu: fabMenu)
-//        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 45))
+        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 45))
     }
     
     @objc
@@ -102,7 +118,7 @@ extension AppFABMenuController {
     @objc
     open override func fabMenuWillClose(fabMenu: FABMenu) {
         super.fabMenuWillClose(fabMenu: fabMenu)
-//        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
     }
     
     @objc
