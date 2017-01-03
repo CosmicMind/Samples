@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -38,15 +38,15 @@ class AppFABMenuController: FABMenuController {
     
     fileprivate var fabButton: FABButton!
     fileprivate var notesFABMenuItem: FABMenuItem!
-    fileprivate var reminderFABMenuItem: FABMenuItem!
+    fileprivate var remindersFABMenuItem: FABMenuItem!
     
     open override func prepare() {
         super.prepare()
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         
         prepareFABButton()
         prepareNotesFABMenuItem()
-        prepareRemindersItem()
+        prepareRemindersFABMenuItem()
         prepareFABMenu()
     }
 }
@@ -55,32 +55,30 @@ extension AppFABMenuController {
     fileprivate func prepareFABButton() {
         fabButton = FABButton(image: Icon.cm.add, tintColor: .white)
         fabButton.pulseColor = .white
-        fabButton.depthPreset = .depth1
         fabButton.backgroundColor = Color.red.base
     }
     
     fileprivate func prepareNotesFABMenuItem() {
         notesFABMenuItem = FABMenuItem()
         notesFABMenuItem.title = "Audio Library"
-        notesFABMenuItem.button.image = Icon.cm.pen
-        notesFABMenuItem.button.tintColor = .white
-        notesFABMenuItem.button.pulseColor = .white
-        notesFABMenuItem.button.depthPreset = .depth1
-        notesFABMenuItem.button.backgroundColor = Color.green.base
+        notesFABMenuItem.fabButton.image = Icon.cm.pen
+        notesFABMenuItem.fabButton.tintColor = .white
+        notesFABMenuItem.fabButton.pulseColor = .white
+        notesFABMenuItem.fabButton.backgroundColor = Color.green.base
     }
     
-    fileprivate func prepareRemindersItem() {
-        reminderFABMenuItem = FABMenuItem()
-        reminderFABMenuItem.title = "Reminders"
-        reminderFABMenuItem.button.image = Icon.cm.bell
-        reminderFABMenuItem.button.tintColor = .white
-        reminderFABMenuItem.button.pulseColor = .white
-        reminderFABMenuItem.button.backgroundColor = Color.blue.base
+    fileprivate func prepareRemindersFABMenuItem() {
+        remindersFABMenuItem = FABMenuItem()
+        remindersFABMenuItem.title = "Reminders"
+        remindersFABMenuItem.fabButton.image = Icon.cm.bell
+        remindersFABMenuItem.fabButton.tintColor = .white
+        remindersFABMenuItem.fabButton.pulseColor = .white
+        remindersFABMenuItem.fabButton.backgroundColor = Color.blue.base
     }
     
     fileprivate func prepareFABMenu() {
         fabMenu.fabButton = fabButton
-        fabMenu.items = [notesFABMenuItem, reminderFABMenuItem]
+        fabMenu.fabMenuItems = [notesFABMenuItem, remindersFABMenuItem]
         
         view.layout(fabMenu)
             .size(fabMenuSize)
@@ -93,7 +91,7 @@ extension AppFABMenuController {
     @objc
     open override func fabMenuWillOpen(fabMenu: FABMenu) {
         super.fabMenuWillOpen(fabMenu: fabMenu)
-        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 45))
+//        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 45))
     }
     
     @objc
@@ -104,7 +102,7 @@ extension AppFABMenuController {
     @objc
     open override func fabMenuWillClose(fabMenu: FABMenu) {
         super.fabMenuWillClose(fabMenu: fabMenu)
-        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+//        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
     }
     
     @objc
