@@ -12,6 +12,8 @@
 		961730871E1701EE00A9A297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961730861E1701EE00A9A297 /* Assets.xcassets */; };
 		9617308A1E1701EE00A9A297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961730881E1701EE00A9A297 /* LaunchScreen.storyboard */; };
 		961730921E17036300A9A297 /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961730911E17036300A9A297 /* BottomViewController.swift */; };
+		961730BD1E1C488E00A9A297 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961730BC1E1C488E00A9A297 /* Material.framework */; };
+		961730BE1E1C488E00A9A297 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961730BC1E1C488E00A9A297 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,6 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				961730BE1E1C488E00A9A297 /* Material.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -35,6 +38,7 @@
 		961730891E1701EE00A9A297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9617308B1E1701EE00A9A297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		961730911E17036300A9A297 /* BottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
+		961730BC1E1C488E00A9A297 /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961730BD1E1C488E00A9A297 /* Material.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +56,7 @@
 		961730731E1701EE00A9A297 = {
 			isa = PBXGroup;
 			children = (
+				961730BC1E1C488E00A9A297 /* Material.framework */,
 				9617307E1E1701EE00A9A297 /* BottomSheetController */,
 				9617307D1E1701EE00A9A297 /* Products */,
 			);

@@ -94,41 +94,46 @@ extension AppFABMenuController {
     fileprivate func handleNotesFABMenuItem(button: UIButton) {
         transition(to: NotesViewController())
         fabMenu.close()
+        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
     }
     
     @objc
     fileprivate func handleRemindersFABMenuItem(button: UIButton) {
         transition(to: RemindersViewController())
         fabMenu.close()
+        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
     }
 }
 
 extension AppFABMenuController {
     @objc
-    open override func fabMenuWillOpen(fabMenu: FABMenu) {
-        super.fabMenuWillOpen(fabMenu: fabMenu)
+    open func fabMenuWillOpen(fabMenu: FABMenu) {
         fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 45))
+        
+        print("fabMenuWillOpen")
     }
     
     @objc
-    open override func fabMenuDidOpen(fabMenu: FABMenu) {
-        super.fabMenuDidOpen(fabMenu: fabMenu)
+    open func fabMenuDidOpen(fabMenu: FABMenu) {
+        print("fabMenuDidOpen")
     }
     
     @objc
-    open override func fabMenuWillClose(fabMenu: FABMenu) {
-        super.fabMenuWillClose(fabMenu: fabMenu)
+    open func fabMenuWillClose(fabMenu: FABMenu) {
         fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+        
+        print("fabMenuWillClose")
     }
     
     @objc
-    open override func fabMenuDidClose(fabMenu: FABMenu) {
-        super.fabMenuDidClose(fabMenu: fabMenu)
+    open func fabMenuDidClose(fabMenu: FABMenu) {
+        print("fabMenuDidClose")
     }
     
     @objc
-    open override func fabMenu(fabMenu: FABMenu, tappedAt point: CGPoint, isOutside: Bool) {
-        super.fabMenu(fabMenu: fabMenu, tappedAt: point, isOutside: isOutside)
+    open func fabMenu(fabMenu: FABMenu, tappedAt point: CGPoint, isOutside: Bool) {
+        print("fabMenuTappedAtPointIsOutside", point, isOutside)
+        
         guard isOutside else {
             return
         }
