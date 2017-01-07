@@ -32,73 +32,44 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    private var nameField: TextField!
-    private var emailField: ErrorTextField!
-    private var passwordField: TextField!
+    fileprivate var emailField: ErrorTextField!
+    fileprivate var passwordField: TextField!
     
     /// A constant to layout the textFields.
-    private let constant: CGFloat = 32
+    fileprivate let constant: CGFloat = 32
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.grey.lighten5
         
-        prepareNameField()
-        prepareEmailField()
         preparePasswordField()
+        prepareEmailField()
         prepareResignResponderButton()
     }
     
-    /// Programmatic update for the textField as it rotates.
-    override func willRotate(to toInterfaceOrientation: UIInterfaceOrientation, duration: TimeInterval) {
-        emailField.width = view.height - 2 * constant
-    }
-    
     /// Prepares the resign responder button.
-    private func prepareResignResponderButton() {
+    fileprivate func prepareResignResponderButton() {
         let btn = RaisedButton(title: "Resign", titleColor: Color.blue.base)
         btn.addTarget(self, action: #selector(handleResignResponderButton(button:)), for: .touchUpInside)
         
-        view.layout(btn).width(100).height(constant).top(24).right(24)
+        view.layout(btn).width(100).height(constant).centerVertically(offset: emailField.height / 2 + 60).right(20)
     }
     
     /// Handle the resign responder button.
     @objc
     internal func handleResignResponderButton(button: UIButton) {
-        nameField?.resignFirstResponder()
         emailField?.resignFirstResponder()
         passwordField?.resignFirstResponder()
     }
-    
-    private func prepareNameField() {
-        nameField = TextField()
-        nameField.placeholder = "Name"
-        nameField.detail = "Your given name"
-        nameField.isClearIconButtonEnabled = true
-        
-        let leftView = UIImageView()
-        leftView.image = Icon.phone
-        
-        nameField.leftView = leftView
-        nameField.leftViewMode = .always
-        
-        view.layout(nameField).top(4 * constant).horizontally(left: constant, right: constant)
-    }
-    
-    private func prepareEmailField() {
-        emailField = ErrorTextField(frame: CGRect(x: constant, y: 7 * constant, width: view.width - (2 * constant), height: constant))
+}
+
+extension ViewController {
+    fileprivate func prepareEmailField() {
+        emailField = ErrorTextField()
         emailField.placeholder = "Email"
         emailField.detail = "Error, incorrect email"
         emailField.isClearIconButtonEnabled = true
         emailField.delegate = self
-        
-        let leftView = UIImageView()
-        leftView.image = Icon.email
-        
-        emailField.leftView = leftView
-        emailField.leftViewMode = .always
-        emailField.leftViewNormalColor = .brown
-        emailField.leftViewActiveColor = .green
         
         // Set the colors for the emailField, different from the defaults.
 //        emailField.placeholderNormalColor = Color.amber.darken4
@@ -106,10 +77,11 @@ class ViewController: UIViewController {
 //        emailField.dividerNormalColor = Color.cyan.base
 //        emailField.dividerActiveColor = Color.green.base
         
-        view.addSubview(emailField)
+        view.layout(emailField).center(offsetY: -passwordField.height - 60).left(20).right(20)
+        
     }
     
-    private func preparePasswordField() {
+    fileprivate func preparePasswordField() {
         passwordField = TextField()
         passwordField.placeholder = "Password"
         passwordField.detail = "At least 8 characters"
@@ -119,28 +91,12 @@ class ViewController: UIViewController {
         // Setting the visibilityIconButton color.
         passwordField.visibilityIconButton?.tintColor = Color.green.base.withAlphaComponent(passwordField.isSecureTextEntry ? 0.38 : 0.54)
         
-        view.layout(passwordField).top(10 * constant).horizontally(left: constant, right: constant)
+        view.layout(passwordField).center().left(20).right(20)
     }
 }
 
+
 extension UIViewController: TextFieldDelegate {
-    /// Executed when the 'return' key is pressed when using the emailField.
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        (textField as? ErrorTextField)?.isErrorRevealed = true
-        return true
-    }
-    
-    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-    }
-    
-    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        return true
-    }
-    
     public func textFieldDidEndEditing(_ textField: UITextField) {
         (textField as? ErrorTextField)?.isErrorRevealed = false
     }
@@ -154,17 +110,6 @@ extension UIViewController: TextFieldDelegate {
         (textField as? ErrorTextField)?.isErrorRevealed = false
         return true
     }
-    
-    public func textField(textField: UITextField, didChange text: String?) {
-        print("did change", text ?? "")
-    }
-    
-    public func textField(textField: UITextField, willClear text: String?) {
-        print("will clear", text ?? "")
-    }
-    
-    public func textField(textField: UITextField, didClear text: String?) {
-        print("did clear", text ?? "")
-    }
 }
+
 

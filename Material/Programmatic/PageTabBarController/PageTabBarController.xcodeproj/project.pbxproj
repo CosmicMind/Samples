@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961731081E1EEDE400A9A297 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961731071E1EEDE400A9A297 /* Material.framework */; };
+		961731091E1EEDE400A9A297 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961731071E1EEDE400A9A297 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96784F021D9013E50061C06C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96784F011D9013E50061C06C /* AppDelegate.swift */; };
 		96784F091D9013E50061C06C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96784F081D9013E50061C06C /* Assets.xcassets */; };
 		96784F0C1D9013E50061C06C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96784F0A1D9013E50061C06C /* LaunchScreen.storyboard */; };
@@ -23,6 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				961731091E1EEDE400A9A297 /* Material.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -30,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		961731071E1EEDE400A9A297 /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96784EFE1D9013E50061C06C /* PageTabBarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PageTabBarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96784F011D9013E50061C06C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96784F081D9013E50061C06C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961731081E1EEDE400A9A297 /* Material.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +60,7 @@
 		96784EF51D9013E50061C06C = {
 			isa = PBXGroup;
 			children = (
+				961731071E1EEDE400A9A297 /* Material.framework */,
 				96784F001D9013E50061C06C /* PageTabBarController */,
 				96784EFF1D9013E50061C06C /* Products */,
 			);

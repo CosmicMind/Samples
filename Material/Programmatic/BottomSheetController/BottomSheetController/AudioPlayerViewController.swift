@@ -31,17 +31,28 @@
 import UIKit
 import Material
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AudioPlayerViewController: UIViewController {
+    fileprivate var fabButton: FABButton!
     
-    var window: UIWindow?
-    
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        let bottomSheetController = AppBottomSheetController(rootViewController: AppToolbarController(rootViewController: AudioLibraryViewController()), bottomViewController: BottomViewController())
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Color.red.base
         
-        window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = bottomSheetController
-        window!.makeKeyAndVisible()
+        prepareFABButton()
     }
 }
 
+extension AudioPlayerViewController {
+    fileprivate func prepareFABButton() {
+        fabButton = FABButton()
+        fabButton.addTarget(self, action: #selector(handleFABButton(button:)), for: .touchUpInside)
+        view.layout(fabButton).width(64).height(64).bottom(24).right(24)
+    }
+}
+
+extension AudioPlayerViewController {
+    @objc
+    fileprivate func handleFABButton(button: UIButton) {
+        bottomSheetController?.openBottomSheet()
+    }
+}

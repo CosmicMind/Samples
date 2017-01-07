@@ -31,17 +31,13 @@
 import UIKit
 import Material
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var window: UIWindow?
-    
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        let bottomSheetController = AppBottomSheetController(rootViewController: AppToolbarController(rootViewController: AudioLibraryViewController()), bottomViewController: BottomViewController())
+open class AppBottomSheetController: BottomSheetController {
+    open override func prepare() {
+        super.prepare()
         
-        window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = bottomSheetController
-        window!.makeKeyAndVisible()
+        bottomSheetLayoutStyle = .flat
+        bottomSheet.fabButton = FABButton()
+        bottomSheet.fabButton?.width = 64
+        bottomSheet.fabButton?.height = 64
     }
 }
-

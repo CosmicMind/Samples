@@ -31,17 +31,16 @@
 import UIKit
 import Material
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var window: UIWindow?
-    
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        let bottomSheetController = AppBottomSheetController(rootViewController: AppToolbarController(rootViewController: AudioLibraryViewController()), bottomViewController: BottomViewController())
+class AppToolbarController: ToolbarController {
+    open override func prepare() {
+        super.prepare()
         
-        window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = bottomSheetController
-        window!.makeKeyAndVisible()
+        statusBar.backgroundColor = nil
+        
+        toolbar.depthPreset = .none
+        toolbar.dividerColor = nil
+        toolbar.backgroundColor = nil
+        display = .full
     }
 }
 

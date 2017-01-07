@@ -53,6 +53,6 @@ extension RootViewController {
 extension RootViewController {
     @objc
     fileprivate func handleFABButton(button: UIButton) {
-        bottomSheetController?.openBottomView()
+        bottomSheetController?.openBottomSheet()
     }
 }

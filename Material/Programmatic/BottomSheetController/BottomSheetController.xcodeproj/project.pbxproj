@@ -14,6 +14,10 @@
 		961730921E17036300A9A297 /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961730911E17036300A9A297 /* BottomViewController.swift */; };
 		961730BD1E1C488E00A9A297 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961730BC1E1C488E00A9A297 /* Material.framework */; };
 		961730BE1E1C488E00A9A297 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961730BC1E1C488E00A9A297 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		961730C31E1C8E6B00A9A297 /* AppToolbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961730C21E1C8E6B00A9A297 /* AppToolbarController.swift */; };
+		961730C51E1C8FE800A9A297 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961730C41E1C8FE800A9A297 /* AudioPlayerViewController.swift */; };
+		961730C71E1C911C00A9A297 /* AudioLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961730C61E1C911C00A9A297 /* AudioLibraryViewController.swift */; };
+		961731111E202DE000A9A297 /* AppBottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731101E202DE000A9A297 /* AppBottomSheetController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +43,10 @@
 		9617308B1E1701EE00A9A297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		961730911E17036300A9A297 /* BottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
 		961730BC1E1C488E00A9A297 /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		961730C21E1C8E6B00A9A297 /* AppToolbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToolbarController.swift; sourceTree = "<group>"; };
+		961730C41E1C8FE800A9A297 /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
+		961730C61E1C911C00A9A297 /* AudioLibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioLibraryViewController.swift; sourceTree = "<group>"; };
+		961731101E202DE000A9A297 /* AppBottomSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBottomSheetController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,10 @@
 			isa = PBXGroup;
 			children = (
 				9617307F1E1701EE00A9A297 /* AppDelegate.swift */,
+				961731101E202DE000A9A297 /* AppBottomSheetController.swift */,
+				961730C21E1C8E6B00A9A297 /* AppToolbarController.swift */,
+				961730C61E1C911C00A9A297 /* AudioLibraryViewController.swift */,
+				961730C41E1C8FE800A9A297 /* AudioPlayerViewController.swift */,
 				961730811E1701EE00A9A297 /* RootViewController.swift */,
 				961730911E17036300A9A297 /* BottomViewController.swift */,
 				961730861E1701EE00A9A297 /* Assets.xcassets */,
@@ -156,7 +168,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				961730821E1701EE00A9A297 /* RootViewController.swift in Sources */,
+				961731111E202DE000A9A297 /* AppBottomSheetController.swift in Sources */,
+				961730C31E1C8E6B00A9A297 /* AppToolbarController.swift in Sources */,
+				961730C51E1C8FE800A9A297 /* AudioPlayerViewController.swift in Sources */,
 				961730801E1701EE00A9A297 /* AppDelegate.swift in Sources */,
+				961730C71E1C911C00A9A297 /* AudioLibraryViewController.swift in Sources */,
 				961730921E17036300A9A297 /* BottomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
