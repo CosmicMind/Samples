@@ -34,10 +34,5 @@ import Material
 open class AppBottomSheetController: BottomSheetController {
     open override func prepare() {
         super.prepare()
-        
-        bottomSheetLayoutStyle = .flat
-        bottomSheet.fabButton = FABButton()
-        bottomSheet.fabButton?.width = 64
-        bottomSheet.fabButton?.height = 64
     }
 }

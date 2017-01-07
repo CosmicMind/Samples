@@ -32,27 +32,71 @@ import UIKit
 import Material
 
 class AudioPlayerViewController: UIViewController {
+    fileprivate var toolbar: Toolbar!
+    
+    fileprivate var collectionViewCard: CollectionViewCard!
+    
     fileprivate var fabButton: FABButton!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.red.base
+        view.backgroundColor = Color.grey.lighten5
         
+        prepareToolbar()
         prepareFABButton()
     }
-}
-
-extension AudioPlayerViewController {
-    fileprivate func prepareFABButton() {
-        fabButton = FABButton()
-        fabButton.addTarget(self, action: #selector(handleFABButton(button:)), for: .touchUpInside)
-        view.layout(fabButton).width(64).height(64).bottom(24).right(24)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareImageCollectionViewCard()
+        prepareBottomSheet()
     }
 }
 
 extension AudioPlayerViewController {
-    @objc
-    fileprivate func handleFABButton(button: UIButton) {
-        bottomSheetController?.openBottomSheet()
+    fileprivate func prepareToolbar() {
+//        toolbar = Toolbar()
+//        toolbar.backgroundColor = nil
+    }
+    
+    fileprivate func prepareImageCollectionViewCard() {
+        collectionViewCard = CollectionViewCard()
+        collectionViewCard.backgroundColor = nil
+        collectionViewCard.depthPreset = .none
+//        imageCollectionViewCard.toolbar = toolbar
+        
+        
+        let card = ImageCard()
+        card.toolbar = Toolbar()
+        card.toolbar?.title = "Test"
+        
+        card.bottomBar = Toolbar()
+        card.bottomBar?.backgroundColor = nil
+        (card.bottomBar as? Toolbar)?.detail = "Music song"
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "LaLuna")?.resize(toWidth: view.width)
+//        imageView.contentMode = .scaleAspectFit
+        card.imageView = imageView
+        
+        collectionViewCard.dataSourceItems.append(DataSourceItem(data: card))
+        collectionViewCard.collectionView.reloadData()
+        
+        view.layout(collectionViewCard).edges()
+    }
+    
+    fileprivate func prepareFABButton() {
+        fabButton = FABButton(image: Icon.cm.play)
+        fabButton.width = 64
+        fabButton.height = 64
+    }
+    
+    fileprivate func prepareBottomSheet() {
+        guard let v = bottomSheetController else {
+            return
+        }
+        
+        v.bottomSheetLayoutStyle = .flat
+        v.bottomSheet.fabButton = fabButton
     }
 }

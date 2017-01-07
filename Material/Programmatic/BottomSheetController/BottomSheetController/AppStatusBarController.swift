@@ -31,16 +31,17 @@
 import UIKit
 import Material
 
-class AppToolbarController: ToolbarController {
+open class AppStatusBarController: StatusBarController {
     open override func prepare() {
         super.prepare()
         
-        statusBar.backgroundColor = nil
-        
-        toolbar.depthPreset = .none
-        toolbar.dividerColor = nil
-        toolbar.backgroundColor = nil
-        display = .full
+        prepareStatusBar()
     }
 }
 
+extension AppStatusBarController {
+    fileprivate func prepareStatusBar() {
+        statusBarDisplay = .partial
+        statusBar.backgroundColor = nil
+    }
+}

@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
-        let bottomSheetController = AppBottomSheetController(rootViewController: AppToolbarController(rootViewController: AudioLibraryViewController()), bottomViewController: BottomViewController())
+        let bottomSheetController = AppBottomSheetController(rootViewController: AppStatusBarController(rootViewController: AudioPlayerViewController()), bottomViewController: BottomViewController())
         
         window = UIWindow(frame: Screen.bounds)
         window!.rootViewController = bottomSheetController

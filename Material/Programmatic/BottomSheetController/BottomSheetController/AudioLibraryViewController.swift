@@ -32,52 +32,8 @@ import UIKit
 import Material
 
 class AudioLibraryViewController: UIViewController {
-    fileprivate var fabButton: FABButton!
-    
-    fileprivate var collectionViewCard: CollectionViewCard!
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.grey.lighten5
-        
-        prepareCollectionViewCard()
-    }
-    
-    open override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        collectionViewCard.width = view.bounds.width
-        collectionViewCard.contentView?.height = view.bounds.height
-        print(collectionViewCard)
-    }
-}
-
-extension AudioLibraryViewController {
-    fileprivate func prepareFABButton() {
-        fabButton = FABButton()
-        fabButton.addTarget(self, action: #selector(handleFABButton(button:)), for: .touchUpInside)
-        view.layout(fabButton).width(64).height(64).bottom(24).right(24)
-    }
-    
-    fileprivate func prepareCollectionViewCard() {
-        collectionViewCard = CollectionViewCard()
-        collectionViewCard.backgroundColor = Color.green.base
-        
-        let backButton = IconButton(image: Icon.cm.arrowBack, tintColor: .white)
-        backButton.pulseColor = .white
-        
-        toolbarController?.toolbar.leftViews = [backButton]
-        
-        collectionViewCard.contentView = UIView()
-        
-        
-        view.addSubview(collectionViewCard)
-        print(collectionViewCard)
-    }
-}
-
-extension AudioLibraryViewController {
-    @objc
-    fileprivate func handleFABButton(button: UIButton) {
-        bottomSheetController?.openBottomSheet()
     }
 }
