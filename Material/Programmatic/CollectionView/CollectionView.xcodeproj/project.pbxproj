@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961731471E254C8400A9A297 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961731461E254C8400A9A297 /* Material.framework */; };
+		961731481E254C8400A9A297 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961731461E254C8400A9A297 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96328B641E0206DB009A4C90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96328B631E0206DB009A4C90 /* AppDelegate.swift */; };
 		96328B661E0206DB009A4C90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96328B651E0206DB009A4C90 /* ViewController.swift */; };
 		96328B6B1E0206DB009A4C90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96328B6A1E0206DB009A4C90 /* Assets.xcassets */; };
@@ -21,6 +23,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				961731481E254C8400A9A297 /* Material.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -28,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		961731461E254C8400A9A297 /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96328B601E0206DB009A4C90 /* CollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96328B631E0206DB009A4C90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96328B651E0206DB009A4C90 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961731471E254C8400A9A297 /* Material.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +56,7 @@
 		96328B571E0206DB009A4C90 = {
 			isa = PBXGroup;
 			children = (
+				961731461E254C8400A9A297 /* Material.framework */,
 				96328B621E0206DB009A4C90 /* CollectionView */,
 				96328B611E0206DB009A4C90 /* Products */,
 			);

@@ -58,7 +58,7 @@ extension ViewController {
             imageView.image = UIImage(named: "daniel")
             imageView.height = 300
             card.contentView = imageView
-            self.dataSourceItems.append(CollectionViewDataSourceItem(data: card, height: card.height))
+            self.dataSourceItems.append(DataSourceItem(data: card, height: card.height))
         }
     }
     
