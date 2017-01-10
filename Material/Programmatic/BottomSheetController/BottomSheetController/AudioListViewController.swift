@@ -31,28 +31,10 @@
 import UIKit
 import Material
 
-class RootViewController: UIViewController {
-    fileprivate var fabButton: FABButton!
-    
+open class AudioListViewController: UIViewController {
+
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.red.base
-        
-        prepareFABButton()
-    }
-}
-
-extension RootViewController {
-    fileprivate func prepareFABButton() {
-        fabButton = FABButton()
-        fabButton.addTarget(self, action: #selector(handleFABButton(button:)), for: .touchUpInside)
-        view.layout(fabButton).width(64).height(64).bottom(24).right(24)
-    }
-}
-
-extension RootViewController {
-    @objc
-    fileprivate func handleFABButton(button: UIButton) {
-        bottomSheetController?.openBottomSheet()
+        view.backgroundColor = .white
     }
 }

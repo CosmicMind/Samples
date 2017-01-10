@@ -31,9 +31,15 @@
 import UIKit
 import Material
 
-class BottomViewController: UIViewController {
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = ViewController()
+        window!.makeKeyAndVisible()
     }
 }
+

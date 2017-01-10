@@ -46,8 +46,9 @@ class AudioPlayerViewController: UIViewController {
         prepareFABButton()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    open override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
         prepareImageCollectionViewCard()
         prepareBottomSheet()
     }
@@ -66,27 +67,48 @@ extension AudioPlayerViewController {
 //        imageCollectionViewCard.toolbar = toolbar
         
         
-        let card = ImageCard()
-        card.toolbar = Toolbar()
-        card.toolbar?.title = "Test"
+        let card1 = ImageCard()
+        card1.pulseAnimation = .none
+        card1.toolbar = Toolbar()
+        card1.toolbar?.backgroundColor = nil
+
+        card1.toolbar?.title = "Test"
+        card1.toolbar?.titleLabel.textColor = .white
         
-        card.bottomBar = Toolbar()
-        card.bottomBar?.backgroundColor = nil
-        (card.bottomBar as? Toolbar)?.detail = "Music song"
+        let imageView1 = UIImageView()
+        imageView1.image = UIImage(named: "LaLuna")?.resize(toWidth: view.width)
+        imageView1.clipsToBounds = true
+        imageView1.contentMode = .scaleToFill
+        imageView1.backgroundColor = .black
+        card1.imageView = imageView1
         
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "LaLuna")?.resize(toWidth: view.width)
-//        imageView.contentMode = .scaleAspectFit
-        card.imageView = imageView
+        let card2 = ImageCard()
+        card2.pulseAnimation = .none
+        card2.toolbar = Toolbar()
+        card2.toolbar?.backgroundColor = nil
         
-        collectionViewCard.dataSourceItems.append(DataSourceItem(data: card))
+        card2.toolbar?.title = "Test"
+        card2.toolbar?.titleLabel.textColor = .white
+        
+        let imageView2 = UIImageView()
+        imageView2.image = UIImage(named: "LaLuna")?.resize(toWidth: view.width)
+        imageView2.clipsToBounds = true
+        imageView2.contentMode = .scaleToFill
+        imageView2.backgroundColor = .black
+        card2.imageView = imageView2
+        
+        collectionViewCard.dataSourceItems.append(DataSourceItem(data: card1))
+//        collectionViewCard.dataSourceItems.append(DataSourceItem(data: card2))
         collectionViewCard.collectionView.reloadData()
         
         view.layout(collectionViewCard).edges()
     }
     
     fileprivate func prepareFABButton() {
-        fabButton = FABButton(image: Icon.cm.play)
+        fabButton = FABButton(image: Icon.cm.play, tintColor: .white)
+        fabButton.backgroundColor = Color.blue.base
+        fabButton.depthPreset = .depth1
+        fabButton.pulseColor = .white
         fabButton.width = 64
         fabButton.height = 64
     }
@@ -96,7 +118,9 @@ extension AudioPlayerViewController {
             return
         }
         
-        v.bottomSheetLayoutStyle = .flat
+        v.bottomSheetStyle = .persistent
         v.bottomSheet.fabButton = fabButton
+        v.bottomSheet.backgroundColor = Color.green.base
+        v.setBottomSheetHeight(height: view.bounds.height - collectionViewCard.height, isHidden: false, animated: false)
     }
 }

@@ -31,9 +31,21 @@
 import UIKit
 import Material
 
-class AudioLibraryViewController: UIViewController {
+open class ViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.grey.lighten5
+        view.backgroundColor = .white
+        
+        let v = UIView()
+        v.backgroundColor = Color.blue.base
+        view.layout(v).center().width(100).height(100)
+        
+        v.motion(delay: 3, duration: 1, animations: .corner(radius: 50), .spin(rotations: 1))
+        v.motion(delay: 5, duration: 1, animations: .corner(radius: 0), .spin(rotations: 1), .fade(opacity: 0.1))
+        v.motion(delay: 7, duration: 1, animations: .fade(opacity: 1))
+        
+        
+//        v.motion(delay: 3, duration: 1, animations: .background(color: Color.red.base), .corner(radius: 50), .spin(rotations: 5), .move(by: CGPoint(x: 100, y: 100)))
+//        v.motion(delay: 4, duration: 1, animations: .background(color: Color.blue.base), .corner(radius: 0), .spin(rotations: 5), .move(by: CGPoint(x: 0, y: 0)))
     }
 }

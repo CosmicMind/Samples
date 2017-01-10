@@ -7,22 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		961730801E1701EE00A9A297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617307F1E1701EE00A9A297 /* AppDelegate.swift */; };
-		961730871E1701EE00A9A297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961730861E1701EE00A9A297 /* Assets.xcassets */; };
-		9617308A1E1701EE00A9A297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961730881E1701EE00A9A297 /* LaunchScreen.storyboard */; };
-		961730C51E1C8FE800A9A297 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961730C41E1C8FE800A9A297 /* AudioPlayerViewController.swift */; };
-		961731111E202DE000A9A297 /* AppBottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731101E202DE000A9A297 /* AppBottomSheetController.swift */; };
-		961731131E21862300A9A297 /* AppStatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731121E21862300A9A297 /* AppStatusBarController.swift */; };
-		961731171E231AF200A9A297 /* AudioListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731161E231AF200A9A297 /* AudioListViewController.swift */; };
+		961731281E23F1E900A9A297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731271E23F1E900A9A297 /* AppDelegate.swift */; };
+		9617312A1E23F1E900A9A297 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731291E23F1E900A9A297 /* ViewController.swift */; };
+		9617312F1E23F1E900A9A297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9617312E1E23F1E900A9A297 /* Assets.xcassets */; };
+		961731321E23F1E900A9A297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961731301E23F1E900A9A297 /* LaunchScreen.storyboard */; };
+		9617313A1E23F31A00A9A297 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961731391E23F31A00A9A297 /* Material.framework */; };
+		9617313B1E23F31A00A9A297 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961731391E23F31A00A9A297 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		961730961E1703CE00A9A297 /* Embed Frameworks */ = {
+		9617313C1E23F31A00A9A297 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9617313B1E23F31A00A9A297 /* Material.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -30,98 +30,94 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9617307C1E1701EE00A9A297 /* BottomSheetController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BottomSheetController.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9617307F1E1701EE00A9A297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		961730861E1701EE00A9A297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		961730891E1701EE00A9A297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9617308B1E1701EE00A9A297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		961730C41E1C8FE800A9A297 /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
-		961731101E202DE000A9A297 /* AppBottomSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBottomSheetController.swift; sourceTree = "<group>"; };
-		961731121E21862300A9A297 /* AppStatusBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStatusBarController.swift; sourceTree = "<group>"; };
-		961731161E231AF200A9A297 /* AudioListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioListViewController.swift; sourceTree = "<group>"; };
+		961731241E23F1E900A9A297 /* Motion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		961731271E23F1E900A9A297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		961731291E23F1E900A9A297 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9617312E1E23F1E900A9A297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		961731311E23F1E900A9A297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		961731331E23F1E900A9A297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		961731391E23F31A00A9A297 /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		961730791E1701EE00A9A297 /* Frameworks */ = {
+		961731211E23F1E900A9A297 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9617313A1E23F31A00A9A297 /* Material.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		961730731E1701EE00A9A297 = {
+		9617311B1E23F1E900A9A297 = {
 			isa = PBXGroup;
 			children = (
-				9617307E1E1701EE00A9A297 /* BottomSheetController */,
-				9617307D1E1701EE00A9A297 /* Products */,
+				961731391E23F31A00A9A297 /* Material.framework */,
+				961731261E23F1E900A9A297 /* Motion */,
+				961731251E23F1E900A9A297 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		9617307D1E1701EE00A9A297 /* Products */ = {
+		961731251E23F1E900A9A297 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9617307C1E1701EE00A9A297 /* BottomSheetController.app */,
+				961731241E23F1E900A9A297 /* Motion.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9617307E1E1701EE00A9A297 /* BottomSheetController */ = {
+		961731261E23F1E900A9A297 /* Motion */ = {
 			isa = PBXGroup;
 			children = (
-				9617307F1E1701EE00A9A297 /* AppDelegate.swift */,
-				961731101E202DE000A9A297 /* AppBottomSheetController.swift */,
-				961731121E21862300A9A297 /* AppStatusBarController.swift */,
-				961730C41E1C8FE800A9A297 /* AudioPlayerViewController.swift */,
-				961731161E231AF200A9A297 /* AudioListViewController.swift */,
-				961730861E1701EE00A9A297 /* Assets.xcassets */,
-				961730881E1701EE00A9A297 /* LaunchScreen.storyboard */,
-				9617308B1E1701EE00A9A297 /* Info.plist */,
+				961731271E23F1E900A9A297 /* AppDelegate.swift */,
+				961731291E23F1E900A9A297 /* ViewController.swift */,
+				9617312E1E23F1E900A9A297 /* Assets.xcassets */,
+				961731301E23F1E900A9A297 /* LaunchScreen.storyboard */,
+				961731331E23F1E900A9A297 /* Info.plist */,
 			);
-			path = BottomSheetController;
+			path = Motion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9617307B1E1701EE00A9A297 /* BottomSheetController */ = {
+		961731231E23F1E900A9A297 /* Motion */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9617308E1E1701EE00A9A297 /* Build configuration list for PBXNativeTarget "BottomSheetController" */;
+			buildConfigurationList = 961731361E23F1E900A9A297 /* Build configuration list for PBXNativeTarget "Motion" */;
 			buildPhases = (
-				961730781E1701EE00A9A297 /* Sources */,
-				961730791E1701EE00A9A297 /* Frameworks */,
-				9617307A1E1701EE00A9A297 /* Resources */,
-				961730961E1703CE00A9A297 /* Embed Frameworks */,
+				961731201E23F1E900A9A297 /* Sources */,
+				961731211E23F1E900A9A297 /* Frameworks */,
+				961731221E23F1E900A9A297 /* Resources */,
+				9617313C1E23F31A00A9A297 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BottomSheetController;
-			productName = BottomSheetController;
-			productReference = 9617307C1E1701EE00A9A297 /* BottomSheetController.app */;
+			name = Motion;
+			productName = Motion;
+			productReference = 961731241E23F1E900A9A297 /* Motion.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		961730741E1701EE00A9A297 /* Project object */ = {
+		9617311C1E23F1E900A9A297 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "CosmicMind, Inc.";
 				TargetAttributes = {
-					9617307B1E1701EE00A9A297 = {
+					961731231E23F1E900A9A297 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9Z76XCNLGL;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 961730771E1701EE00A9A297 /* Build configuration list for PBXProject "BottomSheetController" */;
+			buildConfigurationList = 9617311F1E23F1E900A9A297 /* Build configuration list for PBXProject "Motion" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -129,48 +125,45 @@
 				en,
 				Base,
 			);
-			mainGroup = 961730731E1701EE00A9A297;
-			productRefGroup = 9617307D1E1701EE00A9A297 /* Products */;
+			mainGroup = 9617311B1E23F1E900A9A297;
+			productRefGroup = 961731251E23F1E900A9A297 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9617307B1E1701EE00A9A297 /* BottomSheetController */,
+				961731231E23F1E900A9A297 /* Motion */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9617307A1E1701EE00A9A297 /* Resources */ = {
+		961731221E23F1E900A9A297 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9617308A1E1701EE00A9A297 /* LaunchScreen.storyboard in Resources */,
-				961730871E1701EE00A9A297 /* Assets.xcassets in Resources */,
+				961731321E23F1E900A9A297 /* LaunchScreen.storyboard in Resources */,
+				9617312F1E23F1E900A9A297 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		961730781E1701EE00A9A297 /* Sources */ = {
+		961731201E23F1E900A9A297 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961731131E21862300A9A297 /* AppStatusBarController.swift in Sources */,
-				961731111E202DE000A9A297 /* AppBottomSheetController.swift in Sources */,
-				961730C51E1C8FE800A9A297 /* AudioPlayerViewController.swift in Sources */,
-				961730801E1701EE00A9A297 /* AppDelegate.swift in Sources */,
-				961731171E231AF200A9A297 /* AudioListViewController.swift in Sources */,
+				9617312A1E23F1E900A9A297 /* ViewController.swift in Sources */,
+				961731281E23F1E900A9A297 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		961730881E1701EE00A9A297 /* LaunchScreen.storyboard */ = {
+		961731301E23F1E900A9A297 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				961730891E1701EE00A9A297 /* Base */,
+				961731311E23F1E900A9A297 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -178,7 +171,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9617308C1E1701EE00A9A297 /* Debug */ = {
+		961731341E23F1E900A9A297 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -228,7 +221,7 @@
 			};
 			name = Debug;
 		};
-		9617308D1E1701EE00A9A297 /* Release */ = {
+		961731351E23F1E900A9A297 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -271,27 +264,25 @@
 			};
 			name = Release;
 		};
-		9617308F1E1701EE00A9A297 /* Debug */ = {
+		961731371E23F1E900A9A297 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
-				INFOPLIST_FILE = BottomSheetController/Info.plist;
+				INFOPLIST_FILE = Motion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.BottomSheetController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Motion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		961730901E1701EE00A9A297 /* Release */ = {
+		961731381E23F1E900A9A297 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
-				INFOPLIST_FILE = BottomSheetController/Info.plist;
+				INFOPLIST_FILE = Motion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.BottomSheetController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Motion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -300,25 +291,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		961730771E1701EE00A9A297 /* Build configuration list for PBXProject "BottomSheetController" */ = {
+		9617311F1E23F1E900A9A297 /* Build configuration list for PBXProject "Motion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9617308C1E1701EE00A9A297 /* Debug */,
-				9617308D1E1701EE00A9A297 /* Release */,
+				961731341E23F1E900A9A297 /* Debug */,
+				961731351E23F1E900A9A297 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9617308E1E1701EE00A9A297 /* Build configuration list for PBXNativeTarget "BottomSheetController" */ = {
+		961731361E23F1E900A9A297 /* Build configuration list for PBXNativeTarget "Motion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9617308F1E1701EE00A9A297 /* Debug */,
-				961730901E1701EE00A9A297 /* Release */,
+				961731371E23F1E900A9A297 /* Debug */,
+				961731381E23F1E900A9A297 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 961730741E1701EE00A9A297 /* Project object */;
+	rootObject = 9617311C1E23F1E900A9A297 /* Project object */;
 }

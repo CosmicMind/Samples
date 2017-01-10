@@ -41,7 +41,7 @@ open class AppStatusBarController: StatusBarController {
 
 extension AppStatusBarController {
     fileprivate func prepareStatusBar() {
-        statusBarDisplay = .partial
-        statusBar.backgroundColor = nil
+        statusBarStyle = .lightContent
+        statusBar.backgroundColor = Color.black.withAlphaComponent(0.18)
     }
 }
