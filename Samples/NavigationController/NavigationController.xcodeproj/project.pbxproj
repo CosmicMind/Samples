@@ -12,7 +12,7 @@
 		96CC49D41D8DD984002CAB55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CC49D31D8DD984002CAB55 /* Assets.xcassets */; };
 		96CC49D71D8DD984002CAB55 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96CC49D51D8DD984002CAB55 /* LaunchScreen.storyboard */; };
 		96CC49DF1D8DD9E8002CAB55 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC49DE1D8DD9E8002CAB55 /* AppNavigationController.swift */; };
-		96CC49E51D8DDF61002CAB55 /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC49E41D8DDF61002CAB55 /* NextViewController.swift */; };
+		96CC49E51D8DDF61002CAB55 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC49E41D8DDF61002CAB55 /* TransitionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +36,7 @@
 		96CC49D61D8DD984002CAB55 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96CC49D81D8DD984002CAB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96CC49DE1D8DD9E8002CAB55 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
-		96CC49E41D8DDF61002CAB55 /* NextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
+		96CC49E41D8DDF61002CAB55 /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +72,7 @@
 				96CC49CC1D8DD984002CAB55 /* AppDelegate.swift */,
 				96CC49DE1D8DD9E8002CAB55 /* AppNavigationController.swift */,
 				96CC49CE1D8DD984002CAB55 /* RootViewController.swift */,
-				96CC49E41D8DDF61002CAB55 /* NextViewController.swift */,
+				96CC49E41D8DDF61002CAB55 /* TransitionViewController.swift */,
 				96CC49D31D8DD984002CAB55 /* Assets.xcassets */,
 				96CC49D51D8DD984002CAB55 /* LaunchScreen.storyboard */,
 				96CC49D81D8DD984002CAB55 /* Info.plist */,
@@ -153,7 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96CC49DF1D8DD9E8002CAB55 /* AppNavigationController.swift in Sources */,
-				96CC49E51D8DDF61002CAB55 /* NextViewController.swift in Sources */,
+				96CC49E51D8DDF61002CAB55 /* TransitionViewController.swift in Sources */,
 				96CC49CF1D8DD984002CAB55 /* RootViewController.swift in Sources */,
 				96CC49CD1D8DD984002CAB55 /* AppDelegate.swift in Sources */,
 			);

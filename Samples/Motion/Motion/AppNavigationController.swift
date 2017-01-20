@@ -31,30 +31,16 @@
 import UIKit
 import Material
 
-open class ViewController: MotionTransitionViewController {
-    let container = UIView()
-    
-    let card = UIImageView()
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.green.base
-        view.motionTransitionIdentifier = "view"
+class AppNavigationController: NavigationController {
+    open override func prepare() {
+        super.prepare()
         
-        container.backgroundColor = Color.blue.base
-        view.layout(container).center().width(200).height(200)
-        
-        card.image = UIImage(named: "surf")
-        card.motionTransitionIdentifier = "card"
-        container.layout(card).center().width(100).height(100)
-        
-        Motion.delay(3) { [weak self] in
-            guard let s = self else {
-                return
-            }
-            
-            let vc = TransitionedViewController()
-            s.present(vc, animated: true, completion: nil)
+        guard let v = navigationBar as? NavigationBar else {
+            return
         }
+        
+        v.depthPreset = .none
+        v.dividerColor = Color.grey.lighten3
     }
 }
+

@@ -31,57 +31,23 @@
 import UIKit
 import Material
 
-class RootViewController: UIViewController {
-    fileprivate var menuButton: IconButton!
-    fileprivate var starButton: IconButton!
-    fileprivate var searchButton: IconButton!
-    
-    fileprivate var nextButton: FlatButton!
+class TransitionViewController: UIViewController {
+    fileprivate var fabButton: FABButton!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.grey.lighten5
         
-        prepareMenuButton()
-        prepareStarButton()
-        prepareSearchButton()
-        prepareNavigationItem()
-        prepareNextButton()
+        prepareFABButton()
     }
 }
 
-extension RootViewController {
-    fileprivate func prepareMenuButton() {
-        menuButton = IconButton(image: Icon.cm.menu)
-    }
-    
-    fileprivate func prepareStarButton() {
-        starButton = IconButton(image: Icon.cm.star)
-    }
-    
-    fileprivate func prepareSearchButton() {
-        searchButton = IconButton(image: Icon.cm.search)
-    }
-    
-    fileprivate func prepareNavigationItem() {
-        navigationItem.title = "Material"
-        navigationItem.detail = "Build Beautiful Software"
-        
-        navigationItem.leftViews = [menuButton]
-        navigationItem.rightViews = [starButton, searchButton]
-    }
-    
-    fileprivate func prepareNextButton() {
-        nextButton = FlatButton(title: "Click To Open", titleColor: Color.grey.base)
-        nextButton.pulseAnimation = .none
-        nextButton.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
-        view.layout(nextButton).edges()
-    }
-}
-
-extension RootViewController {
-    @objc
-    fileprivate func handleNextButton() {
-        navigationController?.pushViewController(NextViewController(), animated: true)
+extension TransitionViewController {
+    fileprivate func prepareFABButton() {
+        fabButton = FABButton()
+        fabButton.pulseColor = Color.blue.base
+        fabButton.motionTransitionIdentifier = "fabButton"
+        fabButton.motionTransitionAnimations = [.scale(20), .backgroundColor(Color.blue.base)]
+        view.layout(fabButton).width(64).height(64).bottom(24).right(24)
     }
 }

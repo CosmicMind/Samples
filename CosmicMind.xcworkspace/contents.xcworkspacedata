@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:../Material/Material.xcodeproj">
-   </FileRef>
    <Group
       location = "container:"
       name = "Samples">
       <FileRef
+         location = "group:Material/Programmatic/Card/Card.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Material/Programmatic/CollectionView/CollectionView.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Samples/Motion/Motion.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Samples/NavigationController/NavigationController.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Samples/TextField/TextField.xcodeproj">

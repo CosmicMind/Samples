@@ -78,10 +78,6 @@ extension ViewController {
 //        emailField.dividerActiveColor = Color.green.base
         
         view.layout(emailField).center(offsetY: -passwordField.height - 60).left(20).right(20)
-        
-        Motion.delay(time: 3) { [weak self] in
-            self?.emailField.text = "Test"
-        }
     }
     
     fileprivate func preparePasswordField() {

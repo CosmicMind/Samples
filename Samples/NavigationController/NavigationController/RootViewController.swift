@@ -31,30 +31,59 @@
 import UIKit
 import Material
 
-open class ViewController: MotionTransitionViewController {
-    let container = UIView()
+class RootViewController: UIViewController {
+    fileprivate var menuButton: IconButton!
+    fileprivate var starButton: IconButton!
+    fileprivate var searchButton: IconButton!
     
-    let card = UIImageView()
+    fileprivate var fabButton: FABButton!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.green.base
-        view.motionTransitionIdentifier = "view"
+        view.backgroundColor = Color.grey.lighten5
         
-        container.backgroundColor = Color.blue.base
-        view.layout(container).center().width(200).height(200)
+        prepareMenuButton()
+        prepareStarButton()
+        prepareSearchButton()
+        prepareNavigationItem()
+        prepareFABButton()
+    }
+}
+
+extension RootViewController {
+    fileprivate func prepareMenuButton() {
+        menuButton = IconButton(image: Icon.cm.menu)
+    }
+    
+    fileprivate func prepareStarButton() {
+        starButton = IconButton(image: Icon.cm.star)
+    }
+    
+    fileprivate func prepareSearchButton() {
+        searchButton = IconButton(image: Icon.cm.search)
+    }
+    
+    fileprivate func prepareNavigationItem() {
+        navigationItem.title = "Material"
+        navigationItem.detail = "Build Beautiful Software"
         
-        card.image = UIImage(named: "surf")
-        card.motionTransitionIdentifier = "card"
-        container.layout(card).center().width(100).height(100)
-        
-        Motion.delay(3) { [weak self] in
-            guard let s = self else {
-                return
-            }
-            
-            let vc = TransitionedViewController()
-            s.present(vc, animated: true, completion: nil)
-        }
+        navigationItem.leftViews = [menuButton]
+        navigationItem.rightViews = [starButton, searchButton]
+    }
+    
+    fileprivate func prepareFABButton() {
+        fabButton = FABButton()
+        fabButton.pulseColor = Color.blue.base
+        fabButton.motionTransitionIdentifier = "fabButton"
+        fabButton.motionTransitionAnimations = [.scale(1), .backgroundColor(.white)]
+        fabButton.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
+        view.layout(fabButton).width(64).height(64).bottom(24).right(24)
+    }
+}
+
+extension RootViewController {
+    @objc
+    fileprivate func handleNextButton() {
+        navigationController?.pushViewController(TransitionViewController(), animated: true)
     }
 }

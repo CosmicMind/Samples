@@ -31,30 +31,47 @@
 import UIKit
 import Material
 
-open class ViewController: MotionTransitionViewController {
-    let container = UIView()
+class CardCollectionViewController: CollectionViewController {
     
-    let card = UIImageView()
+    open override func prepare() {
+        super.prepare()
+        prepareDataSourceItems()
+        prepareCollectionView()
+    }
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.green.base
-        view.motionTransitionIdentifier = "view"
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.reloadData()
+    }
+}
+
+extension CardCollectionViewController {
+    fileprivate func prepareDataSourceItems() {
+        let data = ["meditation", "yoga", "surf"]
         
-        container.backgroundColor = Color.blue.base
-        view.layout(container).center().width(200).height(200)
-        
-        card.image = UIImage(named: "surf")
-        card.motionTransitionIdentifier = "card"
-        container.layout(card).center().width(100).height(100)
-        
-        Motion.delay(3) { [weak self] in
-            guard let s = self else {
-                return
-            }
-            
-            let vc = TransitionedViewController()
-            s.present(vc, animated: true, completion: nil)
+        data.forEach { [unowned self, w = view.bounds.width] (item) in
+            let card = Card()
+            let imageView = UIImageView()
+            imageView.image = UIImage(named: item)?.resize(toWidth: w)
+            imageView.contentMode = .scaleAspectFit
+            card.contentView = imageView
+            self.dataSourceItems.append(DataSourceItem(data: card, height: card.height))
         }
+    }
+    
+    fileprivate func prepareCollectionView() {
+        collectionView.interimSpacePreset = .interimSpace4
+        collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "CardCollectionViewCell")
+    }
+}
+
+extension CardCollectionViewController {
+    @objc
+    open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CardCollectionViewCell", for: indexPath) as! CardCollectionViewCell
+        let dataSourceItem = dataSourceItems[indexPath.item]
+        let card = dataSourceItem.data as! Card
+        cell.card = card
+        return cell
     }
 }

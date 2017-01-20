@@ -31,20 +31,27 @@
 import UIKit
 import Material
 
-class NextViewController: UIViewController {
+open class TransitionedViewController: MotionTransitionViewController {
+    let card = UIImageView()
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.blue.base
+        view.backgroundColor = .clear
+        view.motionTransitionIdentifier = "view"
+        view.motionTransitionAnimations = [.backgroundColor(.black), .duration(0.15)]
         
-        prepareNavigationItem()
-    }
-    
-    private func prepareNavigationItem() {
-        navigationItem.title = "Title"
-        navigationItem.detail = "Detail Description"
+        card.image = UIImage(named: "surf")
+        view.layout(card).center().width(100).height(100)
         
-        // Access the back button.
-//        navigationItem.backButton.tintColor = .white
+        card.motionTransitionIdentifier = "card"
+        card.motionTransitionAnimations = [.corners(50), .duration(0.5), .width(view.bounds.width), .height(view.bounds.width), .x(0), .y(0)]
+        
+        Motion.delay(3) { [weak self] in
+            guard let s = self else {
+                return
+            }
+
+            s.dismiss(animated: true)
+        }
     }
 }
-

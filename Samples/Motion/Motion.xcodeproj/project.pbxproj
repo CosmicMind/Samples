@@ -11,8 +11,11 @@
 		9617312A1E23F1E900A9A297 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731291E23F1E900A9A297 /* ViewController.swift */; };
 		9617312F1E23F1E900A9A297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9617312E1E23F1E900A9A297 /* Assets.xcassets */; };
 		961731321E23F1E900A9A297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961731301E23F1E900A9A297 /* LaunchScreen.storyboard */; };
-		9617313A1E23F31A00A9A297 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961731391E23F31A00A9A297 /* Material.framework */; };
-		9617313B1E23F31A00A9A297 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961731391E23F31A00A9A297 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		967C7B2B1E271BB000FD5A8B /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C7B2A1E271BB000FD5A8B /* AppNavigationController.swift */; };
+		967C7B2D1E271BDB00FD5A8B /* CardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C7B2C1E271BDA00FD5A8B /* CardCollectionViewController.swift */; };
+		967C7B2F1E271BE800FD5A8B /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C7B2E1E271BE800FD5A8B /* CardViewController.swift */; };
+		967C7B311E271CB500FD5A8B /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 967C7B301E271CB500FD5A8B /* CardCollectionViewCell.swift */; };
+		969058BA1E2C0F3900C6D413 /* TransitionedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969058B91E2C0F3900C6D413 /* TransitionedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,7 +25,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9617313B1E23F31A00A9A297 /* Material.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,7 +38,11 @@
 		9617312E1E23F1E900A9A297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		961731311E23F1E900A9A297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		961731331E23F1E900A9A297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		961731391E23F31A00A9A297 /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		967C7B2A1E271BB000FD5A8B /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
+		967C7B2C1E271BDA00FD5A8B /* CardCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewController.swift; sourceTree = "<group>"; };
+		967C7B2E1E271BE800FD5A8B /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		967C7B301E271CB500FD5A8B /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		969058B91E2C0F3900C6D413 /* TransitionedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9617313A1E23F31A00A9A297 /* Material.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,7 +59,6 @@
 		9617311B1E23F1E900A9A297 = {
 			isa = PBXGroup;
 			children = (
-				961731391E23F31A00A9A297 /* Material.framework */,
 				961731261E23F1E900A9A297 /* Motion */,
 				961731251E23F1E900A9A297 /* Products */,
 			);
@@ -72,7 +76,12 @@
 			isa = PBXGroup;
 			children = (
 				961731271E23F1E900A9A297 /* AppDelegate.swift */,
+				967C7B2A1E271BB000FD5A8B /* AppNavigationController.swift */,
 				961731291E23F1E900A9A297 /* ViewController.swift */,
+				969058B91E2C0F3900C6D413 /* TransitionedViewController.swift */,
+				967C7B2C1E271BDA00FD5A8B /* CardCollectionViewController.swift */,
+				967C7B301E271CB500FD5A8B /* CardCollectionViewCell.swift */,
+				967C7B2E1E271BE800FD5A8B /* CardViewController.swift */,
 				9617312E1E23F1E900A9A297 /* Assets.xcassets */,
 				961731301E23F1E900A9A297 /* LaunchScreen.storyboard */,
 				961731331E23F1E900A9A297 /* Info.plist */,
@@ -113,6 +122,7 @@
 				TargetAttributes = {
 					961731231E23F1E900A9A297 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9Z76XCNLGL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -152,7 +162,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				967C7B2B1E271BB000FD5A8B /* AppNavigationController.swift in Sources */,
 				9617312A1E23F1E900A9A297 /* ViewController.swift in Sources */,
+				967C7B2D1E271BDB00FD5A8B /* CardCollectionViewController.swift in Sources */,
+				967C7B2F1E271BE800FD5A8B /* CardViewController.swift in Sources */,
+				969058BA1E2C0F3900C6D413 /* TransitionedViewController.swift in Sources */,
+				967C7B311E271CB500FD5A8B /* CardCollectionViewCell.swift in Sources */,
 				961731281E23F1E900A9A297 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9Z76XCNLGL;
 				INFOPLIST_FILE = Motion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Motion;
@@ -280,6 +296,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9Z76XCNLGL;
 				INFOPLIST_FILE = Motion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Motion;
