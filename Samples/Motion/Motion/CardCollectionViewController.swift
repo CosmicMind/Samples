@@ -32,6 +32,7 @@ import UIKit
 import Material
 
 class CardCollectionViewController: CollectionViewController {
+    let data = ["meditation", "yoga", "surf"]
     
     open override func prepare() {
         super.prepare()
@@ -41,13 +42,25 @@ class CardCollectionViewController: CollectionViewController {
     
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        isMotionTransitionEnabled = true
+        
         collectionView.reloadData()
+        
+        collectionView.subviews.forEach {
+            $0.motion(.fade(0), .duration(0.01), .translateY(150))
+        }
+        
+        var i: TimeInterval = 1
+        collectionView.subviews.forEach {
+            $0.motion(.delay(0.05 * i), .duration(0.25), .translateY(0))
+            $0.motion(.fade(1), .delay(0.1 * i), .duration(0.5))
+            i += 1
+        }
     }
 }
 
 extension CardCollectionViewController {
     fileprivate func prepareDataSourceItems() {
-        let data = ["meditation", "yoga", "surf"]
         
         data.forEach { [unowned self, w = view.bounds.width] (item) in
             let card = Card()
@@ -72,6 +85,16 @@ extension CardCollectionViewController {
         let dataSourceItem = dataSourceItems[indexPath.item]
         let card = dataSourceItem.data as! Card
         cell.card = card
+        (card.contentView as? UIImageView)?.motionTransitionIdentifier = data[indexPath.item]
         return cell
+    }
+    
+    @objc
+    open func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let imageView = (dataSourceItems[indexPath.item].data as? Card)?.contentView as? UIImageView else {
+            return
+        }
+        let v = CardViewController(imageView: imageView)
+        present(v, animated: true)
     }
 }

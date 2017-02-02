@@ -31,27 +31,64 @@
 import UIKit
 import Material
 
-open class TransitionedViewController: MotionTransitionViewController {
-    let card = UIImageView()
+open class TransitionedViewController: UIViewController {
+    let fabButton = FABButton(image: Icon.cm.add)
+    
+    let bar = Bar()
+    
+    let container = UIView()
+    
+    let imageView = UIImageView()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .clear
-        view.motionTransitionIdentifier = "view"
-        view.motionTransitionAnimations = [.backgroundColor(.black), .duration(0.15)]
+        isMotionTransitionEnabled = true
         
-        card.image = UIImage(named: "surf")
-        view.layout(card).center().width(100).height(100)
+        view.backgroundColor = Color.purple.lighten3
+        view.motionTransitionAnimations = [.duration(3)]
         
-        card.motionTransitionIdentifier = "card"
-        card.motionTransitionAnimations = [.corners(50), .duration(0.5), .width(view.bounds.width), .height(view.bounds.width), .x(0), .y(0)]
+        let d = view.bounds.width
+        
+        container.backgroundColor = Color.red.base
+        container.motionTransitionIdentifier = "container"
+        view.layout(container).width(d)
+        
+        imageView.image = UIImage(named: "surf")
+        imageView.backgroundColor = Color.red.base
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.motionTransitionIdentifier = "card"
+        view.layout(imageView).width(d).height(d).top()
+        
+        view.layout(container).height(view.bounds.height - imageView.bounds.height - bar.bounds.height).top(d)
+        
+        let b1 = IconButton(image: Icon.cm.videocam)
+        b1.opacity = 0
+        b1.motion(.delay(0.5), .duration(1), .fade(1))
+        
+        let b2 = IconButton(image: Icon.cm.videocam)
+        b2.opacity = 0
+        b2.motion(.delay(0.5), .duration(1), .fade(1))
+        
+        let b3 = IconButton(image: Icon.cm.videocam)
+        b3.opacity = 0
+        b3.motion(.delay(0.5), .duration(1), .fade(1))
+        
+        let b4 = IconButton(image: Icon.cm.videocam)
+        b4.opacity = 0
+        b4.motion(.delay(0.5), .duration(1), .fade(1))
+        
+        let b5 = IconButton(image: Icon.cm.videocam)
+        b5.opacity = 0
+        b5.motion(.delay(0.5), .duration(1), .fade(1))
+        
+        bar.centerViews = [b1, b2, b3, b4, b5]
+        bar.motionTransitionIdentifier = "button"
+        bar.backgroundColor = Color.purple.lighten5
+        view.layout(bar).bottom().horizontally()
         
         Motion.delay(3) { [weak self] in
-            guard let s = self else {
-                return
-            }
-
-            s.dismiss(animated: true)
+            self?.dismiss(animated: true)
         }
     }
 }

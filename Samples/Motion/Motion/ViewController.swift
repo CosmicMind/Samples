@@ -31,30 +31,38 @@
 import UIKit
 import Material
 
-open class ViewController: MotionTransitionViewController {
+open class ViewController: UIViewController {
+    let fabButton = FABButton(image: Icon.cm.add)
+    
     let container = UIView()
     
     let card = UIImageView()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
+        isMotionTransitionEnabled = true
+        
         view.backgroundColor = Color.green.base
-        view.motionTransitionIdentifier = "view"
         
         container.backgroundColor = Color.blue.base
+        container.motionTransitionIdentifier = "container"
         view.layout(container).center().width(200).height(200)
         
         card.image = UIImage(named: "surf")
+        card.contentMode = .scaleAspectFill
+        card.clipsToBounds = true
         card.motionTransitionIdentifier = "card"
-        container.layout(card).center().width(100).height(100)
+        card.cornerRadius = 50
+        view.layout(card).center().width(100).height(100)
         
-        Motion.delay(3) { [weak self] in
-            guard let s = self else {
-                return
-            }
-            
-            let vc = TransitionedViewController()
-            s.present(vc, animated: true, completion: nil)
-        }
+        fabButton.motionTransitionIdentifier = "button"
+        fabButton.addTarget(self, action: #selector(handleFABButton(button:)), for: .touchUpInside)
+        view.layout(fabButton).width(64).height(64).bottom(24).right(24)
+    }
+    
+    @objc
+    func handleFABButton(button: Button) {
+        let vc = TransitionedViewController()
+        present(vc, animated: true, completion: nil)
     }
 }

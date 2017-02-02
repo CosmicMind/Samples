@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9612073E1E3435B5007207EE /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9612073D1E3435B5007207EE /* Material.framework */; };
+		9612073F1E3435B5007207EE /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9612073D1E3435B5007207EE /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		961731281E23F1E900A9A297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731271E23F1E900A9A297 /* AppDelegate.swift */; };
 		9617312A1E23F1E900A9A297 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731291E23F1E900A9A297 /* ViewController.swift */; };
 		9617312F1E23F1E900A9A297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9617312E1E23F1E900A9A297 /* Assets.xcassets */; };
@@ -25,6 +27,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9612073F1E3435B5007207EE /* Material.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -32,6 +35,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9612073D1E3435B5007207EE /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		961731241E23F1E900A9A297 /* Motion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Motion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		961731271E23F1E900A9A297 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		961731291E23F1E900A9A297 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9612073E1E3435B5007207EE /* Material.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 		9617311B1E23F1E900A9A297 = {
 			isa = PBXGroup;
 			children = (
+				9612073D1E3435B5007207EE /* Material.framework */,
 				961731261E23F1E900A9A297 /* Motion */,
 				961731251E23F1E900A9A297 /* Products */,
 			);
@@ -286,7 +292,7 @@
 				DEVELOPMENT_TEAM = 9Z76XCNLGL;
 				INFOPLIST_FILE = Motion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Motion;
+				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.Motion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -299,7 +305,7 @@
 				DEVELOPMENT_TEAM = 9Z76XCNLGL;
 				INFOPLIST_FILE = Motion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Motion;
+				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.Motion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
