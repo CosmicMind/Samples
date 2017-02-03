@@ -2,6 +2,13 @@
 <Workspace
    version = "1.0">
    <Group
+      location = "container:"
+      name = "Motion">
+      <FileRef
+         location = "group:Motion/PhotoCollection/PhotoCollection.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
       location = "group:Graph"
       name = "Graph">
       <FileRef

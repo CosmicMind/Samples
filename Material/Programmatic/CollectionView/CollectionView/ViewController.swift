@@ -51,9 +51,6 @@ extension ViewController {
         
         data.forEach { [unowned self] (item) in
             let card = Card()
-//            let label = UILabel()
-//            label.text = item
-//            card.contentView = label
             let imageView = UIImageView()
             imageView.image = UIImage(named: "daniel")
             imageView.height = 300

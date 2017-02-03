@@ -31,14 +31,15 @@
 import UIKit
 import Material
 
-class CardCollectionViewCell: CollectionViewCell {
-    open var card: Card? {
-        didSet {
-            oldValue?.removeFromSuperview()
-            if let v = card {
-                contentView.addSubview(v)
-                v.frame = contentView.bounds
-            }
-        }
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = ViewController()
+        window!.makeKeyAndVisible()
     }
 }
+

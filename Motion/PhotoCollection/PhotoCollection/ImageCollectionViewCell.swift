@@ -31,14 +31,24 @@
 import UIKit
 import Material
 
-class CardCollectionViewCell: CollectionViewCell {
-    open var card: Card? {
-        didSet {
-            oldValue?.removeFromSuperview()
-            if let v = card {
-                contentView.addSubview(v)
-                v.frame = contentView.bounds
-            }
-        }
+class ImageCollectionViewCell: UICollectionViewCell {
+    open var imageView: UIImageView!
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        prepareImageView()
+    }
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        prepareImageView()
+    }
+}
+
+extension ImageCollectionViewCell {
+    fileprivate func prepareImageView() {
+        imageView = UIImageView()
+        imageView.clipsToBounds = true
+        contentView.layout(imageView).edges()
     }
 }
