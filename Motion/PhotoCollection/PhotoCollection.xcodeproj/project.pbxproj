@@ -11,10 +11,6 @@
 		961409C81E43D75B00E7BA99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961409C71E43D75B00E7BA99 /* ViewController.swift */; };
 		961409CD1E43D75B00E7BA99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961409CC1E43D75B00E7BA99 /* Assets.xcassets */; };
 		961409D01E43D75B00E7BA99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961409CE1E43D75B00E7BA99 /* LaunchScreen.storyboard */; };
-		961409D81E43D8F700E7BA99 /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961409D71E43D8F700E7BA99 /* Motion.framework */; };
-		961409D91E43D8F700E7BA99 /* Motion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961409D71E43D8F700E7BA99 /* Motion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		961409DB1E43D8F700E7BA99 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 961409DA1E43D8F700E7BA99 /* Material.framework */; };
-		961409DC1E43D8F700E7BA99 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 961409DA1E43D8F700E7BA99 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		961409DF1E43DA8400E7BA99 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961409DE1E43DA8400E7BA99 /* ImageCollectionViewCell.swift */; };
 		961409E11E43DC1400E7BA99 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961409E01E43DC1400E7BA99 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
@@ -26,8 +22,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				961409D91E43D8F700E7BA99 /* Motion.framework in Embed Frameworks */,
-				961409DC1E43D8F700E7BA99 /* Material.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -41,8 +35,6 @@
 		961409CC1E43D75B00E7BA99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		961409CF1E43D75B00E7BA99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		961409D11E43D75B00E7BA99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		961409D71E43D8F700E7BA99 /* Motion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Motion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		961409DA1E43D8F700E7BA99 /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		961409DE1E43DA8400E7BA99 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		961409E01E43DC1400E7BA99 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,8 +44,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961409D81E43D8F700E7BA99 /* Motion.framework in Frameworks */,
-				961409DB1E43D8F700E7BA99 /* Material.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,8 +53,6 @@
 		961409B91E43D75B00E7BA99 = {
 			isa = PBXGroup;
 			children = (
-				961409DA1E43D8F700E7BA99 /* Material.framework */,
-				961409D71E43D8F700E7BA99 /* Motion.framework */,
 				961409C41E43D75B00E7BA99 /* PhotoCollection */,
 				961409C31E43D75B00E7BA99 /* Products */,
 			);
@@ -125,7 +113,6 @@
 				TargetAttributes = {
 					961409C11E43D75B00E7BA99 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9Z76XCNLGL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -283,7 +270,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PhotoCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.PhotoCollection;
@@ -296,7 +283,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PhotoCollection/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.PhotoCollection;

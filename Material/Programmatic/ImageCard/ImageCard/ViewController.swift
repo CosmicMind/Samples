@@ -33,7 +33,6 @@ import Material
 
 class ViewController: UIViewController {
     fileprivate var imageCard: ImageCard!
-    @IBOutlet weak var card: Card!
     
     override func viewDidLoad() {
         super.viewDidLoad()
