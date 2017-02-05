@@ -31,7 +31,7 @@
 import UIKit
 import Material
 
-class ImageCollectionViewCell: UICollectionViewCell {
+class PhotoCollectionViewCell: UICollectionViewCell {
     open var imageView: UIImageView!
     
     public required init?(coder aDecoder: NSCoder) {
@@ -45,10 +45,11 @@ class ImageCollectionViewCell: UICollectionViewCell {
     }
 }
 
-extension ImageCollectionViewCell {
+extension PhotoCollectionViewCell {
     fileprivate func prepareImageView() {
         imageView = UIImageView()
         imageView.clipsToBounds = true
+        contentView.clipsToBounds = true
         contentView.layout(imageView).edges()
     }
 }

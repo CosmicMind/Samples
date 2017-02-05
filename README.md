@@ -4,13 +4,13 @@
 
 **Samples** is a collection of example projects that use [Material](http://cosmicmind.com/material), [Graph](http://cosmicmind.com/graph), and [Algorithm](http://cosmicmind.com/algorithm). 
 
+![Motion Sample](http://www.cosmicmind.com/motion/cosmicmind_motion_sample.gif)
+
+* [Download the PhotoCollection sample](https://github.com/CosmicMind/Samples/tree/master/Motion/PhotoCollection).
+
 ![Material Sample](http://cosmicmind.com/samples/github/page-tab-bar-controller-2.png)
 
-* [Download the latest sample](https://github.com/CosmicMind/Samples/tree/master/Graph/CardTableView).
-
-## Why A Separate Samples Repo?
-
-We moved all samples to a separate repo to allow their development to be independent of the frameworks. There are instances where we needed to update the versions of the frameworks to accommodate changes that only occurred in the samples. 
+* [Download the CardTableView sample](https://github.com/CosmicMind/Samples/tree/master/Graph/CardTableView).
 
 ## Requirements
 
