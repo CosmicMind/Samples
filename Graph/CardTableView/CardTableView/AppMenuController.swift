@@ -30,6 +30,7 @@
 
 import UIKit
 import Material
+import Motion
 
 class AppMenuController: MenuController {
     internal let baseSize = CGSize(width: 56, height: 56)
@@ -60,12 +61,12 @@ class AppMenuController: MenuController {
 extension AppMenuController {
     open override func openMenu(completion: ((UIView) -> Void)? = nil) {
         super.openMenu(completion: completion)
-        menu.views.first?.animate(animation: Motion.rotate(angle: 45))
+        menu.views.first?.motion(.rotationAngle(45))
     }
     
     open override func closeMenu(completion: ((UIView) -> Void)? = nil) {
         super.closeMenu(completion: completion)
-        menu.views.first?.animate(animation: Motion.rotate(angle: 0))
+        menu.views.first?.motion(.rotationAngle(0))
     }
     
     /// Handle the menu toggle event.
