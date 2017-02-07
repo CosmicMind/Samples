@@ -7,16 +7,14 @@
     "14FF5CD0A93F3CC14F0E8C5A4FD8ECB4A6DF5909" : 9223372036854775807,
     "8808004C76B1A743E0DFFE718D4BAA12DFA4ED0D" : 9223372036854775807,
     "9CF35BC641478FBD765F7442D4034ED362261E0A" : 9223372036854775807,
-    "03C6D728E054A05A684543B0D508854F060D607A" : 9223372036854775807,
-    "0F3E254D46E5A5B90D1542854F510B7D145A9F31" : 9223372036854775807
+    "03C6D728E054A05A684543B0D508854F060D607A" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9E04DE4D-5105-4351-981A-A8D111200A36",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "14FF5CD0A93F3CC14F0E8C5A4FD8ECB4A6DF5909" : "Graph\/",
     "8808004C76B1A743E0DFFE718D4BAA12DFA4ED0D" : "Samples\/",
     "9CF35BC641478FBD765F7442D4034ED362261E0A" : "Material\/",
-    "03C6D728E054A05A684543B0D508854F060D607A" : "Algorithm\/",
-    "0F3E254D46E5A5B90D1542854F510B7D145A9F31" : "Motion\/"
+    "03C6D728E054A05A684543B0D508854F060D607A" : "Algorithm\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "CosmicMind",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -26,11 +24,6 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Algorithm.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "03C6D728E054A05A684543B0D508854F060D607A"
-    },
-    {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Motion.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0F3E254D46E5A5B90D1542854F510B7D145A9F31"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Graph.git",
