@@ -8,5 +8,6 @@ target 'CardTableView' do
   # Pods for Card
 pod 'Material', '~> 2.0'
 pod 'Graph', '~> 2.0'
+pod 'Motion', '~> 1.0'
 
 end
