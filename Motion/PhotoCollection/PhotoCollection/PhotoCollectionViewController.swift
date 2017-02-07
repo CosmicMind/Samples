@@ -71,7 +71,7 @@ class PhotoCollectionViewController: UIViewController {
     
     fileprivate var images = [UIImage]()
     
-    fileprivate var fabButton: FabButton!
+    fileprivate var fabButton: FABButton!
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +115,7 @@ extension PhotoCollectionViewController {
     }
     
     fileprivate func prepareFABButton() {
-        fabButton = FabButton(image: Icon.cm.photoCamera, tintColor: .white)
+        fabButton = FABButton(image: Icon.cm.photoCamera, tintColor: .white)
         fabButton.pulseColor = .white
         fabButton.backgroundColor = Color.blue.base
         fabButton.motionIdentifier = "options"
