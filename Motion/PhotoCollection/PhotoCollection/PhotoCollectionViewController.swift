@@ -123,7 +123,7 @@ extension PhotoCollectionViewController {
     }
     
     fileprivate func prepareNavigationBar() {
-        navigationItem.title = "Olo Alia"
+        navigationItem.title = "Olo Alaia"
         navigationItem.detail = "Surf & Brew"
     }
 }
@@ -146,7 +146,7 @@ extension PhotoCollectionViewController {
     
     @objc
     func motionTransitionAnimation(motion: Motion) {
-        print("here")
+        
     }
 }
 

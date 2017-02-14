@@ -34,6 +34,7 @@ import Material
 class AppNavigationController: NavigationController {
     open override func prepare() {
         super.prepare()
+        isMotionEnabled = true
         navigationBar.depthPreset = .none
         navigationBar.dividerColor = Color.grey.lighten3
     }
