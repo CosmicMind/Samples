@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2016, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -31,20 +31,15 @@
 import UIKit
 import Material
 
-class TransitionViewController: UIViewController {
-    fileprivate var fabButton: FABButton!
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.grey.lighten5
-        
-        prepareNavigationItem()
+    var window: UIWindow?
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = AppNavigationController(rootViewController: PhotoCollectionViewController())
+        window!.makeKeyAndVisible()
     }
 }
 
-extension TransitionViewController {
-    fileprivate func prepareNavigationItem() {
-        navigationItem.title = "New Title"
-        navigationItem.detail = "Transitioned View"
-    }
-}

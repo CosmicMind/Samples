@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         let btn = RaisedButton(title: "Resign", titleColor: Color.blue.base)
         btn.addTarget(self, action: #selector(handleResignResponderButton(button:)), for: .touchUpInside)
         
-        view.layout(btn).width(100).height(constant).centerVertically(offset: emailField.height / 2 + 60).right(20)
+        view.layout(btn).width(100).height(constant).top(40).right(20)
     }
     
     /// Handle the resign responder button.

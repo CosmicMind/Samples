@@ -72,10 +72,7 @@ extension RootViewController {
     }
     
     fileprivate func prepareFABButton() {
-        fabButton = FABButton()
-        fabButton.pulseColor = Color.blue.base
-        fabButton.motionTransitionIdentifier = "fabButton"
-        fabButton.motionTransitionAnimations = [.scale(1), .backgroundColor(.white)]
+        fabButton = FABButton(image: Icon.cm.photoCamera)
         fabButton.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
         view.layout(fabButton).width(64).height(64).bottom(24).right(24)
     }

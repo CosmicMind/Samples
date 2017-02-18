@@ -11,10 +11,10 @@
          location = "group:Material/Programmatic/CollectionView/CollectionView.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Samples/Motion/Motion.xcodeproj">
+         location = "group:Samples/NavigationController/NavigationController.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Samples/NavigationController/NavigationController.xcodeproj">
+         location = "group:Motion/PhotoCollection/PhotoCollection.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Samples/TextField/TextField.xcodeproj">
