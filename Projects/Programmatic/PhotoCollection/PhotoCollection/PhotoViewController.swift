@@ -40,7 +40,7 @@ class PhotoViewController: UIViewController {
     
     fileprivate let tabBar = TabBar()
     fileprivate var image: UIImage?
-    open let imageView = View()
+    open let imageView = UIImageView()
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -125,7 +125,6 @@ extension PhotoViewController {
         imageView.image = image
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
-        imageView.depthPreset = .depth5
         view.layout(imageView).horizontally().height(350).center()
     }
     
