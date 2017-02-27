@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         prepareToolbar()
         prepareContentView()
         prepareBottomBar()
-        prepareImageCard()
+        preparePresenterCard()
     }
 }
 
@@ -120,7 +120,7 @@ extension ViewController {
         bottomBar = Bar(leftViews: [favoriteButton], rightViews: [shareButton], centerViews: [dateLabel])
     }
     
-    fileprivate func prepareImageCard() {
+    fileprivate func preparePresenterCard() {
         card = PresenterCard()
         
         card.toolbar = toolbar

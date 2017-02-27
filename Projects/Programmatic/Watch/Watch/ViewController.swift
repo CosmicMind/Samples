@@ -31,8 +31,6 @@
 import UIKit
 import Material
 import Graph
-import Algorithm
-@IBOutlet weak var card: Card!
 
 class ViewController: UIViewController {
     fileprivate var graph: Graph!

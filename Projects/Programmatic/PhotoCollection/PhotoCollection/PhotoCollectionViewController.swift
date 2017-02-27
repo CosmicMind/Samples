@@ -119,10 +119,6 @@ extension PhotoCollectionViewController {
         fabButton.backgroundColor = Color.blue.base
         fabButton.motionIdentifier = "options"
         view.layout(fabButton).width(64).height(64).bottom(24).right(24)
-        
-        fabButton.motion([.delay(3.0), .duration(3.0), .spin(3), .depth(shadowOffset: fabButton.depth.offset.asSize, shadowOpacity: 0.9, shadowRadius: 3.4)]) {
-            print("done")
-        }
     }
     
     fileprivate func prepareNavigationBar() {

@@ -7,6 +7,5 @@ target 'FABMenuController' do
 
   # Pods for Card
 pod 'Material', '~> 2.0'
-pod 'Motion', '~> 1.0'
 
 end

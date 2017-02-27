@@ -30,134 +30,113 @@
 
 import UIKit
 import Material
-import Graph
-
-extension UIImage {
-    public class func load(contentsOfFile name: String, ofType type: String) -> UIImage? {
-        return UIImage(contentsOfFile: Bundle.main.path(forResource: name, ofType: type)!)
-    }
-}
 
 class ViewController: UIViewController {
-    /// View.
-    internal var imageCard: ImageCard!
+    fileprivate var card: ImageCard!
     
-    /// Model.
-    internal var graph: Graph!
-    internal var search: Search<Entity>!
-    internal var entity: Entity!
+    /// Conent area.
+    fileprivate var imageView: UIImageView!
+    fileprivate var contentView: UILabel!
+    
+    /// Bottom Bar views.
+    fileprivate var bottomBar: Bar!
+    fileprivate var dateFormatter: DateFormatter!
+    fileprivate var dateLabel: UILabel!
+    fileprivate var favoriteButton: IconButton!
+    fileprivate var shareButton: IconButton!
+    
+    /// Toolbar views.
+    fileprivate var toolbar: Toolbar!
+    fileprivate var moreButton: IconButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.grey.lighten5
         
-        // Prepare model.
-        prepareGraph()
-        prepareSearch()
-        prepareModel()
-        
-        // Prepare view.
-        prepareImageCard()
-    }
-}
-
-/// Model.
-extension ViewController {
-    internal func createSampleData() {
-        entity = Entity(type: "ImageCard")
-        
-        entity["title"] = "Graph"
-        entity["detail"] = "Build Data-Driven Software"
-        entity["image"] = UIImage.load(contentsOfFile: "frontier", ofType: "jpg")?.resize(toWidth: view.width)
-        entity["content"] = "Graph is a semantic database that is used to create data-driven applications."
-        entity["author"] = "CosmicMind"
-        
-        /// To save the model data synchronously, use the sync method.
-        graph.sync()
-    }
-    
-    internal func prepareGraph() {
-        graph = Graph()
-        
-        // Uncomment to clear the Graph data.
-//        graph.clear()
-    }
-    
-    internal func prepareSearch() {
-        /// Add the Graph instance you would like to search from.
-        search = Search<Entity>(graph: graph).for(types: "ImageCard")
-    }
-    
-    internal func prepareModel() {
-        /// To search for the model data synchronously, use the sync method.
-        let imageCards = search.sync()
-        
-        guard let e = imageCards.first else {
-            createSampleData()
-            return
-        }
-        
-        entity = e
-    }
-}
-
-/// ImageCard.
-extension ViewController {
-    internal func prepareImageCard() {
-        imageCard = ImageCard()
-        view.layout(imageCard).horizontally(left: 20, right: 20).center()
-        
-        prepareToolbar()
         prepareImageView()
+        prepareDateFormatter()
+        prepareDateLabel()
+        prepareFavoriteButton()
+        prepareShareButton()
+        prepareMoreButton()
+        prepareToolbar()
         prepareContentView()
         prepareBottomBar()
-    }
-    
-    private func prepareToolbar() {
-        imageCard.toolbar = Toolbar()
-        imageCard.toolbar?.backgroundColor = .clear
-        imageCard.toolbarEdgeInsetsPreset = .square3
-        
-        // Use the property subscript to access the model data.
-        imageCard.toolbar?.title = entity["title"] as? String
-        imageCard.toolbar?.titleLabel.textColor = .white
-        
-        imageCard.toolbar?.detail = entity["detail"] as? String
-        imageCard.toolbar?.detailLabel.textColor = .white
-    }
-    
-    private func prepareImageView() {
-        imageCard.imageView = UIImageView()
-        imageCard.imageView?.image = entity["image"] as? UIImage
-    }
-    
-    private func prepareContentView() {
-        let contentLabel = UILabel()
-        contentLabel.numberOfLines = 0
-        contentLabel.text = entity["content"] as? String
-        contentLabel.font = RobotoFont.regular(with: 14)
-        
-        imageCard.contentView = contentLabel
-        imageCard.contentViewEdgeInsetsPreset = .square3
-    }
-    
-    private func prepareBottomBar() {
-        let shareButton = IconButton(image: Icon.cm.share, tintColor: Color.blueGrey.base)
-        let favoriteButton = IconButton(image: Icon.favorite, tintColor: Color.red.base)
-        
-        let authorLabel = UILabel()
-        authorLabel.text = entity["author"] as? String
-        authorLabel.textAlignment = .center
-        authorLabel.textColor = Color.blueGrey.base
-        authorLabel.font = RobotoFont.regular(with: 12)
-        
-        imageCard.bottomBar = Bar()
-        imageCard.bottomBarEdgeInsetsPreset = .wideRectangle2
-        imageCard.bottomBarEdgeInsets.top = 0
-        
-        imageCard.bottomBar?.leftViews = [favoriteButton]
-        imageCard.bottomBar?.centerViews = [authorLabel]
-        imageCard.bottomBar?.rightViews = [shareButton]
+        preparePresenterCard()
     }
 }
+
+extension ViewController {
+    fileprivate func prepareImageView() {
+        imageView = UIImageView()
+        imageView.image = UIImage(named: "frontier")?.resize(toWidth: view.width)
+    }
+    
+    fileprivate func prepareDateFormatter() {
+        dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+    }
+    fileprivate func prepareDateLabel() {
+        dateLabel = UILabel()
+        dateLabel.font = RobotoFont.regular(with: 12)
+        dateLabel.textColor = Color.blueGrey.base
+        dateLabel.textAlignment = .center
+        dateLabel.text = dateFormatter.string(from: Date.distantFuture)
+    }
+    
+    fileprivate func prepareFavoriteButton() {
+        favoriteButton = IconButton(image: Icon.favorite, tintColor: Color.red.base)
+    }
+    
+    fileprivate func prepareShareButton() {
+        shareButton = IconButton(image: Icon.cm.share, tintColor: Color.blueGrey.base)
+    }
+    
+    fileprivate func prepareMoreButton() {
+        moreButton = IconButton(image: Icon.cm.moreHorizontal, tintColor: Color.blueGrey.base)
+    }
+    
+    fileprivate func prepareToolbar() {
+        toolbar = Toolbar(rightViews: [moreButton])
+        toolbar.backgroundColor = nil
+        
+        toolbar.title = "Material"
+        toolbar.titleLabel.textColor = .white
+        toolbar.titleLabel.textAlignment = .center
+        
+        toolbar.detail = "Build Beautiful Software"
+        toolbar.detailLabel.textColor = .white
+        toolbar.detailLabel.textAlignment = .center
+    }
+    
+    fileprivate func prepareContentView() {
+        contentView = UILabel()
+        contentView.numberOfLines = 0
+        contentView.text = "Material is an animation and graphics framework that is used to create beautiful applications."
+        contentView.font = RobotoFont.regular(with: 14)
+    }
+    
+    fileprivate func prepareBottomBar() {
+        bottomBar = Bar(leftViews: [favoriteButton], rightViews: [shareButton], centerViews: [dateLabel])
+    }
+    
+    fileprivate func preparePresenterCard() {
+        card = ImageCard()
+        
+        card.toolbar = toolbar
+        card.toolbarEdgeInsetsPreset = .square3
+        
+        card.imageView = imageView
+        
+        card.contentView = contentView
+        card.contentViewEdgeInsetsPreset = .square3
+        
+        card.bottomBar = bottomBar
+        card.bottomBarEdgeInsetsPreset = .wideRectangle2
+        
+        view.layout(card).horizontally(left: 20, right: 20).center()
+    }
+}
+
 

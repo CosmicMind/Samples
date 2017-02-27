@@ -46,11 +46,6 @@ extension ViewController {
         control.delegate = self
         
         view.layout(control).center()
-        
-        Motion.delay(time: 3) {
-            control.switchState = .on
-            print("Updated Switch state to:", .on == control.switchState ? "on" : "off" )
-        }
     }
 }
 

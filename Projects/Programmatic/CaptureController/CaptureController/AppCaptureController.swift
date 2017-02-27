@@ -31,7 +31,6 @@
 import UIKit
 import AVFoundation
 import Material
-import Motion
 
 class AppCaptureController: CaptureController {
     /// A reference to the focusView used in focus animations.

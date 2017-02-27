@@ -7,6 +7,5 @@ target 'CaptureController' do
 
   # Pods for Card
 pod 'Material/Capture', '~> 2.0'
-pod 'Motion', '~> 1.0'
 
 end

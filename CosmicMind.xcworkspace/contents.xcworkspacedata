@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:../Motion/Motion.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../Material/Material.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../Graph/Graph.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:../Algorithm/Algorithm.xcodeproj">
-   </FileRef>
    <Group
       location = "container:"
       name = "Programmatic">
@@ -21,9 +9,6 @@
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/BottomNavigationController/BottomNavigationController.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Projects/Programmatic/BottomSheetController/BottomSheetController.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/Button/Button.xcodeproj">
@@ -54,9 +39,6 @@
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/Layer/Layer.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Projects/Programmatic/MenuController/MenuController.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/NavigationController/NavigationController.xcodeproj">
@@ -109,9 +91,5 @@
       <FileRef
          location = "group:Projects/Programmatic/Watch/Watch.xcodeproj">
       </FileRef>
-   </Group>
-   <Group
-      location = "container:"
-      name = "Storyboard">
    </Group>
 </Workspace>
