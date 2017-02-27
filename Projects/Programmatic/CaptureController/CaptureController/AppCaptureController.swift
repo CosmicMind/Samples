@@ -31,6 +31,7 @@
 import UIKit
 import AVFoundation
 import Material
+import Motion
 
 class AppCaptureController: CaptureController {
     /// A reference to the focusView used in focus animations.
@@ -331,8 +332,8 @@ extension AppCaptureController {
      - Parameter angle: A CGFloat.
      */
     fileprivate func updateToRotation(angle: CGFloat) {
-        changeModeButton.animate(animation: Motion.rotate(angle: angle))
-        flashButton.animate(animation: Motion.rotate(angle: angle))
-        changeCameraButton.animate(animation: Motion.rotate(angle: angle))
+        changeModeButton.motion(.rotationAngle(angle))
+        flashButton.motion(.rotationAngle(angle))
+        changeCameraButton.motion(.rotationAngle(angle))
     }
 }

@@ -69,7 +69,7 @@ extension ViewController {
     fileprivate func prepareDateLabel() {
         dateLabel = UILabel()
         dateLabel.font = RobotoFont.regular(with: 12)
-        dateLabel.textColor = Color.blueGrey.base
+        dateLabel.textColor = Color.grey.base
         dateLabel.text = dateFormatter.string(from: Date.distantFuture)
     }
     
@@ -78,7 +78,7 @@ extension ViewController {
     }
     
     fileprivate func prepareMoreButton() {
-        moreButton = IconButton(image: Icon.cm.moreVertical, tintColor: Color.blueGrey.base)
+        moreButton = IconButton(image: Icon.cm.moreVertical, tintColor: Color.grey.base)
     }
     
     fileprivate func prepareToolbar() {
@@ -89,7 +89,7 @@ extension ViewController {
         
         toolbar.detail = "Build Beautiful Software"
         toolbar.detailLabel.textAlignment = .left
-        toolbar.detailLabel.textColor = Color.blueGrey.base
+        toolbar.detailLabel.textColor = Color.grey.base
     }
     
     fileprivate func prepareContentView() {
@@ -102,8 +102,8 @@ extension ViewController {
     fileprivate func prepareBottomBar() {
         bottomBar = Bar()
         
-        bottomBar.leftViews = [dateLabel]
-        bottomBar.rightViews = [favoriteButton]
+        bottomBar.leftViews = [favoriteButton]
+        bottomBar.rightViews = [dateLabel]
     }
     
     fileprivate func prepareImageCard() {

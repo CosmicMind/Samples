@@ -30,6 +30,7 @@
 
 import UIKit
 import Material
+import Motion
 
 class AppFABMenuController: FABMenuController {
     fileprivate let fabMenuSize = CGSize(width: 56, height: 56)
@@ -94,21 +95,21 @@ extension AppFABMenuController {
     fileprivate func handleNotesFABMenuItem(button: UIButton) {
         transition(to: NotesViewController())
         fabMenu.close()
-        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+        fabMenu.fabButton?.motion(.rotationAngle(0))
     }
     
     @objc
     fileprivate func handleRemindersFABMenuItem(button: UIButton) {
         transition(to: RemindersViewController())
         fabMenu.close()
-        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+        fabMenu.fabButton?.motion(.rotationAngle(0))
     }
 }
 
 extension AppFABMenuController {
     @objc
     open func fabMenuWillOpen(fabMenu: FABMenu) {
-        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 45))
+        fabMenu.fabButton?.motion(.rotationAngle(45))
         
         print("fabMenuWillOpen")
     }
@@ -120,7 +121,7 @@ extension AppFABMenuController {
     
     @objc
     open func fabMenuWillClose(fabMenu: FABMenu) {
-        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+        fabMenu.fabButton?.motion(.rotationAngle(0))
         
         print("fabMenuWillClose")
     }

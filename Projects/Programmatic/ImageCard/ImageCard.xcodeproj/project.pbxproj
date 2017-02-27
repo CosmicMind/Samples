@@ -110,6 +110,7 @@
 				TargetAttributes = {
 					9642C4C01DB14846000B5941 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 9Z76XCNLGL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -268,10 +269,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9Z76XCNLGL;
 				INFOPLIST_FILE = ImageCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.ImageCard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.ImageCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -281,10 +282,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 9Z76XCNLGL;
 				INFOPLIST_FILE = ImageCard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.ImageCard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.ImageCard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

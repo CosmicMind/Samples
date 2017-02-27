@@ -35,7 +35,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        @IBOutlet weak var card: Card!
         
         prepareHorizontalExample()
         prepareVerticalExample()

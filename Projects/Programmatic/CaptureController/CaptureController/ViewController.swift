@@ -34,7 +34,6 @@ import Material
 
 class ViewController: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
-        @IBOutlet weak var card: Card!
         super.viewWillAppear(animated)
         prepareCapture()
     }

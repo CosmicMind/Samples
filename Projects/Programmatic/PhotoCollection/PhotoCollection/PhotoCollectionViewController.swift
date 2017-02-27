@@ -30,7 +30,6 @@
 
 import UIKit
 import Material
-import Motion
 
 class PhotoCollectionViewController: UIViewController {
     fileprivate var collectionView: UICollectionView!
@@ -120,6 +119,10 @@ extension PhotoCollectionViewController {
         fabButton.backgroundColor = Color.blue.base
         fabButton.motionIdentifier = "options"
         view.layout(fabButton).width(64).height(64).bottom(24).right(24)
+        
+        fabButton.motion([.delay(3.0), .duration(3.0), .spin(3), .depth(shadowOffset: fabButton.depth.offset.asSize, shadowOpacity: 0.9, shadowRadius: 3.4)]) {
+            print("done")
+        }
     }
     
     fileprivate func prepareNavigationBar() {
@@ -140,13 +143,8 @@ extension PhotoCollectionViewController {
     }
     
     @objc
-    func motionModifyDelay(motion: Motion) -> TimeInterval {
+    func motionDelayTransitionByTimeInterval(motion: Motion) -> TimeInterval {
         return 0.03
-    }
-    
-    @objc
-    func motionTransitionAnimation(motion: Motion) {
-        
     }
 }
 

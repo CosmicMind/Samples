@@ -31,17 +31,39 @@
 import UIKit
 import Material
 
-open class AppStatusBarController: StatusBarController {
-    open override func prepare() {
-        super.prepare()
+class ViewController: UIViewController {
+    fileprivate var fabButton: FABButton!
+    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Color.grey.lighten5
         
-        prepareStatusBar()
+        prepareFABButton()
+    }
+    
+    open override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        prepareBottomSheet()
     }
 }
 
-extension AppStatusBarController {
-    fileprivate func prepareStatusBar() {
-        statusBarStyle = .lightContent
-        statusBar.backgroundColor = Color.black.withAlphaComponent(0.18)
+extension ViewController {
+    fileprivate func prepareFABButton() {
+        fabButton = FABButton(image: Icon.cm.play, tintColor: .white)
+        fabButton.backgroundColor = Color.blue.base
+        fabButton.depthPreset = .depth1
+        fabButton.pulseColor = .white
+        fabButton.width = 64
+        fabButton.height = 64
+    }
+    
+    fileprivate func prepareBottomSheet() {
+        guard let v = bottomSheetController else {
+            return
+        }
+        
+//        v.bottomSheetStyle = .persistent
+        v.bottomSheet.fabButton = fabButton
     }
 }

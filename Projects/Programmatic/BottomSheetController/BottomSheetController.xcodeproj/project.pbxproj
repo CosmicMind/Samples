@@ -10,10 +10,9 @@
 		961730801E1701EE00A9A297 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9617307F1E1701EE00A9A297 /* AppDelegate.swift */; };
 		961730871E1701EE00A9A297 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961730861E1701EE00A9A297 /* Assets.xcassets */; };
 		9617308A1E1701EE00A9A297 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961730881E1701EE00A9A297 /* LaunchScreen.storyboard */; };
-		961730C51E1C8FE800A9A297 /* AudioPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961730C41E1C8FE800A9A297 /* AudioPlayerViewController.swift */; };
+		961730C51E1C8FE800A9A297 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961730C41E1C8FE800A9A297 /* ViewController.swift */; };
 		961731111E202DE000A9A297 /* AppBottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731101E202DE000A9A297 /* AppBottomSheetController.swift */; };
-		961731131E21862300A9A297 /* AppStatusBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731121E21862300A9A297 /* AppStatusBarController.swift */; };
-		961731171E231AF200A9A297 /* AudioListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731161E231AF200A9A297 /* AudioListViewController.swift */; };
+		961731171E231AF200A9A297 /* BottomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961731161E231AF200A9A297 /* BottomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,10 +34,9 @@
 		961730861E1701EE00A9A297 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		961730891E1701EE00A9A297 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9617308B1E1701EE00A9A297 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		961730C41E1C8FE800A9A297 /* AudioPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerViewController.swift; sourceTree = "<group>"; };
+		961730C41E1C8FE800A9A297 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		961731101E202DE000A9A297 /* AppBottomSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppBottomSheetController.swift; sourceTree = "<group>"; };
-		961731121E21862300A9A297 /* AppStatusBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStatusBarController.swift; sourceTree = "<group>"; };
-		961731161E231AF200A9A297 /* AudioListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioListViewController.swift; sourceTree = "<group>"; };
+		961731161E231AF200A9A297 /* BottomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,9 +71,8 @@
 			children = (
 				9617307F1E1701EE00A9A297 /* AppDelegate.swift */,
 				961731101E202DE000A9A297 /* AppBottomSheetController.swift */,
-				961731121E21862300A9A297 /* AppStatusBarController.swift */,
-				961730C41E1C8FE800A9A297 /* AudioPlayerViewController.swift */,
-				961731161E231AF200A9A297 /* AudioListViewController.swift */,
+				961730C41E1C8FE800A9A297 /* ViewController.swift */,
+				961731161E231AF200A9A297 /* BottomViewController.swift */,
 				961730861E1701EE00A9A297 /* Assets.xcassets */,
 				961730881E1701EE00A9A297 /* LaunchScreen.storyboard */,
 				9617308B1E1701EE00A9A297 /* Info.plist */,
@@ -156,11 +153,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961731131E21862300A9A297 /* AppStatusBarController.swift in Sources */,
 				961731111E202DE000A9A297 /* AppBottomSheetController.swift in Sources */,
-				961730C51E1C8FE800A9A297 /* AudioPlayerViewController.swift in Sources */,
+				961730C51E1C8FE800A9A297 /* ViewController.swift in Sources */,
 				961730801E1701EE00A9A297 /* AppDelegate.swift in Sources */,
-				961731171E231AF200A9A297 /* AudioListViewController.swift in Sources */,
+				961731171E231AF200A9A297 /* BottomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +274,7 @@
 				DEVELOPMENT_TEAM = 9Z76XCNLGL;
 				INFOPLIST_FILE = BottomSheetController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.BottomSheetController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.BottomSheetController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -291,7 +287,7 @@
 				DEVELOPMENT_TEAM = 9Z76XCNLGL;
 				INFOPLIST_FILE = BottomSheetController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.BottomSheetController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.BottomSheetController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

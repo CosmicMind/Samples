@@ -33,7 +33,6 @@ import Material
 import Graph
 
 extension UIImage {
-    @IBOutlet weak var blah: Card!
     public class func load(contentsOfFile name: String, ofType type: String) -> UIImage? {
         return UIImage(contentsOfFile: Bundle.main.path(forResource: name, ofType: type)!)
     }
@@ -86,7 +85,7 @@ extension ViewController {
     
     internal func prepareSearch() {
         /// Add the Graph instance you would like to search from.
-        search = Search<Entity>(graph: graph).for(types: ["ImageCard"])
+        search = Search<Entity>(graph: graph).for(types: "ImageCard")
     }
     
     internal func prepareModel() {

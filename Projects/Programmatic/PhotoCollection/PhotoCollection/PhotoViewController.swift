@@ -30,7 +30,6 @@
 
 import UIKit
 import Material
-import Motion
 
 class PhotoViewController: UIViewController {
     fileprivate let b1 = FlatButton(image: Icon.cm.photoLibrary, tintColor: Color.blueGrey.base)
@@ -41,7 +40,7 @@ class PhotoViewController: UIViewController {
     
     fileprivate let tabBar = TabBar()
     fileprivate var image: UIImage?
-    open let imageView = UIImageView()
+    open let imageView = View()
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -95,13 +94,8 @@ extension PhotoViewController {
     }
     
     @objc
-    func motionModifyDelay(motion: Motion) -> TimeInterval {
+    func motionDelayTransitionByTimeInterval(motion: Motion) -> TimeInterval {
         return 0.03
-    }
-    
-    @objc
-    func motionTransitionAnimation(motion: Motion) {
-        
     }
 }
 
@@ -131,6 +125,7 @@ extension PhotoViewController {
         imageView.image = image
         imageView.contentMode = .scaleToFill
         imageView.clipsToBounds = true
+        imageView.depthPreset = .depth5
         view.layout(imageView).horizontally().height(350).center()
     }
     

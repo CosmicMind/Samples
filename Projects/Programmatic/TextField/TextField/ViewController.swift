@@ -77,6 +77,10 @@ extension ViewController {
 //        emailField.dividerNormalColor = Color.cyan.base
 //        emailField.dividerActiveColor = Color.green.base
         
+        let leftView = UIImageView()
+        leftView.image = Icon.cm.audio
+        emailField.leftView = leftView
+        
         view.layout(emailField).center(offsetY: -passwordField.height - 60).left(20).right(20)
     }
     
