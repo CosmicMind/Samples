@@ -32,15 +32,12 @@ import UIKit
 import Material
 
 class AppToolbarController: ToolbarController {
-    fileprivate var shape: UIImageView!
-    fileprivate var container: UIView!
     fileprivate var menuButton: IconButton!
     fileprivate var starButton: IconButton!
     fileprivate var searchButton: IconButton!
     
     open override func prepare() {
         super.prepare()
-        prepareShape()
         prepareMenuButton()
         prepareStarButton()
         prepareSearchButton()
@@ -50,17 +47,6 @@ class AppToolbarController: ToolbarController {
 }
 
 extension AppToolbarController {
-    fileprivate func prepareShape() {
-        let h = toolbar.height - toolbar.contentEdgeInsets.top - toolbar.contentEdgeInsets.bottom
-        
-        shape = UIImageView()
-        shape.contentMode = .scaleToFill
-        shape.image = UIImage(named: "daniel")?.crop(toWidth: h, toHeight: h)
-        shape.cornerRadius = h / 2
-        shape.clipsToBounds = true
-        shape.backgroundColor = Color.green.base
-    }
-    
     fileprivate func prepareMenuButton() {
         menuButton = IconButton(image: Icon.cm.menu, tintColor: .white)
         menuButton.pulseColor = .white
@@ -82,10 +68,8 @@ extension AppToolbarController {
     }
     
     fileprivate func prepareToolbar() {
-//        toolbar.interimSpacePreset = .none
-//        toolbar.contentEdgeInsetsPreset = .none
         toolbar.backgroundColor = Color.blue.darken2
-        toolbar.leftViews = [shape, menuButton]
+        toolbar.leftViews = [menuButton]
         toolbar.rightViews = [starButton, searchButton]
     }
 }
