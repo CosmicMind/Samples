@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:TextView.xcodeproj">
+      location = "self:Editor.xcodeproj">
    </FileRef>
 </Workspace>

@@ -72,8 +72,11 @@ extension ViewController {
     }
     
     fileprivate func prepareEditor() {
-        editor.textView.inputAccessoryView = inputBar
         editor.delegate = self
+        editor.textViewEdgeInsetsPreset = .square4
+        editor.textView.inputAccessoryView = inputBar
+        editor.textView.placeholderLabel = UILabel()
+        editor.textView.placeholder = "Placeholder"
         view.layout(editor).edges()
     }
 }
@@ -94,7 +97,7 @@ extension ViewController: EditorDelegate {
     
     @objc
     open func editor(editor: Editor, didProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
-        textStorage.updateAttributes(characterAttributes: [.font: RobotoFont.bold, .forgroundColor: Color.lightBlue.lighten1], range: range)
+        textStorage.updateAttributes(characterAttributes: [.font: RobotoFont.medium, .forgroundColor: Color.lightBlue.lighten1], range: range)
         tags = editor.uniqueMatches
     }
     
@@ -115,7 +118,7 @@ extension ViewController: EditorDelegate {
     
     @objc
     open func editor(editor: Editor, didEndEditing textView: UITextView) {
-     
+        
     }
     
     @objc
@@ -135,12 +138,12 @@ extension ViewController: EditorDelegate {
     
     @objc
     open func editor(editor: Editor, willShowKeyboard value: NSValue) {
-        print(value)
+        print(value.cgRectValue)
     }
     
     @objc
     open func editor(editor: Editor, willHideKeyboard value: NSValue)
     {
-        print(value)
+        print(value.cgRectValue)
     }
 }
