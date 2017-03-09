@@ -73,9 +73,8 @@ extension ViewController {
     
     fileprivate func prepareEditor() {
         editor.delegate = self
-        editor.textViewEdgeInsetsPreset = .square4
+        editor.textViewEdgeInsetsPreset = .square5
         editor.textView.inputAccessoryView = inputBar
-        editor.textView.placeholderLabel = UILabel()
         editor.textView.placeholder = "Placeholder"
         view.layout(editor).edges()
     }
