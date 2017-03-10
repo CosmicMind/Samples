@@ -29,9 +29,6 @@
          location = "group:Projects/Programmatic/CollectionView/CollectionView.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Projects/Programmatic/Editor/Editor.xcodeproj">
-      </FileRef>
-      <FileRef
          location = "group:Projects/Programmatic/FABMenuController/FABMenuController.xcodeproj">
       </FileRef>
       <FileRef
@@ -84,6 +81,9 @@
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/TextField/TextField.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Projects/Programmatic/TextView/TextView.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/ToolbarController/ToolbarController.xcodeproj">

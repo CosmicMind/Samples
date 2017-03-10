@@ -32,7 +32,7 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    fileprivate let editor = Editor()
+    fileprivate let textView = TextView()
     
     fileprivate var tags = [String]()
     
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
 extension ViewController {
     fileprivate func prepareDoneButton() {
         doneButton = FlatButton(title: "Done")
-        doneButton.addTarget(self, action: #selector(handleDoneButton(button:)), for: .touchUpInside)
+        doneButton.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
     }
     
     fileprivate func prepareInputBar() {
@@ -72,77 +72,42 @@ extension ViewController {
     }
     
     fileprivate func prepareEditor() {
-        editor.delegate = self
-        editor.textViewEdgeInsetsPreset = .square5
-        editor.textView.inputAccessoryView = inputBar
-        editor.textView.placeholder = "Placeholder"
-        view.layout(editor).edges()
+        textView.delegate = self
+        textView.placeholder = "Placeholder"
+        textView.inputAccessoryView = inputBar
+        textView.backgroundColor = Color.purple.base
+        textView.textContainerInsetsPreset = .square5
+        view.layout(textView).left().right().top(100).height(100)
+        textView.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     }
 }
 
 extension ViewController {
     @objc
-    fileprivate func handleDoneButton(button: UIButton) {
-        editor.textView.resignFirstResponder()
+    fileprivate func handleDoneButton() {
+        textView.resignFirstResponder()
     }
 }
 
-
-extension ViewController: EditorDelegate {
+extension ViewController: TextViewDelegate {
     @objc
-    open func editor(editor: Editor, willProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
+    open func textView(textView: TextView, willProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
         textStorage.updateAttributes(characterAttributes: [.font: RobotoFont.regular, .forgroundColor: Color.black], range: range)
     }
     
     @objc
-    open func editor(editor: Editor, didProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
+    open func textView(textView: TextView, didProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
         textStorage.updateAttributes(characterAttributes: [.font: RobotoFont.medium, .forgroundColor: Color.lightBlue.lighten1], range: range)
-        tags = editor.uniqueMatches
+        tags = textView.uniqueMatches
     }
     
     @objc
-    open func editor(editor: Editor, shouldBeginEditing textView: UITextView) -> Bool {
-        return true
-    }
-    
-    @objc
-    open func editor(editor: Editor, shouldEndEditing textView: UITextView) -> Bool {
-        return true
-    }
-    
-    @objc
-    open func editor(editor: Editor, didBeginEditing textView: UITextView) {
+    open func textView(textView: TextView, willShowKeyboard value: NSValue) {
         
     }
     
     @objc
-    open func editor(editor: Editor, didEndEditing textView: UITextView) {
+    open func textView(textView: TextView, willHideKeyboard value: NSValue) {
         
-    }
-    
-    @objc
-    open func editor(editor: Editor, textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        return true
-    }
-    
-    @objc
-    open func editor(editor: Editor, didChange textView: UITextView) {
-        
-    }
-    
-    @objc
-    open func editor(editor: Editor, didChangeSelection textView: UITextView) {
-        
-    }
-    
-    @objc
-    open func editor(editor: Editor, willShowKeyboard value: NSValue) {
-        print(value.cgRectValue)
-    }
-    
-    @objc
-    open func editor(editor: Editor, willHideKeyboard value: NSValue)
-    {
-        print(value.cgRectValue)
     }
 }
