@@ -48,7 +48,8 @@ class ViewController: UIViewController {
         prepareDoneButton()
         prepareInputBar()
         prepareBottomToolbar()
-        prepareEditor()
+        prepareTextView()
+        prepareToolbar()
     }
 }
 
@@ -71,14 +72,22 @@ extension ViewController {
         view.layout(bottomToolbar).bottom().horizontally()
     }
     
-    fileprivate func prepareEditor() {
+    fileprivate func prepareTextView() {
         textView.delegate = self
         textView.placeholder = "Placeholder"
         textView.inputAccessoryView = inputBar
-        textView.backgroundColor = Color.purple.base
         textView.textContainerInsetsPreset = .square5
-        view.layout(textView).left().right().top(100).height(100)
-        textView.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        view.layout(textView).edges()
+        textView.text = "#Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of #Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n\n Lorem Ipsum has been the #industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum #passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    }
+    
+    fileprivate func prepareToolbar() {
+        guard let toolbar = toolbarController?.toolbar else {
+            return
+        }
+        
+        toolbar.title = "TextView"
+        toolbar.detail = "Sample"
     }
 }
 
@@ -103,11 +112,23 @@ extension ViewController: TextViewDelegate {
     
     @objc
     open func textView(textView: TextView, willShowKeyboard value: NSValue) {
-        
+        print("keyboard will show")
+        textView.height = view.bounds.height - value.cgRectValue.height
+    }
+    
+    @objc
+    open func textView(textView: TextView, didShowKeyboard value: NSValue) {
+        print("keyboard did show")
     }
     
     @objc
     open func textView(textView: TextView, willHideKeyboard value: NSValue) {
-        
+        print("keyboard will hide")
+        textView.height = view.bounds.height
+    }
+    
+    @objc
+    open func textView(textView: TextView, didHideKeyboard value: NSValue) {
+        print("keyboard did show")
     }
 }
