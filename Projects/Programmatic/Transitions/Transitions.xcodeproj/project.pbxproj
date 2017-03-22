@@ -11,7 +11,7 @@
 		96DCA8C91E6DC25C004EB173 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DCA8C81E6DC25C004EB173 /* ViewController.swift */; };
 		96DCA8CE1E6DC25C004EB173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DCA8CD1E6DC25C004EB173 /* Assets.xcassets */; };
 		96DCA8D11E6DC25C004EB173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DCA8CF1E6DC25C004EB173 /* LaunchScreen.storyboard */; };
-		96DCA8DD1E6DC56A004EB173 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DCA8DC1E6DC56A004EB173 /* PhotoCollectionViewController.swift */; };
+		96DCA8DD1E6DC56A004EB173 /* PurpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DCA8DC1E6DC56A004EB173 /* PurpleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,7 +34,7 @@
 		96DCA8CD1E6DC25C004EB173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96DCA8D01E6DC25C004EB173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96DCA8D21E6DC25C004EB173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96DCA8DC1E6DC56A004EB173 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		96DCA8DC1E6DC56A004EB173 /* PurpleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurpleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,7 @@
 			children = (
 				96DCA8C61E6DC25C004EB173 /* AppDelegate.swift */,
 				96DCA8C81E6DC25C004EB173 /* ViewController.swift */,
-				96DCA8DC1E6DC56A004EB173 /* PhotoCollectionViewController.swift */,
+				96DCA8DC1E6DC56A004EB173 /* PurpleViewController.swift */,
 				96DCA8CD1E6DC25C004EB173 /* Assets.xcassets */,
 				96DCA8CF1E6DC25C004EB173 /* LaunchScreen.storyboard */,
 				96DCA8D21E6DC25C004EB173 /* Info.plist */,
@@ -150,7 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96DCA8C91E6DC25C004EB173 /* ViewController.swift in Sources */,
-				96DCA8DD1E6DC56A004EB173 /* PhotoCollectionViewController.swift in Sources */,
+				96DCA8DD1E6DC56A004EB173 /* PurpleViewController.swift in Sources */,
 				96DCA8C71E6DC25C004EB173 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

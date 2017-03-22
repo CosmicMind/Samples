@@ -29,20 +29,19 @@
  */
 
 import UIKit
-import Material
+import Motion
 
-class PhotoCollectionViewController: UIViewController {
-    fileprivate let v1 = View()
-    
+class PurpleViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         isMotionEnabled = true
-        view.backgroundColor = Color.pink.base
+        view.backgroundColor = .purple
         
+        let v1 = UIView(frame: CGRect(x: view.bounds.width - 88, y: view.bounds.height - 88, width: 64, height: 64))
+        v1.layer.cornerRadius = 32
         v1.motionIdentifier = "v1"
-        v1.backgroundColor = Color.green.base
-        v1.shapePreset = .circle
-        view.layout(v1).height(50).center()
+        v1.backgroundColor = .yellow
+        view.addSubview(v1)
         
         Motion.delay(3) { [weak self] in
             self?.dismiss(animated: true)

@@ -29,22 +29,21 @@
  */
 
 import UIKit
-import Material
+import Motion
 
 class ViewController: UIViewController {
-    fileprivate let v1 = UIView()
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
         isMotionEnabled = true
-        view.backgroundColor = .white
+        view.backgroundColor = .orange
         
+        let v1 = UIView(frame: CGRect(x: 0, y: view.bounds.height - 50, width: view.bounds.width, height: 50))
         v1.motionIdentifier = "v1"
-        v1.backgroundColor = Color.blue.base
-        view.layout(v1).bottom().horizontally().height(50)
+        v1.backgroundColor = .yellow
+        view.addSubview(v1)
         
         Motion.delay(3) { [weak self] in
-            self?.present(PhotoCollectionViewController(), animated: true)
+            self?.present(PurpleViewController(), animated: true)
         }
     }
 }
