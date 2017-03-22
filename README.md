@@ -10,7 +10,7 @@
 
 ![Material Sample](http://cosmicmind.com/samples/github/page-tab-bar-controller-2.png)
 
-* [Download the CardTableView sample](https://github.com/CosmicMind/Samples/tree/master/Graph/CardTableView).
+* [Download the CardTableView sample](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/CardTableView).
 
 ## Requirements
 
