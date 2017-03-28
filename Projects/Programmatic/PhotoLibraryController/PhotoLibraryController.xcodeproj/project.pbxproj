@@ -283,7 +283,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PhotoLibraryController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.PhotoLibraryController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.PhotoLibraryController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -296,7 +296,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PhotoLibraryController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.PhotoLibraryController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.PhotoLibraryController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
