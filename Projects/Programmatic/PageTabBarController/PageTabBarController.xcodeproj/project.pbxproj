@@ -279,7 +279,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PageTabBarController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.PageTabBarController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.PageTabBarController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -292,7 +292,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PageTabBarController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.cosmicmind.PageTabBarController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.PageTabBarController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

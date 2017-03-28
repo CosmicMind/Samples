@@ -6,7 +6,7 @@
 
 ![Motion Sample](http://www.cosmicmind.com/motion/cosmicmind_motion_sample.gif)
 
-* [Download the PhotoCollection sample](https://github.com/CosmicMind/Samples/tree/master/Motion/PhotoCollection).
+* [Download the PhotoCollection sample](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/PhotoCollection).
 
 ![Material Sample](http://cosmicmind.com/samples/github/page-tab-bar-controller-2.png)
 
@@ -50,7 +50,7 @@ In the following example, we create an ImageCard view using Material and populat
 
 ![Material ImageCard](http://www.cosmicmind.com/gifs/white/image-card.gif)
 
-* Download the complete [ImageCard example](https://github.com/CosmicMind/Samples/tree/master/Graph/ImageCard).
+* Download the complete [ImageCard example](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/ImageCard).
 * Learn more about [Material's ImageCard](http://cosmicmind.com/material/imagecard).
 
 ## Searching a list of users in realtime
@@ -59,7 +59,7 @@ Using the **Graph Search** API is incredibly flexible. In the following example,
 
 ![Material SearchBar](http://www.cosmicmind.com/gifs/shared/search-bar-controller.gif)
 
-* Download the complete [Search example](https://github.com/CosmicMind/Samples/tree/master/Graph/Search).
+* Download the complete [Search example](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/Search).
 * Learn more about [Material's SearchBar](http://cosmicmind.com/material/searchbar).
 
 ## License
