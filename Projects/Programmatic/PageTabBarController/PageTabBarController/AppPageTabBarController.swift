@@ -37,6 +37,10 @@ class AppPageTabBarController: PageTabBarController {
     
         delegate = self
         preparePageTabBar()
+        
+        Motion.delay(3) { [weak self] in
+            self?.selectedIndex = 2
+        }
     }
 }
 
