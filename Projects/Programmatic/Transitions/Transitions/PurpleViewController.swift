@@ -37,7 +37,7 @@ class PurpleViewController: UIViewController {
         isMotionEnabled = true
         view.backgroundColor = .purple
         
-        let v1 = UIView(frame: CGRect(x: view.bounds.width - 88, y: view.bounds.height - 88, width: 64, height: 64))
+        let v1 = UIView(frame: CGRect(x: view.bounds.width - 88, y: view.bounds.height - 188, width: 64, height: 64))
         v1.layer.cornerRadius = 32
         v1.motionIdentifier = "v1"
         v1.backgroundColor = .yellow
@@ -48,4 +48,3 @@ class PurpleViewController: UIViewController {
         }
     }
 }
-
