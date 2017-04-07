@@ -41,11 +41,16 @@ class CardTableView: UITableView {
         }
     }
     
+    /**
+     An initializer that initializes the object with a NSCoder object.
+     - Parameter aDecoder: A NSCoder instance.
+     */
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         prepare()
     }
     
+    /// An initializer.
     public init() {
         super.init(frame: .zero, style: .plain)
         prepare()

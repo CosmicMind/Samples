@@ -127,7 +127,7 @@ extension AppCaptureController {
     }
     
     fileprivate func prepareStatusBar() {
-        guard let sc = captureController else {
+        guard let sc = statusBarController else {
             return
         }
         

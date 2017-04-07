@@ -76,6 +76,9 @@ extension ViewController {
 //        emailField.placeholderActiveColor = Color.pink.base
 //        emailField.dividerNormalColor = Color.cyan.base
 //        emailField.dividerActiveColor = Color.green.base
+
+        // Set the text inset
+//        emailField.textInset = 20
         
         let leftView = UIImageView()
         leftView.image = Icon.cm.audio

@@ -31,25 +31,20 @@
 import UIKit
 import Material
 
-class AppPageTabBarController: PageTabBarController {
-    open override func prepare() {
-        super.prepare()
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-        delegate = self
-        preparePageTabBar()
+    var window: UIWindow?
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        let tabMenuController = TabMenuController(viewControllers: [RedViewController(), GreenViewController(), BlueViewController()], selectedIndex: 1)
+        Motion.delay(3) {
+            tabMenuController.selectedIndex = 2
+        }
+        
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = tabMenuController
+        window!.makeKeyAndVisible()
     }
 }
 
-extension AppPageTabBarController {
-    fileprivate func preparePageTabBar() {
-        pageTabBar.lineColor = Color.blueGrey.base
-        pageTabBar.dividerColor = Color.blueGrey.lighten5
-    }
-}
-
-extension AppPageTabBarController: PageTabBarControllerDelegate {
-    @objc
-    func pageTabBarController(pageTabBarController: PageTabBarController, didTransitionTo viewController: UIViewController) {
-        print("pageTabBarController", pageTabBarController, "didTransitionTo viewController:", viewController)
-    }
-}

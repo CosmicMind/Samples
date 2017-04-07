@@ -32,8 +32,6 @@ import UIKit
 import Material
 
 class AppFABMenuController: FABMenuController {
-    fileprivate let toolbar = Toolbar()
-    
     fileprivate let fabMenuSize = CGSize(width: 56, height: 56)
     fileprivate let bottomInset: CGFloat = 24
     fileprivate let rightInset: CGFloat = 24
@@ -50,9 +48,6 @@ class AppFABMenuController: FABMenuController {
         prepareNotesFABMenuItem()
         prepareRemindersFABMenuItem()
         prepareFABMenu()
-        
-        view.layout(toolbar).bottom().horizontally()
-        toolbar.rightViews = [fabMenu]
     }
 }
 
@@ -88,10 +83,10 @@ extension AppFABMenuController {
         fabMenu.fabMenuItems = [notesFABMenuItem, remindersFABMenuItem]
         fabMenuBacking = .none
         
-//        view.layout(fabMenu)
-//            .size(fabMenuSize)
-//            .bottom(bottomInset)
-//            .right(rightInset)
+        view.layout(fabMenu)
+            .size(fabMenuSize)
+            .bottom(bottomInset)
+            .right(rightInset)
     }
 }
 
