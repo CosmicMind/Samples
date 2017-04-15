@@ -31,15 +31,27 @@
 import UIKit
 import Material
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class RedViewController: UIViewController {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        preparePageMenuBarItem()
+    }
     
-    var window: UIWindow?
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        preparePageMenuBarItem()
+    }
     
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = AppPageTabBarController(viewControllers: [RedViewController(), GreenViewController(), BlueViewController()], selectedIndex: 0)
-        window!.makeKeyAndVisible()
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Color.red.base
+    }
+}
+
+extension RedViewController {
+    fileprivate func preparePageMenuBarItem() {
+        pageMenuBarItem.title = "Red"
+        pageMenuBarItem.titleColor = Color.blueGrey.base
     }
 }
 

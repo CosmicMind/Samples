@@ -47,7 +47,7 @@
          location = "group:Projects/Programmatic/NavigationDrawerController/NavigationDrawerController.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Projects/Programmatic/PageTabBarController/PageTabBarController.xcodeproj">
+         location = "group:Projects/Programmatic/PageMenuController/PageMenuController.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/PhotoCollection/PhotoCollection.xcodeproj">
@@ -78,9 +78,6 @@
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/TableViewWithinCard/TableViewWithinCard.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Projects/Programmatic/TabMenuController/TabMenuController.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/TextField/TextField.xcodeproj">
@@ -118,9 +115,6 @@
       </FileRef>
       <FileRef
          location = "group:Projects/Storyboards/NavigationDrawerController/NavigationDrawerController.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Projects/Storyboards/PageTabBarController/PageTabBarController.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Storyboards/SearchBarController/SearchBarController.xcodeproj">

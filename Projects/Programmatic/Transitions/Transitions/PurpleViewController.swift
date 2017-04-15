@@ -29,12 +29,12 @@
  */
 
 import UIKit
-import Motion
+import Material
 
 class PurpleViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
-        isMotionEnabled = true
+        isInteractiveMotionEnabled = true
         view.backgroundColor = .purple
         
         let v1 = UIView(frame: CGRect(x: view.bounds.width - 88, y: view.bounds.height - 188, width: 64, height: 64))

@@ -29,34 +29,29 @@
  */
 
 import UIKit
+import Material
 
-extension UIStoryboard {
-    class func viewController(identifier: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier)
+class BlueViewController: UIViewController {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        preparePageMenuBarItem()
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        preparePageMenuBarItem()
+    }
+    
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Color.blue.base
     }
 }
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-    var window: UIWindow?
-
-    lazy var blueViewController: BlueViewController = {
-        return UIStoryboard.viewController(identifier: "BlueViewController") as! BlueViewController
-    }()
-    
-    lazy var greenViewController: GreenViewController = {
-        return UIStoryboard.viewController(identifier: "GreenViewController") as! GreenViewController
-    }()
-    
-    lazy var redViewController: RedViewController = {
-        return UIStoryboard.viewController(identifier: "RedViewController") as! RedViewController
-    }()
-
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = AppPageTabBarController(viewControllers: [redViewController, greenViewController, blueViewController], selectedIndex: 0)
-        window!.makeKeyAndVisible()
+extension BlueViewController {
+    fileprivate func preparePageMenuBarItem() {
+        pageMenuBarItem.title = "Blue"
+        pageMenuBarItem.titleColor = Color.blueGrey.base
     }
 }
 
