@@ -31,26 +31,27 @@
 import UIKit
 import Material
 
-class OrangeViewController: UIViewController {
+class CyanViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        preparePageMenuBarItem()
+        prepareTabsBarItem()
     }
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        preparePageMenuBarItem()
+        prepareTabsBarItem()
     }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.orange.base
+        isInteractiveMotionEnabled = true
+        view.backgroundColor = Color.cyan.base
     }
 }
 
-extension OrangeViewController {
-    fileprivate func preparePageMenuBarItem() {
-        pageMenuBarItem.title = "Orange"
+extension CyanViewController {
+    fileprivate func prepareTabsBarItem() {
+        pageMenuBarItem.title = "Cyan"
         pageMenuBarItem.titleColor = Color.blueGrey.base
     }
 }

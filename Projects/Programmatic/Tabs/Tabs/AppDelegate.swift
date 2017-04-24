@@ -31,27 +31,26 @@
 import UIKit
 import Material
 
-class CyanViewController: UIViewController {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        preparePageMenuBarItem()
-    }
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        preparePageMenuBarItem()
-    }
+    var window: UIWindow?
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.cyan.base
-    }
-}
-
-extension CyanViewController {
-    fileprivate func preparePageMenuBarItem() {
-        pageMenuBarItem.title = "Cyan"
-        pageMenuBarItem.titleColor = Color.blueGrey.base
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        let tabMenuController = AppTabsController(viewControllers: [
+            RedViewController(),
+            GreenViewController(),
+            BlueViewController(),
+            OrangeViewController(),
+            PurpleViewController(),
+            YellowViewController(),
+            PinkViewController(),
+            CyanViewController()
+        ], selectedIndex: 0)
+        
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = tabMenuController
+        window!.makeKeyAndVisible()
     }
 }
 

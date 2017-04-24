@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <FileRef
+      location = "group:../Material/Material.xcodeproj">
+   </FileRef>
    <Group
       location = "container:"
       name = "Programmatic">
@@ -47,9 +50,6 @@
          location = "group:Projects/Programmatic/NavigationDrawerController/NavigationDrawerController.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Projects/Programmatic/PageMenuController/PageMenuController.xcodeproj">
-      </FileRef>
-      <FileRef
          location = "group:Projects/Programmatic/PhotoCollection/PhotoCollection.xcodeproj">
       </FileRef>
       <FileRef
@@ -78,6 +78,9 @@
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/TableViewWithinCard/TableViewWithinCard.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Projects/Programmatic/Tabs/Tabs.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/TextField/TextField.xcodeproj">

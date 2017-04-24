@@ -31,7 +31,7 @@
 import UIKit
 import Material
 
-class AppPageMenuController: PageMenuController {
+class AppTabsController: TabsController {
     open override func prepare() {
         super.prepare()
         view.backgroundColor = .white

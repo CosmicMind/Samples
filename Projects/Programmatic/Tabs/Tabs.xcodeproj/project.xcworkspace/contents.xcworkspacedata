@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:PageMenuController.xcodeproj">
+      location = "self:Tabs.xcodeproj">
    </FileRef>
 </Workspace>

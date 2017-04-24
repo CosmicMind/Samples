@@ -42,9 +42,5 @@ class PurpleViewController: UIViewController {
         v1.motionIdentifier = "v1"
         v1.backgroundColor = .yellow
         view.addSubview(v1)
-        
-        Motion.delay(3) { [weak self] in
-            self?.dismiss(animated: true)
-        }
     }
 }
