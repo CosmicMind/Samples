@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:../Material/Material.xcodeproj">
-   </FileRef>
    <Group
       location = "container:"
       name = "Programmatic">
@@ -42,6 +39,9 @@
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/Layer/Layer.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Projects/Programmatic/Motion/Motion.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/NavigationController/NavigationController.xcodeproj">
