@@ -59,6 +59,9 @@
          location = "group:Projects/Programmatic/PresenterCard/PresenterCard.xcodeproj">
       </FileRef>
       <FileRef
+         location = "group:Projects/Programmatic/Reminders/Reminders.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Projects/Programmatic/Search/Search.xcodeproj">
       </FileRef>
       <FileRef

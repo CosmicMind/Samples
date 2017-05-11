@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     fileprivate var toolbar: Toolbar!
     fileprivate var moreButton: IconButton!
     
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.grey.lighten5
         
