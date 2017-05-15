@@ -32,11 +32,11 @@ import UIKit
 import Material
 import EventKit
 
-fileprivate func remindersStatusToString(_ status: RemindersAuthorizationStatus) -> String {
+fileprivate func remindersStatusToString(_ status: EventsReminderAuthorizationStatus) -> String {
     return .authorized == status ? "authorized" : "denied"
 }
 
-class ViewController: RemindersController {
+class ViewController: EventsController {
     open override func prepare() {
         super.prepare()
     
@@ -46,7 +46,7 @@ class ViewController: RemindersController {
 
 extension ViewController {
     fileprivate func requestRemindersAuthorization() {
-        reminders.requestAuthorization { (status) in
+        events.requestAuthorizationForReminders { (status) in
             print("Reminders request authorization:", remindersStatusToString(status))
         }
     }
@@ -61,26 +61,41 @@ extension ViewController {
 //                print(calendar.title, calendar)
 //            }
         
-//            self?.fetchReminders(calendars)
+//            self?.fetchReminders(in: calendars)
 //        }
         
-        reminders.create(calendar: "El Salvador") { [weak self] (calendar, error) in
+        events.createCalendarForReminders(title: "El Salvador") { [weak self] (calendar, error) in
             print("Create Calendar", calendar ?? "", error ?? "")
             
-            guard let v = calendar else {
+            guard let c = calendar else {
                 return
             }
             
-            self?.reminders.create(reminder: "Pick up #groceries", calendar: v, priority: .medium, notes: "Amazing!") { (reminder, error) in
+            self?.events.createReminder(title: "Pick up #groceries", calendar: c, priority: .medium, notes: "Amazing!") { [weak self, c = c] (reminder, error) in
                 print("Create Reminder:", reminder ?? "", error ?? "")
+                
+                guard let r = reminder else {
+                    return
+                }
+                
+                self?.events.removeReminder(identifier: r.calendarItemIdentifier) { [c = c] (success, error) in
+                    guard success else {
+                        print(error ?? "")
+                        return
+                    }
+                    
+                    self?.events.removeCalendar(identifier: c.calendarIdentifier) { (success, error) in
+                        print("Calendar removed:", success, error ?? "")
+                    }
+                }
             }
         }
     }
     
-    fileprivate func fetchReminders(_ calendars: [EKCalendar]) {
+    fileprivate func fetchReminders(in calendars: [EKCalendar]) {
         print("Fetch Reminders in lists.")
 
-        reminders.reminders(in: calendars) { (reminders) in
+        events.fetchReminders(in: calendars) { (reminders) in
             for reminder in reminders {
                 print("Reminder", reminder)
             }
@@ -101,11 +116,11 @@ extension ViewController {
         
         let oneYearFromNow = calendar.date(byAdding: oneYearFromNowComponents, to: Date())!
         
-        reminders.incomplete(starting: oneDayAgo, ending: oneYearFromNow) { (reminders) in
+        events.fetchIncompleteReminders(starting: oneDayAgo, ending: oneYearFromNow) { (reminders) in
             print(reminders)
         }
         
-        reminders.completed(starting: oneDayAgo, ending: oneYearFromNow) { (reminders) in
+        events.fetchCompletedReminders(starting: oneDayAgo, ending: oneYearFromNow) { (reminders) in
             print(reminders)
         }
     }
@@ -113,39 +128,39 @@ extension ViewController {
 
 extension ViewController {
     @objc
-    func reminders(authorized reminders: Reminders) {
+    func eventsAuthorizedForReminders(events: Events) {
         print("Reminders access is authorized.")
         
         fetchCalendars()
     }
     
     @objc
-    func reminders(denied reminders: Reminders) {
+    func eventsDeniedForReminders(events: Events) {
         print("Reminders access is denied.")
     }
     
     @objc
-    func reminders(reminders: Reminders, status: RemindersAuthorizationStatus) {
+    func events(events: Events, status: EventsReminderAuthorizationStatus) {
         print("Reminders status:", remindersStatusToString(status))
     }
     
     @objc
-    func reminders(reminders: Reminders, createdCalendar calendar: EKCalendar?, error: Error?) {
+    func events(events: Events, createdCalendar calendar: EKCalendar?, error: Error?) {
         print("Reminders created calendar:", calendar ?? "", error ?? "")
     }
     
     @objc
-    func reminders(reminders: Reminders, removedCalendar calendar: EKCalendar, error: Error?) {
+    func events(events: Events, removedCalendar calendar: EKCalendar, error: Error?) {
         print("Reminders removed calendar:", calendar, error ?? "")
     }
     
     @objc
-    func reminders(reminders: Reminders, createdReminder reminder: EKReminder?, error: Error?) {
+    func events(events: Events, createdReminder reminder: EKReminder?, error: Error?) {
         print("Reminders created reminder:", reminder ?? "", error ?? "")
     }
     
     @objc
-    func reminders(reminders: Reminders, removedReminder reminder: EKReminder, error: Error?) {
+    func events(events: Events, removedReminder reminder: EKReminder, error: Error?) {
         print("Reminders removed reminder:", reminder, error ?? "")
     }
 }
