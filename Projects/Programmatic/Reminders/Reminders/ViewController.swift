@@ -54,16 +54,6 @@ extension ViewController {
 
 extension ViewController {
     fileprivate func fetchCalendars() {
-        print("Fetch Reminders lists.")
-        
-//        reminders.calendars { [weak self] (calendars) in
-//            for calendar in calendars {
-//                print(calendar.title, calendar)
-//            }
-        
-//            self?.fetchReminders(in: calendars)
-//        }
-        
         events.createCalendarForReminders(title: "El Salvador") { [weak self] (calendar, error) in
             print("Create Calendar", calendar ?? "", error ?? "")
             
@@ -71,21 +61,36 @@ extension ViewController {
                 return
             }
             
-            self?.events.createReminder(title: "Pick up #groceries", calendar: c, priority: .medium, notes: "Amazing!") { [weak self, c = c] (reminder, error) in
-                print("Create Reminder:", reminder ?? "", error ?? "")
-                
-                guard let r = reminder else {
-                    return
-                }
-                
-                self?.events.removeReminder(identifier: r.calendarItemIdentifier) { [c = c] (success, error) in
-                    guard success else {
-                        print(error ?? "")
+            c.title = "Material Events API"
+            
+            self?.events.update(calendar: c) { [weak self, c = c] (reminder, error) in
+            
+                self?.events.createReminder(title: "Pick up #groceries", calendar: c, priority: .medium, notes: "Amazing!") { [weak self, c = c] (reminder, error) in
+                    guard let s = self else {
                         return
                     }
                     
-                    self?.events.removeCalendar(identifier: c.calendarIdentifier) { (success, error) in
-                        print("Calendar removed:", success, error ?? "")
+                    guard let r = reminder else {
+                        return
+                    }
+                    
+                    r.priority = EventsReminderPriority.low.rawValue
+                    
+                    let alarm = s.events.createAlarm(timeIntervalSinceNow: 10)
+                    r.addAlarm(alarm)
+                    
+                    s.events.update(reminder: r) { [weak self] (success, error) in
+                        
+                       // self?.events.removeReminder(identifier: r.calendarItemIdentifier) { [weak self, c = c] (success, error) in
+                         //   guard success else {
+                           //     print(error ?? "")
+                             //   return
+                            //}
+                            
+                            //self?.events.removeCalendar(identifier: c.calendarIdentifier) { (success, error) in
+                              //  print("Calendar removed:", success, error ?? "")
+                            //}
+                        //}
                     }
                 }
             }
@@ -102,7 +107,7 @@ extension ViewController {
         }
         
         // Get the appropriate calendar.
-        let calendar = NSCalendar.current
+        let calendar = Calendar.current
         
         // Create the start date components.
         var oneDayAgoComponents = DateComponents()
@@ -129,39 +134,43 @@ extension ViewController {
 extension ViewController {
     @objc
     func eventsAuthorizedForReminders(events: Events) {
-        print("Reminders access is authorized.")
-        
         fetchCalendars()
     }
     
     @objc
     func eventsDeniedForReminders(events: Events) {
-        print("Reminders access is denied.")
     }
     
     @objc
     func events(events: Events, status: EventsReminderAuthorizationStatus) {
-        print("Reminders status:", remindersStatusToString(status))
     }
     
     @objc
     func events(events: Events, createdCalendar calendar: EKCalendar?, error: Error?) {
-        print("Reminders created calendar:", calendar ?? "", error ?? "")
+    }
+    
+    @objc
+    func events(events: Events, updatedCalendar calendar: EKCalendar, error: Error?) {
     }
     
     @objc
     func events(events: Events, removedCalendar calendar: EKCalendar, error: Error?) {
-        print("Reminders removed calendar:", calendar, error ?? "")
     }
     
     @objc
     func events(events: Events, createdReminder reminder: EKReminder?, error: Error?) {
-        print("Reminders created reminder:", reminder ?? "", error ?? "")
+    }
+    
+    @objc
+    func events(events: Events, updatedReminder reminder: EKReminder, error: Error?) {
     }
     
     @objc
     func events(events: Events, removedReminder reminder: EKReminder, error: Error?) {
-        print("Reminders removed reminder:", reminder, error ?? "")
+    }
+    
+    @objc
+    func eventsShouldRefresh(events: Events) {
     }
 }
 
