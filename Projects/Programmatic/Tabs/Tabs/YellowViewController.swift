@@ -44,7 +44,6 @@ class YellowViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        isInteractiveMotionEnabled = true
         view.backgroundColor = Color.yellow.base
     }
 }

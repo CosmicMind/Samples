@@ -44,7 +44,6 @@ class PinkViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        isInteractiveMotionEnabled = true
         view.backgroundColor = Color.pink.base
     }
 }

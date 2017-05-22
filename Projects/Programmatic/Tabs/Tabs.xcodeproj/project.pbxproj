@@ -10,7 +10,7 @@
 		96B732131EAE6DDB00BFA0BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96B732121EAE6DDB00BFA0BF /* Assets.xcassets */; };
 		96B732161EAE6DDB00BFA0BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96B732141EAE6DDB00BFA0BF /* LaunchScreen.storyboard */; };
 		96B732271EAE6E5500BFA0BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7321D1EAE6E5500BFA0BF /* AppDelegate.swift */; };
-		96B732281EAE6E5500BFA0BF /* AppPageMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7321E1EAE6E5500BFA0BF /* AppPageMenuController.swift */; };
+		96B732281EAE6E5500BFA0BF /* AppTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7321E1EAE6E5500BFA0BF /* AppTabsController.swift */; };
 		96B732291EAE6E5500BFA0BF /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B7321F1EAE6E5500BFA0BF /* BlueViewController.swift */; };
 		96B7322A1EAE6E5500BFA0BF /* CyanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B732201EAE6E5500BFA0BF /* CyanViewController.swift */; };
 		96B7322B1EAE6E5500BFA0BF /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96B732211EAE6E5500BFA0BF /* GreenViewController.swift */; };
@@ -40,7 +40,7 @@
 		96B732151EAE6DDB00BFA0BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96B732171EAE6DDB00BFA0BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96B7321D1EAE6E5500BFA0BF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		96B7321E1EAE6E5500BFA0BF /* AppPageMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPageMenuController.swift; sourceTree = "<group>"; };
+		96B7321E1EAE6E5500BFA0BF /* AppTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabsController.swift; sourceTree = "<group>"; };
 		96B7321F1EAE6E5500BFA0BF /* BlueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
 		96B732201EAE6E5500BFA0BF /* CyanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyanViewController.swift; sourceTree = "<group>"; };
 		96B732211EAE6E5500BFA0BF /* GreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				96B7321D1EAE6E5500BFA0BF /* AppDelegate.swift */,
-				96B7321E1EAE6E5500BFA0BF /* AppPageMenuController.swift */,
+				96B7321E1EAE6E5500BFA0BF /* AppTabsController.swift */,
 				96B7321F1EAE6E5500BFA0BF /* BlueViewController.swift */,
 				96B732201EAE6E5500BFA0BF /* CyanViewController.swift */,
 				96B732211EAE6E5500BFA0BF /* GreenViewController.swift */,
@@ -179,7 +179,7 @@
 				96B732291EAE6E5500BFA0BF /* BlueViewController.swift in Sources */,
 				96B7322E1EAE6E5500BFA0BF /* PurpleViewController.swift in Sources */,
 				96B7322D1EAE6E5500BFA0BF /* PinkViewController.swift in Sources */,
-				96B732281EAE6E5500BFA0BF /* AppPageMenuController.swift in Sources */,
+				96B732281EAE6E5500BFA0BF /* AppTabsController.swift in Sources */,
 				96B7322B1EAE6E5500BFA0BF /* GreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
