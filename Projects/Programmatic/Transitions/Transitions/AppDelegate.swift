@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = ViewController()
+        window!.rootViewController = OrangeViewController()
         window!.makeKeyAndVisible()
     }
 }

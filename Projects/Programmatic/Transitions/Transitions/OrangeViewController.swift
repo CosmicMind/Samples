@@ -29,37 +29,20 @@
  */
 
 import UIKit
-import Material
+import Motion
 
-class ViewController: UIViewController {
-    fileprivate var panGesture: UIPanGestureRecognizer!
-    
+class OrangeViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
-        isInteractiveMotionEnabled = true
+        isMotionEnabled = true
         view.backgroundColor = .orange
         
         let v1 = UIView(frame: CGRect(x: 0, y: view.bounds.height - 50, width: view.bounds.width, height: 50))
         v1.motionIdentifier = "v1"
+        
         v1.backgroundColor = .yellow
         view.addSubview(v1)
         
-        preparePanGesture()
-    }
-}
-
-extension ViewController {
-    fileprivate func preparePanGesture() {
-        panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(gestureRecognizer:)))
-        view.addGestureRecognizer(panGesture)
-    }
-}
-
-extension ViewController {
-    @objc
-    fileprivate func handlePanGesture(gestureRecognizer: UIGestureRecognizer) {
-        if .began == gestureRecognizer.state {
-            present(PurpleViewController(), animated: true)
-        }
+        v1.motion(.fade(0), .translateY(-300), .duration(3), .delay(3))
     }
 }

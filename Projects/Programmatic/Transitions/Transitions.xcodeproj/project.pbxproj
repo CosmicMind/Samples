@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		96DCA8C71E6DC25C004EB173 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DCA8C61E6DC25C004EB173 /* AppDelegate.swift */; };
-		96DCA8C91E6DC25C004EB173 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DCA8C81E6DC25C004EB173 /* ViewController.swift */; };
+		96DCA8C91E6DC25C004EB173 /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DCA8C81E6DC25C004EB173 /* OrangeViewController.swift */; };
 		96DCA8CE1E6DC25C004EB173 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DCA8CD1E6DC25C004EB173 /* Assets.xcassets */; };
 		96DCA8D11E6DC25C004EB173 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DCA8CF1E6DC25C004EB173 /* LaunchScreen.storyboard */; };
 		96DCA8DD1E6DC56A004EB173 /* PurpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DCA8DC1E6DC56A004EB173 /* PurpleViewController.swift */; };
@@ -30,7 +30,7 @@
 /* Begin PBXFileReference section */
 		96DCA8C31E6DC25C004EB173 /* Transitions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transitions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96DCA8C61E6DC25C004EB173 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		96DCA8C81E6DC25C004EB173 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		96DCA8C81E6DC25C004EB173 /* OrangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
 		96DCA8CD1E6DC25C004EB173 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96DCA8D01E6DC25C004EB173 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		96DCA8D21E6DC25C004EB173 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,7 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				96DCA8C61E6DC25C004EB173 /* AppDelegate.swift */,
-				96DCA8C81E6DC25C004EB173 /* ViewController.swift */,
+				96DCA8C81E6DC25C004EB173 /* OrangeViewController.swift */,
 				96DCA8DC1E6DC56A004EB173 /* PurpleViewController.swift */,
 				96DCA8CD1E6DC25C004EB173 /* Assets.xcassets */,
 				96DCA8CF1E6DC25C004EB173 /* LaunchScreen.storyboard */,
@@ -110,7 +110,6 @@
 				TargetAttributes = {
 					96DCA8C21E6DC25C004EB173 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9Z76XCNLGL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -150,7 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DCA8C91E6DC25C004EB173 /* ViewController.swift in Sources */,
+				96DCA8C91E6DC25C004EB173 /* OrangeViewController.swift in Sources */,
 				96DCA8DD1E6DC56A004EB173 /* PurpleViewController.swift in Sources */,
 				96DCA8C71E6DC25C004EB173 /* AppDelegate.swift in Sources */,
 			);
@@ -267,7 +266,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Transitions/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Transitions;
@@ -280,7 +279,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Transitions/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Transitions;

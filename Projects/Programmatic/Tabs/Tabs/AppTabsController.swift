@@ -35,5 +35,7 @@ class AppTabsController: TabsController {
     open override func prepare() {
         super.prepare()
         view.backgroundColor = .white
+        
+        tabBar?.tabBarStyle = .scrollable
     }
 }

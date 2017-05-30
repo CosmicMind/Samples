@@ -41,9 +41,6 @@
          location = "group:Projects/Programmatic/Layer/Layer.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Projects/Programmatic/Motion/Motion.xcodeproj">
-      </FileRef>
-      <FileRef
          location = "group:Projects/Programmatic/NavigationController/NavigationController.xcodeproj">
       </FileRef>
       <FileRef
