@@ -16,7 +16,7 @@
     "8808004C76B1A743E0DFFE718D4BAA12DFA4ED0D" : "Samples\/",
     "9CF35BC641478FBD765F7442D4034ED362261E0A" : "Material\/",
     "03C6D728E054A05A684543B0D508854F060D607A" : "Algorithm\/",
-    "0F3E254D46E5A5B90D1542854F510B7D145A9F31" : "Motion\/"
+    "0F3E254D46E5A5B90D1542854F510B7D145A9F31" : "Material\/Frameworks\/Motion\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "CosmicMind",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
