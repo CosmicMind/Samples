@@ -97,6 +97,7 @@ class CardTableViewCell: TableViewCell {
         card.y = 0
         card.width = width
         
+        card.updateConstraints()
         card.setNeedsLayout()
         card.layoutIfNeeded()
     }

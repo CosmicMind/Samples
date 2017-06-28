@@ -43,6 +43,10 @@ class OrangeViewController: UIViewController {
         v1.backgroundColor = .yellow
         view.addSubview(v1)
         
-        v1.motion(.fade(0), .translateY(-300), .duration(3), .delay(3))
+        Motion.delay(1) { [weak self] in
+            self?.present(PurpleViewController(), animated: true)
+        }
+        
+//        v1.animate(.fade(0), .translateY(-300), .duration(3), .delay(3))
     }
 }
