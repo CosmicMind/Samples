@@ -30,21 +30,113 @@
 
 import UIKit
 import Motion
+import Material
 
 class PurpleViewController: UIViewController {
+    fileprivate var label = UILabel()
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
-        isMotionEnabled = true
-        view.backgroundColor = .purple
+        prepareView()
+        prepareLabel()
+        prepareTransition()
         
-        let v1 = UIView(frame: CGRect(x: view.bounds.width - 88, y: view.bounds.height - 188, width: 64, height: 64))
-        v1.layer.cornerRadius = 32
-        v1.motionIdentifier = "v1"
-        v1.backgroundColor = .yellow
-        view.addSubview(v1)
-        
-        Motion.delay(1) { [weak self] in
+        Motion.delay(2) { [weak self] in
             self?.dismiss(animated: true)
         }
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func prepareView() {
+        isMotionEnabled = true
+        view.backgroundColor = Color.pink.base
+    }
+    
+    fileprivate func prepareLabel() {
+        view.layout(label).edges()
+        label.text = "2"
+        label.textAlignment = .center
+        label.font = RobotoFont.medium(with: 400)
+    }
+    
+    fileprivate func prepareTransition() {
+//        transitionPush()
+//        transitionPull()
+//        transitionCover()
+//        transitionUncover()
+//        transitionSlide()
+//        transitionZoomSlide()
+//        transitionPageIn()
+//        transitionPageOut()
+//        transitionFade()
+//        transitionZoom()
+        transitionZoomOut()
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionPush() {
+        motionModalTransitionType = .autoReverse(presenting: .push(direction: .left))
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionPull() {
+        motionModalTransitionType = .autoReverse(presenting: .pull(direction: .right))
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionCover() {
+        motionModalTransitionType = .autoReverse(presenting: .cover(direction: .up))
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionUncover() {
+        motionModalTransitionType = .autoReverse(presenting: .uncover(direction: .down))
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionSlide() {
+        motionModalTransitionType = .autoReverse(presenting: .slide(direction: .right))
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionZoomSlide() {
+        motionModalTransitionType = .autoReverse(presenting: .zoomSlide(direction: .right))
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionPageIn() {
+        motionModalTransitionType = .autoReverse(presenting: .pageIn(direction: .left))
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionPageOut() {
+        motionModalTransitionType = .autoReverse(presenting: .pageOut(direction: .right))
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionFade() {
+        motionModalTransitionType = .autoReverse(presenting: .fade)
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionZoom() {
+        motionModalTransitionType = .autoReverse(presenting: .zoom)
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func transitionZoomOut() {
+        motionModalTransitionType = .autoReverse(presenting: .zoomOut)
     }
 }

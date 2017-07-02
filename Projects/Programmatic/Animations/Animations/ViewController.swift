@@ -34,142 +34,102 @@ import Motion
 
 class ViewController: UIViewController {
     fileprivate var animatedView = UIView()
+    fileprivate var button = UIButton()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         prepareView()
         prepareAnimatedView()
-        
+        prepareButton()
+    }
+}
+
+extension ViewController {
+    @objc
+    fileprivate func handleButton() {
 //        animateBackgroundColor()
 //        animateBorderColor()
 //        animateCornerRadius()
-//        animateRotate()
-//        animateSpin()
-//        animateScale()
-//        animateTranslate()
-//        animatePosition()
-//        animateFade()
-//        animateZPosition()
-//        animateSize()
 //        animateDepth()
-        animateSpring()
+//        animateFade()
+//        animatePosition()
+//        animateRotate()
+        animateScale()
+//        animateSize()
+//        animateSpin()
+//        animateSpring()
+//        animateTranslate()
     }
 }
 
 extension ViewController {
     fileprivate func prepareView() {
+//        view.backgroundColor = UIColor(red: 246/255, green: 248/255, blue: 250/255, alpha: 1)
         view.backgroundColor = .white
     }
     
     fileprivate func prepareAnimatedView() {
         view.layout(animatedView).center().width(100).height(100)
+        
+        animatedView.shapePreset = .circle
+        animatedView.backgroundColor = Color.deepPurple.base
+    }
+    
+    fileprivate func prepareButton() {
+        view.layout(button).edges()
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(handleButton), for: .touchUpInside)
     }
 }
 
 extension ViewController {
     fileprivate func animateBackgroundColor() {
         animatedView.shapePreset = .circle
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.animate(.delay(1), .duration(1), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .background(color: Color.blue.base))
+        
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
     }
 }
 
 extension ViewController {
     fileprivate func animateBorderColor() {
         animatedView.shapePreset = .circle
-        animatedView.borderColor = Color.blue.base
         animatedView.borderWidthPreset = .border3
-        animatedView.animate(.delay(1), .duration(1), .border(color: Color.green.base), .border(width: CGFloat(BorderWidthPreset.border8.rawValue * 2)))
-        animatedView.animate(.delay(3), .duration(1), .border(color: Color.blue.base), .border(width: CGFloat(BorderWidthPreset.border3.rawValue)))
+        animatedView.borderColor = Color.deepPurple.base
+
+        animatedView.animate([.delay(1),
+                              .duration(0.5),
+                              .border(color: Color.cyan.base),
+                              .border(width: BorderWidthPreset.border9.cgFloatValue * 2)]) { [weak self] in
+            
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .border(color: Color.deepPurple.base),
+                                                           .border(width: BorderWidthPreset.border3.cgFloatValue))
+                            }
     }
 }
 
 extension ViewController {
     fileprivate func animateCornerRadius() {
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.animate(.delay(1), .duration(1), .corner(radius: 50), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .corner(radius: 0), .background(color: Color.blue.base))
-    }
-}
-
-extension ViewController {
-    fileprivate func animateRotate() {
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.animate(.delay(1), .duration(1), .rotate(180), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .rotate(0), .background(color: Color.blue.base))
-    }
-}
-
-extension ViewController {
-    fileprivate func animateSpin() {
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.animate(.delay(1), .duration(1), .spin(x: 1, y: 1, z: 1), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .spin(-1), .background(color: Color.blue.base))
-    }
-}
-
-extension ViewController {
-    fileprivate func animateScale() {
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.shapePreset = .circle
-        animatedView.animate(.delay(1), .duration(1), .scale(3), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .scale(), .background(color: Color.blue.base))
-    }
-}
-
-extension ViewController {
-    fileprivate func animateTranslate() {
-        let point = animatedView.center
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .corner(radius: 50),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self] in
         
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.shapePreset = .circle
-        animatedView.animate(.delay(1), .translate(x: 20, y: 100), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .translate(point), .background(color: Color.blue.base))
-    }
-}
-
-extension ViewController {
-    fileprivate func animatePosition() {
-        let point = view.center
-        
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.shapePreset = .circle
-        animatedView.animate(.delay(1), .duration(1), .position(CGPoint(x: 100, y: 100)), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .position(point), .background(color: Color.blue.base))
-    }
-}
-
-extension ViewController {
-    fileprivate func animateFade() {
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.shapePreset = .circle
-        animatedView.animate(.delay(1), .duration(1), .fadeOut, .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .fadeIn, .background(color: Color.blue.base))
-    }
-}
-
-extension ViewController {
-    fileprivate func animateZPosition() {
-        let v = UIView()
-        v.zPosition = 10
-        v.backgroundColor = Color.red.base
-        view.layout(v).center().width(150).height(150)
-        
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.shapePreset = .circle
-        animatedView.animate(.delay(1), .duration(1), .zPosition(v.zPosition + 1), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .zPosition(v.zPosition - 1), .background(color: Color.blue.base))
-    }
-}
-
-extension ViewController {
-    fileprivate func animateSize() {
-        let size = animatedView.bounds.size
-        
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.animate(.delay(1), .duration(1), .size(CGSize(width: 200, height: 200)), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .size(size), .background(color: Color.blue.base))
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .corner(radius: 0),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
     }
 }
 
@@ -182,20 +142,155 @@ extension ViewController {
      .shadow(radius:)
      */
     fileprivate func animateDepth() {
+        animatedView.shapePreset = .circle
         animatedView.depthPreset = .depth5
         
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.animate(.delay(1), .duration(1), .depth(.depth1), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .depth(.depth5), .background(color: Color.blue.base))
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .depth(.none),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .depth(.depth5),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+        
+    }
+}
+
+extension ViewController {
+    fileprivate func animateFade() {
+        animatedView.shapePreset = .circle
+        
+        animatedView.animate([.delay(1),
+                              .duration(0.5),
+                              .fadeOut,
+                              .background(color: Color.cyan.base)]) { [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1), .duration(0.5), .fadeIn, .background(color: Color.deepPurple.base))
+                            }
+    }
+}
+
+extension ViewController {
+    fileprivate func animatePosition() {
+        animatedView.shapePreset = .circle
+        
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .position(CGPoint(x: 200, y: 200)),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self, point = view.center] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .position(point),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+    }
+}
+
+extension ViewController {
+    fileprivate func animateRotate() {
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .rotate(180),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .rotate(0),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+    }
+}
+
+extension ViewController {
+    fileprivate func animateScale() {
+        animatedView.shapePreset = .circle
+        
+        animatedView.animate(.delay(1),
+                             .duration(0.5),
+                             .scale(3),
+                             .background(color: Color.cyan.base),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .scale(),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+    }
+}
+
+extension ViewController {
+    fileprivate func animateSize() {
+        let size = animatedView.bounds.size
+        
+        animatedView.animate([.delay(1),
+                              .duration(0.5),
+                              .size(CGSize(width: 200, height: 200)),
+                              .background(color: Color.cyan.base)]) { [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .size(size),
+                                                           .background(color: Color.deepPurple.base))
+                            }
+    }
+}
+
+extension ViewController {
+    fileprivate func animateSpin() {
+        animatedView.animate([.delay(1),
+                              .duration(0.5),
+                              .spin(x: 1, y: 1, z: 1),
+                              .background(color: Color.cyan.base)]) { [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .spin(-1),
+                                                           .background(color: Color.deepPurple.base))
+                             }
     }
 }
 
 extension ViewController {
     fileprivate func animateSpring() {
-        let size = animatedView.bounds.size
+        let point = view.center
         
-        animatedView.backgroundColor = Color.blue.base
-        animatedView.animate(.delay(1), .duration(1), .size(CGSize(width: 200, height: 200)), .background(color: Color.green.base))
-        animatedView.animate(.delay(3), .duration(1), .size(size), .spring(stiffness: 250, damping: 30), .background(color: Color.blue.base))
+        animatedView.shapePreset = .circle
+        
+        animatedView.animate(.delay(1),
+                             .position(CGPoint(x: 200, y: 200)),
+                             .spring(stiffness: 15, damping: 2),
+                             .background(color: Color.cyan.base),
+                             .timingFunction(.linear),
+                             .completion({ [weak self] in
+                                
+                                self?.animatedView.animate(.position(point),
+                                                           .duration(0.5),
+                                                           .background(color: Color.deepPurple.base))
+                             }))
+    }
+}
+
+extension ViewController {
+    fileprivate func animateTranslate() {
+        animatedView.shapePreset = .circle
+        
+        animatedView.animate([.delay(1),
+                              .duration(0.5),
+                              .translate(x: 50, y: 100),
+                              .background(color: Color.cyan.base)]) { [weak self] in
+                                
+                                self?.animatedView.animate(.delay(1),
+                                                           .duration(0.5),
+                                                           .translate(.zero),
+                                                           .background(color: Color.deepPurple.base))
+                            }
     }
 }
