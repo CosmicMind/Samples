@@ -54,9 +54,9 @@ extension ViewController {
 //        animateFade()
 //        animatePosition()
 //        animateRotate()
-        animateScale()
+//        animateScale()
 //        animateSize()
-//        animateSpin()
+        animateSpin()
 //        animateSpring()
 //        animateTranslate()
     }
@@ -64,15 +64,12 @@ extension ViewController {
 
 extension ViewController {
     fileprivate func prepareView() {
-//        view.backgroundColor = UIColor(red: 246/255, green: 248/255, blue: 250/255, alpha: 1)
         view.backgroundColor = .white
     }
     
     fileprivate func prepareAnimatedView() {
-        view.layout(animatedView).center().width(100).height(100)
-        
-        animatedView.shapePreset = .circle
         animatedView.backgroundColor = Color.deepPurple.base
+        view.layout(animatedView).center().width(100).height(100)
     }
     
     fileprivate func prepareButton() {
