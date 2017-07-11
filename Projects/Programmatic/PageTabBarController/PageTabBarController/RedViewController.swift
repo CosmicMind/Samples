@@ -31,26 +31,27 @@
 import UIKit
 import Material
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class RedViewController: UIViewController {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        preparePageTabBarItem()
+    }
     
-    var window: UIWindow?
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        preparePageTabBarItem()
+    }
     
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        let tabMenuController = AppTabsController(viewControllers: [
-            RedViewController(),
-            GreenViewController(),
-            BlueViewController(),
-            OrangeViewController(),
-            PurpleViewController(),
-            YellowViewController(),
-            PinkViewController(),
-            CyanViewController()
-        ], selectedIndex: 0)
-        
-        window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = tabMenuController
-        window!.makeKeyAndVisible()
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Color.red.base
+    }
+}
+
+extension RedViewController {
+    fileprivate func preparePageTabBarItem() {
+        pageTabBarItem.title = "Red"
+        pageTabBarItem.titleColor = Color.blueGrey.base
     }
 }
 

@@ -31,27 +31,15 @@
 import UIKit
 import Material
 
-class OrangeViewController: UIViewController {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        prepareTabsBarItem()
-    }
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        prepareTabsBarItem()
-    }
+    var window: UIWindow?
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.orange.base
-    }
-}
-
-extension OrangeViewController {
-    fileprivate func prepareTabsBarItem() {
-        pageMenuBarItem.title = "Orange"
-        pageMenuBarItem.titleColor = Color.blueGrey.base
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = AppPageTabBarController(viewControllers: [RedViewController(), GreenViewController(), BlueViewController()], selectedIndex: 0)
+        window!.makeKeyAndVisible()
     }
 }
 

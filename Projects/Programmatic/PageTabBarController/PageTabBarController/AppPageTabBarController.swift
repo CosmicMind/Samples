@@ -31,27 +31,28 @@
 import UIKit
 import Material
 
-class GreenViewController: UIViewController {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        prepareTabsBarItem()
-    }
+class AppPageTabBarController: PageTabBarController {
+    open override func prepare() {
+        super.prepare()
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        prepareTabsBarItem()
-    }
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.green.base
+        delegate = self
+        preparePageTabBar()
+        
+        Motion.delay(3) { [weak self] in
+            self?.selectedIndex = 2
+        }
     }
 }
 
-extension GreenViewController {
-    fileprivate func prepareTabsBarItem() {
-        pageMenuBarItem.title = "Green"
-        pageMenuBarItem.titleColor = Color.blueGrey.base
+extension AppPageTabBarController {
+    fileprivate func preparePageTabBar() {
+        pageTabBar.lineColor = Color.blueGrey.base
+        pageTabBar.dividerColor = Color.blueGrey.lighten5
     }
 }
 
+extension AppPageTabBarController: PageTabBarControllerDelegate {
+    func pageTabBarController(pageTabBarController: PageTabBarController, didTransitionTo viewController: UIViewController) {
+        print("pageTabBarController", pageTabBarController, "didTransitionTo viewController:", viewController)
+    }
+}

@@ -31,27 +31,27 @@
 import UIKit
 import Material
 
-class PinkViewController: UIViewController {
+class BlueViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        prepareTabsBarItem()
+        preparePageTabBarItem()
     }
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        prepareTabsBarItem()
+        preparePageTabBarItem()
     }
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.pink.base
+        view.backgroundColor = Color.blue.base
     }
 }
 
-extension PinkViewController {
-    fileprivate func prepareTabsBarItem() {
-        pageMenuBarItem.title = "Pink"
-        pageMenuBarItem.titleColor = Color.blueGrey.base
+extension BlueViewController {
+    fileprivate func preparePageTabBarItem() {
+        pageTabBarItem.title = "Blue"
+        pageTabBarItem.titleColor = Color.blueGrey.base
     }
 }
 
