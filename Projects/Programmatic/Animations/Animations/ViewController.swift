@@ -30,7 +30,6 @@
 
 import UIKit
 import Material
-import Motion
 
 class ViewController: UIViewController {
     fileprivate var animatedView = UIView()

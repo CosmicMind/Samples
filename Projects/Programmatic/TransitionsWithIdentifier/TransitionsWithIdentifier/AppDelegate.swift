@@ -29,43 +29,16 @@
  */
 
 import UIKit
-import Material
 
-class OrangeViewController: UIViewController {
-    fileprivate var label = UILabel()
-    fileprivate var button = UIButton()
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        prepareView()
-        prepareLabel()
-        prepareButton()
+    var window: UIWindow?
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window!.rootViewController = OrangeViewController()
+        window!.makeKeyAndVisible()
     }
 }
 
-extension OrangeViewController {
-    @objc
-    fileprivate func handleButton() {
-        present(PurpleViewController(), animated: true)
-    }
-}
-
-extension OrangeViewController {
-    fileprivate func prepareView() {
-        isMotionEnabled = true
-        view.backgroundColor = Color.blue.base
-    }
-    
-    fileprivate func prepareLabel() {
-        view.layout(label).edges()
-        label.text = "1"
-        label.textAlignment = .center
-        label.font = RobotoFont.medium(with: 400)
-    }
-    
-    fileprivate func prepareButton() {
-        view.layout(button).edges()
-        button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(handleButton), for: .touchUpInside)
-    }
-}

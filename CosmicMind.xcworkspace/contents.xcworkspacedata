@@ -95,6 +95,9 @@
          location = "group:Projects/Programmatic/Transitions/Transitions.xcodeproj">
       </FileRef>
       <FileRef
+         location = "group:Projects/Programmatic/TransitionsWithIdentifier/TransitionsWithIdentifier.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Projects/Programmatic/View/View.xcodeproj">
       </FileRef>
       <FileRef

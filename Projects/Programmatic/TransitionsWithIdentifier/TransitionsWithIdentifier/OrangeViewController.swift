@@ -32,13 +32,13 @@ import UIKit
 import Material
 
 class OrangeViewController: UIViewController {
-    fileprivate var label = UILabel()
+    fileprivate var v1 = UIView()
     fileprivate var button = UIButton()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         prepareView()
-        prepareLabel()
+        prepareV1()
         prepareButton()
     }
 }
@@ -53,14 +53,13 @@ extension OrangeViewController {
 extension OrangeViewController {
     fileprivate func prepareView() {
         isMotionEnabled = true
-        view.backgroundColor = Color.blue.base
+        view.backgroundColor = .white
     }
     
-    fileprivate func prepareLabel() {
-        view.layout(label).edges()
-        label.text = "1"
-        label.textAlignment = .center
-        label.font = RobotoFont.medium(with: 400)
+    fileprivate func prepareV1() {
+        v1.motionIdentifier = "v1"
+        v1.backgroundColor = Color.grey.base
+        view.layout(v1).center().width(100).height(100)
     }
     
     fileprivate func prepareButton() {

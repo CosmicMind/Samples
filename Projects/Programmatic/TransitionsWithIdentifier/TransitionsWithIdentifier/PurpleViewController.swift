@@ -31,41 +31,37 @@
 import UIKit
 import Material
 
-class OrangeViewController: UIViewController {
-    fileprivate var label = UILabel()
-    fileprivate var button = UIButton()
+class PurpleViewController: UIViewController {
+    fileprivate var v1 = UIView()
+    fileprivate var v2 = UIView()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         prepareView()
-        prepareLabel()
-        prepareButton()
+        prepareV1()
+        prepareV2()
+        
+        Motion.delay(1) { [weak self] in
+            self?.dismiss(animated: true)
+        }
     }
 }
 
-extension OrangeViewController {
-    @objc
-    fileprivate func handleButton() {
-        present(PurpleViewController(), animated: true)
-    }
-}
-
-extension OrangeViewController {
+extension PurpleViewController {
     fileprivate func prepareView() {
         isMotionEnabled = true
-        view.backgroundColor = Color.blue.base
+        view.backgroundColor = .white
     }
     
-    fileprivate func prepareLabel() {
-        view.layout(label).edges()
-        label.text = "1"
-        label.textAlignment = .center
-        label.font = RobotoFont.medium(with: 400)
+    fileprivate func prepareV1() {
+        v1.motionIdentifier = "v1"
+        v1.backgroundColor = Color.blue.base
+        view.layout(v1).bottom().horizontally().height(50)
     }
     
-    fileprivate func prepareButton() {
-        view.layout(button).edges()
-        button.backgroundColor = .clear
-        button.addTarget(self, action: #selector(handleButton), for: .touchUpInside)
+    fileprivate func prepareV2() {
+        v2.transition(.fadeIn)
+        v2.backgroundColor = Color.red.base
+        view.layout(v2).top().horizontally().height(50)
     }
 }
