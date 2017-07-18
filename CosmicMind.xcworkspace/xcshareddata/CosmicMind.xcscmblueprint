@@ -5,6 +5,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "14FF5CD0A93F3CC14F0E8C5A4FD8ECB4A6DF5909" : 9223372036854775807,
+    "83B8A4167AE0A21D1EE663CF0BFCEFA1841C47D1" : 9223372036854775807,
     "8808004C76B1A743E0DFFE718D4BAA12DFA4ED0D" : 9223372036854775807,
     "9CF35BC641478FBD765F7442D4034ED362261E0A" : 9223372036854775807,
     "03C6D728E054A05A684543B0D508854F060D607A" : 9223372036854775807,
@@ -13,6 +14,7 @@
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9E04DE4D-5105-4351-981A-A8D111200A36",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "14FF5CD0A93F3CC14F0E8C5A4FD8ECB4A6DF5909" : "Graph\/",
+    "83B8A4167AE0A21D1EE663CF0BFCEFA1841C47D1" : "Hero\/",
     "8808004C76B1A743E0DFFE718D4BAA12DFA4ED0D" : "Samples\/",
     "9CF35BC641478FBD765F7442D4034ED362261E0A" : "Material\/",
     "03C6D728E054A05A684543B0D508854F060D607A" : "Algorithm\/",
@@ -36,6 +38,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Graph.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "14FF5CD0A93F3CC14F0E8C5A4FD8ECB4A6DF5909"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/lkzhao\/Hero.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "83B8A4167AE0A21D1EE663CF0BFCEFA1841C47D1"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Samples.git",

@@ -32,36 +32,28 @@ import UIKit
 import Material
 import Graph
 
-class UserTableView: UITableView {
-    public var data = [Entity]() {
+class UserTableView: TableView {
+    /**
+     Retrieves the data source items for the tableView.
+     - Returns: An Array of DataSourceItem objects.
+     */
+    var dataSourceItems = [DataSourceItem]() {
         didSet {
             reloadData()
         }
     }
     
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        prepare()
-    }
-    
-    public init() {
-        super.init(frame: .zero, style: .plain)
-        prepare()
-    }
-    
     /// Prepares the tableView.
-    private func prepare() {
-        register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+    open override func prepare() {
+        super.prepare()
         dataSource = self
         delegate = self
-        separatorStyle = .none
     }
 }
 
-/// UITableViewDataSource.
-extension UserTableView: UITableViewDataSource {
+extension UserTableView: TableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return dataSourceItems.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,7 +64,9 @@ extension UserTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
         
-        let user = data[indexPath.row]
+        guard let user = dataSourceItems[indexPath.row].data as? Entity else {
+            return cell
+        }
         
         cell.textLabel?.text = user["name"] as? String
         cell.imageView?.image = user["photo"] as? UIImage
@@ -83,13 +77,8 @@ extension UserTableView: UITableViewDataSource {
     }
 }
 
-/// UITableViewDelegate.
-extension UserTableView: UITableViewDelegate {
+extension UserTableView: TableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.divider.reload()
     }
 }

@@ -64,8 +64,8 @@ extension OrangeViewController {
     }
     
     fileprivate func prepareButton() {
-        view.layout(button).edges()
         button.backgroundColor = .clear
         button.addTarget(self, action: #selector(handleButton), for: .touchUpInside)
+        view.layout(button).edges()
     }
 }

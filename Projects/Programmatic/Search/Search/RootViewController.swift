@@ -85,16 +85,24 @@ extension RootViewController {
     }
     
     internal func reloadData() {
-        tableView.data = search.sync().sorted(by: { (a, b) -> Bool in
+        var dataSourceItems = [DataSourceItem]()
+        
+        let users = search.sync().sorted(by: { (a, b) -> Bool in
             guard let n = a["name"] as? String, let m = b["name"] as? String else {
                 return false
             }
+            
             return n < m
         })
+            
+        users.forEach {
+            dataSourceItems.append(DataSourceItem(data: $0))
+        }
+        
+        tableView.dataSourceItems = dataSourceItems
     }
 }
 
-// View.
 extension RootViewController: SearchBarDelegate {
     internal func prepareSearchBar() {
         // Access the searchBar.
@@ -120,18 +128,18 @@ extension RootViewController: SearchBarDelegate {
                 return
             }
             
-            var data = [Entity]()
+            var dataSourceItems = [DataSourceItem]()
             
             for user in users {
                 if let name = user["name"] as? String {
                     let matches = regex.matches(in: name, range: NSRange(location: 0, length: name.utf16.count))
                     if 0 < matches.count {
-                        data.append(user)
+                        dataSourceItems.append(DataSourceItem(data: user))
                     }
                 }
             }
             
-            self?.tableView.data = data
+            self?.tableView.dataSourceItems = dataSourceItems
         }
     }
 }

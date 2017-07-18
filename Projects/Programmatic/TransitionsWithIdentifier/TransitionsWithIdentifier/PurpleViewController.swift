@@ -32,16 +32,16 @@ import UIKit
 import Material
 
 class PurpleViewController: UIViewController {
-    fileprivate var v1 = UIView()
-    fileprivate var v2 = UIView()
+    fileprivate var v1 = View()
+    fileprivate var v2 = View()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
         prepareView()
-        prepareV1()
-        prepareV2()
+        prepareTransitionViews()
+        prepareAnimation()
         
-        Motion.delay(1) { [weak self] in
+        Motion.delay(2) { [weak self] in
             self?.dismiss(animated: true)
         }
     }
@@ -53,15 +53,63 @@ extension PurpleViewController {
         view.backgroundColor = .white
     }
     
-    fileprivate func prepareV1() {
-        v1.motionIdentifier = "v1"
-        v1.backgroundColor = Color.blue.base
-        view.layout(v1).bottom().horizontally().height(50)
+    fileprivate func prepareTransitionViews() {
+        v1.backgroundColor = Color.lightBlue.base
+        v2.backgroundColor = Color.teal.lighten3
     }
     
-    fileprivate func prepareV2() {
-        v2.transition(.fadeIn)
-        v2.backgroundColor = Color.red.base
-        view.layout(v2).top().horizontally().height(50)
+    fileprivate func prepareAnimation() {
+//        animationMatch()
+//        animationScale()
+//        animationTranslate()
+//        animationRotate()
+        animationArc()
+    }
+}
+
+extension PurpleViewController {
+    fileprivate func animationMatch() {
+        v1.motionIdentifier = "v1"
+        view.layout(v1).top().horizontally().height(200)
+        
+        v2.motionIdentifier = "v2"
+        view.layout(v2).bottom().horizontally().height(70)
+    }
+    
+    fileprivate func animationScale() {
+        v1.cornerRadius = 15
+        view.layout(v1).center(offsetY: 50).width(200).height(200)
+        v1.transition(.scale(0.3), .corner(radius: 15))
+        
+        v2.motionIdentifier = "v2"
+        v2.cornerRadius = 15
+        view.layout(v2).center(offsetY: -100).width(200).height(50)
+    }
+    
+    fileprivate func animationTranslate() {
+        v1.cornerRadius = 15
+        view.layout(v1).center(offsetY: 50).width(200).height(200)
+        v1.transition(.translate(x: -200), .corner(radius: 15))
+        
+        v2.motionIdentifier = "v2"
+        v2.cornerRadius = 15
+        view.layout(v2).center(offsetY: -100).width(200).height(50)
+    }
+    
+    fileprivate func animationRotate() {
+        v1.cornerRadius = 15
+        view.layout(v1).center(offsetY: 50).width(200).height(200)
+        v1.transition(.translate(x: -200, y: 100), .rotate(270), .corner(radius: 15))
+        
+        v2.motionIdentifier = "v2"
+        v2.cornerRadius = 15
+        view.layout(v2).center(offsetY: -100).width(200).height(50)
+    }
+    
+    fileprivate func animationArc() {
+        v2.motionIdentifier = "v2"
+        v2.shapePreset = .circle
+        v2.transition(.arc())
+        view.layout(v2).center(offsetX: -100, offsetY: -100).width(100).height(100)
     }
 }
