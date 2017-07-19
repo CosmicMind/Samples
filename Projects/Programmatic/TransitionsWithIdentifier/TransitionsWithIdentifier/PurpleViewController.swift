@@ -54,16 +54,16 @@ extension PurpleViewController {
     }
     
     fileprivate func prepareTransitionViews() {
-        v1.backgroundColor = Color.lightBlue.base
-        v2.backgroundColor = Color.teal.lighten3
+        v1.backgroundColor = Color.deepOrange.base
+        v2.backgroundColor = Color.blueGrey.lighten3
     }
     
     fileprivate func prepareAnimation() {
-//        animationMatch()
+        animationMatch()
 //        animationScale()
 //        animationTranslate()
 //        animationRotate()
-        animationArc()
+//        animationArc()
     }
 }
 

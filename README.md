@@ -1,16 +1,32 @@
 ![CosmicMind](http://www.cosmicmind.com/samples/github/cosmicmind-logo.png)
 
-## Welcome to Samples
+**Samples** is a collection of example projects that use [Material](https://github.com/CosmicMind/Material), [Motion](https://github.com/CosmicMind/Motion), [Graph](https://github.com/CosmicMind/Graph), and [Algorithm](https://github.com/CosmicMind/Algorithm). 
 
-**Samples** is a collection of example projects that use [Material](http://cosmicmind.com/material), [Graph](http://cosmicmind.com/graph), and [Algorithm](http://cosmicmind.com/algorithm). 
+### Photos Sample
 
-![Motion Sample](http://www.cosmicmind.com/motion/cosmicmind_motion_sample.gif)
+Using Material and Motion, a dynamic photo gallery is created with dynamic animations used during transitions. 
 
-* [Download the PhotoCollection sample](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/PhotoCollection).
+![Photos](http://www.cosmicmind.com/motion/projects/photos.gif)
 
-![Material Sample](http://cosmicmind.com/samples/github/page-tab-bar-controller-2.png)
+* [Download Photos Sample](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/Photos).
 
-* [Download the CardTableView sample](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/CardTableView).
+### Cards & Tabs
+
+In this sample project, Material is used to create a tabbing layout with dynamically sized Cards within a TableView.
+
+![Cards & Tabs](http://cosmicmind.com/samples/github/page-tab-bar-controller-2.png)
+
+* [Download Cards & Tabs Sample](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/CardTableView).
+
+### Graph Search
+
+Using the **Graph Search** API is incredibly flexible. In the following example, Search is used to create a live search on user names with a dynamic UI provided by [Material's SearchBar](http://cosmicmind.com/material/searchbar).
+
+* [Download Graph Search Sample](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/Search).
+
+### Learn, Enjoy, Create
+
+Many more sample projects are available within the Samples repository. 
 
 ## Requirements
 
@@ -37,30 +53,6 @@ To install all pods, use the following script:
 ```bash
 $ ./install_all_pods.sh
 ```
-
-# Samples
-
-The following are samples to see how [Material](http://cosmicmind.com/material), [Graph](http://cosmicmind.com/graph), and [Algorithm](http://cosmicmind.com/algorithm) may be used within your applications.
-
-* Visit the [Samples](https://github.com/CosmicMind/Samples) project to see example projects using Graph.
-
-## Creating an Entity for an ImageCard
-
-In the following example, we create an ImageCard view using Material and populate it's properties with a Graph Entity that stores the data for that view.
-
-![Material ImageCard](http://www.cosmicmind.com/gifs/white/image-card.gif)
-
-* Download the complete [ImageCard example](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/ImageCard).
-* Learn more about [Material's ImageCard](http://cosmicmind.com/material/imagecard).
-
-## Searching a list of users in realtime
-
-Using the **Graph Search** API is incredibly flexible. In the following example, Search is used to create a live search on user names with a dynamic UI provided by [Material's SearchBar](http://cosmicmind.com/material/searchbar).
-
-![Material SearchBar](http://www.cosmicmind.com/gifs/shared/search-bar-controller.gif)
-
-* Download the complete [Search example](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/Search).
-* Learn more about [Material's SearchBar](http://cosmicmind.com/material/searchbar).
 
 ## License
 

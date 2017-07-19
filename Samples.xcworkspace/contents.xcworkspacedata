@@ -53,6 +53,9 @@
          location = "group:Projects/Programmatic/PageTabBarController/PageTabBarController.xcodeproj">
       </FileRef>
       <FileRef
+         location = "group:Projects/Programmatic/Photos/Photos.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Projects/Programmatic/PhotoLibraryController/PhotoLibraryController.xcodeproj">
       </FileRef>
       <FileRef
