@@ -22,6 +22,8 @@ In this sample project, Material is used to create a tabbing layout with dynamic
 
 Using the **Graph Search** API is incredibly flexible. In the following example, Search is used to create a live search on user names with a dynamic UI provided by [Material's SearchBar](http://cosmicmind.com/material/searchbar).
 
+![Graph Search](http://www.cosmicmind.com/gifs/shared/search-bar-controller.gif)
+
 * [Download Graph Search Sample](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/Search).
 
 ### Learn, Enjoy, Create
