@@ -6,7 +6,7 @@
 
 Using Material and Motion, a dynamic photo gallery is created with dynamic animations used during transitions. 
 
-![Photos](http://www.cosmicmind.com/motion/projects/photos.gif)
+![Photos](http://www.cosmicmind.com/motion/projects/photo_gallery.gif)
 
 * [Download Photos Sample](https://github.com/CosmicMind/Samples/tree/master/Projects/Programmatic/Photos).
 
