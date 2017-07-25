@@ -43,8 +43,8 @@ class SearchViewController: UIViewController {
     }
     
     private func prepareTabBarItem() {
-        tabBarItem.title = nil
-        tabBarItem.image = Icon.cm.search?.tint(with: Color.blueGrey.base)
-        tabBarItem.selectedImage = Icon.cm.search?.tint(with: Color.blue.base)
+        tabItem.title = nil
+        tabItem.image = Icon.cm.search?.tint(with: Color.blueGrey.base)
+        tabItem.selectedImage = Icon.cm.search?.tint(with: Color.blue.base)
     }
 }

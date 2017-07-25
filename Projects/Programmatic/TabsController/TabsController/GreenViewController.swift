@@ -31,27 +31,25 @@
 import UIKit
 import Material
 
-class RedViewController: UIViewController {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        preparePageTabBarItem()
-    }
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        preparePageTabBarItem()
-    }
+class GreenViewController: UIViewController {
+    let v1 = UIView()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.red.base
+        view.backgroundColor = Color.green.base
+        
+        prepareTabItem()
+        
+        v1.motionIdentifier = "v1"
+        v1.backgroundColor = Color.red.base
+        view.layout(v1).bottom().horizontally().height(100)
     }
 }
 
-extension RedViewController {
-    fileprivate func preparePageTabBarItem() {
-        pageTabBarItem.title = "Red"
-        pageTabBarItem.titleColor = Color.blueGrey.base
+extension GreenViewController {
+    fileprivate func prepareTabItem() {
+        tabItem.title = "Green"
+        tabItem.titleColor = Color.blueGrey.base
     }
 }
 

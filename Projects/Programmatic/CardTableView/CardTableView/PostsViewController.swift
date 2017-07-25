@@ -35,7 +35,6 @@ import Graph
 class PostsViewController: UIViewController {
     internal var category: String
     
-    /// Model.
     internal var graph: Graph!
     internal var search: Search<Entity>!
     
@@ -51,19 +50,18 @@ class PostsViewController: UIViewController {
         }
     }
     
-    /// View.
     internal var tableView: CardTableView!
     
     required init?(coder aDecoder: NSCoder) {
         category = ""
         super.init(coder: aDecoder)
-        preparePageTabBarItem()
+        prepareTabItem()
     }
     
     init(category: String) {
         self.category = category
         super.init(nibName: nil, bundle: nil)
-        preparePageTabBarItem()
+        prepareTabItem()
     }
     
     open override func viewDidLoad() {
@@ -89,7 +87,6 @@ class PostsViewController: UIViewController {
     }
 }
 
-/// Model.
 extension PostsViewController {
     internal func prepareGraph() {
         graph = Graph()
@@ -100,15 +97,13 @@ extension PostsViewController {
     }
 }
 
-/// PageTabBar.
 extension PostsViewController {
-    internal func preparePageTabBarItem() {
-        pageTabBarItem.title = category
-        pageTabBarItem.titleColor = .white
+    internal func prepareTabItem() {
+        tabItem.title = category
+        tabItem.titleColor = .white
     }
 }
 
-/// TableView.
 extension PostsViewController {
     internal func prepareTableView() {
         tableView = CardTableView()

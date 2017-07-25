@@ -34,6 +34,9 @@ import Material
 class AppBottomNavigationController: BottomNavigationController {
     open override func prepare() {
         super.prepare()
+        isMotionEnabled = true
+        motionTabBarTransitionType = .autoReverse(presenting: .pull(direction: .left))
+        
         prepareTabBar()
     }
 }

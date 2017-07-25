@@ -45,7 +45,7 @@ class PhotoViewController: UIViewController {
 
 extension PhotoViewController {
     fileprivate func prepareTabBarItem() {
-        tabBarItem.image = Icon.cm.photoCamera?.tint(with: Color.blueGrey.base)
-        tabBarItem.selectedImage = Icon.cm.photoCamera?.tint(with: Color.blue.base)
+        tabItem.image = Icon.cm.photoCamera?.tint(with: Color.blueGrey.base)
+        tabItem.selectedImage = Icon.cm.photoCamera?.tint(with: Color.blue.base)
     }
 }

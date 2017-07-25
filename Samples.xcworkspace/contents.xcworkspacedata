@@ -50,9 +50,6 @@
          location = "group:Projects/Programmatic/NavigationDrawerController/NavigationDrawerController.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Projects/Programmatic/PageTabBarController/PageTabBarController.xcodeproj">
-      </FileRef>
-      <FileRef
          location = "group:Projects/Programmatic/Photos/Photos.xcodeproj">
       </FileRef>
       <FileRef
@@ -84,6 +81,9 @@
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/TableViewWithinCard/TableViewWithinCard.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Projects/Programmatic/TabsController/TabsController.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/TextField/TextField.xcodeproj">

@@ -38,7 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = AppBottomNavigationController(viewControllers: [PhotoViewController(), VideoViewController(), AudioViewController(), RemindersViewController(), SearchViewController()])
+        window!.rootViewController = AppBottomNavigationController(viewControllers: [PhotoViewController(),
+                                                                                     VideoViewController(),
+                                                                                     AudioViewController(),
+                                                                                     RemindersViewController(),
+                                                                                     SearchViewController()])
         window!.makeKeyAndVisible()
     }
 }

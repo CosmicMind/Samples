@@ -41,6 +41,10 @@ class VideoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Color.green.base
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }
 
 extension VideoViewController {

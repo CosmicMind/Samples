@@ -31,28 +31,25 @@
 import UIKit
 import Material
 
-class AppPageTabBarController: PageTabBarController {
-    open override func prepare() {
-        super.prepare()
+class YellowViewController: UIViewController {
+    let v1 = UIView()
     
-        delegate = self
-        preparePageTabBar()
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = Color.yellow.base
         
-        Motion.delay(3) { [weak self] in
-            self?.selectedIndex = 2
-        }
+        prepareTabItem()
+        
+        v1.motionIdentifier = "v1"
+        v1.backgroundColor = Color.red.base
+        view.layout(v1).width(100).vertically().left()
     }
 }
 
-extension AppPageTabBarController {
-    fileprivate func preparePageTabBar() {
-        pageTabBar.lineColor = Color.blueGrey.base
-        pageTabBar.dividerColor = Color.blueGrey.lighten5
+extension YellowViewController {
+    fileprivate func prepareTabItem() {
+        tabItem.title = "Yellow"
+        tabItem.titleColor = Color.blueGrey.base
     }
 }
 
-extension AppPageTabBarController: PageTabBarControllerDelegate {
-    func pageTabBarController(pageTabBarController: PageTabBarController, didTransitionTo viewController: UIViewController) {
-        print("pageTabBarController", pageTabBarController, "didTransitionTo viewController:", viewController)
-    }
-}
