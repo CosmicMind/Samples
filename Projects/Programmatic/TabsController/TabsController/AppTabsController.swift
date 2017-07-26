@@ -31,20 +31,9 @@
 import UIKit
 import Material
 
-class AudioViewController: UIViewController {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        prepareTabBarItem()
-    }
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.blue.base
-    }
-    
-    private func prepareTabBarItem() {
-        tabItem.title = nil
-        tabItem.image = Icon.cm.audioLibrary?.tint(with: Color.blueGrey.base)
-        tabItem.selectedImage = Icon.cm.audioLibrary?.tint(with: Color.blue.base)
+class AppTabsController: TabsController {
+    open override func prepare() {
+        super.prepare()
+        tabBar.tabBarStyle = .scrollable
     }
 }

@@ -17,9 +17,6 @@
          location = "group:Projects/Programmatic/Button/Button.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Projects/Programmatic/CaptureController/CaptureController.xcodeproj">
-      </FileRef>
-      <FileRef
          location = "group:Projects/Programmatic/Card/Card.xcodeproj">
       </FileRef>
       <FileRef
@@ -50,19 +47,10 @@
          location = "group:Projects/Programmatic/NavigationDrawerController/NavigationDrawerController.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Projects/Programmatic/PageTabBarController/PageTabBarController.xcodeproj">
-      </FileRef>
-      <FileRef
          location = "group:Projects/Programmatic/Photos/Photos.xcodeproj">
       </FileRef>
       <FileRef
-         location = "group:Projects/Programmatic/PhotoLibraryController/PhotoLibraryController.xcodeproj">
-      </FileRef>
-      <FileRef
          location = "group:Projects/Programmatic/PresenterCard/PresenterCard.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Projects/Programmatic/Reminders/Reminders.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/Search/Search.xcodeproj">
@@ -84,6 +72,9 @@
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/TableViewWithinCard/TableViewWithinCard.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Projects/Programmatic/TabsController/TabsController.xcodeproj">
       </FileRef>
       <FileRef
          location = "group:Projects/Programmatic/TextField/TextField.xcodeproj">

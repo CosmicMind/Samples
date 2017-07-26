@@ -31,20 +31,21 @@
 import UIKit
 import Material
 
-class AudioViewController: UIViewController {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        prepareTabBarItem()
-    }
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.blue.base
-    }
+    var window: UIWindow?
     
-    private func prepareTabBarItem() {
-        tabItem.title = nil
-        tabItem.image = Icon.cm.audioLibrary?.tint(with: Color.blueGrey.base)
-        tabItem.selectedImage = Icon.cm.audioLibrary?.tint(with: Color.blue.base)
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = AppTabsController(viewControllers: [OrangeViewController(),
+                                                                         PurpleViewController(),
+                                                                         GreenViewController(),
+                                                                         BlueViewController(),
+                                                                         YellowViewController(),
+                                                                         CyanViewController(),
+                                                                         BrownViewController()], selectedIndex: 0)
+        window!.makeKeyAndVisible()
     }
 }
+
