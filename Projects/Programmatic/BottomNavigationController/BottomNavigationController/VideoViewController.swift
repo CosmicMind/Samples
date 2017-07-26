@@ -41,15 +41,11 @@ class VideoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = Color.green.base
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
 }
 
 extension VideoViewController {
     fileprivate func prepareTabBarItem() {
-        tabBarItem.image = Icon.cm.videocam?.tint(with: Color.blueGrey.base)
-        tabBarItem.selectedImage = Icon.cm.videocam?.tint(with: Color.blue.base)
+        tabItem.image = Icon.cm.videocam?.tint(with: Color.blueGrey.base)
+        tabItem.selectedImage = Icon.cm.videocam?.tint(with: Color.blue.base)
     }
 }
