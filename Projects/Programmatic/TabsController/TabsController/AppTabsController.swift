@@ -34,6 +34,5 @@ import Material
 class AppTabsController: TabsController {
     open override func prepare() {
         super.prepare()
-        tabBar.tabBarStyle = .scrollable
     }
 }
