@@ -46,7 +46,7 @@ class ViewController: UIViewController {
 extension ViewController {
     @objc
     fileprivate func handleButton() {
-//        animateBackgroundColor()
+        animateBackgroundColor()
 //        animateBorderColor()
 //        animateCornerRadius()
 //        animateDepth()
@@ -55,7 +55,7 @@ extension ViewController {
 //        animateRotate()
 //        animateScale()
 //        animateSize()
-        animateSpin()
+//        animateSpin()
 //        animateSpring()
 //        animateTranslate()
     }

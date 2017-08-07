@@ -31,28 +31,57 @@
 import UIKit
 import Material
 
-class RootViewController: UIViewController {
+class ViewController: UIViewController {
+    let chips = Chips()
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Color.white
+        view.backgroundColor = .white
         
-        prepareToolbar()
+        prepareChips()
     }
 }
 
-extension RootViewController {
-    fileprivate func prepareToolbar() {
-        guard let toolbar = toolbarController?.toolbar else {
-            return
-        }
+fileprivate extension ViewController {
+    func prepareChips() {
+        let c1 = ChipItem(title: "Chip 1")
+        c1.backgroundColor = Color.blue.base
+        c1.titleColor = .white
+        c1.pulseColor = .white
         
-        toolbar.title = "Material"
-        toolbar.titleLabel.textColor = .white
-        toolbar.titleLabel.textAlignment = .left
+        let c2 = ChipItem(title: "Chip 2")
+        c2.backgroundColor = Color.blue.base
+        c2.titleColor = .white
+        c2.pulseColor = .white
         
-        toolbar.detail = "Build Beautiful Software"
-        toolbar.detailLabel.textColor = .white
-        toolbar.detailLabel.textAlignment = .left
+        let c3 = ChipItem(title: "Chip 3")
+        c3.backgroundColor = Color.blue.base
+        c3.titleColor = .white
+        c3.pulseColor = .white
+        
+        let c4 = ChipItem(title: "Chip 4")
+        c4.backgroundColor = Color.blue.base
+        c4.titleColor = .white
+        c4.pulseColor = .white
+        
+        let c5 = ChipItem(title: "Chip 5")
+        c5.backgroundColor = Color.blue.base
+        c5.titleColor = .white
+        c5.pulseColor = .white
+        
+        let c6 = ChipItem(title: "Chip 6")
+        c6.backgroundColor = Color.blue.base
+        c6.titleColor = .white
+        c6.pulseColor = .white
+        
+        let c7 = ChipItem(title: "Chip 7")
+        c7.backgroundColor = Color.blue.base
+        c7.titleColor = .white
+        c7.pulseColor = .white
+        
+        chips.chipItems = [c1, c2, c3, c4, c5, c6, c7]
+        
+        view.layout(chips).center().horizontally()
     }
 }
 

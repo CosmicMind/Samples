@@ -55,11 +55,7 @@ extension RightViewController {
 extension RightViewController {
     @objc
     fileprivate func handleRootButton() {
-        // Transition the entire NavigationDrawer rootViewController.
-        //        navigationDrawerController?.transition(to: RootViewController(), completion: closeNavigationDrawer)
-        
-        // Transition the ToolbarController rootViewController that is in the NavigationDrawer rootViewController.
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: RootViewController(), completion: closeNavigationDrawer)
+        toolbarController?.transition(to: RootViewController(), completion: closeNavigationDrawer)
     }
     
     fileprivate func closeNavigationDrawer(result: Bool) {

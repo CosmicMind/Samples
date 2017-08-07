@@ -31,15 +31,34 @@
 import UIKit
 import Material
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class StarViewController: UIViewController {
+    let v1 = UIView()
     
-    var window: UIWindow?
-    
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = AppToolbarController(rootViewController: StarViewController())
-        window!.makeKeyAndVisible()
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        prepareToolbar()
+        
+        v1.motionIdentifier = "v1"
+        v1.backgroundColor = Color.green.base
+        view.layout(v1).centerHorizontally().bottom().width(100).height(100)
+    }
+}
+
+extension StarViewController {
+    fileprivate func prepareToolbar() {
+        guard let toolbar = toolbarController?.toolbar else {
+            return
+        }
+        
+        toolbar.title = "Material"
+        toolbar.titleLabel.textColor = .white
+        toolbar.titleLabel.textAlignment = .left
+        
+        toolbar.detail = "Build Beautiful Software"
+        toolbar.detailLabel.textColor = .white
+        toolbar.detailLabel.textAlignment = .left
     }
 }
 

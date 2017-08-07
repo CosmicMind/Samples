@@ -23,6 +23,9 @@
          location = "group:Projects/Programmatic/CardTableView/CardTableView.xcodeproj">
       </FileRef>
       <FileRef
+         location = "group:Projects/Programmatic/Chips/Chips.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Projects/Programmatic/Cloud/Cloud.xcodeproj">
       </FileRef>
       <FileRef

@@ -31,15 +31,29 @@
 import UIKit
 import Material
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class SearchViewController: UIViewController {
+    let v1 = UIView()
     
-    var window: UIWindow?
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        v1.motionIdentifier = "v1"
+        v1.backgroundColor = Color.green.base
+        view.layout(v1).centerHorizontally().top().horizontally().height(100)
     
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = AppToolbarController(rootViewController: StarViewController())
-        window!.makeKeyAndVisible()
+        prepareToolbar()
+    }
+}
+
+extension SearchViewController {
+    fileprivate func prepareToolbar() {
+        print(toolbarController)
+        guard let toolbar = toolbarController?.toolbar else {
+            return
+        }
+ 
+        toolbar.title = "Search"
     }
 }
 

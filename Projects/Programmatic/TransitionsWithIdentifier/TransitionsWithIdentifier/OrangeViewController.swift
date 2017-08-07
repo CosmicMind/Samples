@@ -64,9 +64,9 @@ extension OrangeViewController {
     }
     
     fileprivate func prepareAnimation() {
-        animationMatch()
+//        animationMatch()
 //        animationScale()
-//        animationTranslate()
+        animationTranslate()
 //        animationRotate()
 //        animationArc()
     }

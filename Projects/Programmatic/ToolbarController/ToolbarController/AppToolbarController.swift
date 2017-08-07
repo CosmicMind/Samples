@@ -46,30 +46,44 @@ class AppToolbarController: ToolbarController {
     }
 }
 
-extension AppToolbarController {
-    fileprivate func prepareMenuButton() {
+fileprivate extension AppToolbarController {
+    func prepareMenuButton() {
         menuButton = IconButton(image: Icon.cm.menu, tintColor: .white)
         menuButton.pulseColor = .white
     }
     
-    fileprivate func prepareStarButton() {
+    func prepareStarButton() {
         starButton = IconButton(image: Icon.cm.star, tintColor: .white)
         starButton.pulseColor = .white
+        starButton.addTarget(self, action: #selector(handleStar(button:)), for: .touchUpInside)
     }
     
-    fileprivate func prepareSearchButton() {
+    func prepareSearchButton() {
         searchButton = IconButton(image: Icon.cm.search, tintColor: .white)
         searchButton.pulseColor = .white
+        searchButton.addTarget(self, action: #selector(handleSearch(button:)), for: .touchUpInside)
     }
     
-    fileprivate func prepareStatusBar() {
+    func prepareStatusBar() {
         statusBarStyle = .lightContent
         statusBar.backgroundColor = Color.blue.darken3
     }
     
-    fileprivate func prepareToolbar() {
+    func prepareToolbar() {
         toolbar.backgroundColor = Color.blue.darken2
         toolbar.leftViews = [menuButton]
         toolbar.rightViews = [starButton, searchButton]
+    }
+}
+
+fileprivate extension AppToolbarController {
+    @objc
+    func handleStar(button: UIButton) {
+        transition(to: StarViewController())
+    }
+    
+    @objc
+    func handleSearch(button: UIButton) {
+        transition(to: SearchViewController())
     }
 }

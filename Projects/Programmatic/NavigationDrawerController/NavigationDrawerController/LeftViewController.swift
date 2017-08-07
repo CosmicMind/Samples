@@ -55,11 +55,7 @@ extension LeftViewController {
 extension LeftViewController {
     @objc
     fileprivate func handleTransitionButton() {
-        // Transition the entire NavigationDrawer rootViewController.
-        //        navigationDrawerController?.transition(to: TransitionedViewController(), completion: closeNavigationDrawer)
-        
-        // Transition the ToolbarController rootViewController that is in the NavigationDrawer rootViewController.
-        (navigationDrawerController?.rootViewController as? ToolbarController)?.transition(to: TransitionedViewController(), completion: closeNavigationDrawer)
+        toolbarController?.transition(to: TransitionedViewController(), completion: closeNavigationDrawer)
     }
     
     fileprivate func closeNavigationDrawer(result: Bool) {
