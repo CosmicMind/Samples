@@ -34,5 +34,13 @@ import Material
 class AppTabsController: TabsController {
     open override func prepare() {
         super.prepare()
+        
+//        tabBarAlignment = .top
+//        tabBar.tabBarStyle = .auto
+//        tabBar.dividerColor = nil
+//        tabBar.lineHeight = 5.0
+//        tabBar.lineColor = Color.blue.lighten3
+//        tabBar.lineAlignment = .bottom
+//        tabBar.backgroundColor = Color.blue.darken2
     }
 }
