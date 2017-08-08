@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96DE3C661F2699BD0035F7AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3C651F2699BD0035F7AF /* AppDelegate.swift */; };
-		96DE3C681F2699BD0035F7AF /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3C671F2699BD0035F7AF /* OrangeViewController.swift */; };
-		96DE3C6D1F2699BD0035F7AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96DE3C6C1F2699BD0035F7AF /* Assets.xcassets */; };
-		96DE3C701F2699BD0035F7AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96DE3C6E1F2699BD0035F7AF /* LaunchScreen.storyboard */; };
-		96DE3C781F269A230035F7AF /* AppTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3C771F269A230035F7AF /* AppTabsController.swift */; };
-		96DE3C7A1F269A360035F7AF /* PurpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3C791F269A360035F7AF /* PurpleViewController.swift */; };
-		96DE3CFC1F2784470035F7AF /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3CFB1F2784470035F7AF /* GreenViewController.swift */; };
-		96DE3CFE1F2784580035F7AF /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3CFD1F2784580035F7AF /* BlueViewController.swift */; };
-		96DE3D001F2784690035F7AF /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3CFF1F2784690035F7AF /* YellowViewController.swift */; };
-		96DE3D021F27945D0035F7AF /* CyanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3D011F27945D0035F7AF /* CyanViewController.swift */; };
-		96DE3D041F2795E10035F7AF /* BrownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DE3D031F2795E10035F7AF /* BrownViewController.swift */; };
+		96D993781F3A80D300AFD6E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9936B1F3A80D300AFD6E3 /* AppDelegate.swift */; };
+		96D993791F3A80D300AFD6E3 /* AppTabsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9936C1F3A80D300AFD6E3 /* AppTabsController.swift */; };
+		96D9937A1F3A80D300AFD6E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D9936D1F3A80D300AFD6E3 /* Assets.xcassets */; };
+		96D9937B1F3A80D300AFD6E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D9936E1F3A80D300AFD6E3 /* LaunchScreen.storyboard */; };
+		96D9937C1F3A80D300AFD6E3 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D993701F3A80D300AFD6E3 /* BlueViewController.swift */; };
+		96D9937D1F3A80D300AFD6E3 /* BrownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D993711F3A80D300AFD6E3 /* BrownViewController.swift */; };
+		96D9937E1F3A80D300AFD6E3 /* CyanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D993721F3A80D300AFD6E3 /* CyanViewController.swift */; };
+		96D9937F1F3A80D300AFD6E3 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D993731F3A80D300AFD6E3 /* GreenViewController.swift */; };
+		96D993811F3A80D300AFD6E3 /* OrangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D993751F3A80D300AFD6E3 /* OrangeViewController.swift */; };
+		96D993821F3A80D300AFD6E3 /* PurpleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D993761F3A80D300AFD6E3 /* PurpleViewController.swift */; };
+		96D993831F3A80D300AFD6E3 /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D993771F3A80D300AFD6E3 /* YellowViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,19 +34,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		96DE3C621F2699BD0035F7AF /* TabsController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabsController.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		96DE3C651F2699BD0035F7AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		96DE3C671F2699BD0035F7AF /* OrangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
-		96DE3C6C1F2699BD0035F7AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		96DE3C6F1F2699BD0035F7AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		96DE3C711F2699BD0035F7AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		96DE3C771F269A230035F7AF /* AppTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabsController.swift; sourceTree = "<group>"; };
-		96DE3C791F269A360035F7AF /* PurpleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurpleViewController.swift; sourceTree = "<group>"; };
-		96DE3CFB1F2784470035F7AF /* GreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
-		96DE3CFD1F2784580035F7AF /* BlueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
-		96DE3CFF1F2784690035F7AF /* YellowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
-		96DE3D011F27945D0035F7AF /* CyanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyanViewController.swift; sourceTree = "<group>"; };
-		96DE3D031F2795E10035F7AF /* BrownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrownViewController.swift; sourceTree = "<group>"; };
+		96D9936B1F3A80D300AFD6E3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96D9936C1F3A80D300AFD6E3 /* AppTabsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTabsController.swift; sourceTree = "<group>"; };
+		96D9936D1F3A80D300AFD6E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96D9936F1F3A80D300AFD6E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96D993701F3A80D300AFD6E3 /* BlueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
+		96D993711F3A80D300AFD6E3 /* BrownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrownViewController.swift; sourceTree = "<group>"; };
+		96D993721F3A80D300AFD6E3 /* CyanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CyanViewController.swift; sourceTree = "<group>"; };
+		96D993731F3A80D300AFD6E3 /* GreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
+		96D993741F3A80D300AFD6E3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96D993751F3A80D300AFD6E3 /* OrangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrangeViewController.swift; sourceTree = "<group>"; };
+		96D993761F3A80D300AFD6E3 /* PurpleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurpleViewController.swift; sourceTree = "<group>"; };
+		96D993771F3A80D300AFD6E3 /* YellowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
+		96DE3C621F2699BD0035F7AF /* TabBarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +60,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96D9936A1F3A80D300AFD6E3 /* TabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				96D9936B1F3A80D300AFD6E3 /* AppDelegate.swift */,
+				96D9936C1F3A80D300AFD6E3 /* AppTabsController.swift */,
+				96D9936D1F3A80D300AFD6E3 /* Assets.xcassets */,
+				96D9936E1F3A80D300AFD6E3 /* LaunchScreen.storyboard */,
+				96D993701F3A80D300AFD6E3 /* BlueViewController.swift */,
+				96D993711F3A80D300AFD6E3 /* BrownViewController.swift */,
+				96D993721F3A80D300AFD6E3 /* CyanViewController.swift */,
+				96D993731F3A80D300AFD6E3 /* GreenViewController.swift */,
+				96D993741F3A80D300AFD6E3 /* Info.plist */,
+				96D993751F3A80D300AFD6E3 /* OrangeViewController.swift */,
+				96D993761F3A80D300AFD6E3 /* PurpleViewController.swift */,
+				96D993771F3A80D300AFD6E3 /* YellowViewController.swift */,
+			);
+			path = TabBarController;
+			sourceTree = "<group>";
+		};
 		96DE3C591F2699BD0035F7AF = {
 			isa = PBXGroup;
 			children = (
-				96DE3C641F2699BD0035F7AF /* TabsController */,
+				96D9936A1F3A80D300AFD6E3 /* TabBarController */,
 				96DE3C631F2699BD0035F7AF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,36 +90,17 @@
 		96DE3C631F2699BD0035F7AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96DE3C621F2699BD0035F7AF /* TabsController.app */,
+				96DE3C621F2699BD0035F7AF /* TabBarController.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		96DE3C641F2699BD0035F7AF /* TabsController */ = {
-			isa = PBXGroup;
-			children = (
-				96DE3C651F2699BD0035F7AF /* AppDelegate.swift */,
-				96DE3C771F269A230035F7AF /* AppTabsController.swift */,
-				96DE3C671F2699BD0035F7AF /* OrangeViewController.swift */,
-				96DE3C791F269A360035F7AF /* PurpleViewController.swift */,
-				96DE3CFB1F2784470035F7AF /* GreenViewController.swift */,
-				96DE3CFD1F2784580035F7AF /* BlueViewController.swift */,
-				96DE3CFF1F2784690035F7AF /* YellowViewController.swift */,
-				96DE3D011F27945D0035F7AF /* CyanViewController.swift */,
-				96DE3D031F2795E10035F7AF /* BrownViewController.swift */,
-				96DE3C6C1F2699BD0035F7AF /* Assets.xcassets */,
-				96DE3C6E1F2699BD0035F7AF /* LaunchScreen.storyboard */,
-				96DE3C711F2699BD0035F7AF /* Info.plist */,
-			);
-			path = TabsController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96DE3C611F2699BD0035F7AF /* TabsController */ = {
+		96DE3C611F2699BD0035F7AF /* TabBarController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96DE3C741F2699BD0035F7AF /* Build configuration list for PBXNativeTarget "TabsController" */;
+			buildConfigurationList = 96DE3C741F2699BD0035F7AF /* Build configuration list for PBXNativeTarget "TabBarController" */;
 			buildPhases = (
 				96DE3C5E1F2699BD0035F7AF /* Sources */,
 				96DE3C5F1F2699BD0035F7AF /* Frameworks */,
@@ -111,9 +111,9 @@
 			);
 			dependencies = (
 			);
-			name = TabsController;
+			name = TabBarController;
 			productName = TabsController;
-			productReference = 96DE3C621F2699BD0035F7AF /* TabsController.app */;
+			productReference = 96DE3C621F2699BD0035F7AF /* TabBarController.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -132,7 +132,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 96DE3C5D1F2699BD0035F7AF /* Build configuration list for PBXProject "TabsController" */;
+			buildConfigurationList = 96DE3C5D1F2699BD0035F7AF /* Build configuration list for PBXProject "TabBarController" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -145,7 +145,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96DE3C611F2699BD0035F7AF /* TabsController */,
+				96DE3C611F2699BD0035F7AF /* TabBarController */,
 			);
 		};
 /* End PBXProject section */
@@ -155,8 +155,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DE3C701F2699BD0035F7AF /* LaunchScreen.storyboard in Resources */,
-				96DE3C6D1F2699BD0035F7AF /* Assets.xcassets in Resources */,
+				96D9937A1F3A80D300AFD6E3 /* Assets.xcassets in Resources */,
+				96D9937B1F3A80D300AFD6E3 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,25 +167,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96DE3C7A1F269A360035F7AF /* PurpleViewController.swift in Sources */,
-				96DE3C781F269A230035F7AF /* AppTabsController.swift in Sources */,
-				96DE3C681F2699BD0035F7AF /* OrangeViewController.swift in Sources */,
-				96DE3D001F2784690035F7AF /* YellowViewController.swift in Sources */,
-				96DE3D041F2795E10035F7AF /* BrownViewController.swift in Sources */,
-				96DE3C661F2699BD0035F7AF /* AppDelegate.swift in Sources */,
-				96DE3D021F27945D0035F7AF /* CyanViewController.swift in Sources */,
-				96DE3CFE1F2784580035F7AF /* BlueViewController.swift in Sources */,
-				96DE3CFC1F2784470035F7AF /* GreenViewController.swift in Sources */,
+				96D9937F1F3A80D300AFD6E3 /* GreenViewController.swift in Sources */,
+				96D993781F3A80D300AFD6E3 /* AppDelegate.swift in Sources */,
+				96D9937C1F3A80D300AFD6E3 /* BlueViewController.swift in Sources */,
+				96D993791F3A80D300AFD6E3 /* AppTabsController.swift in Sources */,
+				96D993821F3A80D300AFD6E3 /* PurpleViewController.swift in Sources */,
+				96D9937D1F3A80D300AFD6E3 /* BrownViewController.swift in Sources */,
+				96D993811F3A80D300AFD6E3 /* OrangeViewController.swift in Sources */,
+				96D993831F3A80D300AFD6E3 /* YellowViewController.swift in Sources */,
+				96D9937E1F3A80D300AFD6E3 /* CyanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		96DE3C6E1F2699BD0035F7AF /* LaunchScreen.storyboard */ = {
+		96D9936E1F3A80D300AFD6E3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				96DE3C6F1F2699BD0035F7AF /* Base */,
+				96D9936F1F3A80D300AFD6E3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -293,7 +293,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = TabsController/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TabBarController/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.TabsController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -306,7 +306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = TabsController/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TabBarController/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.TabsController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -317,7 +317,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		96DE3C5D1F2699BD0035F7AF /* Build configuration list for PBXProject "TabsController" */ = {
+		96DE3C5D1F2699BD0035F7AF /* Build configuration list for PBXProject "TabBarController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DE3C721F2699BD0035F7AF /* Debug */,
@@ -326,7 +326,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96DE3C741F2699BD0035F7AF /* Build configuration list for PBXNativeTarget "TabsController" */ = {
+		96DE3C741F2699BD0035F7AF /* Build configuration list for PBXNativeTarget "TabBarController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				96DE3C751F2699BD0035F7AF /* Debug */,

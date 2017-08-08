@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		961154DA1F32B5AC00A78D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961154D91F32B5AC00A78D74 /* AppDelegate.swift */; };
-		961154DC1F32B5AC00A78D74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961154DB1F32B5AC00A78D74 /* ViewController.swift */; };
-		961154E11F32B5AC00A78D74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961154E01F32B5AC00A78D74 /* Assets.xcassets */; };
-		961154E41F32B5AC00A78D74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961154E21F32B5AC00A78D74 /* LaunchScreen.storyboard */; };
+		96D9938B1F3A810900AFD6E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D993851F3A810900AFD6E3 /* AppDelegate.swift */; };
+		96D9938C1F3A810900AFD6E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96D993861F3A810900AFD6E3 /* Assets.xcassets */; };
+		96D9938D1F3A810900AFD6E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96D993871F3A810900AFD6E3 /* LaunchScreen.storyboard */; };
+		96D9938F1F3A810900AFD6E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D9938A1F3A810900AFD6E3 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,12 +27,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		961154D61F32B5AC00A78D74 /* Chips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chips.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		961154D91F32B5AC00A78D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		961154DB1F32B5AC00A78D74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		961154E01F32B5AC00A78D74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		961154E31F32B5AC00A78D74 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		961154E51F32B5AC00A78D74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		961154D61F32B5AC00A78D74 /* ChipBarController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChipBarController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96D993851F3A810900AFD6E3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		96D993861F3A810900AFD6E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96D993881F3A810900AFD6E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96D993891F3A810900AFD6E3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		96D9938A1F3A810900AFD6E3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +49,7 @@
 		961154CD1F32B5AC00A78D74 = {
 			isa = PBXGroup;
 			children = (
-				961154D81F32B5AC00A78D74 /* Chips */,
+				96D993841F3A810900AFD6E3 /* ChipBarController */,
 				961154D71F32B5AC00A78D74 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,29 +57,29 @@
 		961154D71F32B5AC00A78D74 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				961154D61F32B5AC00A78D74 /* Chips.app */,
+				961154D61F32B5AC00A78D74 /* ChipBarController.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		961154D81F32B5AC00A78D74 /* Chips */ = {
+		96D993841F3A810900AFD6E3 /* ChipBarController */ = {
 			isa = PBXGroup;
 			children = (
-				961154D91F32B5AC00A78D74 /* AppDelegate.swift */,
-				961154DB1F32B5AC00A78D74 /* ViewController.swift */,
-				961154E01F32B5AC00A78D74 /* Assets.xcassets */,
-				961154E21F32B5AC00A78D74 /* LaunchScreen.storyboard */,
-				961154E51F32B5AC00A78D74 /* Info.plist */,
+				96D993851F3A810900AFD6E3 /* AppDelegate.swift */,
+				96D993861F3A810900AFD6E3 /* Assets.xcassets */,
+				96D993871F3A810900AFD6E3 /* LaunchScreen.storyboard */,
+				96D993891F3A810900AFD6E3 /* Info.plist */,
+				96D9938A1F3A810900AFD6E3 /* ViewController.swift */,
 			);
-			path = Chips;
+			path = ChipBarController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		961154D51F32B5AC00A78D74 /* Chips */ = {
+		961154D51F32B5AC00A78D74 /* ChipBarController */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 961154E81F32B5AC00A78D74 /* Build configuration list for PBXNativeTarget "Chips" */;
+			buildConfigurationList = 961154E81F32B5AC00A78D74 /* Build configuration list for PBXNativeTarget "ChipBarController" */;
 			buildPhases = (
 				961154D21F32B5AC00A78D74 /* Sources */,
 				961154D31F32B5AC00A78D74 /* Frameworks */,
@@ -90,9 +90,9 @@
 			);
 			dependencies = (
 			);
-			name = Chips;
+			name = ChipBarController;
 			productName = Chips;
-			productReference = 961154D61F32B5AC00A78D74 /* Chips.app */;
+			productReference = 961154D61F32B5AC00A78D74 /* ChipBarController.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 961154D11F32B5AC00A78D74 /* Build configuration list for PBXProject "Chips" */;
+			buildConfigurationList = 961154D11F32B5AC00A78D74 /* Build configuration list for PBXProject "ChipBarController" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -124,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				961154D51F32B5AC00A78D74 /* Chips */,
+				961154D51F32B5AC00A78D74 /* ChipBarController */,
 			);
 		};
 /* End PBXProject section */
@@ -134,8 +134,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961154E41F32B5AC00A78D74 /* LaunchScreen.storyboard in Resources */,
-				961154E11F32B5AC00A78D74 /* Assets.xcassets in Resources */,
+				96D9938C1F3A810900AFD6E3 /* Assets.xcassets in Resources */,
+				96D9938D1F3A810900AFD6E3 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,18 +146,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961154DC1F32B5AC00A78D74 /* ViewController.swift in Sources */,
-				961154DA1F32B5AC00A78D74 /* AppDelegate.swift in Sources */,
+				96D9938F1F3A810900AFD6E3 /* ViewController.swift in Sources */,
+				96D9938B1F3A810900AFD6E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		961154E21F32B5AC00A78D74 /* LaunchScreen.storyboard */ = {
+		96D993871F3A810900AFD6E3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				961154E31F32B5AC00A78D74 /* Base */,
+				96D993881F3A810900AFD6E3 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -265,9 +265,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Chips/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ChipBarController/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Chips;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.ChipBarController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -278,9 +278,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Chips/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ChipBarController/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Chips;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.ChipBarController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -289,7 +289,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		961154D11F32B5AC00A78D74 /* Build configuration list for PBXProject "Chips" */ = {
+		961154D11F32B5AC00A78D74 /* Build configuration list for PBXProject "ChipBarController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				961154E61F32B5AC00A78D74 /* Debug */,
@@ -298,7 +298,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		961154E81F32B5AC00A78D74 /* Build configuration list for PBXNativeTarget "Chips" */ = {
+		961154E81F32B5AC00A78D74 /* Build configuration list for PBXNativeTarget "ChipBarController" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				961154E91F32B5AC00A78D74 /* Debug */,

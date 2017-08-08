@@ -31,7 +31,7 @@
 import UIKit
 import Material
 
-class AppTabsController: TabsController {
+class AppTabBarController: TabBarController {
     open override func prepare() {
         super.prepare()
         view.backgroundColor = Color.blueGrey.lighten5
@@ -40,7 +40,7 @@ class AppTabsController: TabsController {
     }
 }
 
-extension AppTabsController {
+extension AppTabBarController {
     fileprivate func preparePageTabBar() {
         tabBarAlignment = .top
         tabBar.isDividerHidden = true

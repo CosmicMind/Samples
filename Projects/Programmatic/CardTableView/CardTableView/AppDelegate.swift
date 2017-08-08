@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        let tabsController = AppTabsController(viewControllers: viewControllers)
+        let tabsController = AppTabBarController(viewControllers: viewControllers)
         let toolbarController = AppToolbarController(rootViewController: tabsController)
         let menuController = AppFABMenuController(rootViewController: toolbarController)
         
