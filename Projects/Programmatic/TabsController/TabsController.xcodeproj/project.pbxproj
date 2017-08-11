@@ -128,7 +128,6 @@
 				TargetAttributes = {
 					96D993F11F3D395B00AFD6E3 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 9Z76XCNLGL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -293,7 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TabsController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.TabsController;
@@ -306,7 +305,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9Z76XCNLGL;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = TabsController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.TabsController;
