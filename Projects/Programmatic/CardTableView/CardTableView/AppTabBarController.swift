@@ -31,17 +31,22 @@
 import UIKit
 import Material
 
-class AppTabBarController: TabBarController {
+class AppTabsController: TabsController {
     open override func prepare() {
         super.prepare()
+        view.backgroundColor = Color.blueGrey.lighten5
         
-//        tabBarAlignment = .top
-//        tabBar.tabBarStyle = .auto
-//        tabBar.dividerColor = nil
-//        tabBar.lineHeight = 5.0
-//        tabBar.lineColor = Color.blue.lighten3
-//        tabBar.lineAlignment = .bottom
-//        tabBar.backgroundColor = Color.blue.darken2
-//        motionTransitionType = .autoReverse(presenting: .slide(direction: .left))
+        preparePageTabBar()
     }
 }
+
+extension AppTabsController {
+    fileprivate func preparePageTabBar() {
+        tabBarAlignment = .top
+        tabBar.isDividerHidden = true
+        tabBar.lineAlignment = .bottom
+        tabBar.lineColor = Color.blue.lighten3
+        tabBar.backgroundColor = Color.blue.darken2
+    }
+}
+

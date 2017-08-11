@@ -38,13 +38,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = AppTabBarController(viewControllers: [OrangeViewController(),
-                                                                         PurpleViewController(),
-                                                                         GreenViewController(),
-                                                                         BlueViewController(),
-                                                                         YellowViewController(),
+        window!.rootViewController = AppTabsController(viewControllers: [BlueViewController(),
+                                                                         BrownViewController(),
                                                                          CyanViewController(),
-                                                                         BrownViewController()], selectedIndex: 0)
+                                                                         GreenViewController(),
+                                                                         OrangeViewController(),
+                                                                         PurpleViewController(),
+                                                                         YellowViewController()])
         window!.makeKeyAndVisible()
     }
 }
