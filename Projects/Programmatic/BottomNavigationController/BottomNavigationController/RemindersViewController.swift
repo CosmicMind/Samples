@@ -45,7 +45,7 @@ class RemindersViewController: UIViewController {
 
 extension RemindersViewController {
     fileprivate func prepareTabBarItem() {
-        tabItem.image = Icon.cm.bell?.tint(with: Color.blueGrey.base)
-        tabItem.selectedImage = Icon.cm.bell?.tint(with: Color.blue.base)
+        tabBarItem.image = Icon.cm.bell?.tint(with: Color.blueGrey.base)
+        tabBarItem.selectedImage = Icon.cm.bell?.tint(with: Color.blue.base)
     }
 }
