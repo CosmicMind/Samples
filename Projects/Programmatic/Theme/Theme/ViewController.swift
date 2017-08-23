@@ -31,15 +31,26 @@
 import UIKit
 import Material
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    var window: UIWindow?
-    
-    func applicationDidFinishLaunching(_ application: UIApplication) {
-        window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = AppSearchBarController(rootViewController: ViewController())
-        window!.makeKeyAndVisible()
+class ViewController: UIViewController {
+    open override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        
+        Theme.for(Toolbar.self).backgroundColor = Color.green.base
+        
+        prepareToolbar()
     }
 }
 
+fileprivate extension ViewController {
+    func prepareToolbar() {
+        guard let toolbar = toolbarController?.toolbar else {
+            return
+        }
+        
+        toolbar.title = "Theme"
+        toolbar.detail = "Sample"
+        
+        
+    }
+}

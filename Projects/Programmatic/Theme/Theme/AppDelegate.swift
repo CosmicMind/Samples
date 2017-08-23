@@ -31,21 +31,15 @@
 import UIKit
 import Material
 
-class RootViewController: UIViewController {
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.grey.lighten5
-        
-        prepareSearchBar()
-    }
-}
-
-extension RootViewController {
-    fileprivate func prepareSearchBar() {
-        // Access the searchBar.
-//        guard let searchBar = searchBarController?.searchBar else {
-//            return
-//        }
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        window = UIWindow(frame: Screen.bounds)
+        window!.rootViewController = ToolbarController(rootViewController: ViewController())
+        window!.makeKeyAndVisible()
     }
 }
 

@@ -101,12 +101,12 @@ extension ViewController {
 extension ViewController: TextViewDelegate {
     @objc
     open func textView(textView: TextView, willProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
-        textStorage.updateAttributes(characterAttributes: [.font: RobotoFont.regular, .forgroundColor: Color.black], range: range)
+        textStorage.update(characterAttributes: [.font: RobotoFont.regular, .forgroundColor: Color.black], range: range)
     }
     
     @objc
     open func textView(textView: TextView, didProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
-        textStorage.updateAttributes(characterAttributes: [.font: RobotoFont.medium, .forgroundColor: Color.lightBlue.lighten1], range: range)
+        textStorage.update(characterAttributes: [.font: RobotoFont.medium, .forgroundColor: Color.lightBlue.lighten1], range: range)
         tags = textView.uniqueMatches
     }
     

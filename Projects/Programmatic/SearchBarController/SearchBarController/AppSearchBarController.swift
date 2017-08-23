@@ -44,23 +44,24 @@ class AppSearchBarController: SearchBarController {
     }
 }
 
-extension AppSearchBarController {
-    fileprivate func prepareMenuButton() {
+fileprivate extension AppSearchBarController {
+    func prepareMenuButton() {
         menuButton = IconButton(image: Icon.cm.menu)
     }
     
-    fileprivate func prepareMoreButton() {
+    func prepareMoreButton() {
         moreButton = IconButton(image: Icon.cm.moreVertical)
     }
     
-    fileprivate func prepareStatusBar() {
+    func prepareStatusBar() {
         statusBarStyle = .lightContent
         
         // Access the statusBar.
-//        statusBar.backgroundColor = Color.grey.base
+//        statusBar.backgroundColor = Color.blue.base
     }
     
-    fileprivate func prepareSearchBar() {
+    func prepareSearchBar() {
+//        searchBarAlignment = .bottom
         searchBar.leftViews = [menuButton]
         searchBar.rightViews = [moreButton]
     }

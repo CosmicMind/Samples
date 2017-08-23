@@ -48,7 +48,6 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController {
     fileprivate func prepareToolbar() {
-        print(toolbarController)
         guard let toolbar = toolbarController?.toolbar else {
             return
         }

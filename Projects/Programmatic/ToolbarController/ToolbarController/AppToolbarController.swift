@@ -70,6 +70,7 @@ fileprivate extension AppToolbarController {
     }
     
     func prepareToolbar() {
+//        toolbarAlignment = .bottom
         toolbar.backgroundColor = Color.blue.darken2
         toolbar.leftViews = [menuButton]
         toolbar.rightViews = [starButton, searchButton]
