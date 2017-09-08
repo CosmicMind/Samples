@@ -70,6 +70,7 @@ extension ViewController {
         emailField.detail = "Error, incorrect email"
         emailField.isClearIconButtonEnabled = true
         emailField.delegate = self
+        emailField.isPlaceholderUppercasedWhenEditing = true
         
         // Set the colors for the emailField, different from the defaults.
 //        emailField.placeholderNormalColor = Color.amber.darken4

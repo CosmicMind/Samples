@@ -42,6 +42,11 @@ class AppSearchBarController: SearchBarController {
         prepareStatusBar()
         prepareSearchBar()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchBar.textField.becomeFirstResponder()
+    }
 }
 
 fileprivate extension AppSearchBarController {

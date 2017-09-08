@@ -67,11 +67,11 @@ class PhotoCollectionViewController: UIViewController {
     
     fileprivate var images = [UIImage]()
     
-    fileprivate let b1 = FlatButton(image: Icon.cm.photoLibrary, tintColor: Color.blueGrey.base)
-    fileprivate let b2 = FlatButton(image: Icon.audio, tintColor: Color.blueGrey.base)
-    fileprivate let b3 = FlatButton(image: Icon.cm.image, tintColor: Color.blueGrey.base)
-    fileprivate let b4 = FlatButton(image: Icon.addCircle, tintColor: Color.blueGrey.base)
-    fileprivate let b5 = FlatButton(image: Icon.cm.moreVertical, tintColor: Color.blueGrey.base)
+    fileprivate let b1 = TabItem(image: Icon.cm.photoLibrary, tintColor: Color.blueGrey.base)
+    fileprivate let b2 = TabItem(image: Icon.audio, tintColor: Color.blueGrey.base)
+    fileprivate let b3 = TabItem(image: Icon.cm.image, tintColor: Color.blueGrey.base)
+    fileprivate let b4 = TabItem(image: Icon.addCircle, tintColor: Color.blueGrey.base)
+    fileprivate let b5 = TabItem(image: Icon.cm.moreVertical, tintColor: Color.blueGrey.base)
     
     fileprivate let tabBar = TabBar()
     
@@ -104,8 +104,7 @@ extension PhotoCollectionViewController {
         b4.pulseColor = Color.blueGrey.base
         b5.pulseColor = Color.blueGrey.base
         
-        tabBar.buttons = [b1, b2, b3, b4, b5]
-        tabBar.select(at: 2)
+        tabBar.tabItems = [b1, b2, b3, b4, b5]
         tabBar.motionIdentifier = "options"
         tabBar.dividerColor = Color.grey.lighten3
         tabBar.lineColor = Color.red.base
