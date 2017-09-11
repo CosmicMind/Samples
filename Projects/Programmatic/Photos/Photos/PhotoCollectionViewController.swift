@@ -106,7 +106,7 @@ extension PhotoCollectionViewController {
         
         tabBar.tabItems = [b1, b2, b3, b4, b5]
         tabBar.motionIdentifier = "options"
-        tabBar.dividerColor = Color.grey.lighten3
+        tabBar.dividerColor = Color.grey.lighten2
         tabBar.lineColor = Color.red.base
         view.layout(tabBar).bottom().horizontally()
     }

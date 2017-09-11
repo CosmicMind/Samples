@@ -4,22 +4,35 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "14FF5CD0A93F3CC14F0E8C5A4FD8ECB4A6DF5909" : 9223372036854775807,
-    "8808004C76B1A743E0DFFE718D4BAA12DFA4ED0D" : 9223372036854775807,
+    "D380DA145FE45541B9B4EDDB11AADEED1A5B2778" : 9223372036854775807,
+    "03C6D728E054A05A684543B0D508854F060D607A" : 9223372036854775807,
+    "0F3E254D46E5A5B90D1542854F510B7D145A9F31" : 9223372036854775807,
     "9CF35BC641478FBD765F7442D4034ED362261E0A" : 9223372036854775807,
-    "0F3E254D46E5A5B90D1542854F510B7D145A9F31" : 9223372036854775807
+    "61601B8B57A65B11573483AA69C83C04FBEBE03F" : 9223372036854775807,
+    "983F9AFBDCB3F78DB8A0283442E3DBFE7E4E1EF5" : 9223372036854775807,
+    "8808004C76B1A743E0DFFE718D4BAA12DFA4ED0D" : 9223372036854775807,
+    "14FF5CD0A93F3CC14F0E8C5A4FD8ECB4A6DF5909" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6BB5C013-1B1E-4148-BF66-B52C03B98DB2",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "14FF5CD0A93F3CC14F0E8C5A4FD8ECB4A6DF5909" : "Graph\/",
-    "8808004C76B1A743E0DFFE718D4BAA12DFA4ED0D" : "Samples\/",
+    "D380DA145FE45541B9B4EDDB11AADEED1A5B2778" : "CosmicMind\/",
+    "03C6D728E054A05A684543B0D508854F060D607A" : "Algorithm\/",
+    "0F3E254D46E5A5B90D1542854F510B7D145A9F31" : "Motion\/",
     "9CF35BC641478FBD765F7442D4034ED362261E0A" : "Material\/",
-    "0F3E254D46E5A5B90D1542854F510B7D145A9F31" : "Material\/Frameworks\/Motion\/"
+    "61601B8B57A65B11573483AA69C83C04FBEBE03F" : "Moments\/",
+    "983F9AFBDCB3F78DB8A0283442E3DBFE7E4E1EF5" : "Focus\/",
+    "8808004C76B1A743E0DFFE718D4BAA12DFA4ED0D" : "Samples\/",
+    "14FF5CD0A93F3CC14F0E8C5A4FD8ECB4A6DF5909" : "Graph\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Samples",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Samples.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Algorithm.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "03C6D728E054A05A684543B0D508854F060D607A"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Motion.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
@@ -31,14 +44,29 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "14FF5CD0A93F3CC14F0E8C5A4FD8ECB4A6DF5909"
     },
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Events.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "61601B8B57A65B11573483AA69C83C04FBEBE03F"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Samples.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8808004C76B1A743E0DFFE718D4BAA12DFA4ED0D"
     },
     {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Focus.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "983F9AFBDCB3F78DB8A0283442E3DBFE7E4E1EF5"
+    },
+    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/Material.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9CF35BC641478FBD765F7442D4034ED362261E0A"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CosmicMind\/CosmicMind.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D380DA145FE45541B9B4EDDB11AADEED1A5B2778"
     }
   ]
 }

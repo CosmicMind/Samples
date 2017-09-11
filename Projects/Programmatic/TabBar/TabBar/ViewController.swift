@@ -63,7 +63,7 @@ extension ViewController {
         tabBar = TabBar()
         tabBar.delegate = self
         
-        tabBar.dividerColor = Color.grey.lighten3
+        tabBar.dividerColor = Color.grey.lighten2
         tabBar.dividerAlignment = .top
         
         tabBar.lineColor = Color.blue.base

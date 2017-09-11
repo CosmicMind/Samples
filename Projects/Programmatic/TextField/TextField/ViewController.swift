@@ -71,6 +71,7 @@ extension ViewController {
         emailField.isClearIconButtonEnabled = true
         emailField.delegate = self
         emailField.isPlaceholderUppercasedWhenEditing = true
+        emailField.placeholderAnimation = .hidden
         
         // Set the colors for the emailField, different from the defaults.
 //        emailField.placeholderNormalColor = Color.amber.darken4
@@ -103,7 +104,7 @@ extension ViewController {
 }
 
 
-extension UIViewController: TextFieldDelegate {
+extension ViewController: TextFieldDelegate {
     public func textFieldDidEndEditing(_ textField: UITextField) {
         (textField as? ErrorTextField)?.isErrorRevealed = false
     }
@@ -113,8 +114,8 @@ extension UIViewController: TextFieldDelegate {
         return true
     }
     
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        (textField as? ErrorTextField)?.isErrorRevealed = false
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        (textField as? ErrorTextField)?.isErrorRevealed = true
         return true
     }
 }

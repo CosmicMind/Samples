@@ -71,7 +71,7 @@ extension UserTableView: TableViewDataSource {
         cell.textLabel?.text = user["name"] as? String
         cell.imageView?.image = user["photo"] as? UIImage
         cell.detailTextLabel?.text = user["status"] as? String
-        cell.dividerColor = Color.grey.lighten3
+        cell.dividerColor = Color.grey.lighten2
         
         return cell
     }

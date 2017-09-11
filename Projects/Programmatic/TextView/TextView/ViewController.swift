@@ -62,7 +62,7 @@ fileprivate extension ViewController {
     func prepareInputBar() {
         inputBar = Bar()
         inputBar.depthPreset = .none
-        inputBar.dividerColor = Color.grey.lighten3
+        inputBar.dividerColor = Color.grey.lighten2
         inputBar.dividerAlignment = .top
         inputBar.rightViews = [doneButton]
     }
@@ -75,10 +75,11 @@ fileprivate extension ViewController {
     func prepareTextView() {
         textView.delegate = self
         textView.placeholder = "Placeholder"
+        textView.placeholderColor = Color.darkText.others
         textView.inputAccessoryView = inputBar
         textView.textContainerInsetsPreset = .square5
         view.layout(textView).edges()
-        textView.text = "#Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of #Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n\n Lorem Ipsum has been the #industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum #passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+//        textView.text = "#Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of #Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n\n Lorem Ipsum has been the #industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum #passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     }
     
     func prepareToolbar() {

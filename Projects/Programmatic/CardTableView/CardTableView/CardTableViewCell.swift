@@ -155,7 +155,7 @@ class CardTableViewCell: TableViewCell {
         toolbar.titleLabel.textAlignment = .left
         toolbar.detailLabel.textAlignment = .left
         toolbar.rightViews = [moreButton]
-        toolbar.dividerColor = Color.grey.lighten3
+        toolbar.dividerColor = Color.grey.lighten2
         toolbar.dividerAlignment = .top
     }
     
@@ -177,7 +177,7 @@ class CardTableViewCell: TableViewCell {
         bottomBar.centerViews = [dateLabel]
         bottomBar.leftViews = [favoriteButton]
         bottomBar.rightViews = [shareButton]
-        bottomBar.dividerColor = Color.grey.lighten3
+        bottomBar.dividerColor = Color.grey.lighten2
     }
     
     private func preparePresenterCard() {
