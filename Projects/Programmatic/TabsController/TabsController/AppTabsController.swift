@@ -42,6 +42,5 @@ class AppTabsController: TabsController {
 //        tabBar.lineColor = Color.blue.lighten3
 //        tabBar.lineAlignment = .bottom
 //        tabBar.backgroundColor = Color.blue.darken2
-//        motionTransitionType = .autoReverse(presenting: .slide(direction: .left))
     }
 }

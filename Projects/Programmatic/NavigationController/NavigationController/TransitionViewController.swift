@@ -42,9 +42,9 @@ class TransitionViewController: UIViewController {
     }
 }
 
-extension TransitionViewController {
-    fileprivate func prepareNavigationItem() {
-        navigationItem.title = "New Title"
-        navigationItem.detail = "Transitioned View"
+fileprivate extension TransitionViewController {
+    func prepareNavigationItem() {
+        navigationItem.titleLabel.text = "New Title"
+        navigationItem.detailLabel.text = "Transitioned View"
     }
 }
