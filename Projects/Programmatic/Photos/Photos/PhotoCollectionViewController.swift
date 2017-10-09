@@ -67,11 +67,11 @@ class PhotoCollectionViewController: UIViewController {
     
     fileprivate var images = [UIImage]()
     
-    fileprivate let b1 = TabItem(image: Icon.cm.photoLibrary, tintColor: Color.blueGrey.base)
-    fileprivate let b2 = TabItem(image: Icon.audio, tintColor: Color.blueGrey.base)
-    fileprivate let b3 = TabItem(image: Icon.cm.image, tintColor: Color.blueGrey.base)
-    fileprivate let b4 = TabItem(image: Icon.addCircle, tintColor: Color.blueGrey.base)
-    fileprivate let b5 = TabItem(image: Icon.cm.moreVertical, tintColor: Color.blueGrey.base)
+    fileprivate let t1 = TabItem(image: Icon.cm.photoLibrary, tintColor: Color.blueGrey.base)
+    fileprivate let t2 = TabItem(image: Icon.audio, tintColor: Color.blueGrey.base)
+    fileprivate let t3 = TabItem(image: Icon.cm.image, tintColor: Color.blueGrey.base)
+    fileprivate let t4 = TabItem(image: Icon.addCircle, tintColor: Color.blueGrey.base)
+    fileprivate let t5 = TabItem(image: Icon.cm.moreVertical, tintColor: Color.blueGrey.base)
     
     fileprivate let tabBar = TabBar()
     
@@ -98,13 +98,13 @@ extension PhotoCollectionViewController {
     }
     
     fileprivate func prepareTabBar() {
-        b1.pulseColor = Color.blueGrey.base
-        b2.pulseColor = Color.blueGrey.base
-        b3.pulseColor = Color.blueGrey.base
-        b4.pulseColor = Color.blueGrey.base
-        b5.pulseColor = Color.blueGrey.base
+        t1.pulseColor = Color.blueGrey.base
+        t2.pulseColor = Color.blueGrey.base
+        t3.pulseColor = Color.blueGrey.base
+        t4.pulseColor = Color.blueGrey.base
+        t5.pulseColor = Color.blueGrey.base
         
-        tabBar.tabItems = [b1, b2, b3, b4, b5]
+        tabBar.tabItems = [t1, t2, t3, t4, t5]
         tabBar.motionIdentifier = "options"
         tabBar.dividerColor = Color.grey.lighten2
         tabBar.lineColor = Color.red.base
