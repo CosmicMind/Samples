@@ -16,3 +16,6 @@ profile
 *.moved-aside
 *.playground
 *.framework
+DerivedData
+Index
+Build
