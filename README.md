@@ -1,10 +1,10 @@
 ![CosmicMind](http://www.cosmicmind.com/samples/github/cosmicmind-logo.png)
 
-**Samples** is a collection of example projects that use [Material](https://github.com/CosmicMind/Material), [Motion](https://github.com/CosmicMind/Motion), [Graph](https://github.com/CosmicMind/Graph), and [Algorithm](https://github.com/CosmicMind/Algorithm). 
+**Samples** is a collection of example projects that use [Material](https://github.com/CosmicMind/Material), [Motion](https://github.com/CosmicMind/Motion), [Graph](https://github.com/CosmicMind/Graph), and [Algorithm](https://github.com/CosmicMind/Algorithm).
 
 ### Photos Sample
 
-Using Material and Motion, a dynamic photo gallery is created with dynamic animations used during transitions. 
+Using Material and Motion, a dynamic photo gallery is created with dynamic animations used during transitions.
 
 ![Photos](http://www.cosmicmind.com/motion/projects/photos.gif)
 
@@ -28,7 +28,7 @@ Using the **Graph Search** API is incredibly flexible. In the following example,
 
 ### Learn, Enjoy, Create
 
-Many more sample projects are available within the Samples repository. 
+Many more sample projects are available within the Samples repository.
 
 ## Requirements
 
@@ -48,9 +48,9 @@ Many more sample projects are available within the Samples repository.
 > - All projects use [CocoaPods](http://cocoapods.org)
 > - [Download Samples](https://github.com/CosmicMind/Samples/archive/master.zip)
 
-Visit the [Installation](https://github.com/CosmicMind/Samples/wiki/Installation) page to learn how to install sample projects using [CocoaPods](http://cocoapods.org).
+Read [Material - It's time to download](https://www.cosmicmind.com/danieldahan/lesson/6) to learn how to install Material & Motion using [GitHub](http://github.com), [CocoaPods](http://cocoapods.org), and [Carthage](https://github.com/Carthage/Carthage).
 
-To install all pods, use the following script: 
+To install all pods, use the following script:
 
 ```bash
 $ ./install_all_pods.sh
