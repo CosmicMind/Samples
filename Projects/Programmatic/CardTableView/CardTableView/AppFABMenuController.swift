@@ -30,6 +30,7 @@
 
 import UIKit
 import Material
+import Motion
 
 class AppFABMenuController: FABMenuController {
     fileprivate let fabMenuSize = CGSize(width: 56, height: 56)

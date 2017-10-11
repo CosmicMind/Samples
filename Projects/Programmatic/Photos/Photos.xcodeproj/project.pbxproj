@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960BB6A41F8DDA2000C3BC1F /* PhotosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960BB6A31F8DDA2000C3BC1F /* PhotosDataSource.swift */; };
 		96F344AD1F15584900EE27C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F344A41F15584900EE27C9 /* AppDelegate.swift */; };
 		96F344AE1F15584900EE27C9 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F344A51F15584900EE27C9 /* AppNavigationController.swift */; };
 		96F344AF1F15584900EE27C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96F344A61F15584900EE27C9 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		960BB6A31F8DDA2000C3BC1F /* PhotosDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosDataSource.swift; sourceTree = "<group>"; };
 		961409C21E43D75B00E7BA99 /* Photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96F344A41F15584900EE27C9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96F344A51F15584900EE27C9 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			children = (
 				96F344A41F15584900EE27C9 /* AppDelegate.swift */,
 				96F344A51F15584900EE27C9 /* AppNavigationController.swift */,
+				960BB6A31F8DDA2000C3BC1F /* PhotosDataSource.swift */,
 				96F344AB1F15584900EE27C9 /* PhotoCollectionViewController.swift */,
 				96F344AA1F15584900EE27C9 /* PhotoCollectionViewCell.swift */,
 				96F344AC1F15584900EE27C9 /* PhotoViewController.swift */,
@@ -160,6 +163,7 @@
 				96F344B21F15584900EE27C9 /* PhotoCollectionViewCell.swift in Sources */,
 				96F344B31F15584900EE27C9 /* PhotoCollectionViewController.swift in Sources */,
 				96F344B41F15584900EE27C9 /* PhotoViewController.swift in Sources */,
+				960BB6A41F8DDA2000C3BC1F /* PhotosDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +296,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Photos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -306,7 +310,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cosmicmind.Photos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

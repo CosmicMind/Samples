@@ -33,38 +33,6 @@ import Material
 
 class PhotoCollectionViewController: UIViewController {
     fileprivate var collectionView: UICollectionView!
-    
-    fileprivate let photos = [
-        "photo_1",
-        "photo_2",
-        "photo_3",
-        "photo_4",
-        "photo_5",
-        "photo_6",
-        "photo_7",
-        "photo_8",
-        "photo_9",
-        "photo_10",
-        "photo_12",
-        "photo_13",
-        "photo_14",
-        "photo_15",
-        "photo_16",
-        "photo_17",
-        "photo_18",
-        "photo_19",
-        "photo_20",
-        "photo_21",
-        "photo_22",
-        "photo_23",
-        "photo_24",
-        "photo_25",
-        "photo_26",
-        "photo_27",
-        "photo_28",
-        "photo_29"
-    ]
-    
     fileprivate var images = [UIImage]()
     
     fileprivate let t1 = TabItem(image: Icon.cm.photoLibrary, tintColor: Color.blueGrey.base)
@@ -77,7 +45,6 @@ class PhotoCollectionViewController: UIViewController {
     
     open override func viewDidLoad() {
         super.viewDidLoad()
-        isMotionEnabled = true
         view.backgroundColor = .white
         
         preparePhotos()
@@ -89,7 +56,7 @@ class PhotoCollectionViewController: UIViewController {
 
 extension PhotoCollectionViewController {
     fileprivate func preparePhotos() {
-        photos.forEach { [unowned self] in
+        PhotosDataSource.forEach { [unowned self] in
             guard let image = UIImage(named: $0) else {
                 return
             }
@@ -127,15 +94,14 @@ extension PhotoCollectionViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
-        
-        view.layout(collectionView).horizontally().top().bottom(tabBar.height)
+        view.layout(collectionView).horizontally().top().bottom(tabBar.bounds.height)
         
         collectionView.reloadData()
     }
     
     fileprivate func prepareNavigationBar() {
-        navigationItem.title = "Surfing Stories"
-        navigationItem.detail = "surfingstories.com"
+        navigationItem.titleLabel.text = "Surfing Stories"
+        navigationItem.detailLabel.text = "surfingstories.com"
     }
 }
 

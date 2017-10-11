@@ -40,8 +40,8 @@ class NextViewController: UIViewController {
     }
     
     private func prepareNavigationItem() {
-        navigationItem.title = "Title"
-        navigationItem.detail = "Detail Description"
+        navigationItem.titleLabel.text = "Title"
+        navigationItem.detailLabel.text = "Detail Description"
         
         // Access the back button.
 //        navigationItem.backButton.tintColor = .white

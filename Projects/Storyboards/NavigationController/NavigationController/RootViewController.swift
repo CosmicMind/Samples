@@ -64,8 +64,8 @@ extension RootViewController {
     }
     
     fileprivate func prepareNavigationItem() {
-        navigationItem.title = "Material"
-        navigationItem.detail = "Build Beautiful Software"
+        navigationItem.titleLabel.text = "Material"
+        navigationItem.detailLabel.text = "Build Beautiful Software"
         
         navigationItem.leftViews = [menuButton]
         navigationItem.rightViews = [starButton, searchButton]

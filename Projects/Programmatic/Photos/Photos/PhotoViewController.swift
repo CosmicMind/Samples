@@ -30,46 +30,14 @@
 
 import UIKit
 import Material
+import Motion
 
 class PhotoViewController: UIViewController {
-    fileprivate var collectionView: CollectionView!
+    fileprivate var collectionView: UICollectionView!
+    fileprivate var fabButton: FABButton!
+    fileprivate var index: Int
     
     var dataSourceItems = [DataSourceItem]()
-    
-    fileprivate let photos = [
-        "photo_1",
-        "photo_2",
-        "photo_3",
-        "photo_4",
-        "photo_5",
-        "photo_6",
-        "photo_7",
-        "photo_8",
-        "photo_9",
-        "photo_10",
-        "photo_12",
-        "photo_13",
-        "photo_14",
-        "photo_15",
-        "photo_16",
-        "photo_17",
-        "photo_18",
-        "photo_19",
-        "photo_20",
-        "photo_21",
-        "photo_22",
-        "photo_23",
-        "photo_24",
-        "photo_25",
-        "photo_26",
-        "photo_27",
-        "photo_28",
-        "photo_29"
-    ]
-    
-    fileprivate var fabButton: FABButton!
-    
-    fileprivate var index: Int
     
     public required init?(coder aDecoder: NSCoder) {
         index = 0
@@ -98,7 +66,7 @@ class PhotoViewController: UIViewController {
 
 extension PhotoViewController {
     fileprivate func preparePhotos() {
-        photos.forEach { [weak self, w = view.bounds.width] in
+        PhotosDataSource.forEach { [weak self, w = view.bounds.width] in
             guard let image = UIImage(named: $0) else {
                 return
             }
@@ -116,24 +84,29 @@ extension PhotoViewController {
     }
     
     fileprivate func prepareCollectionView() {
-        collectionView = CollectionView()
+        let w = view.bounds.width
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: w, height: w)
+        
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.scrollDirection = .horizontal
         collectionView.isPagingEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
-        
-        view.layout(collectionView).center().width(view.bounds.width).height(350)
-        
-        collectionView.scrollRectToVisible(CGRect(x: view.bounds.width * CGFloat(index), y: 0, width: view.bounds.width, height: 350), animated: false)
+        view.layout(collectionView).center(offsetY: -44).width(w).height(w)
+        collectionView.scrollRectToVisible(CGRect(x: w * CGFloat(index), y: 0, width: w, height: w), animated: false)
     }
     
     fileprivate func prepareNavigationBar() {
-        navigationItem.title = "Photo Name"
-        navigationItem.detail = "July 19 2017"
+        navigationItem.titleLabel.text = "Photo Name"
+        navigationItem.detailLabel.text = "July 19 2017"
     }
 }
 
@@ -151,6 +124,7 @@ extension PhotoViewController: CollectionViewDataSource {
     @objc
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
+        
         guard let image = dataSourceItems[indexPath.item].data as? UIImage else {
             return cell
         }
@@ -162,6 +136,10 @@ extension PhotoViewController: CollectionViewDataSource {
     }
 }
 
-extension PhotoViewController: CollectionViewDelegate {
+extension PhotoViewController: CollectionViewDelegate {}
 
+extension PhotoViewController: MotionViewControllerDelegate {
+    func motion(motion: Motion, willStartTransitionFrom viewController: UIViewController) {
+        fabButton.depthPreset = .none
+    }
 }

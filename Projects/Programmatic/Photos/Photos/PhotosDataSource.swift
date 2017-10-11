@@ -5,16 +5,16 @@
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  *
- *	*	Redistributions of source code must retain the above copyright notice, this
- *		list of conditions and the following disclaimer.
+ *    *    Redistributions of source code must retain the above copyright notice, this
+ *        list of conditions and the following disclaimer.
  *
- *	*	Redistributions in binary form must reproduce the above copyright notice,
- *		this list of conditions and the following disclaimer in the documentation
- *		and/or other materials provided with the distribution.
+ *    *    Redistributions in binary form must reproduce the above copyright notice,
+ *        this list of conditions and the following disclaimer in the documentation
+ *        and/or other materials provided with the distribution.
  *
- *	*	Neither the name of CosmicMind nor the names of its
- *		contributors may be used to endorse or promote products derived from
- *		this software without specific prior written permission.
+ *    *    Neither the name of CosmicMind nor the names of its
+ *        contributors may be used to endorse or promote products derived from
+ *        this software without specific prior written permission.
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -28,16 +28,33 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-import UIKit
-import Material
-
-class AppNavigationController: NavigationController {
-    open override func prepare() {
-        super.prepare()        
-        motionNavigationTransitionType = .autoReverse(presenting: .zoom)
-        
-        navigationBar.depthPreset = .none
-        navigationBar.dividerColor = Color.grey.lighten2
-        (navigationBar as? NavigationBar)?.backButtonImage = Icon.close?.tint(with: Color.red.base)
-    }
-}
+public let PhotosDataSource = [
+    "photo_1",
+    "photo_2",
+    "photo_3",
+    "photo_4",
+    "photo_5",
+    "photo_6",
+    "photo_7",
+    "photo_8",
+    "photo_9",
+    "photo_10",
+    "photo_12",
+    "photo_13",
+    "photo_14",
+    "photo_15",
+    "photo_16",
+    "photo_17",
+    "photo_18",
+    "photo_19",
+    "photo_20",
+    "photo_21",
+    "photo_22",
+    "photo_23",
+    "photo_24",
+    "photo_25",
+    "photo_26",
+    "photo_27",
+    "photo_28",
+    "photo_29"
+]
