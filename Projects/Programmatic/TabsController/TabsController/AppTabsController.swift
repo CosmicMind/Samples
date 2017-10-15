@@ -35,6 +35,9 @@ class AppTabsController: TabsController {
     open override func prepare() {
         super.prepare()
         
+        tabBar.setColor(Color.grey.base, for: .normal)
+        tabBar.setColor(Color.blue.base, for: .selected)
+
 //        tabBarAlignment = .top
 //        tabBar.tabBarStyle = .auto
 //        tabBar.dividerColor = nil
