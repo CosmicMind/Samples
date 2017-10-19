@@ -84,9 +84,9 @@ extension AppFABMenuController {
         fabMenuBacking = .none
         
         view.layout(fabMenu)
-            .size(fabMenuSize)
             .bottom(bottomInset)
             .right(rightInset)
+            .size(fabMenuSize)
     }
 }
 

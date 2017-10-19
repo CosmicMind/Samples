@@ -20,19 +20,6 @@
 		96D9941A1F3D39E800AFD6E3 /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D994121F3D39E800AFD6E3 /* YellowViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		9618C31A1F621DB600A127EB /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		96D993F21F3D395B00AFD6E3 /* TabsController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabsController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96D993F51F3D395B00AFD6E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,7 +92,6 @@
 				96D993EE1F3D395B00AFD6E3 /* Sources */,
 				96D993EF1F3D395B00AFD6E3 /* Frameworks */,
 				96D993F01F3D395B00AFD6E3 /* Resources */,
-				9618C31A1F621DB600A127EB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
