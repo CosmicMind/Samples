@@ -50,7 +50,6 @@ class OrangeViewController: UIViewController {
 extension OrangeViewController {
     fileprivate func prepareTabItem() {
         tabItem.title = "Orange"
-        tabItem.titleColor = Color.blueGrey.base
     }
 }
 

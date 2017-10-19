@@ -49,7 +49,6 @@ class YellowViewController: UIViewController {
 extension YellowViewController {
     fileprivate func prepareTabItem() {
         tabItem.title = "Yellow"
-        tabItem.titleColor = Color.blueGrey.base
     }
 }
 

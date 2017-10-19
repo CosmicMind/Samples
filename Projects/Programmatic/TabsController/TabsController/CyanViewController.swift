@@ -49,7 +49,6 @@ class CyanViewController: UIViewController {
 extension CyanViewController {
     fileprivate func prepareTabItem() {
         tabItem.title = "Cyan"
-        tabItem.titleColor = Color.blueGrey.base
     }
 }
 

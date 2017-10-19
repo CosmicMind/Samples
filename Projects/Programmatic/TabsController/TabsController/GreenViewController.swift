@@ -49,7 +49,6 @@ class GreenViewController: UIViewController {
 extension GreenViewController {
     fileprivate func prepareTabItem() {
         tabItem.title = "Green"
-        tabItem.titleColor = Color.blueGrey.base
     }
 }
 

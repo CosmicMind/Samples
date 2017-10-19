@@ -49,7 +49,7 @@ class BlueViewController: UIViewController {
 extension BlueViewController {
     fileprivate func prepareTabItem() {
         tabItem.title = "Blue"
-        tabItem.titleColor = Color.blueGrey.base
+        tabItem.image = Icon.audio
     }
 }
 
