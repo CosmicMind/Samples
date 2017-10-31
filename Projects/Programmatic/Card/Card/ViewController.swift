@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         prepareToolbar()
         prepareContentView()
         prepareBottomBar()
-        prepareImageCard()
+        prepareCard()
     }
 }
 
@@ -106,7 +106,7 @@ extension ViewController {
         bottomBar.rightViews = [dateLabel]
     }
     
-    fileprivate func prepareImageCard() {
+    fileprivate func prepareCard() {
         card = Card()
         
         card.toolbar = toolbar

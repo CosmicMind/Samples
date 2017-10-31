@@ -81,13 +81,13 @@ extension CardTableView: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CardTableViewCell", for: indexPath) as! CardTableViewCell
         cell.data = data[indexPath.row]
         cell.isLast = indexPath.row == data.count - 1
-        heights[indexPath] = cell.height
+        heights[indexPath] = cell.bounds.height
         return cell
     }
 }
 
 extension CardTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return heights[indexPath] ?? height
+        return heights[indexPath] ?? bounds.height
     }
 }

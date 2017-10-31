@@ -34,8 +34,7 @@ import Material
 class AppTabsController: TabsController {
     open override func prepare() {
         super.prepare()
-        
-        tabBar.setLineColor(Color.orange.base, for: .selected)
+        tabBar.setLineColor(Color.orange.base, for: .selected) // or tabBar.lineColor = Color.orange.base
         
         tabBar.setTabItemsColor(Color.grey.base, for: .normal)
         tabBar.setTabItemsColor(Color.purple.base, for: .selected)

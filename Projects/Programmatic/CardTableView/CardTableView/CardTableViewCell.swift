@@ -30,6 +30,7 @@
 
 import UIKit
 import Material
+import Motion
 import Graph
 
 class CardTableViewCell: TableViewCell {
@@ -63,16 +64,6 @@ class CardTableViewCell: TableViewCell {
         }
     }
     
-    /// Calculating dynamic height.
-    open override var height: CGFloat {
-        get {
-            return card.height + spacing
-        }
-        set(value) {
-            super.height = value
-        }
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         guard let d = data else {
@@ -83,8 +74,8 @@ class CardTableViewCell: TableViewCell {
         toolbar.detail = d["detail"] as? String
         
         if let image = d["photo"] as? UIImage {
-            presenterImageView.height = image.height
-            DispatchQueue.main.async { [weak self, image = image] in
+            presenterImageView.frame.size.height = image.height
+            Motion.async { [weak self, image = image] in
                 self?.presenterImageView.image = image
             }
         }
@@ -93,13 +84,11 @@ class CardTableViewCell: TableViewCell {
         
         dateLabel.text = dateFormatter.string(from: d.createdDate)
         
-        card.x = 0
-        card.y = 0
-        card.width = width
+        card.frame.origin.x = 0
+        card.frame.origin.y = 0
+        card.frame.size.width = bounds.width
         
-        card.updateConstraints()
-        card.setNeedsLayout()
-        card.layoutIfNeeded()
+        frame.size.height = card.bounds.height
     }
     
     open override func prepare() {
@@ -155,8 +144,6 @@ class CardTableViewCell: TableViewCell {
         toolbar.titleLabel.textAlignment = .left
         toolbar.detailLabel.textAlignment = .left
         toolbar.rightViews = [moreButton]
-        toolbar.dividerColor = Color.grey.lighten2
-        toolbar.dividerAlignment = .top
     }
     
     private func preparePresenterImageView() {

@@ -45,7 +45,7 @@ extension AppTabsController {
         tabBarAlignment = .top
         tabBar.isDividerHidden = true
         tabBar.lineAlignment = .bottom
-        tabBar.lineColor = Color.blue.lighten2
+        tabBar.setLineColor(Color.blue.lighten2, for: .selected)
         tabBar.backgroundColor = Color.blue.darken2
     }
 }

@@ -93,24 +93,21 @@ extension AppFABMenuController {
 extension AppFABMenuController {
     @objc
     fileprivate func handleNotesFABMenuItem(button: UIButton) {
-//        transition(to: NotesViewController())
         fabMenu.close()
-//        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+        fabMenu.fabButton?.animate(.rotate(0))
     }
     
     @objc
     fileprivate func handleRemindersFABMenuItem(button: UIButton) {
-//        transition(to: RemindersViewController())
         fabMenu.close()
-//        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+        fabMenu.fabButton?.animate(.rotate(0))
     }
 }
 
 extension AppFABMenuController {
     @objc
     open func fabMenuWillOpen(fabMenu: FABMenu) {
-//        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 45))
-        
+        fabMenu.fabButton?.animate(.rotate(45))
         print("fabMenuWillOpen")
     }
     
@@ -121,7 +118,7 @@ extension AppFABMenuController {
     
     @objc
     open func fabMenuWillClose(fabMenu: FABMenu) {
-//        fabMenu.fabButton?.animate(animation: Motion.rotate(angle: 0))
+        fabMenu.fabButton?.animate(.rotate(0))
         
         print("fabMenuWillClose")
     }
