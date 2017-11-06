@@ -69,7 +69,7 @@ class ViewController: UIViewController {
 extension ViewController {
     fileprivate func prepareImageView() {
         imageView = UIImageView()
-        imageView.image = UIImage(named: "frontier")?.resize(toWidth: view.width)
+        imageView.image = UIImage(named: "frontier")?.resize(toWidth: view.layer.width)
     }
     
     fileprivate func prepareDateFormatter() {
