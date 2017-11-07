@@ -35,11 +35,11 @@ class PhotoCollectionViewController: UIViewController {
     fileprivate var collectionView: UICollectionView!
     fileprivate var images = [UIImage]()
     
-    fileprivate let t1 = TabItem(image: Icon.cm.photoLibrary, tintColor: Color.blueGrey.base)
-    fileprivate let t2 = TabItem(image: Icon.audio, tintColor: Color.blueGrey.base)
-    fileprivate let t3 = TabItem(image: Icon.cm.image, tintColor: Color.blueGrey.base)
-    fileprivate let t4 = TabItem(image: Icon.addCircle, tintColor: Color.blueGrey.base)
-    fileprivate let t5 = TabItem(image: Icon.cm.moreVertical, tintColor: Color.blueGrey.base)
+    fileprivate let t1 = TabItem(image: Icon.cm.photoLibrary)
+    fileprivate let t2 = TabItem(image: Icon.audio)
+    fileprivate let t3 = TabItem(image: Icon.cm.image)
+    fileprivate let t4 = TabItem(image: Icon.addCircle)
+    fileprivate let t5 = TabItem(image: Icon.cm.moreVertical)
     
     fileprivate let tabBar = TabBar()
     
@@ -56,11 +56,11 @@ class PhotoCollectionViewController: UIViewController {
 
 extension PhotoCollectionViewController {
     fileprivate func preparePhotos() {
-        PhotosDataSource.forEach { [unowned self] in
+        PhotosDataSource.forEach { [weak self] in
             guard let image = UIImage(named: $0) else {
                 return
             }
-            self.images.append(image)
+            self?.images.append(image)
         }
     }
     
@@ -74,7 +74,10 @@ extension PhotoCollectionViewController {
         tabBar.tabItems = [t1, t2, t3, t4, t5]
         tabBar.motionIdentifier = "options"
         tabBar.dividerColor = Color.grey.lighten2
-        tabBar.lineColor = Color.red.base
+        tabBar.setTabItemsColor(Color.blueGrey.base, for: .normal)
+        tabBar.setTabItemsColor(Color.red.base, for: .selected)
+        tabBar.setLineColor(Color.red.base, for: .selected)
+        tabBar.lineAlignment = .top
         view.layout(tabBar).bottom().horizontally()
     }
     
