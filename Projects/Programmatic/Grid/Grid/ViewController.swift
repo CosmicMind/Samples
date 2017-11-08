@@ -49,7 +49,7 @@ extension ViewController {
         
         container.grid.interimSpacePreset = .interimSpace3
         
-        view.layout(container).top(100).left(20).right(20)
+        view.layout(container).center().left(20).right(20).height(300)
         
         for _ in 0..<12 {
             let v = View()
@@ -67,7 +67,7 @@ extension ViewController {
         container.grid.axis.direction = .vertical
         container.grid.interimSpacePreset = .interimSpace3
         
-        view.layout(container).top(100).left(20).right(20)
+        view.layout(container).center().left(20).right(20).height(300)
         
         for _ in 0..<12 {
             let v = View()
