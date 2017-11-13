@@ -32,7 +32,7 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    fileprivate var buttons = [Button]()
+    fileprivate var buttons = [TabItem]()
     fileprivate var tabBar: TabBar!
     
     open override func viewDidLoad() {
@@ -46,15 +46,15 @@ class ViewController: UIViewController {
 
 extension ViewController {
     fileprivate func prepareButtons() {
-        let btn1 = FlatButton(title: "Library", titleColor: Color.blueGrey.base)
+        let btn1 = TabItem(title: "Library", titleColor: Color.blueGrey.base)
         btn1.pulseAnimation = .none
         buttons.append(btn1)
         
-        let btn2 = FlatButton(title: "Photo", titleColor: Color.blueGrey.base)
+        let btn2 = TabItem(title: "Photo", titleColor: Color.blueGrey.base)
         btn2.pulseAnimation = .none
         buttons.append(btn2)
         
-        let btn3 = FlatButton(title: "Video", titleColor: Color.blueGrey.base)
+        let btn3 = TabItem(title: "Video", titleColor: Color.blueGrey.base)
         btn3.pulseAnimation = .none
         buttons.append(btn3)
     }
@@ -70,18 +70,20 @@ extension ViewController {
         tabBar.lineAlignment = .top
         
         tabBar.backgroundColor = Color.grey.lighten5
-        tabBar.buttons = buttons
+        tabBar.tabItems = buttons
         
         view.layout(tabBar).horizontally().bottom()
     }
 }
 
 extension ViewController: TabBarDelegate {
-    func tabBar(tabBar: TabBar, willSelect button: UIButton) {
+    @objc
+    func tabBar(tabBar: TabBar, willSelect tabItem: TabItem) {
         print("will select")
     }
     
-    func tabBar(tabBar: TabBar, didSelect button: UIButton) {
+    @objc
+    func tabBar(tabBar: TabBar, didSelect tabItem: TabItem) {
         print("did select")
     }
 }
