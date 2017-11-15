@@ -80,7 +80,7 @@ extension PhotoViewController {
         fabButton.pulseColor = .white
         fabButton.backgroundColor = Color.red.base
         fabButton.motionIdentifier = "options"
-        view.layout(fabButton).width(64).height(64).bottom(24).right(24)
+        view.layout(fabButton).bottom(24).right(24).width(64).height(64)
     }
     
     fileprivate func prepareCollectionView() {
