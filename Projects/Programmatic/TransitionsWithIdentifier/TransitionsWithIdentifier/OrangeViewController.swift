@@ -83,7 +83,7 @@ extension OrangeViewController {
 extension OrangeViewController {
     fileprivate func animationMatch() {
         v1.motionIdentifier = "v1"
-        v1.cornerRadius = 25
+        v1.layer.cornerRadius = 25
         view.layout(v1).center(offsetY: -50).width(200).height(200)
         
         v2.motionIdentifier = "v2"

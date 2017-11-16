@@ -77,66 +77,66 @@ extension PurpleViewController {
 
 extension PurpleViewController {
     fileprivate func transitionPush() {
-        motionModalTransitionType = .autoReverse(presenting: .push(direction: .left))
+        motionTransitionType = .autoReverse(presenting: .push(direction: .left))
     }
 }
 
 extension PurpleViewController {
     fileprivate func transitionPull() {
-        motionModalTransitionType = .autoReverse(presenting: .pull(direction: .right))
+        motionTransitionType = .autoReverse(presenting: .pull(direction: .right))
     }
 }
 
 extension PurpleViewController {
     fileprivate func transitionCover() {
-        motionModalTransitionType = .autoReverse(presenting: .cover(direction: .up))
+        motionTransitionType = .autoReverse(presenting: .cover(direction: .up))
     }
 }
 
 extension PurpleViewController {
     fileprivate func transitionUncover() {
-        motionModalTransitionType = .autoReverse(presenting: .uncover(direction: .down))
+        motionTransitionType = .autoReverse(presenting: .uncover(direction: .down))
     }
 }
 
 extension PurpleViewController {
     fileprivate func transitionSlide() {
-        motionModalTransitionType = .autoReverse(presenting: .slide(direction: .right))
+        motionTransitionType = .autoReverse(presenting: .slide(direction: .right))
     }
 }
 
 extension PurpleViewController {
     fileprivate func transitionZoomSlide() {
-        motionModalTransitionType = .autoReverse(presenting: .zoomSlide(direction: .right))
+        motionTransitionType = .autoReverse(presenting: .zoomSlide(direction: .right))
     }
 }
 
 extension PurpleViewController {
     fileprivate func transitionPageIn() {
-        motionModalTransitionType = .autoReverse(presenting: .pageIn(direction: .left))
+        motionTransitionType = .autoReverse(presenting: .pageIn(direction: .left))
     }
 }
 
 extension PurpleViewController {
     fileprivate func transitionPageOut() {
-        motionModalTransitionType = .autoReverse(presenting: .pageOut(direction: .right))
+        motionTransitionType = .autoReverse(presenting: .pageOut(direction: .right))
     }
 }
 
 extension PurpleViewController {
     fileprivate func transitionFade() {
-        motionModalTransitionType = .autoReverse(presenting: .fade)
+        motionTransitionType = .autoReverse(presenting: .fade)
     }
 }
 
 extension PurpleViewController {
     fileprivate func transitionZoom() {
-        motionModalTransitionType = .autoReverse(presenting: .zoom)
+        motionTransitionType = .autoReverse(presenting: .zoom)
     }
 }
 
 extension PurpleViewController {
     fileprivate func transitionZoomOut() {
-        motionModalTransitionType = .autoReverse(presenting: .zoomOut)
+        motionTransitionType = .autoReverse(presenting: .zoomOut)
     }
 }

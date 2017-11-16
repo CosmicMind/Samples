@@ -78,32 +78,32 @@ extension PurpleViewController {
     }
     
     fileprivate func animationScale() {
-        v1.cornerRadius = 15
+        v1.layer.cornerRadius = 15
         view.layout(v1).center(offsetY: 50).width(200).height(200)
         v1.transition(.scale(0.3), .corner(radius: 15))
         
         v2.motionIdentifier = "v2"
-        v2.cornerRadius = 15
+        v2.layer.cornerRadius = 15
         view.layout(v2).center(offsetY: -100).width(200).height(50)
     }
     
     fileprivate func animationTranslate() {
-        v1.cornerRadius = 15
+        v1.layer.cornerRadius = 15
         view.layout(v1).center(offsetY: 50).width(200).height(200)
         v1.transition(.translate(x: -200), .corner(radius: 15))
         
         v2.motionIdentifier = "v2"
-        v2.cornerRadius = 15
+        v2.layer.cornerRadius = 15
         view.layout(v2).center(offsetY: -100).width(200).height(50)
     }
     
     fileprivate func animationRotate() {
-        v1.cornerRadius = 15
+        v1.layer.cornerRadius = 15
         view.layout(v1).center(offsetY: 50).width(200).height(200)
         v1.transition(.translate(x: -200, y: 100), .rotate(270), .corner(radius: 15))
         
         v2.motionIdentifier = "v2"
-        v2.cornerRadius = 15
+        v2.layer.cornerRadius = 15
         view.layout(v2).center(offsetY: -100).width(200).height(50)
     }
     
