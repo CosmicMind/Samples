@@ -86,7 +86,7 @@ extension ViewController {
         leftView.image = Icon.cm.audio
         emailField.leftView = leftView
         
-        view.layout(emailField).center(offsetY: -passwordField.height - 60).left(20).right(20)
+        view.layout(emailField).center(offsetY: -passwordField.bounds.height - 60).left(20).right(20)
     }
     
     fileprivate func preparePasswordField() {

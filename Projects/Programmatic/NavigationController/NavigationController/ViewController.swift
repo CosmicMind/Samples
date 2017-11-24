@@ -32,6 +32,8 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
+    fileprivate let transitionViewController = TransitionViewController()
+    
     fileprivate var menuButton: IconButton!
     fileprivate var starButton: IconButton!
     fileprivate var searchButton: IconButton!
@@ -81,6 +83,6 @@ fileprivate extension ViewController {
 fileprivate extension ViewController {
     @objc
     func handleNextButton() {
-        navigationController?.pushViewController(TransitionViewController(), animated: true)
+        navigationController?.pushViewController(transitionViewController, animated: true)
     }
 }
