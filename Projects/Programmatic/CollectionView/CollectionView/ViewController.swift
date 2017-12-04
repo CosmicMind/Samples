@@ -55,7 +55,7 @@ extension ViewController {
             imageView.image = UIImage(named: item)?.resize(toWidth: w)
             imageView.contentMode = .scaleAspectFit
             card.contentView = imageView
-            self.dataSourceItems.append(DataSourceItem(data: card, height: card.height))
+            self.dataSourceItems.append(DataSourceItem(data: card, height: card.bounds.height))
         }
     }
     
