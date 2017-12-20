@@ -32,7 +32,6 @@ import UIKit
 import Material
 
 class ViewController: CollectionViewController {
-    
     open override func prepare() {
         super.prepare()
         prepareDataSourceItems()
@@ -45,8 +44,8 @@ class ViewController: CollectionViewController {
     }
 }
 
-extension ViewController {
-    fileprivate func prepareDataSourceItems() {
+fileprivate extension ViewController {
+    func prepareDataSourceItems() {
         let data = ["meditation", "yoga", "surf"]
         
         data.forEach { [unowned self, w = view.bounds.width] (item) in
@@ -59,7 +58,7 @@ extension ViewController {
         }
     }
     
-    fileprivate func prepareCollectionView() {
+    func prepareCollectionView() {
         collectionView.interimSpacePreset = .interimSpace4
         collectionView.register(CardCollectionViewCell.self, forCellWithReuseIdentifier: "CardCollectionViewCell")
     }

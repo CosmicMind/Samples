@@ -40,6 +40,8 @@ class StarViewController: UIViewController {
         
         prepareToolbar()
         
+//        v1.depthPreset = .depth3
+        v1.cornerRadiusPreset = .cornerRadius3
         v1.motionIdentifier = "v1"
         v1.backgroundColor = Color.green.base
         view.layout(v1).centerHorizontally().bottom().width(100).height(100)

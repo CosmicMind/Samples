@@ -35,6 +35,7 @@ class CardCollectionViewCell: CollectionViewCell {
     open var card: Card? {
         didSet {
             oldValue?.removeFromSuperview()
+            
             if let v = card {
                 contentView.addSubview(v)
                 v.frame = contentView.bounds

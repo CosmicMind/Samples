@@ -40,9 +40,16 @@ class ViewController: UIViewController {
 
     fileprivate var fabButton: FABButton!
     
+    let v1 = UIView()
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.grey.lighten5
+        
+        v1.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        v1.motionIdentifier = "v1"
+        v1.backgroundColor = .purple
+        view.addSubview(v1)
         
         prepareMenuButton()
         prepareStarButton()

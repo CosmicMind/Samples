@@ -30,6 +30,7 @@
 
 import UIKit
 import Material
+import Hero
 
 class AppNavigationController: NavigationController {
     open override func prepare() {

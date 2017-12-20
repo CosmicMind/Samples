@@ -34,9 +34,17 @@ import Material
 class TransitionViewController: UIViewController {
     fileprivate var fabButton: FABButton!
     
+    
+    let v1 = UIView()
+    
     open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Color.blue.base
+        
+        v1.frame = CGRect(x: 100, y: 300, width: 200, height: 50)
+        v1.motionIdentifier = "v1"
+        v1.backgroundColor = .green
+        view.addSubview(v1)
         
         prepareNavigationItem()
     }
