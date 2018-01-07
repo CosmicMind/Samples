@@ -44,6 +44,26 @@ class BrownViewController: UIViewController {
         v1.backgroundColor = Color.red.base
         view.layout(v1).centerHorizontally().bottom().width(300).height(300)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Brown viewWillAppear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("Brown viewDidAppear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("Brown viewWillDisappear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("Brown viewDidDisappear")
+    }
 }
 
 extension BrownViewController {

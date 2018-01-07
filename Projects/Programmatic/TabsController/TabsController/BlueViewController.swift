@@ -44,6 +44,26 @@ class BlueViewController: UIViewController {
         v1.backgroundColor = Color.red.base
         view.layout(v1).width(100).vertically().right()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Blue viewWillAppear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("Blue viewDidAppear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("Blue viewWillDisappear")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("Blue viewDidDisappear")
+    }
 }
 
 extension BlueViewController {
