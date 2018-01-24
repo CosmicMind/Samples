@@ -139,7 +139,7 @@ extension PhotoViewController: CollectionViewDataSource {
 extension PhotoViewController: CollectionViewDelegate {}
 
 extension PhotoViewController: MotionViewControllerDelegate {
-    func motion(motion: Motion, willStartTransitionFrom viewController: UIViewController) {
+    func motion(motion: MotionTransition, willStartTransitionTo viewController: UIViewController) {
         fabButton.depthPreset = .none
     }
 }

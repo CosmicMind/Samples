@@ -39,7 +39,7 @@ class SearchViewController: UIViewController {
         view.backgroundColor = .white
         
 //        v1.depthPreset = .depth3
-        v1.cornerRadiusPreset = .cornerRadius3
+        v1.cornerRadiusPreset = .none
         v1.motionIdentifier = "v1"
         v1.backgroundColor = Color.green.base
         view.layout(v1).centerHorizontally().top().horizontally().height(100)

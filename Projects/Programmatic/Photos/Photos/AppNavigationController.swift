@@ -33,8 +33,9 @@ import Material
 
 class AppNavigationController: NavigationController {
     open override func prepare() {
-        super.prepare()        
-        motionNavigationTransitionType = .autoReverse(presenting: .zoom)
+        super.prepare()
+        isMotionEnabled = true
+        motionNavigationTransitionType = .autoReverse(presenting: .fade)
         
         navigationBar.depthPreset = .none
         navigationBar.dividerColor = Color.grey.lighten2
