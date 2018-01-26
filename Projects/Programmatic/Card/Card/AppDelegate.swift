@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = LoginViewController()
+        window!.rootViewController = ViewController()
         window!.makeKeyAndVisible()
     }
 }
