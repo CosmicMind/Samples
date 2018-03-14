@@ -33,113 +33,118 @@ import Material
 import Motion
 
 class PhotoViewController: UIViewController {
-    fileprivate var collectionView: UICollectionView!
-    fileprivate var fabButton: FABButton!
-    fileprivate var index: Int
+  fileprivate var closeButton: IconButton!
+  
+  fileprivate var collectionView: UICollectionView!
+  fileprivate var index: Int
+  
+  var dataSourceItems = [DataSourceItem]()
+  
+  public required init?(coder aDecoder: NSCoder) {
+    index = 0
+    super.init(coder: aDecoder)
+  }
+  
+  public init(index: Int) {
+    self.index = index
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
     
-    var dataSourceItems = [DataSourceItem]()
-    
-    public required init?(coder aDecoder: NSCoder) {
-        index = 0
-        super.init(coder: aDecoder)
-    }
-    
-    public init(index: Int) {
-        self.index = index
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        preparePhotos()
-        prepareFABButton()
-        prepareCollectionView()
-    }
-    
-    open override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        prepareNavigationBar()
-    }
+    prepareCloseButton()
+    preparePhotos()
+    prepareCollectionView()
+    prepareToolbar()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+  }
 }
 
 extension PhotoViewController {
-    fileprivate func preparePhotos() {
-        PhotosDataSource.forEach { [weak self, w = view.bounds.width] in
-            guard let image = UIImage(named: $0) else {
-                return
-            }
-            
-            self?.dataSourceItems.append(DataSourceItem(data: image, width: w))
-        }
+  func prepareCloseButton() {
+    closeButton = IconButton(image: Icon.cm.close)
+    closeButton.addTarget(self, action: #selector(handleCloseButton(button:)) , for: .touchUpInside)
+  }
+  
+  fileprivate func preparePhotos() {
+    PhotosDataSource.forEach { [weak self, w = view.bounds.width] in
+      guard let image = UIImage(named: $0) else {
+        return
+      }
+      
+      self?.dataSourceItems.append(DataSourceItem(data: image, width: w))
+    }
+  }
+  
+  fileprivate func prepareCollectionView() {
+    let w = view.bounds.width
+    
+    let layout = UICollectionViewFlowLayout()
+    layout.minimumLineSpacing = 0
+    layout.minimumInteritemSpacing = 0
+    layout.scrollDirection = .horizontal
+    layout.itemSize = CGSize(width: w, height: w)
+    
+    collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.backgroundColor = .clear
+    collectionView.dataSource = self
+    collectionView.delegate = self
+    collectionView.isPagingEnabled = true
+    collectionView.showsHorizontalScrollIndicator = false
+    collectionView.showsVerticalScrollIndicator = false
+    collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
+    view.layout(collectionView).center(offsetY: -44).width(w).height(w)
+    collectionView.scrollRectToVisible(CGRect(x: w * CGFloat(index), y: 0, width: w, height: w), animated: false)
+  }
+  
+  func prepareToolbar() {
+    guard let toolbar = toolbarController?.toolbar else {
+      return
     }
     
-    fileprivate func prepareFABButton() {
-        fabButton = FABButton(image: Icon.cm.moreHorizontal, tintColor: .white)
-        fabButton.pulseColor = .white
-        fabButton.backgroundColor = Color.red.base
-        fabButton.motionIdentifier = "options"
-        view.layout(fabButton).bottom(24).right(24).width(64).height(64)
-    }
-    
-    fileprivate func prepareCollectionView() {
-        let w = view.bounds.width
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-        layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: w, height: w)
-        
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.isPagingEnabled = true
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
-        view.layout(collectionView).center(offsetY: -44).width(w).height(w)
-        collectionView.scrollRectToVisible(CGRect(x: w * CGFloat(index), y: 0, width: w, height: w), animated: false)
-    }
-    
-    fileprivate func prepareNavigationBar() {
-        navigationItem.titleLabel.text = "Photo Name"
-        navigationItem.detailLabel.text = "July 19 2017"
-    }
+    toolbar.titleLabel.text = "Photo Name"
+    toolbar.detailLabel.text = "July 19 2017"
+    toolbar.leftViews = [closeButton]
+  }
 }
 
 extension PhotoViewController: CollectionViewDataSource {
-    @objc
-    open func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+  @objc
+  open func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
+  
+  @objc
+  open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return dataSourceItems.count
+  }
+  
+  @objc
+  open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
+    
+    guard let image = dataSourceItems[indexPath.item].data as? UIImage else {
+      return cell
     }
     
-    @objc
-    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSourceItems.count
-    }
+    cell.imageView.image = image
+    cell.imageView.motionIdentifier = "photo_\(indexPath.item)"
     
-    @objc
-    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
-        
-        guard let image = dataSourceItems[indexPath.item].data as? UIImage else {
-            return cell
-        }
-        
-        cell.imageView.image = image
-        cell.imageView.motionIdentifier = "photo_\(indexPath.item)"
-        
-        return cell
-    }
+    return cell
+  }
 }
 
 extension PhotoViewController: CollectionViewDelegate {}
 
-extension PhotoViewController: MotionViewControllerDelegate {
-    func motion(motion: MotionTransition, willStartTransitionTo viewController: UIViewController) {
-        fabButton.depthPreset = .none
-    }
+
+fileprivate extension PhotoViewController {
+  @objc
+  func handleCloseButton(button: UIButton) {
+    toolbarController?.transition(to: PhotoCollectionViewController())
+  }
 }

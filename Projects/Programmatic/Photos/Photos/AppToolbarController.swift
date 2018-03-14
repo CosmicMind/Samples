@@ -31,14 +31,12 @@
 import UIKit
 import Material
 
-class AppNavigationController: NavigationController {
+class AppToolbarController: ToolbarController {
     open override func prepare() {
         super.prepare()
         isMotionEnabled = true
-        motionNavigationTransitionType = .autoReverse(presenting: .fade)
-        
-        navigationBar.depthPreset = .none
-        navigationBar.dividerColor = Color.grey.lighten2
-        (navigationBar as? NavigationBar)?.backButtonImage = Icon.close?.tint(with: Color.red.base)
+      
+        toolbar.depthPreset = .none
+        toolbar.dividerColor = Color.grey.lighten2
     }
 }

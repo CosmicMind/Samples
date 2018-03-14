@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidFinishLaunching(_ application: UIApplication) {
         window = UIWindow(frame: Screen.bounds)
-        window!.rootViewController = AppNavigationController(rootViewController: PhotoCollectionViewController())
+        window!.rootViewController = AppToolbarController(rootViewController: PhotoCollectionViewController())
         window!.makeKeyAndVisible()
     }
 }

@@ -32,108 +32,93 @@ import UIKit
 import Material
 
 class PhotoCollectionViewController: UIViewController {
-    fileprivate var collectionView: UICollectionView!
-    fileprivate var images = [UIImage]()
+  fileprivate var collectionView: UICollectionView!
+  fileprivate var images = [UIImage]()
+  
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
     
-    fileprivate let t1 = TabItem(image: Icon.cm.photoLibrary)
-    fileprivate let t2 = TabItem(image: Icon.audio)
-    fileprivate let t3 = TabItem(image: Icon.cm.image)
-    fileprivate let t4 = TabItem(image: Icon.addCircle)
-    fileprivate let t5 = TabItem(image: Icon.cm.moreVertical)
-    
-    fileprivate let tabBar = TabBar()
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        preparePhotos()
-        prepareTabBar()
-        prepareCollectionView()
-        prepareNavigationBar()
-    }
+    preparePhotos()
+    prepareTabBar()
+    prepareCollectionView()
+    prepareToolbar()
+  }
 }
 
-extension PhotoCollectionViewController {
-    fileprivate func preparePhotos() {
-        PhotosDataSource.forEach { [weak self] in
-            guard let image = UIImage(named: $0) else {
-                return
-            }
-            self?.images.append(image)
-        }
+fileprivate extension PhotoCollectionViewController {
+  func preparePhotos() {
+    PhotosDataSource.forEach { [weak self] in
+      guard let image = UIImage(named: $0) else {
+        return
+      }
+      self?.images.append(image)
+    }
+  }
+  
+  func prepareTabBar() {
+    tabsController?.tabBar.motionIdentifier = "options"
+  }
+  
+  func prepareCollectionView() {
+    let columns: CGFloat = .phone == Device.userInterfaceIdiom ? 4 : 11
+    let w: CGFloat = (view.bounds.width - columns - 1) / columns
+    
+    let layout = UICollectionViewFlowLayout()
+    layout.minimumLineSpacing = 1
+    layout.minimumInteritemSpacing = 1
+    layout.scrollDirection = .vertical
+    layout.itemSize = CGSize(width: w, height: w)
+    
+    collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+    collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
+    collectionView.backgroundColor = .clear
+    collectionView.delegate = self
+    collectionView.dataSource = self
+    collectionView.showsHorizontalScrollIndicator = false
+    view.layout(collectionView).horizontally().top().bottom()
+    
+    collectionView.reloadData()
+  }
+  
+  func prepareToolbar() {
+    guard let toolbar = toolbarController?.toolbar else {
+      return
     }
     
-    fileprivate func prepareTabBar() {
-        t1.pulseColor = Color.blueGrey.base
-        t2.pulseColor = Color.blueGrey.base
-        t3.pulseColor = Color.blueGrey.base
-        t4.pulseColor = Color.blueGrey.base
-        t5.pulseColor = Color.blueGrey.base
-        
-        tabBar.tabItems = [t1, t2, t3, t4, t5]
-        tabBar.motionIdentifier = "options"
-        tabBar.dividerColor = Color.grey.lighten2
-        tabBar.setTabItemsColor(Color.blueGrey.base, for: .normal)
-        tabBar.setTabItemsColor(Color.red.base, for: .selected)
-        tabBar.setLineColor(Color.red.base, for: .selected)
-        tabBar.lineAlignment = .top
-        view.layout(tabBar).bottom().horizontally()
-    }
-    
-    fileprivate func prepareCollectionView() {
-        let columns: CGFloat = .phone == Device.userInterfaceIdiom ? 4 : 11
-        let w: CGFloat = (view.bounds.width - columns - 1) / columns
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 1
-        layout.minimumInteritemSpacing = 1
-        layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: w, height: w)
-        
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
-        collectionView.backgroundColor = .clear
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.showsHorizontalScrollIndicator = false
-        view.layout(collectionView).horizontally().top().bottom(tabBar.bounds.height)
-        
-        collectionView.reloadData()
-    }
-    
-    fileprivate func prepareNavigationBar() {
-        navigationItem.titleLabel.text = "Surfing Stories"
-        navigationItem.detailLabel.text = "surfingstories.com"
-    }
+    toolbar.titleLabel.text = "@NatuarllyCosmic"
+    toolbar.detailLabel.text = "natuarllycosmic.com"
+    toolbar.leftViews = []
+  }
 }
 
 extension PhotoCollectionViewController: UICollectionViewDataSource {
-    @objc
-    open func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
+  @objc
+  open func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
+  
+  @objc
+  open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return images.count
+  }
+  
+  @objc
+  open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
     
-    @objc
-    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
-    }
+    cell.imageView.image = images[indexPath.item]
+    cell.imageView.motionIdentifier = "photo_\(indexPath.item)"
+    cell.transition(.fadeOut, .scale(0.75))
     
-    @objc
-    open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
-        
-        cell.imageView.image = images[indexPath.item]
-        cell.imageView.motionIdentifier = "photo_\(indexPath.item)"
-        cell.transition(.fadeOut, .scale(0.75))
-        
-        return cell
-    }
+    return cell
+  }
 }
 
 extension PhotoCollectionViewController: UICollectionViewDelegate {
-    @objc
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(PhotoViewController(index: indexPath.item), animated: true)
-    }
+  @objc
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    toolbarController?.transition(to: PhotoViewController(index: indexPath.item))
+  }
 }
+
