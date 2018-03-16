@@ -33,104 +33,105 @@ import Material
 import Motion
 
 class ViewController: UIViewController {
-    fileprivate let textView = TextView()
+  fileprivate let textView = TextView()
+  
+  fileprivate var tags = [String]()
+  
+  fileprivate var doneButton: FlatButton!
+  fileprivate var inputBar: Bar!
+  fileprivate var bottomToolbar: Toolbar!
+  
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    isMotionEnabled = true
+    view.backgroundColor = .white
     
-    fileprivate var tags = [String]()
-    
-    fileprivate var doneButton: FlatButton!
-    fileprivate var inputBar: Bar!
-    fileprivate var bottomToolbar: Toolbar!
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        isMotionEnabled = true
-        view.backgroundColor = .white
-        
-        prepareDoneButton()
-        prepareInputBar()
-        prepareBottomToolbar()
-        prepareTextView()
-        prepareToolbar()
-    }
+    prepareDoneButton()
+    prepareInputBar()
+    prepareBottomToolbar()
+    prepareTextView()
+    prepareToolbar()
+  }
 }
 
 fileprivate extension ViewController {
-    func prepareDoneButton() {
-        doneButton = FlatButton(title: "Done")
-        doneButton.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
+  func prepareDoneButton() {
+    doneButton = FlatButton(title: "Done")
+    doneButton.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
+  }
+  
+  func prepareInputBar() {
+    inputBar = Bar()
+    inputBar.depthPreset = .none
+    inputBar.dividerColor = Color.grey.lighten2
+    inputBar.dividerAlignment = .top
+    inputBar.rightViews = [doneButton]
+  }
+  
+  func prepareBottomToolbar() {
+    bottomToolbar = Toolbar()
+    view.layout(bottomToolbar).bottom().horizontally()
+  }
+  
+  func prepareTextView() {
+    textView.delegate = self
+    textView.backgroundColor = .white
+    textView.placeholder = "Placeholder"
+    textView.placeholderColor = Color.darkText.others
+    textView.inputAccessoryView = inputBar
+    textView.textContainerInsetsPreset = .square5
+    view.layout(textView).edges(top: 30, bottom: 30)
+    textView.text = "#Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of #Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n\n Lorem Ipsum has been the #industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum #passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  }
+  
+  func prepareToolbar() {
+    guard let toolbar = toolbarController?.toolbar else {
+      return
     }
     
-    func prepareInputBar() {
-        inputBar = Bar()
-        inputBar.depthPreset = .none
-        inputBar.dividerColor = Color.grey.lighten2
-        inputBar.dividerAlignment = .top
-        inputBar.rightViews = [doneButton]
-    }
-    
-    func prepareBottomToolbar() {
-        bottomToolbar = Toolbar()
-        view.layout(bottomToolbar).bottom().horizontally()
-    }
-    
-    func prepareTextView() {
-        textView.delegate = self
-        textView.placeholder = "Placeholder"
-        textView.placeholderColor = Color.darkText.others
-        textView.inputAccessoryView = inputBar
-        textView.textContainerInsetsPreset = .square5
-        view.layout(textView).edges()
-//        textView.text = "#Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of #Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. \n\n Lorem Ipsum has been the #industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum #passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
-    }
-    
-    func prepareToolbar() {
-        guard let toolbar = toolbarController?.toolbar else {
-            return
-        }
-        
-        toolbar.title = "TextView"
-        toolbar.detail = "Sample"
-    }
+    toolbar.title = "TextView"
+    toolbar.detail = "Sample"
+  }
 }
 
 fileprivate extension ViewController {
-    @objc
-    func handleDoneButton() {
-        textView.resignFirstResponder()
-    }
+  @objc
+  func handleDoneButton() {
+    textView.resignFirstResponder()
+  }
 }
 
 extension ViewController: TextViewDelegate {
-    @objc
-    open func textView(textView: TextView, willProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
-        textStorage.update(characterAttributes: [.font: RobotoFont.regular, .forgroundColor: Color.black], range: range)
-    }
-    
-    @objc
-    open func textView(textView: TextView, didProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
-        textStorage.update(characterAttributes: [.font: RobotoFont.medium, .forgroundColor: Color.lightBlue.lighten1], range: range)
-        tags = textView.uniqueMatches
-    }
-    
-    @objc
-    open func textView(textView: TextView, willShowKeyboard value: NSValue) {
-        print("keyboard will show")
-        textView.height = view.bounds.height - value.cgRectValue.height
-    }
-    
-    @objc
-    open func textView(textView: TextView, didShowKeyboard value: NSValue) {
-        print("keyboard did show")
-    }
-    
-    @objc
-    open func textView(textView: TextView, willHideKeyboard value: NSValue) {
-        print("keyboard will hide")
-        textView.height = view.bounds.height
-    }
-    
-    @objc
-    open func textView(textView: TextView, didHideKeyboard value: NSValue) {
-        print("keyboard did show")
-    }
+  @objc
+  open func textView(textView: TextView, willProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
+    textStorage.setAttributes([.font: RobotoFont.regular, .foregroundColor: Color.black], range: range)
+  }
+  
+  @objc
+  open func textView(textView: TextView, didProcessEditing textStorage: TextStorage, text: String, range: NSRange) {
+    textStorage.setAttributes([.font: RobotoFont.medium, .foregroundColor: Color.lightBlue.lighten1], range: range)
+    tags = textView.uniqueMatches
+  }
+  
+  @objc
+  open func textView(textView: TextView, willShowKeyboard value: NSValue) {
+    print("keyboard will show")
+    textView.frame.size.height = view.bounds.height - value.cgRectValue.height
+  }
+  
+  @objc
+  open func textView(textView: TextView, didShowKeyboard value: NSValue) {
+    print("keyboard did show")
+  }
+  
+  @objc
+  open func textView(textView: TextView, willHideKeyboard value: NSValue) {
+    print("keyboard will hide")
+    textView.frame.size.height = view.bounds.height
+  }
+  
+  @objc
+  open func textView(textView: TextView, didHideKeyboard value: NSValue) {
+    print("keyboard did show")
+  }
 }
