@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2018, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -32,44 +32,49 @@ import UIKit
 import Material
 
 class BlueViewController: UIViewController {
-    let v1 = UIView()
+  let v1 = UIView()
+  
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = Color.blue.base
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.blue.base
-        
-        prepareTabItem()
-        
-        v1.motionIdentifier = "v1"
-        v1.backgroundColor = Color.red.base
-        view.layout(v1).width(100).vertically().right()
-    }
+    prepareTabItem()
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("Blue viewWillAppear")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        print("Blue viewDidAppear")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("Blue viewWillDisappear")
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("Blue viewDidDisappear")
-    }
+    v1.motionIdentifier = "v1"
+    v1.backgroundColor = Color.red.base
+    view.layout(v1).width(100).vertically().right()
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    print("Blue viewWillAppear")
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    print("Blue viewDidAppear")
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    print("Blue viewWillDisappear")
+  }
+  
+  override func viewDidDisappear(_ animated: Bool) {
+    super.viewDidDisappear(animated)
+    print("Blue viewDidDisappear")
+  }
 }
 
 extension BlueViewController {
-    fileprivate func prepareTabItem() {
-        tabItem.title = "Blue"
-        tabItem.image = Icon.audio
-    }
+  fileprivate func prepareTabItem() {
+    tabItem.title = "Blue"
+
+//    tabItem.image = Icon.pen
+    
+    tabItem.setTabItemImage(Icon.add, for: .normal)
+    tabItem.setTabItemImage(Icon.pen, for: .selected)
+    tabItem.setTabItemImage(Icon.photoLibrary, for: .highlighted)
+  }
 }
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2015 - 2017, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
+ * Copyright (C) 2015 - 2018, Daniel Dahan and CosmicMind, Inc. <http://cosmicmind.com>.
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -32,19 +32,22 @@ import UIKit
 import Material
 
 class AppTabsController: TabsController {
-    open override func prepare() {
-        super.prepare()
-        tabBar.setLineColor(Color.orange.base, for: .selected) // or tabBar.lineColor = Color.orange.base
-        
-        tabBar.setTabItemsColor(Color.grey.base, for: .normal)
-        tabBar.setTabItemsColor(Color.purple.base, for: .selected)
-        tabBar.setTabItemsColor(Color.green.base, for: .highlighted)
-        
-//        tabBarAlignment = .top
-//        tabBar.tabBarStyle = .auto
-//        tabBar.dividerColor = nil
-//        tabBar.lineHeight = 5.0
-//        tabBar.lineAlignment = .bottom
-//        tabBar.backgroundColor = Color.blue.darken2
-    }
+  open override func prepare() {
+    super.prepare()
+    tabBar.setLineColor(Color.orange.base, for: .selected) // or tabBar.lineColor = Color.orange.base
+    
+    tabBar.setTabItemsColor(Color.grey.base, for: .normal)
+    tabBar.setTabItemsColor(Color.purple.base, for: .selected)
+    tabBar.setTabItemsColor(Color.green.base, for: .highlighted)
+    
+    tabBar.tabItems.first?.setTabItemColor(Color.blue.base, for: .selected)
+    print(tabBar.tabItems.first?.getTabItemColor(for: .selected))
+    
+//    tabBarAlignment = .top
+//    tabBar.tabBarStyle = .auto
+//    tabBar.dividerColor = nil
+//    tabBar.lineHeight = 5.0
+//    tabBar.lineAlignment = .bottom
+//    tabBar.backgroundColor = Color.blue.darken2
+  }
 }
