@@ -32,55 +32,55 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    /// A reference to the Bar.
-    fileprivate var bar: Bar!
+  /// A reference to the Bar.
+  fileprivate var bar: Bar!
+  
+  /// Left buttons.
+  @IBOutlet weak var learnMoreButton: FlatButton!
+  fileprivate var menuButton: IconButton!
+  
+  /// Right buttons.
+  fileprivate var favoriteButton: IconButton!
+  fileprivate var shareButton: IconButton!
+  
+  /// Title label.
+  fileprivate var titleLabel: UILabel!
+  
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
     
-    /// Left buttons.
-    @IBOutlet weak var learnMoreButton: FlatButton!
-    fileprivate var menuButton: IconButton!
-    
-    /// Right buttons.
-    fileprivate var favoriteButton: IconButton!
-    fileprivate var shareButton: IconButton!
-    
-    /// Title label.
-    fileprivate var titleLabel: UILabel!
-    
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        prepareMenuButton()
-        prepareFavoriteButton()
-        prepareShareButton()
-        prepareBar()
-    }
+    prepareMenuButton()
+    prepareFavoriteButton()
+    prepareShareButton()
+    prepareBar()
+  }
 }
 
-extension ViewController {
-    fileprivate func prepareMenuButton() {
-        menuButton = IconButton(image: Icon.cm.menu, tintColor: .white)
-        menuButton.pulseColor = .white
-    }
+fileprivate extension ViewController {
+  func prepareMenuButton() {
+    menuButton = IconButton(image: Icon.cm.menu, tintColor: .white)
+    menuButton.pulseColor = .white
+  }
+  
+  func prepareFavoriteButton() {
+    favoriteButton = IconButton(image: Icon.favorite, tintColor: .white)
+    favoriteButton.pulseColor = .white
+  }
+  
+  func prepareShareButton() {
+    shareButton = IconButton(image: Icon.cm.share, tintColor: .white)
+    shareButton.pulseColor = .white
+  }
+  
+  func prepareBar() {
+    bar = Bar(leftViews: [menuButton], rightViews: [favoriteButton, shareButton])
+    bar.backgroundColor = Color.blue.base
     
-    fileprivate func prepareFavoriteButton() {
-        favoriteButton = IconButton(image: Icon.favorite, tintColor: .white)
-        favoriteButton.pulseColor = .white
-    }
+    bar.contentView.cornerRadiusPreset = .cornerRadius1
+    bar.contentView.backgroundColor = Color.blue.lighten3
     
-    fileprivate func prepareShareButton() {
-        shareButton = IconButton(image: Icon.cm.share, tintColor: .white)
-        shareButton.pulseColor = .white
-    }
-    
-    fileprivate func prepareBar() {
-        bar = Bar(leftViews: [menuButton], rightViews: [favoriteButton, shareButton])
-        bar.backgroundColor = Color.blue.base
-        
-        bar.contentView.cornerRadiusPreset = .cornerRadius1
-        bar.contentView.backgroundColor = Color.blue.lighten3
-        
-        view.layout(bar).horizontally().center()
-    }
+    view.layout(bar).horizontally().center()
+  }
 }
 
