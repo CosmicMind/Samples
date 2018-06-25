@@ -34,148 +34,166 @@ import Motion
 import Graph
 
 class CardTableViewCell: TableViewCell {
-    private var spacing: CGFloat = 10
-    
-    /// A boolean that indicates whether the cell is the last cell.
-    public var isLast = false
-    
-    public lazy var card: PresenterCard = PresenterCard()
-    
-    /// Toolbar views.
-    private var toolbar: Toolbar!
-    private var moreButton: IconButton!
-    
-    /// Presenter area.
-    private var presenterImageView: UIImageView!
-    
-    /// Content area.
-    private var contentLabel: UILabel!
-    
-    /// Bottom Bar views.
-    private var bottomBar: Bar!
-    private var dateFormatter: DateFormatter!
-    private var dateLabel: UILabel!
-    private var favoriteButton: IconButton!
-    private var shareButton: IconButton!
-    
-    public var data: Entity? {
-        didSet {
-            layoutSubviews()
-        }
+  private var spacing: CGFloat = 10
+  
+  /// A boolean that indicates whether the cell is the last cell.
+  public var isLast = false
+  
+  public lazy var card: PresenterCard = PresenterCard()
+  
+  /// Toolbar views.
+  private var toolbar: Toolbar!
+  private var profileImage: UIImageView!
+  private var moreButton: IconButton!
+  
+  /// Presenter area.
+  private var presenterImageView: UIImageView!
+  
+  /// Content area.
+  private var contentLabel: UILabel!
+  
+  /// Bottom Bar views.
+  private var bottomBar: Bar!
+  private var dateFormatter: DateFormatter!
+  private var dateLabel: UILabel!
+  private var favoriteButton: IconButton!
+  private var shareButton: IconButton!
+  
+  public var data: Entity? {
+    didSet {
+      layoutSubviews()
+    }
+  }
+  
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    guard let d = data else {
+      return
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        guard let d = data else {
-            return
-        }
-        
-        toolbar.title = d["title"] as? String
-        toolbar.detail = d["detail"] as? String
-        
-        if let image = d["photo"] as? UIImage {
-            presenterImageView.frame.size.height = image.height
-            Motion.async { [weak self, image = image] in
-                self?.presenterImageView.image = image
-            }
-        }
-        
-        contentLabel.text = d["content"] as? String
-        
-        dateLabel.text = dateFormatter.string(from: d.createdDate)
-        
-        card.frame.origin.x = 0
-        card.frame.origin.y = 0
-        card.frame.size.width = bounds.width
-        
-        frame.size.height = card.bounds.height
+    toolbar.title = d["title"] as? String
+    toolbar.detail = d["detail"] as? String
+    
+    if let image = d["photo"] as? UIImage {
+      presenterImageView.frame.size.height = image.height
+      Motion.async { [weak self, image = image] in
+        self?.presenterImageView.image = image
+      }
     }
     
-    open override func prepare() {
-        super.prepare()
-        
-        layer.rasterizationScale = Screen.scale
-        layer.shouldRasterize = true
-        
-        pulseAnimation = .none
-        backgroundColor = nil
-        
-        prepareDateFormatter()
-        prepareDateLabel()
-        prepareMoreButton()
-        prepareToolbar()
-        prepareFavoriteButton()
-        prepareShareButton()
-        preparePresenterImageView()
-        prepareContentLabel()
-        prepareBottomBar()
-        preparePresenterCard()
+    if let image = d["author"] as? UIImage {
+      profileImage.frame.size.height = image.height
+      Motion.async { [weak self, image = image] in
+        self?.profileImage.image = image
+      }
     }
     
-    private func prepareDateFormatter() {
-        dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-    }
+    contentLabel.text = d["content"] as? String
     
-    private func prepareDateLabel() {
-        dateLabel = UILabel()
-        dateLabel.font = RobotoFont.regular(with: 12)
-        dateLabel.textColor = Color.blueGrey.base
-        dateLabel.textAlignment = .center
-    }
+    dateLabel.text = dateFormatter.string(from: d.createdDate)
     
-    private func prepareMoreButton() {
-        moreButton = IconButton(image: Icon.cm.moreVertical, tintColor: Color.blueGrey.base)
-    }
+    card.frame.origin.x = 0
+    card.frame.origin.y = 0
+    card.frame.size.width = bounds.width
     
-    private func prepareFavoriteButton() {
-        favoriteButton = IconButton(image: Icon.favorite, tintColor: Color.red.base)
-    }
+    frame.size.height = card.bounds.height
+  }
+  
+  open override func prepare() {
+    super.prepare()
     
-    private func prepareShareButton() {
-        shareButton = IconButton(image: Icon.cm.share, tintColor: Color.blueGrey.base)
-    }
+    layer.rasterizationScale = Screen.scale
+    layer.shouldRasterize = true
     
-    private func prepareToolbar() {
-        toolbar = Toolbar()
-        toolbar.heightPreset = .xlarge
-        toolbar.contentEdgeInsetsPreset = .square3
-        toolbar.titleLabel.textAlignment = .left
-        toolbar.detailLabel.textAlignment = .left
-        toolbar.rightViews = [moreButton]
-    }
+    pulseAnimation = .none
+    backgroundColor = nil
     
-    private func preparePresenterImageView() {
-        presenterImageView = UIImageView()
-        presenterImageView.contentMode = .scaleAspectFill
-    }
+    prepareDateFormatter()
+    prepareDateLabel()
+    prepareProfileImage()
+    prepareMoreButton()
+    prepareToolbar()
+    prepareFavoriteButton()
+    prepareShareButton()
+    preparePresenterImageView()
+    prepareContentLabel()
+    prepareBottomBar()
+    preparePresenterCard()
+  }
+  
+  private func prepareDateFormatter() {
+    dateFormatter = DateFormatter()
+    dateFormatter.dateStyle = .medium
+    dateFormatter.timeStyle = .none
+  }
+  
+  private func prepareDateLabel() {
+    dateLabel = UILabel()
+    dateLabel.font = RobotoFont.regular(with: 12)
+    dateLabel.textColor = Color.blueGrey.base
+    dateLabel.textAlignment = .center
+  }
+  
+  private func prepareProfileImage() {
+    profileImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 48, height: 48))
+    profileImage.shapePreset = .circle
+  }
+  
+  private func prepareMoreButton() {
+    moreButton = IconButton(image: Icon.cm.moreVertical, tintColor: Color.blueGrey.base)
+  }
+  
+  private func prepareFavoriteButton() {
+    favoriteButton = IconButton(image: Icon.favorite, tintColor: Color.red.base)
+  }
+  
+  private func prepareShareButton() {
+    shareButton = IconButton(image: Icon.cm.share, tintColor: Color.blueGrey.base)
+  }
+  
+  private func prepareToolbar() {
+    toolbar = Toolbar()
     
-    private func prepareContentLabel() {
-        contentLabel = UILabel()
-        contentLabel.numberOfLines = 0
-        contentLabel.font = RobotoFont.regular(with: 14)
-    }
+    toolbar.heightPreset = .xlarge
+    toolbar.contentEdgeInsetsPreset = .square3
     
-    private func prepareBottomBar() {
-        bottomBar = Bar()
-        bottomBar.heightPreset = .xlarge
-        bottomBar.contentEdgeInsetsPreset = .square3
-        bottomBar.centerViews = [dateLabel]
-        bottomBar.leftViews = [favoriteButton]
-        bottomBar.rightViews = [shareButton]
-        bottomBar.dividerColor = Color.grey.lighten2
-    }
+    toolbar.titleLabel.textAlignment = .left
+    toolbar.detailLabel.textAlignment = .left
     
-    private func preparePresenterCard() {
-        card.toolbar = toolbar
-        card.presenterView = presenterImageView
-        card.contentView = contentLabel
-        card.contentViewEdgeInsetsPreset = .square3
-        card.contentViewEdgeInsets.bottom = 0
-        card.bottomBar = bottomBar
-        card.depthPreset = .none
-        
-        contentView.addSubview(card)
-    }
+    toolbar.leftViews = [profileImage]
+    toolbar.rightViews = [moreButton]
+  }
+  
+  private func preparePresenterImageView() {
+    presenterImageView = UIImageView()
+    presenterImageView.contentMode = .scaleAspectFill
+  }
+  
+  private func prepareContentLabel() {
+    contentLabel = UILabel()
+    contentLabel.numberOfLines = 0
+    contentLabel.font = RobotoFont.regular(with: 14)
+  }
+  
+  private func prepareBottomBar() {
+    bottomBar = Bar()
+    bottomBar.heightPreset = .xlarge
+    bottomBar.contentEdgeInsetsPreset = .square3
+    bottomBar.centerViews = [dateLabel]
+    bottomBar.leftViews = [favoriteButton]
+    bottomBar.rightViews = [shareButton]
+    bottomBar.dividerColor = Color.grey.lighten2
+  }
+  
+  private func preparePresenterCard() {
+    card.toolbar = toolbar
+    card.presenterView = presenterImageView
+    card.contentView = contentLabel
+    card.contentViewEdgeInsetsPreset = .square3
+    card.contentViewEdgeInsets.bottom = 0
+    card.bottomBar = bottomBar
+    card.depthPreset = .none
+    
+    contentView.addSubview(card)
+  }
 }

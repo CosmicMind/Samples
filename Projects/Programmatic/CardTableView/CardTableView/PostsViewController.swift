@@ -33,90 +33,81 @@ import Material
 import Graph
 
 class PostsViewController: UIViewController {
-    internal var category: String
-    
-    internal var graph: Graph!
-    internal var search: Search<Entity>!
-    
-    internal var data: [Entity] {
-        guard let category = search.sync().first else {
-            return [Entity]()
-        }
-        
-        let posts = category.relationship(types: "Post").subject(types: "Article")
-        
-        return posts.sorted { (a, b) -> Bool in
-            return a.createdDate < b.createdDate
-        }
+  fileprivate var category: String
+  
+  fileprivate var graph: Graph!
+  fileprivate var search: Search<Entity>!
+  
+  fileprivate var data: [Entity] {
+    guard let category = search.sync().first else {
+      return [Entity]()
     }
     
-    internal var tableView: CardTableView!
+    let posts = category.relationship(types: "Post").subject(types: "Article")
     
-    required init?(coder aDecoder: NSCoder) {
-        category = ""
-        super.init(coder: aDecoder)
-        prepareTabItem()
+    return posts.sorted { (a, b) -> Bool in
+      return a.createdDate < b.createdDate
     }
+  }
+  
+  fileprivate var tableView: CardTableView!
+  
+  required init?(coder aDecoder: NSCoder) {
+    category = ""
+    super.init(coder: aDecoder)
+    prepareTabItem()
+  }
+  
+  init(category: String) {
+    self.category = category
+    super.init(nibName: nil, bundle: nil)
+    prepareTabItem()
+  }
+  
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = Color.blueGrey.lighten5
     
-    init(category: String) {
-        self.category = category
-        super.init(nibName: nil, bundle: nil)
-        prepareTabItem()
-    }
+    // Model.
+    prepareGraph()
+    prepareSearch()
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.blueGrey.lighten5
-        
-        // Model.
-        prepareGraph()
-        prepareSearch()
-        
-        // Feed.
-        prepareTableView()
-    }
-    
-    open override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        reloadData()
-    }
-    
-    open override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        reloadData()
-    }
+    // Feed.
+    prepareTableView()
+  }
+  
+  open override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    reloadData()
+  }
+  
+  open override func viewWillLayoutSubviews() {
+    super.viewWillLayoutSubviews()
+    reloadData()
+  }
 }
 
-extension PostsViewController {
-    internal func prepareGraph() {
-        graph = Graph()
-    }
-    
-    internal func prepareSearch() {
-        search = Search<Entity>(graph: graph).for(types: "Category").where(properties: ("name", category))
-    }
-}
-
-extension PostsViewController {
-    internal func prepareTabItem() {
-        tabItem.title = category
-        tabItem.titleColor = .white
-    }
-}
-
-extension PostsViewController {
-    internal func prepareTableView() {
-        tableView = CardTableView()
-        view.layout(tableView).edges()
-    }
-    
-    internal func reloadData() {
-        guard let toolbar = toolbarController?.toolbar else {
-            return
-        }
-        
-        tableView.data = data
-        
-        toolbar.detail = "\(tableView.data.count) " + (1 == tableView.data.count ? "Article" : "Articles")
-    }
+fileprivate extension PostsViewController {
+  func prepareGraph() {
+    graph = Graph()
+  }
+  
+  func prepareSearch() {
+    search = Search<Entity>(graph: graph).for(types: "Category").where(properties: ("name", category))
+  }
+  
+  func prepareTabItem() {
+    tabItem.title = category
+    tabItem.setTitleColor(Color.grey.darken3, for: .selected)
+    tabItem.setTitleColor(Color.grey.base, for: .normal)
+  }
+  
+  func prepareTableView() {
+    tableView = CardTableView()
+    view.layout(tableView).edges()
+  }
+  
+  func reloadData() {
+    tableView.data = data
+  }
 }

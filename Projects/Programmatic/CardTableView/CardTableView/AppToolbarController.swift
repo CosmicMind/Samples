@@ -32,53 +32,41 @@ import UIKit
 import Material
 
 class AppToolbarController: ToolbarController {
-    fileprivate var menuButton: IconButton!
-    fileprivate var starButton: IconButton!
-    fileprivate var searchButton: IconButton!
-    
-    open override func prepare() {
-        super.prepare()
-        prepareMenuButton()
-        prepareStarButton()
-        prepareSearchButton()
-        prepareStatusBar()
-        prepareToolbar()
-    }
+  fileprivate var starButton: IconButton!
+  fileprivate var searchButton: IconButton!
+  
+  open override func prepare() {
+    super.prepare()
+    prepareStarButton()
+    prepareSearchButton()
+    prepareStatusBar()
+    prepareToolbar()
+  }
 }
 
-extension AppToolbarController {
-    fileprivate func prepareMenuButton() {
-        menuButton = IconButton(image: Icon.cm.menu, tintColor: .white)
-        menuButton.pulseColor = .white
-    }
+fileprivate extension AppToolbarController {
+  func prepareStarButton() {
+    starButton = IconButton(image: Icon.cm.star, tintColor: .black)
+  }
+  
+  func prepareSearchButton() {
+    searchButton = IconButton(image: Icon.cm.search, tintColor: .black)
+  }
+  
+  func prepareStatusBar() {
+    statusBar.backgroundColor = Color.grey.lighten5
+  }
+  
+  func prepareToolbar() {
+    toolbar.depthPreset = .none
+    toolbar.heightPreset = .xlarge
+    toolbar.backgroundColor = Color.grey.lighten5
     
-    fileprivate func prepareStarButton() {
-        starButton = IconButton(image: Icon.cm.star, tintColor: .white)
-        starButton.pulseColor = .white
-    }
+    toolbar.title = "NaturallyCosmic"
     
-    fileprivate func prepareSearchButton() {
-        searchButton = IconButton(image: Icon.cm.search, tintColor: .white)
-        searchButton.pulseColor = .white
-    }
+    toolbar.titleLabel.textAlignment = .left
+    toolbar.titleLabel.fontSize = 22
     
-    fileprivate func prepareStatusBar() {
-        statusBarStyle = .lightContent
-        statusBar.backgroundColor = Color.blue.darken3
-    }
-    
-    fileprivate func prepareToolbar() {
-        toolbar.depthPreset = .none
-        toolbar.backgroundColor = Color.blue.darken2
-        
-        toolbar.title = "HealthyMind"
-        toolbar.titleLabel.textColor = .white
-        toolbar.titleLabel.textAlignment = .left
-        
-        toolbar.detailLabel.textColor = .white
-        toolbar.detailLabel.textAlignment = .left
-        
-        toolbar.leftViews = [menuButton]
-        toolbar.rightViews = [starButton, searchButton]
-    }
+    toolbar.rightViews = [starButton, searchButton]
+  }
 }
