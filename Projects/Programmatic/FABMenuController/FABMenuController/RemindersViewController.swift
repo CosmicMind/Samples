@@ -32,8 +32,8 @@ import UIKit
 import Material
 
 class RemindersViewController: UIViewController {
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = Color.blue.base
-    }
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = Color.blue.base
+  }
 }

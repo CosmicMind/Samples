@@ -32,7 +32,7 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    let chips = Chips()
+    let chips = ChipBar()
     
     open override func viewDidLoad() {
         super.viewDidLoad()
