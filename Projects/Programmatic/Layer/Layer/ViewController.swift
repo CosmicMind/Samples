@@ -45,8 +45,8 @@ class ViewController: UIViewController {
 
 extension ViewController {
     fileprivate func prepareLayer() {
-        let w = view.width
-        let h = view.height
+        let w = view.frame.width
+        let h = view.frame.height
         let d: CGFloat = 100
         
         layer = Layer(frame: CGRect(x: (w - d) / 2, y: (h - d) / 2, width: d, height: d))

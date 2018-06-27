@@ -69,7 +69,7 @@ class ViewController: UIViewController {
 extension ViewController {
     fileprivate func preparePresenterView() {
         presenterView = UIImageView()
-        presenterView.image = UIImage(named: "pattern")?.resize(toWidth: view.width)
+        presenterView.image = UIImage(named: "pattern")?.resize(toWidth: view.frame.width)
         presenterView.contentMode = .scaleAspectFill
     }
     

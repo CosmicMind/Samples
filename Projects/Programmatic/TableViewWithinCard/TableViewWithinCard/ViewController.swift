@@ -32,81 +32,82 @@ import UIKit
 import Material
 
 class ViewController: UIViewController {
-    /**
-     Retrieves the data source items for the tableView.
-     - Returns: An Array of DataSourceItem objects.
-     */
-    open var dataSourceItems = [DataSourceItem]()
-
-    fileprivate var toolbar: Toolbar!
-    fileprivate var tableView: TableView!
-    fileprivate var card: Card!
+  /**
+   Retrieves the data source items for the tableView.
+   - Returns: An Array of DataSourceItem objects.
+   */
+  open var dataSourceItems = [DataSourceItem]()
+  
+  fileprivate var toolbar: Toolbar!
+  fileprivate var tableView: TableView!
+  fileprivate var card: Card!
+  
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        prepareToolbar()
-        prepareTableView()
-        prepareCard()
-        prepareData()
-     }
+    prepareToolbar()
+    prepareTableView()
+    prepareCard()
+    prepareData()
+  }
 }
 
 extension ViewController {
-    fileprivate func prepareToolbar() {
-        toolbar = Toolbar()
-        toolbar.title = "TableView Within Card"
-        toolbar.detail = "Sample"
+  fileprivate func prepareToolbar() {
+    toolbar = Toolbar()
+    toolbar.title = "TableView Within Card"
+    toolbar.detail = "Sample"
+  }
+  
+  fileprivate func prepareTableView() {
+    tableView = TableView()
+    tableView.frame.size.height = 300
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
+  }
+  
+  fileprivate func prepareCard() {
+    card = Card()
+    card.depthPreset = .depth3
+    card.toolbar = toolbar
+    card.contentView = tableView
+    view.layout(card).horizontally(left: 20, right: 20).center()
+  }
+  
+  fileprivate func prepareData() {
+    let persons = [["name": "Daniel"], ["name": "Sarah"]]
+    for person in persons {
+      dataSourceItems.append(DataSourceItem(data: person))
     }
-    
-    fileprivate func prepareTableView() {
-        tableView = TableView()
-        tableView.height = 300
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(TableViewCell.self, forCellReuseIdentifier: "TableViewCell")
-    }
-    
-    fileprivate func prepareCard() {
-        card = Card()
-        card.toolbar = toolbar
-        card.contentView = tableView
-        view.layout(card).horizontally(left: 20, right: 20).center()
-    }
-    
-    fileprivate func prepareData() {
-        let persons = [["name": "Daniel"], ["name": "Sarah"]]
-        for person in persons {
-            dataSourceItems.append(DataSourceItem(data: person))
-        }
-        tableView.reloadData()
-    }
+    tableView.reloadData()
+  }
 }
 
 extension ViewController: TableViewDelegate {}
 
 extension ViewController: TableViewDataSource {
-    @objc
-    open func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+  @objc
+  open func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  @objc
+  open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return dataSourceItems.count
+  }
+  
+  @objc
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
+    
+    guard let data = dataSourceItems[indexPath.row].data as? [String: String] else {
+      return cell
     }
     
-    @objc
-    open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSourceItems.count
-    }
+    cell.textLabel?.text = data["name"]
     
-    @objc
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        
-        guard let data = dataSourceItems[indexPath.row].data as? [String: String] else {
-            return cell
-        }
-        
-        cell.textLabel?.text = data["name"]
-        
-        return cell
-    }
+    return cell
+  }
 }
