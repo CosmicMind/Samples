@@ -41,13 +41,13 @@ class AppTabsController: TabsController {
     tabBar.setTabItemsColor(Color.green.base, for: .highlighted)
     
     tabBar.tabItems.first?.setTabItemColor(Color.blue.base, for: .selected)
-    print(tabBar.tabItems.first?.getTabItemColor(for: .selected))
+    //    let color = tabBar.tabItems.first?.getTabItemColor(for: .selected)
     
-//    tabBarAlignment = .top
-//    tabBar.tabBarStyle = .auto
-//    tabBar.dividerColor = nil
-//    tabBar.lineHeight = 5.0
-//    tabBar.lineAlignment = .bottom
-//    tabBar.backgroundColor = Color.blue.darken2
+    //    tabBarAlignment = .top
+    //    tabBar.tabBarStyle = .auto
+    //    tabBar.dividerColor = nil
+    //    tabBar.lineHeight = 5.0
+    //    tabBar.lineAlignment = .bottom
+    //    tabBar.backgroundColor = Color.blue.darken2
   }
 }
