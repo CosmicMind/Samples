@@ -33,33 +33,41 @@ import Material
 import Graph
 
 class ViewController: UIViewController {
-    fileprivate var graph: Graph!
-    fileprivate var watch: Watch<Entity>!
+  fileprivate var graph: Graph!
+  fileprivate var watch: Watch<Entity>!
+  
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
     
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-        
-        prepareGraph()
-        prepareWatch()
-    }
+    prepareGraph()
+    prepareWatch()
+    prepareEntity()
+    
+    graph.sync()
+  }
 }
 
-extension ViewController {
-    fileprivate func prepareGraph() {
-        graph = Graph()
-    }
-    
-    fileprivate func prepareWatch() {
-        watch = Watch<Entity>(graph: graph).for(types: "User").has(tags: "new").member(of: "admin").where(properties: "age")
-        watch.delegate = self
-    }
+fileprivate extension ViewController {
+  func prepareGraph() {
+    graph = Graph()
+  }
+  
+  func prepareWatch() {
+    watch = Watch<Entity>(graph: graph).for(types: "User").has(tags: "new").member(of: "admin").where(properties: "age")
+    watch.delegate = self
+  }
+  
+  func prepareEntity() {
+    var entity = Entity(type: "Person")
+    entity.name = "Daniel"
+  }
 }
 
-extension ViewController: WatchEntityDelegate {
-    @objc
-    func watch(graph: Graph, inserted entity: Entity, source: GraphSource) {
-        
-    }
+extension ViewController: GraphEntityDelegate {
+  @objc
+  func graph(_ graph: Graph, inserted entity: Entity, source: GraphSource) {
+    print(entity)
+  }
 }
 

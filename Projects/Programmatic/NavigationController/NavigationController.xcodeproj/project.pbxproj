@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9688A5C12138660B00160BD9 /* Motion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9688A5C02138660B00160BD9 /* Motion.framework */; };
+		9688A5C22138660B00160BD9 /* Motion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9688A5C02138660B00160BD9 /* Motion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9688A5C42138660B00160BD9 /* Material.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9688A5C32138660B00160BD9 /* Material.framework */; };
+		9688A5C52138660B00160BD9 /* Material.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9688A5C32138660B00160BD9 /* Material.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96CC49CD1D8DD984002CAB55 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC49CC1D8DD984002CAB55 /* AppDelegate.swift */; };
 		96CC49CF1D8DD984002CAB55 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CC49CE1D8DD984002CAB55 /* ViewController.swift */; };
 		96CC49D41D8DD984002CAB55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CC49D31D8DD984002CAB55 /* Assets.xcassets */; };
@@ -22,6 +26,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				9688A5C22138660B00160BD9 /* Motion.framework in Embed Frameworks */,
+				9688A5C52138660B00160BD9 /* Material.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -29,6 +35,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9688A5C02138660B00160BD9 /* Motion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Motion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9688A5C32138660B00160BD9 /* Material.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Material.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CC49C91D8DD984002CAB55 /* NavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CC49CC1D8DD984002CAB55 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96CC49CE1D8DD984002CAB55 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +52,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9688A5C12138660B00160BD9 /* Motion.framework in Frameworks */,
+				9688A5C42138660B00160BD9 /* Material.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +63,8 @@
 		96CC49C01D8DD984002CAB55 = {
 			isa = PBXGroup;
 			children = (
+				9688A5C32138660B00160BD9 /* Material.framework */,
+				9688A5C02138660B00160BD9 /* Motion.framework */,
 				96CC49CB1D8DD984002CAB55 /* NavigationController */,
 				96CC49CA1D8DD984002CAB55 /* Products */,
 			);
