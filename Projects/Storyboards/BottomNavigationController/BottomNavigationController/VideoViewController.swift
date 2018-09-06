@@ -43,8 +43,8 @@ class VideoViewController: UIViewController {
     }
     
     private func prepareTabBarItem() {
-        tabItem.title = nil
-        tabItem.image = Icon.cm.videocam?.tint(with: Color.blueGrey.base)
-        tabItem.selectedImage = Icon.cm.videocam?.tint(with: Color.blue.base)
+        tabBarItem.title = nil
+        tabBarItem.image = Icon.cm.videocam?.tint(with: Color.blueGrey.base)
+        tabBarItem.selectedImage = Icon.cm.videocam?.tint(with: Color.blue.base)
     }
 }
