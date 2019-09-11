@@ -71,10 +71,10 @@ extension PurpleViewController {
 extension PurpleViewController {
   fileprivate func animationMatch() {
     v1.motionIdentifier = "v1"
-    view.layout(v1).top().horizontally().height(200)
+    view.layout(v1).top().left().right().height(200)
     
     v2.motionIdentifier = "v2"
-    view.layout(v2).bottom().horizontally().height(70)
+    view.layout(v2).bottom().left().right().height(70)
   }
   
   fileprivate func animationScale() {
